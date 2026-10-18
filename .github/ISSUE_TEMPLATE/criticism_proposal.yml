@@ -1,0 +1,72 @@
+name: Criticism proposal
+description: Propose a named, published criticism for the controversy register.
+title: "Criticism: "
+labels: ["criticism-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The register accepts only criticisms made by an identifiable author in a citable source. A proposal made after the register is frozen is still welcome. It is added in a dated amendment and its test is reported separately as a post-lock analysis.
+  - type: input
+    id: critic
+    attributes:
+      label: Critic
+      description: Name of the author or authors.
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Exact source title
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: Publication year
+    validations:
+      required: true
+  - type: input
+    id: identifier
+    attributes:
+      label: Stable identifier
+      description: DOI, PMID, PMCID or a stable URL.
+    validations:
+      required: true
+  - type: dropdown
+    id: target_level
+    attributes:
+      label: What the criticism addresses
+      options:
+        - The original Spirit Level results
+        - Current or updated results
+        - Both
+        - The income inequality and health hypothesis in general
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - A. Country selection and sample definition
+        - B. Inequality measure
+        - C. Composite-index construction
+        - D. Outliers and influential countries
+        - E. Temporal persistence
+        - F. Mechanism
+        - G. Data availability and comparability
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: The critic's argument in neutral words
+      description: Summarise the argument. Quote no more than a short phrase.
+    validations:
+      required: true
+  - type: textarea
+    id: test
+    attributes:
+      label: How it could be tested
+      description: Optional. Data and method that would test it, or why country-level data cannot.

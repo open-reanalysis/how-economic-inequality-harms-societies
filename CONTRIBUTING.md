@@ -1,0 +1,126 @@
+# Contributing
+
+This project re-examines Wilkinson and Pickett's *The Spirit Level* in the open. Contributions come from people and from Claude sessions working as threads of the [implementation plan](IMPLEMENTATION_PLAN.md). This file says how to work. The reasons behind the rules are in [INTENT.md](INTENT.md) and the plan, and this file links to them instead of repeating them.
+
+Issues and pull requests are welcome at any time.
+
+## Rules that are never broken
+
+No one computes, views or infers an association between current inequality data and current outcome data before the analysis lock is tagged. Downloading data, reading metadata and checking country coverage are fine.
+
+Raw data and downloaded full texts never go into git. They live in the data snapshot, and git holds their manifest rows.
+
+A criticism enters the register only with a named critic, an exact title, a publication year and a stable DOI, PMID, PMCID or URL.
+
+Results are described in neutral language. The words debunk, toxic, cherry-picking, proves and disproves appear only inside attributed quotations, in code and comments as well as in prose.
+
+## Environment
+
+Install everything with `pixi install` and run everything through `pixi run` or `make`. The single lockfile `pixi.lock` pins both Python and R.
+
+Do not install packages with `pip install` or `install.packages()`. To add a dependency, add it to `pixi.toml` from conda-forge, or from PyPI only if conda-forge lacks it, and commit the updated `pixi.lock`, `environment.yml` and `requirements.txt` together. R packages that are published only on GitHub are not used, because they cannot be locked.
+
+## Python and R
+
+The project uses both languages on purpose. Each does the work where it is strongest, and they meet only through files.
+
+### Which language to use
+
+Python is the default. Acquisition, provenance, harmonisation, z-scoring and index construction, cross-sectional statistics, contract checks and the report are written in Python.
+
+R is used where its package is the reference implementation of the method. That covers panel models with fixest, the small-cluster inference method the lock selects, DAG adjustment sets with dagitty, and qualitative comparative analysis with QCA. A pull request that introduces R for anything else explains which reference implementation makes R the better choice.
+
+### The boundary between them
+
+Every script is written in one language. Scripts exchange data only through Parquet and CSV files at the paths the plan defines. rpy2 and reticulate are not used anywhere, including the report.
+
+Logic that has one canonical implementation exists once. Z-scores and the composite index are computed in Python, and R reads them from file instead of recomputing them.
+
+### Interface files
+
+Every file that crosses the boundary follows a schema in `data/metadata/schemas/`. Python validates it with pandera and R validates it with testthat against the same schema.
+
+Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are ISO 8601. A missing value is a null, never an empty string or the text NA. Neither R factors nor pandas indexes are written to file.
+
+### Naming and ownership
+
+Scripts are numbered by pipeline stage, and the number does not depend on the language. `code/06b_panel_models.R` belongs to the same thread that would own `code/06b_panel_models.py`. Tests go in `tests/<thread>/`, with pytest and testthat tests side by side.
+
+### Agreement between the languages
+
+T8a's cross-language test computes the primary OLS and Pearson results in both Python and R and fails beyond the tolerance written in the test. Stochastic results are not compared across languages, because the random number generators differ. Each language records its own seed, taken from the lock.
+
+### Style
+
+Python follows ruff. R is written in base R with arrow for file input and output, linted with lintr and formatted with styler. Keep R dependencies to what the method needs. A new R package is justified in the pull request in the same way as a new R use.
+
+### The report
+
+Quarto pages contain Python chunks only and render through the Jupyter engine. Results computed in R reach the report through the files the R scripts wrote.
+
+## Commenting code
+
+Comments are in English. A comment says why the code does something, not what it does. Self-explanatory lines get no comment.
+
+Every script starts with the same header.
+
+```python
+# SPDX-License-Identifier: MIT
+# Purpose: <one sentence>
+# Thread: <thread id>
+# Reads: <paths>
+# Writes: <paths>
+# Network: none | live sources | frozen snapshot
+```
+
+R scripts use the same fields.
+
+Code that applies a rule from the analysis lock cites the section of the lock. Code that tests a criticism cites the register row, for example `C-B-002`. Code that reproduces the original method cites the source-verification log entry it relies on. A labelled alternative implementation says in its comment that it is an alternative and what it is an alternative to.
+
+The data dictionary is the canonical description of every transformation. A comment points to its entry instead of copying the formula, so the two cannot drift apart.
+
+Code that writes or reads an interface file names the schema the file follows.
+
+Python functions have Google-style docstrings that state parameters, return value, units and assumptions. R functions have roxygen-style `#'` comments with the same content, even though the code is not a package.
+
+Comments contain no commented-out code, no TODO without an issue reference, and no interpretation of results.
+
+## Threads, branches and ownership
+
+A thread's branch is named `t<id>-<short-description>`, for example `t1a-original-access`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged. A change to a file owned by T0 is requested in the pull request and made by the integrator.
+
+A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:t2`, and the ownership check runs against that thread's paths. Until the label is set, the check waits.
+
+## Data and sources
+
+Every download goes through the shared download helper, which writes the manifest row with checksum, licence and `redistributable` flag. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
+
+Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and also verifies every redistributable file. `full` runs locally and verifies every file, restricted ones included. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
+
+## The analysis lock
+
+Before gate G2, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After the lock is tagged, its files are covered by content hashes. That includes the DAG and the script that derives adjustment sets from it. A change to any of them is made as a dated amendment with a new tag, and results are reported under both the original and the amended rule.
+
+## Proposing a criticism
+
+Open an issue with the criticism proposal template. It asks for the fields the register requires and for the result the criticism bears on.
+
+A proposal made before the register is frozen is considered for the register. A proposal made after the freeze is added in a dated amendment, and its test is reported separately as a post-lock analysis, because it was not declared before the data were examined. Either way it is welcome.
+
+## Writing about results
+
+Use the terminology in INTENT.md. A correlation is described as a correlation. Causal readings and mechanisms appear only as claims attributed to Wilkinson and Pickett or another cited source. The full specification curve is reported, and significance is never used to choose what to report. Controversy tests use the five outcome labels in the plan.
+
+## Tests and checks
+
+Install the hooks once with `pixi run pre-commit install`. Before opening a pull request, run the linters, `pytest`, `testthat` and `make check-contracts` locally. CI runs the same checks.
+
+## Commits and pull requests
+
+Write commit messages in the imperative, with a short subject line and a body that says why. Commits written with an AI assistant carry a `Co-Authored-By` line naming it.
+
+The pull request template is the merge package the plan requires. Fill in every item. A pull request is merged only by a maintainer's decision. An approving review becomes mandatory once more than one person contributes.
+
+## Licences
+
+By contributing you agree that your contribution is published under the project's licences. Code and tests are under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are covered by neither, and derived outputs follow a source's stricter terms where they apply.

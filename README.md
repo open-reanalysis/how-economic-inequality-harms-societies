@@ -132,6 +132,10 @@ make clean-env        # fresh locked environment, snapshot, then make all
 8. All scripts run end to end from a clean environment in offline replay.
 9. Results are published on GitHub Pages from a tagged release.
 
+## Contributing
+
+Issues and pull requests are welcome at any time. See [CONTRIBUTING.md](CONTRIBUTING.md) for how the project works, including how Python and R divide the work and how to propose a criticism.
+
 ## Licence and citation
 
 Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. A derived table or figure that contains a source's values follows that source's terms where they are stricter than CC BY 4.0. These exceptions are listed in `outputs/LICENSE_EXCEPTIONS.md`. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
