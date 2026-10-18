@@ -101,7 +101,7 @@ The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATIO
 
 ## Reproducibility
 
-Every result that rests on redistributable data is reproducible from a clone, `make fetch-data` and the documented verification procedure. Results that depend on restricted inputs, such as data that require registration, carry the label `RESTRICTED INPUT` and list what a person must obtain locally. CI replays every step whose inputs are redistributable and skips steps whose inputs are restricted.
+Every result that rests on redistributable data is reproducible from a clone, `make fetch-data` and the documented verification procedure. Results that depend on restricted inputs, such as data that require registration, carry the label `RESTRICTED INPUT` and list what a person must obtain locally. Results are replayed locally with `make all`.
 
 ```text
 data/
@@ -160,7 +160,7 @@ make acquire          # contacts live sources, used only to add new data
 
 ## Contributing
 
-Issues and pull requests are welcome at any time. See [CONTRIBUTING.md](CONTRIBUTING.md) for how the project works, including how to propose a controversy.
+Issues are welcome at any time. See [CONTRIBUTING.md](CONTRIBUTING.md) for how the project works, including how to propose a controversy.
 
 ## Licence and citation
 

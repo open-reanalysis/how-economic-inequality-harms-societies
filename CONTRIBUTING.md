@@ -2,7 +2,7 @@
 
 This project re-examines Wilkinson and Pickett's *The Spirit Level* in the open. Contributions come from people and from Claude sessions working as threads of the [implementation plan](IMPLEMENTATION_PLAN.md). This file says how to work. The reasons behind the rules are in [INTENT.md](INTENT.md) and the plan, and this file links to them instead of repeating them.
 
-Issues and pull requests are welcome at any time.
+Issues are welcome at any time.
 
 ## Rules that are never broken
 
@@ -26,7 +26,7 @@ The project is written in Python. Another language is added only when a method n
 
 Every file another script reads follows a schema in `data/metadata/schemas/`, written once as a Frictionless Table Schema JSON file and validated through a pandera schema generated from it. No schema is defined in code. Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are ISO 8601. A missing value is a null, never an empty string or the text NA. Pandas indexes are not written to file.
 
-Scripts are numbered by pipeline stage. Tests go in `tests/<thread>/`. Each script is declared as a pipeline step in `code/pipeline/<thread>.toml` with its phase, inputs and outputs. The phase is `acquire` for a script that downloads or records assets and `replay` for a script that works only from files already present. `make acquire` runs acquire steps, while `make all` and `make replay-ci` run only replay steps, and CI uses the inputs to tell replay steps it can run from those that need restricted data.
+Scripts are numbered by pipeline stage. Tests go in `tests/<thread>/`. Each script is declared as a pipeline step in `code/pipeline/<thread>.toml` with its phase, inputs and outputs. The phase is `acquire` for a script that downloads or records assets and `replay` for a script that works only from files already present. `make acquire` runs acquire steps, and `make all` runs only replay steps.
 
 Python follows ruff. Quarto pages contain Python chunks only and render through the Jupyter engine.
 
@@ -61,7 +61,7 @@ Work reaches `main` in three milestones, and each has an integration branch: `mi
 
 A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
 
-A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:controversy-register`, and the ownership check runs against that thread's paths. Until the label is set, the check waits. While the ownership check is a required status, a pending check blocks the merge, so a fork pull request cannot be merged until a maintainer has labelled it. A fork pull request targets the current integration branch and never auto-merges. A maintainer reviews and merges it.
+Pull requests from forks are not merged. If you are outside the project, propose a change in an issue, and a thread or the integrator makes it.
 
 ## Data and sources
 
@@ -69,7 +69,7 @@ Every download goes through the shared download helper, which writes the manifes
 
 `sources/supporting/` and `sources/controversies/` are the two packages. Search and screen both under the shared protocol in the plan, and log every screening decision. Download every text in a package that can be obtained legally, whether or not you read it. Attach a text whose licence permits redistribution to a release and list it in its record. Keep any other text in the gitignored `local/` folder of its `sources/` folder, and record its local path, an archived landing-page URL where there is no DOI and the SHA-256 of the file. The package `README.md`, generated from the manifest, says what the package holds and what it lacks. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
 
-Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and in `make verify-data` and verifies every redistributable stored file, after `make fetch-data` has fetched those not in git. `full` runs locally and also checks the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
+Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in `make verify-data` and verifies every redistributable stored file, after `make fetch-data` has fetched those not in git. `full` runs locally and also checks the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
 
 ## The reproduction lock
 
