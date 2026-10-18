@@ -44,7 +44,7 @@ Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are I
 
 ### Naming and ownership
 
-Scripts are numbered by pipeline stage, and the number does not depend on the language. `code/06b_panel_models.R` belongs to the same thread that would own `code/06b_panel_models.py`. Tests go in `tests/<thread>/`, with pytest and testthat tests side by side.
+Scripts are numbered by pipeline stage, and the number does not depend on the language. `code/06b_panel_models.R` belongs to the same thread that would own `code/06b_panel_models.py`. Tests go in `tests/<thread>/`, with pytest and testthat tests side by side. Each script is declared as a pipeline step in `code/pipeline/<thread>.toml` with its inputs and outputs, which lets CI tell steps it can replay from steps that need restricted data.
 
 ### Agreement between the languages
 
@@ -95,7 +95,7 @@ A pull request from a fork has no thread branch. A maintainer gives it a label s
 
 Every download goes through the shared download helper, which writes the manifest row with checksum, licence and `redistributable` flag. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
 
-Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and also verifies every redistributable file. `full` runs locally and verifies every file, restricted ones included. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
+Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and also verifies every redistributable file. `full` runs locally and verifies every acquired file, restricted ones included. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
 
 ## The analysis lock
 
