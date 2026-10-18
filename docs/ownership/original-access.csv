@@ -11,3 +11,5 @@ tests/fixtures/readers/equality_trust/**
 outputs/tables/original_sample_recovery.csv
 outputs/diagnostics/original_access_record.md
 docs/source_verification/original-access.md
+docs/original-video.md
+code/00_prepare_ted_transcript.py

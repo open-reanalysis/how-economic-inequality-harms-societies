@@ -2,6 +2,12 @@
 
 A transparent, reproducible examination of the macro-comparative analyses in Richard Wilkinson and Kate Pickett's *The Spirit Level*. The project does not set out to prove or disprove the authors. The research method is in [RESEARCH-METHOD.md](RESEARCH-METHOD.md), the goals and scope in [INTENT.md](INTENT.md), and the implementation in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). This page summarises them.
 
+## Original talk
+
+The project takes its title from [Richard Wilkinson's TEDGlobal 2011 talk, How economic inequality harms societies](https://www.youtube.com/watch?v=cZ7LzE3u7Bw). See the [summary of its central claims](docs/original-video.md), the [full English transcript as timestamped CSV](sources/supporting/original-authors/wilkinson-2011-ted/transcript.en.csv), and [TED's official transcript](https://www.ted.com/talks/richard_wilkinson_how_economic_inequality_harms_societies?view=transcript).
+
+The CSV preserves all 385 cues from the publisher-supplied English subtitles. The summary attributes the talk's observations, proposed mechanisms and policy claims to Wilkinson; they are not findings of this reanalysis. [Source metadata and reuse terms](sources/supporting/original-authors/wilkinson-2011-ted/README.md) accompany the captions, which retain TED's CC BY-NC-ND 4.0 terms separately from the project's licences.
+
 ## Goals
 
 1. Download the current version of every dataset Wilkinson and Pickett used.
