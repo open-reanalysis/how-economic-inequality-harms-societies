@@ -11,7 +11,7 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 | 0 | T0 Scaffold | Now |
 | 1A | T1a Original access and sample recovery, T2 Sources, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged |
 | 1B | T1b Original reproduction | T1a merged |
-| 1B | T6b Sample amendment and lock | T1a merged, and T2 merged with its register frozen and its appendix verification logged |
+| 1B | T6b Source hierarchy, sample amendment and lock | T1a, T3 and T4 merged, and T2 merged with its register frozen and its appendix verification logged |
 | 2 | T7 Primary harmonisation | T3, T4 and T6b merged, gate G2 passed |
 | 2B | T5b Register-specific test data | T2 merged with its register frozen |
 | 3 | T8a Current replication | T7 merged |
@@ -38,7 +38,7 @@ A thread reads another thread's output only from the main line after that thread
 
 For every retrieval attempt T1a records the HTTP status, redirect chain, response headers where available, UTC timestamp, SHA-256, file size, MIME type and whether the file is machine-readable. A 2017 Equality Trust post says the data could be downloaded. That establishes nothing about today, so the gate is decided only by these records.
 
-**G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock consists of `docs/analysis_lock.md`, `docs/inclusion_rules.md` and `docs/dag.md`, and its commit hash goes into `docs/analysis_lock_hash.txt` and the report.
+**G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock consists of `docs/analysis_lock.md`, `docs/inclusion_rules.md` and `docs/dag.md`, and the commit that contains them is the lock commit. A file cannot contain the hash of its own commit, so the lock commit is tagged `analysis-lock-v1` and the next commit writes `docs/analysis_lock_hash.txt` with the tag, the lock commit hash and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash, and `make check-contracts` verifies that the content hashes still match the tagged files.
 
 The blinding is procedural only, and the lock says so in a section on prior knowledge. The original correlations are published, and table 1 of the 2024 technical appendix publishes correlations for 22 countries using recent data. Anyone writing the lock may know these results. The lock lists which published results its author had seen.
 
@@ -72,7 +72,7 @@ The project mixes Python and R. Each language does what it does best, and the bo
 
 The project lives in the public GitHub repository https://github.com/open-reanalysis/how-economic-inequality-harms-societies under the `open-reanalysis` organisation. The site is published at https://open-reanalysis.github.io/how-economic-inequality-harms-societies/. Each thread works on a branch named after it, such as `t1a-original-access`, and opens a pull request into `main` when its stage is done. The pull request description is the merge package, using a template that lists every item the merge protocol requires. Merging still happens only when you say so.
 
-`main` is protected. Pull requests need the contract checks to pass and cannot be force-pushed. The analysis lock commit gets the tag `analysis-lock-v1`, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected.
+`main` is protected. Pull requests need the contract checks to pass and cannot be force-pushed. The lock commit gets the tag `analysis-lock-v1`, as described under gate G2, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected.
 
 **Raw data are not stored in git.** This applies to every raw folder and to downloaded full texts under `sources/`, whatever their licence. Several sources are far larger than GitHub's file limits, and many cannot be redistributed. Git holds manifests, metadata, code and generated outputs. `make acquire` builds a data snapshot, a set of archives whose checksums are recorded in the manifest. Redistributable assets are published as a GitHub release asset named after the snapshot, such as `data-snapshot-2026-11`. Non-redistributable assets stay on your machine and are listed in `data/LOCAL_DATA_REQUIRED.md`. Offline replay downloads the frozen snapshot and verifies every checksum before running. Fetching a frozen snapshot is not the same as redownloading live data, so this is compatible with the offline rule.
 
@@ -84,11 +84,11 @@ Because raw files do not appear in pull requests, the immutability check works o
 
 `ci.yml` runs on every pull request. It installs the locked environment, runs ruff, lintr, pytest and testthat, checks that the exported environment files match `pixi.lock`, and runs `make check-contracts`. The ownership check reads the thread from the branch name and fails if the pull request changes files outside that thread's owned paths. It also builds the Quarto site as a check and uploads it as a workflow artifact without deploying it.
 
-`replay.yml` runs on every push to `main`. It fetches the current data snapshot, verifies checksums, runs `make all` with `OFFLINE=1` and uploads the outputs as a workflow artifact. It fails if any committed output that CI can reproduce differs from the replayed one.
+`replay.yml` runs on every push to `main`. The published snapshot in use is declared in `data/metadata/snapshot.toml`, which names the release tag and the checksum of every archive. Until that file names a published snapshot, the workflow reports that there is nothing to replay and passes. Once it does, the workflow fetches that snapshot, verifies checksums, runs `make all` with `OFFLINE=1` and uploads the outputs as a workflow artifact. It fails if any committed output that CI can reproduce differs from the replayed one.
 
 `acquire.yml` runs only on manual dispatch. It runs `make acquire` for the open sources and drafts a new snapshot release for you to review. It never publishes a snapshot by itself.
 
-`pages.yml` runs only when a tag matching `results-*` is pushed. No test deployment exists. Rendering is verified by `ci.yml` without publishing anything. It replays the analysis, renders the Quarto site and deploys it to GitHub Pages. Unfinished results therefore never appear on the public site.
+`pages.yml` runs only when a tag matching `results-*` is pushed, so unfinished results never appear on the public site. No test deployment exists, and rendering is verified by `ci.yml` without publishing anything. The site is built from the committed outputs. Before rendering, the workflow replays the steps CI can reproduce and fails if their outputs differ from the committed ones. The site shows a reproduction-status table, generated from the manifests, that marks each result as reproduced in CI or reproduced locally from non-redistributable inputs.
 
 Third-party actions are pinned to commit hashes, and workflows get the minimum permissions they need.
 
@@ -106,7 +106,7 @@ If the repository is connected to Zenodo, every release is archived with a DOI. 
 
 Runs in this session. Configures the GitHub repository with branch protection, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that `ci.yml` renders but does not deploy, the licence files, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, and z-scoring and index construction, so every thread computes them the same way. T0's commit is the base of every other branch.
 
-Owns `README.md`, `LICENSE`, `LICENSE-docs`, `CITATION.cff`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `data/metadata/schemas/`, `data/LOCAL_DATA_REQUIRED.md` and `tests/t0/`.
+Owns `README.md`, `LICENSE`, `LICENSE-docs`, `CITATION.cff`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `data/metadata/schemas/`, `data/LOCAL_DATA_REQUIRED.md`, `data/metadata/snapshot.toml` and `tests/t0/`. After T0, `snapshot.toml` changes only through the integrator, when you approve a snapshot release.
 
 The README already on `main` was written before the plan settled. T0 keeps its framing and rewrites the parts that describe layout, labels, commands and logs so they match this plan.
 
@@ -150,7 +150,7 @@ The seed list includes Greener 2025, Judge 1995, Gravelle 1998, the Equality Tru
 
 Full texts are never committed to git. They are stored locally under `sources/` and enter the public data snapshot only where the licence allows redistribution. The repository holds the bibliographic record, retrieval instructions and a gitignored local path for each.
 
-Extracts from the 2024 technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its part of the source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. T6a uses these only after they are logged.
+Extracts from the 2024 technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its part of the source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. T6b uses these only after they are logged.
 
 The appendix verification and the register freeze are both prerequisites for the lock, so T2 does them before expanding the supporting literature.
 
@@ -174,7 +174,7 @@ Downloads the ten outcome series with metadata and methodology notes. These cove
 
 For PISA it records participation status and sampling-standard flags per country and cycle. OECD flagged several countries in PISA 2022 for not meeting sampling standards, and the 2024 update used PISA 2018 for that reason.
 
-Rates comparability per outcome and records the actual reference year for every country-value pair. Downloads the preferred source and the plausible fallbacks for each outcome, so that the hierarchy in the lock can be applied without a second acquisition. Publishes `outputs/tables/outcome_source_coverage.csv` with source, coverage, years and comparability notes but no outcome values, which T6a may read. Never inspects any outcome against inequality.
+Rates comparability per outcome and records the actual reference year for every country-value pair. Downloads the preferred source and the plausible fallbacks for each outcome, so that the hierarchy in the lock can be applied without a second acquisition. Publishes `outputs/tables/outcome_source_coverage.csv` with source, coverage, years and comparability notes but no outcome values, which T6b may read. Never inspects any outcome against inequality.
 
 Owns `data/01_raw_current/outcomes/`, `code/02b_download_outcomes.py`, `data/metadata/manifests/t4_outcomes.csv` and `outputs/tables/outcome_source_coverage.csv`.
 
@@ -192,15 +192,17 @@ Owns `data/04_controversy_test_data/by_controversy/`, `code/02d_download_registe
 
 ### T6a Design lock
 
-Writes the analysis plan without reading any outcome values. Fixes the primary inequality measure, the year alignment rule and lag windows, the index formulas and the robustness methods.
+Writes the parts of the analysis plan that need no other thread's output, without reading any outcome values. Fixes the primary inequality measure, the year alignment rule and lag windows, the index formulas and the robustness methods.
 
 Fixes the index direction per measure, not per concept. A measure where a higher value means more of a problem keeps its sign, and every other measure is reversed. For mobility this matters, because an intergenerational elasticity and a mobility index point in opposite directions.
 
 Defines the expanded sample rule with population threshold, income threshold and its source, democracy criterion and the treatment of contested countries including Germany, Israel, Singapore, South Korea and Czechia. Fixes the multiverse dimensions and the reproducibility seed. Every alternative country rule, every multiverse dimension and the panel protocol cites either a register row or a sensitivity rationale stated in the lock, in line with question C of INTENT.md.
 
-Fixes the source hierarchy for every indicator. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6a may read T4's coverage table and T3's crosswalk but no outcome values.
-
 Admits a macro-level covariate only where a named criticism, a cited alternative explanation or a stated sensitivity rationale identifies it, and records which one.
+
+Fixes the missing-component rule for the index. A mean of the available z-scores is itself a missing-data rule, even though no value is imputed, so the lock states it as one. It fixes the minimum number of components a country needs to receive an index value, reports the number of components behind every country's value, and adds a complete-case index over countries with every component as a declared sensitivity analysis. "No imputation" means that no missing value is filled in. It does not mean that the available-case mean is free of assumptions.
+
+Fixes how the many comparisons are reported. Every specification in the multiverse is reported as a specification curve, with none omitted. Effect sizes with confidence intervals are the primary result. Statistical significance is never used to select which specifications, outcomes or samples are reported. The ten outcomes are always reported together. P-values are shown unadjusted, alongside Holm-adjusted p-values across the ten outcomes as a declared secondary view.
 
 Names every domain index and its component membership. If a component cannot be harmonised, the domain is reported with fewer components and the change appears in the component-availability table.
 
@@ -208,11 +210,15 @@ Fixes the panel protocol. This covers the panel unit, a minimum number of countr
 
 Draws the DAG used for covariate selection, separating possible confounders from possible mediators. The DAG is written in dagitty syntax, and an R script derives the adjustment sets from it so the covariate choice is computed rather than asserted.
 
-Owns `docs/analysis_lock.md`, `docs/inclusion_rules.md`, `docs/dag.md`, `docs/dag.dagitty`, `code/00b_dag_adjustment_sets.R` and `tests/t6/`.
+Owns `docs/analysis_lock.md`, `docs/analysis_lock_hash.txt`, `docs/inclusion_rules.md`, `docs/dag.md`, `docs/dag.dagitty`, `code/00b_dag_adjustment_sets.R` and `tests/t6/`.
 
 ### T6b Sample amendment
 
-Starts from the main line after T1a and T2 have merged. Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Writes the prior-knowledge section. Then commits the lock and writes `docs/analysis_lock_hash.txt`, which passes gate G2. T6b is a second stage of the same thread, not a separate session. If T6a has already merged, the thread rebases onto the current main line before starting T6b and merges again afterwards.
+Starts from the main line after T1a, T2, T3 and T4 have merged.
+
+Fixes the source hierarchy for every indicator. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk and T2's logged appendix passages, but no outcome values.
+
+Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Writes the prior-knowledge section. Then makes the lock commit, tags it, and writes `docs/analysis_lock_hash.txt` in the following commit, which passes gate G2. T6b is a second stage of the same thread, not a separate session. If T6a has already merged, the thread rebases onto the current main line before starting T6b and merges again afterwards.
 
 ### T7 Primary harmonisation
 
@@ -244,7 +250,7 @@ Every result row carries its dataset version, country sample, outcome-year range
 
 Also owns the cross-language test, which computes the primary OLS and Pearson results in both Python and R and fails on any difference beyond numerical tolerance.
 
-Owns `code/05_current_replication.py`, `tests/t8a/`, `outputs/tables/current_replication_results.csv` and `outputs/diagnostics/influence_diagnostics.csv`.
+Owns `code/05_current_replication.py`, `code/05b_crosscheck.R`, `tests/t8a/`, `outputs/tables/current_replication_results.csv` and `outputs/diagnostics/influence_diagnostics.csv`.
 
 ### T8b Sensitivity and controversy tests
 
@@ -252,7 +258,7 @@ Answers question C for both the original and the current result. A second stage 
 
 A register row whose `claim_or_result_affected` names the original result is tested on T1b's original release dataset in `data/03_analysis_ready/original/`. This covers, for example, criticisms of the original country selection or the original index. A row that names the current result is tested on T7 and T7b data, and a row that names both is tested on both. T8b only reads T1b's data. T1b's own alternative specifications remain labelled diagnostics and are not counted as controversy tests. Writes only to `outputs/`, and every result row carries the same provenance fields as in T8a.
 
-Runs the multiverse over the locked country rules and inequality measures. A principal-component index is an exploratory sensitivity analysis only. It reports loadings, explained variance, sign choice, country sample and missing-data treatment, and it is never described as a reproduction or used in place of the primary index.
+Runs the multiverse over the locked country rules and inequality measures and reports it as the full specification curve the lock defines. A principal-component index is an exploratory sensitivity analysis only. It reports loadings, explained variance, sign choice, country sample and missing-data treatment, and it is never described as a reproduction or used in place of the primary index.
 
 Panel analyses run in a separate module. Before fitting any model, it reports for each outcome the number of countries, years, country-year observations and within-country variation. No model is fitted below the minimum set in the lock. Results are described as within-country associations, not causal estimates.
 
@@ -266,13 +272,13 @@ Owns `code/06_robustness_and_controversy_tests.py`, `code/06b_panel_models.R`, `
 
 Generates all figures and tables from code and builds the Quarto site, including `outputs/tables/all_model_results.csv` as the combination of T1b, T8a and T8b results, writes `site/replication_report.qmd` with the report sections listed under shared contracts and renders it to `docs/replication_report.md`, runs `make clean-env`, and checks the completion criteria, listing anything unmet. When you approve, T9 tags the release as `results-v1`, which publishes the site.
 
-Owns `code/07_make_tables_figures.py`, `site/` including `site/replication_report.qmd`, the generated `docs/replication_report.md`, `tests/t9/`, `outputs/tables/all_model_results.csv`, `outputs/figures/` except files starting with `original_`, and `outputs/logs/`.
+Owns `code/07_make_tables_figures.py`, `outputs/LICENSE_EXCEPTIONS.md`, `site/` including `site/replication_report.qmd`, the generated `docs/replication_report.md`, `tests/t9/`, `outputs/tables/all_model_results.csv`, `outputs/figures/` except files starting with `original_`, and `outputs/logs/`.
 
 ## How the threads run as sessions
 
 T0 runs here. Every other thread runs as its own Claude session in its own git worktree, branched from the current main line when its wave opens. A thread's brief is its section of this plan plus INTENT.md. A thread finishes by pushing its branch and opening a pull request whose description is the merge package described below.
 
-T2, T3, T4, T5a and T5b mainly download and catalogue and can use a cheaper model. T1a, T1b, T6, T7, T7b and T8 in both stages involve method judgement and use the default model.
+T3, T4, T5a and T5b mainly download and catalogue and can use a cheaper model. T1a, T1b, T2, T6, T7, T7b and T8 in both stages involve judgement and use the default model. T2 is among them because its register freeze decides what counts as a valid criticism, and it is on the critical path.
 
 ## Merge protocol
 
@@ -288,7 +294,9 @@ Access requirements are verified at run time and recorded per source. Nothing is
 
 When a source needs registration or acceptance of terms, the thread stops at the access page, adds an entry to `data/LOCAL_DATA_REQUIRED.md`, and tells you what to download and where to put it. Creating accounts and accepting terms is yours to do.
 
-The licences are decided. Code and tests are under MIT, in `LICENSE`. Documents, the report, the site, figures and result tables are under CC BY 4.0, in `LICENSE-docs`. Each data source keeps its own licence, recorded in its manifest row, and neither repository licence covers raw data or third-party full texts.
+The licences are decided. Code and tests are under MIT, in `LICENSE`. Documents, the report, the site, figures and result tables are under CC BY 4.0, in `LICENSE-docs`. Each data source keeps its own licence, recorded in its manifest row, and neither repository licence covers raw data or third-party full texts. A derived table or figure that contains values from a source follows that source's terms where they are stricter than CC BY 4.0. Each output's manifest row names the source terms it inherits, T9 generates `outputs/LICENSE_EXCEPTIONS.md` from those rows, and an output whose source terms forbid publication is not put on the site.
+
+Branch protection does not require an approving review while you are the only human contributor, since GitHub does not let an author approve their own pull request. Your merge decision is the human review. Once a second person contributes, one approving review becomes required. All commits so far are co-authored by an AI model, so a human pass over the gates in this plan before T0 starts is worth doing.
 
 You also decide whether to archive the analysis lock publicly, you approve every merge, you review each data snapshot before it is published, and you approve the `results-*` tag that publishes the site.
 

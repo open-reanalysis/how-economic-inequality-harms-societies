@@ -134,4 +134,4 @@ make clean-env        # fresh locked environment, snapshot, then make all
 
 ## Licence and citation
 
-Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
+Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. A derived table or figure that contains a source's values follows that source's terms where they are stricter than CC BY 4.0. These exceptions are listed in `outputs/LICENSE_EXCEPTIONS.md`. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
