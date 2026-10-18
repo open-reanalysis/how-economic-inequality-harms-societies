@@ -9,20 +9,22 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 | Wave | Threads | Starts when |
 |---|---|---|
 | 0 | T0 Scaffold | Now |
-| 1A | T1a Original access and sample recovery, T2 Sources, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged |
+| 1A | T1a Original access and sample recovery, T2 stage 1 Register and appendix log, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged |
 | 1B | T1b Original reproduction | T1a merged |
-| 1B | T6b Source hierarchy, sample amendment and lock | T1a, T3 and T4 merged, and T2 merged with its register frozen and its appendix verification logged |
+| 1B | T5b stage 1 Test-data availability inventory | T2 stage 1 merged with the register frozen |
+| 1B | T6b Lock completion | T1a, T3, T4 and T5a merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged |
 | 1C | Gate G2 sequence | T6b merged. The lock commit is tagged, the hash commit is made, and you decide whether to archive the lock |
 | 2 | T7 Primary harmonisation | T3 and T4 merged, gate G2 passed |
-| 2B | T5b Register-specific test data | T2 merged with its register frozen |
+| 2 | T2 stage 2 Supporting literature | T2 stage 1 merged |
+| 2B | T5b stage 2 Register-specific downloads | T5b stage 1 merged |
 | 3 | T8a Current replication | T7 merged |
-| 3 | T7b Controversy harmonisation | T7, T5a and T5b merged |
+| 3 | T7b Controversy harmonisation | T7, T5a and T5b stage 2 merged |
 | 3 | T8b Sensitivity and controversy tests | T8a, T7b and T1b merged |
-| 4 | T9 Report and clean offline run | T1b and T8b merged |
+| 4 | T9 Report and clean offline run | T1b, T8b and T2 stage 2 merged |
 
 The answer to question B never waits for controversy-specific downloads. T7 builds the primary datasets and T8a analyses them while T5b and T7b are still working on named criticisms.
 
-The lock waits for T2's frozen register so that every criticism-driven covariate, sample rule and panel test is declared before harmonisation, rather than added afterwards as an amendment. This makes T2 the critical path of wave 1A.
+The lock waits for T2's frozen register so that every criticism-driven covariate, sample rule and panel test is declared before harmonisation, rather than added afterwards as an amendment. This makes T2 the critical path of wave 1A. The lock also waits for T5a and for T5b's availability inventory, so it is known before the lock which covariates and alternative components have an obtainable source. A covariate the register requires is declared in the lock whether or not a source exists. If the inventory found none, the lock says so in advance, and the result is reported as not tested for lack of data rather than discovered as a gap later.
 
 A thread reads another thread's output only from the main line after that thread has merged. No thread reads from an unmerged branch.
 
@@ -77,7 +79,7 @@ The project mixes Python and R. Each language does what it does best, and the bo
 
 The project lives in the public GitHub repository https://github.com/open-reanalysis/how-economic-inequality-harms-societies under the `open-reanalysis` organisation. The site is published at https://open-reanalysis.github.io/how-economic-inequality-harms-societies/. Each thread works on a branch named after it, such as `t1a-original-access`, and opens a pull request into `main` when its stage is done. The pull request description is the merge package, using a template that lists every item the merge protocol requires. Merging still happens only when you say so.
 
-`main` is protected. Pull requests need the contract checks to pass and cannot be force-pushed. The lock commit gets the tag `analysis-lock-v1`, as described under gate G2, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected.
+`main` is protected. Pull requests need the contract checks to pass and cannot be force-pushed. The lock commit gets the tag `analysis-lock-v1`, as described under gate G2, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected by a tag ruleset that lets only organisation owners create, move or delete them. Owners are on the ruleset's bypass list, and the integrator creates these tags with an owner account. Workflows cannot create them. Pull requests into `main` are squash-merged, so each merged pull request is one commit with a descriptive message, whatever its branch history.
 
 **Raw data are not stored in git.** This applies to every raw folder and to downloaded full texts under `sources/`, whatever their licence. Several sources are far larger than GitHub's file limits, and many cannot be redistributed. Git holds manifests, metadata, code and generated outputs. `make acquire` builds a data snapshot, a set of archives whose checksums are recorded in the manifest. Redistributable assets are published as a GitHub release asset named after the snapshot, such as `data-snapshot-2026-11`. Non-redistributable assets stay on your machine and are listed in `data/LOCAL_DATA_REQUIRED.md`. Offline replay downloads the frozen snapshot and verifies every checksum before running. Fetching a frozen snapshot is not the same as redownloading live data, so this is compatible with the offline rule.
 
@@ -85,7 +87,7 @@ Because raw files do not appear in pull requests, the immutability check works o
 
 **What CI can and cannot replay.** CI replays every step that depends only on redistributable assets. Steps that need non-redistributable data run locally, and their aggregated outputs are committed together with the checksums of the inputs they used. The report marks which results CI reproduced and which were reproduced locally.
 
-Each thread declares its pipeline steps in its own file `code/pipeline/<thread>.toml`. A step entry names its script, its input source IDs and derived IDs, and its outputs. A small runner in `code/lib/` merges these files into one ordered pipeline and marks a step as CI-reproducible when every input traces back, through the manifests, to redistributable acquired assets. Every other step is local-only.
+Each thread declares its pipeline steps in its own file `code/pipeline/<thread>.toml`. A step entry names its script, its phase, its input source IDs and derived IDs, and its outputs. The phase is either `acquire`, for steps that download or record assets, or `replay`, for steps that work only from files already present. A small runner in `code/lib/` merges these files into one ordered pipeline and marks a replay step as CI-reproducible when every input traces back, through the manifests, to redistributable acquired assets. Every other replay step is local-only. Acquire steps are never CI-reproducible and never run in replay.
 
 `make replay-ci` runs only the CI-reproducible steps. For every local-only step it leaves the committed outputs untouched and checks that the input checksums recorded with those outputs still match the manifest. If they do not match, the outputs are stale and the replay fails. A CI-reproducible step that depends on a local-only output is reported as an error in the pipeline declaration, because it could never be replayed in CI.
 
@@ -97,7 +99,7 @@ Each thread declares its pipeline steps in its own file `code/pipeline/<thread>.
 
 `acquire.yml` runs only on manual dispatch. It runs `make acquire` for the open sources and drafts a new snapshot release for you to review. It never publishes a snapshot by itself.
 
-`pages.yml` runs only when a tag matching `results-*` is pushed, so unfinished results never appear on the public site. No test deployment exists, and rendering is verified by `ci.yml` without publishing anything. The site is built from the committed outputs. Before rendering, the workflow replays the steps CI can reproduce and fails if their outputs differ from the committed ones. The site shows a reproduction-status table, generated from the manifests, that marks each result as reproduced in CI or reproduced locally from non-redistributable inputs.
+`pages.yml` runs only when a tag matching `results-*` is pushed, so unfinished results never appear on the public site. No test deployment exists, and rendering is verified by `ci.yml` without publishing anything. The site is built from the committed outputs. The workflow reads `data/metadata/snapshot.toml` in the same way as `replay.yml` and fetches that snapshot. If no published snapshot is declared, it renders the committed outputs without replay, and the reproduction-status table says that nothing was replayed in CI. Otherwise, before rendering, the workflow replays the steps CI can reproduce and fails if their outputs differ from the committed ones. The site shows a reproduction-status table, generated from the manifests, that marks each result as reproduced in CI or reproduced locally from non-redistributable inputs.
 
 Third-party actions are pinned to commit hashes, and workflows get the minimum permissions they need.
 
@@ -113,7 +115,7 @@ If the repository is connected to Zenodo, every release is archived with a DOI. 
 
 ### T0 Scaffold
 
-Runs in this session. Configures the GitHub repository with branch protection, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that `ci.yml` renders but does not deploy, the licence files, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, and z-scoring and index construction, so every thread computes them the same way. T0's commit is the base of every other branch.
+Runs in this session. Configures the GitHub repository with branch protection, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that `ci.yml` renders but does not deploy, the licence files, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, the pipeline runner, and z-scoring and index construction, so every thread computes them the same way. Z-scoring and index construction live in `code/lib/index.py`, which T0 owns, so T1b can use them in wave 1B before T7 exists. `code/lib/harmonise.py`, owned by T7, contains harmonisation helpers only. T0's commit is the base of every other branch.
 
 Owns `README.md`, `CONTRIBUTING.md`, `LICENSE`, `LICENSE-docs`, `CITATION.cff`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `code/pipeline/t0.toml`, `data/metadata/schemas/`, `data/LOCAL_DATA_REQUIRED.md`, `data/metadata/snapshot.toml` and `tests/t0/`. After T0, `snapshot.toml` changes only through the integrator, when you approve a snapshot release.
 
@@ -143,7 +145,7 @@ Compares each computed value with the reported one and logs every difference. Re
 
 T1b is the only thread that prepares the original release dataset. `code/01b_prepare_original.py` writes it to `data/03_analysis_ready/original/` and `code/04_reproduce_original.py` analyses it.
 
-Under status G1-C or G1-D, T1b rebuilds the original analysis from published tables, the book's notes and independently sourced historical data. `code/01c_download_reconstruction_sources.py` stores that material as downloaded in `data/00_original_reconstruction/`, separate from T1a's released files.
+Under status G1-C or G1-D, T1b rebuilds the original analysis from published tables, the book's notes and independently sourced historical data. Under G1-B it takes a hybrid path. It uses the released files for everything they contain and reconstructs only the missing sheets, formulas or source notes by the same route. Every value carries a provenance flag, released or reconstructed, and a component-provenance table accompanies every question A output, so the partial-reproduction label shows exactly which parts were reconstructed. `code/01c_download_reconstruction_sources.py` stores that material as downloaded in `data/00_original_reconstruction/`, separate from T1a's released files.
 
 Writes a data dictionary and a source-year matrix for the original release dataset and records every raw and derived file it creates in its own manifest.
 
@@ -159,7 +161,7 @@ The seed list includes Greener's reproduction and update in the International Jo
 
 Full texts are never committed to git. They are stored locally under `sources/` and enter the public data snapshot only where the licence allows redistribution. The repository holds the bibliographic record, retrieval instructions and a gitignored local path for each.
 
-Extracts from the 2024 technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its part of the source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. T6b uses these only after they are logged.
+Extracts from the 2024 technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its part of the source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. T6b uses these only after they are logged. The log covers methods, definitions, samples and years only. It excludes correlation coefficients and other result values, table 1 included, so T6b does not see current-data results through it. Anyone working on the lock who has seen such values lists them in the lock's prior-knowledge section.
 
 The appendix verification and the register freeze are both prerequisites for the lock, so T2 does them before expanding the supporting literature.
 
@@ -167,7 +169,9 @@ Owns `sources/`, `code/00_download_sources.py`, `docs/controversy_register.md`, 
 
 Runs backward and forward citation searching over the criticism literature and the author replies before the freeze. Expanding the supporting literature can continue afterwards.
 
-Done when the register is frozen by a commit that records the search cut-off date and the search log. Later threads read only a frozen version. A named criticism found after the freeze is added in a dated register amendment and a matching dated lock amendment. Its test is reported separately as a post-lock analysis, and the report states that it was not declared before the data were examined.
+T2 merges twice. Stage 1 ends when the register is frozen and the appendix is logged, and its merge unblocks T5b and T6b. Stage 2 expands the supporting literature and merges separately before T9. Both stages are the same thread, which rebases onto the main line before stage 2.
+
+Stage 1 is done when the register is frozen by a commit that records the search cut-off date and the search log. Later threads read only a frozen version. A named criticism found after the freeze is added in a dated register amendment and a matching dated lock amendment. Its test is reported separately as a post-lock analysis, and the report states that it was not declared before the data were examined.
 
 ### T3 Current inequality data
 
@@ -195,9 +199,13 @@ Owns `data/04_controversy_test_data/core/`, `code/02c_download_core_test_data.py
 
 ### T5b Register-specific test data
 
-Starts after T2 freezes the register. Downloads only data that a named register row requires, such as alternative outcome components proposed by a critic, and records the controversy ID before each download. Each package gets a README naming the controversy it tests.
+Runs in two stages, both after T2's stage 1 merge.
 
-Owns `data/04_controversy_test_data/by_controversy/`, `code/02d_download_register_test_data.py` and `data/metadata/manifests/t5b_register.csv`.
+Stage 1 is an availability inventory that the lock depends on. For every covariate and alternative component a register row requires, it records candidate sources, country and year coverage, licence, redistributability and access route in `outputs/tables/test_data_availability.csv`. It downloads metadata only and no values.
+
+Stage 2 runs after stage 1 merges and downloads only data that a named register row requires, such as alternative outcome components proposed by a critic, and records the controversy ID before each download. Each package gets a README naming the controversy it tests.
+
+Owns `data/04_controversy_test_data/by_controversy/`, `code/02d_download_register_test_data.py`, `outputs/tables/test_data_availability.csv` and `data/metadata/manifests/t5b_register.csv`.
 
 ### T6a Design lock
 
@@ -211,6 +219,8 @@ Admits a macro-level covariate only where a named criticism, a cited alternative
 
 Fixes the missing-component rule for the index. A mean of the available z-scores is itself a missing-data rule, even though no value is imputed, so the lock states it as one. It fixes the minimum number of components a country needs to receive an index value, reports the number of components behind every country's value, and adds a complete-case index over countries with every component as a declared sensitivity analysis. "No imputation" means that no missing value is filled in. It does not mean that the available-case mean is free of assumptions.
 
+Fixes the reference population for z-scores. By default the components are standardised within each analysed sample, so the index is recomputed for every country rule in the multiverse and for every leave-one-country-out run. Standardising on a fixed reference set, the historical country sample, is a declared sensitivity analysis. T1b verifies separately how the original study standardised.
+
 Fixes how the many comparisons are reported. Every specification in the multiverse is reported as a specification curve, with none omitted. Effect sizes with confidence intervals are the primary result. Statistical significance is never used to select which specifications, outcomes or samples are reported. The ten outcomes are always reported together. P-values are shown unadjusted, alongside Holm-adjusted p-values across the ten outcomes as a declared secondary view.
 
 Names every domain index and its component membership. If a component cannot be harmonised, the domain is reported with fewer components and the change appears in the component-availability table.
@@ -221,11 +231,11 @@ Draws the DAG used for covariate selection, separating possible confounders from
 
 Owns the lock files listed under gate G2, together with `docs/analysis_lock_hash.txt`, `docs/analysis_lock_archive.md` and `tests/t6/`. The lock files are covered by the content hashes, so a change to any of them after the lock, the DAG and its script included, fails `make check-contracts` unless it comes as a dated amendment with a new tag. The hash file and the archive record are not hashed.
 
-### T6b Sample amendment
+### T6b Lock completion
 
-Starts from the main line after T1a, T2, T3 and T4 have merged.
+Starts from the main line once its wave-table conditions are met.
 
-Fixes the source hierarchy for every indicator in `docs/source_hierarchy.md`. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk and T2's logged appendix passages, but no outcome values.
+Fixes the source hierarchy for every indicator in `docs/source_hierarchy.md`. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk, T2's logged appendix passages, T5a's manifest and T5b's availability inventory, but no outcome values.
 
 Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then makes the lock commit, tags it, and writes `docs/analysis_lock_hash.txt` in the following commit. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. If T6a has already merged, the thread rebases onto the current main line before starting T6b and merges again afterwards.
 
@@ -295,7 +305,7 @@ Before a branch is merged, its thread provides in the pull request description t
 
 `make check-contracts` runs in CI on every pull request and again after every merge. In CI it runs in `metadata` mode and validates file ownership, manifest schemas, source-ID uniqueness, country-code integrity, unchanged manifest rows for raw files, the lock content hashes, and that `docs/dag_adjustment_sets.csv` matches a fresh run of its script, which needs no data files. Whether the thread's declared commands reproduce its outputs needs data, so the thread checks it locally in `full` mode and reports the result in the merge package, and `make replay-ci` checks it again on the main line for the CI-reproducible steps.
 
-Merges happen in wave order and only when you say so. Within wave 1, T6a can merge at any time, but T6b's lock commit must precede T7's branch point. A thread with two stages, which applies to T6 and T8, rebases onto the main line before its second stage and merges again.
+Merges happen in wave order and only when you say so. Within wave 1, T6a can merge at any time, but T6b's lock commit must precede T7's branch point. A thread with two stages, which applies to T2, T5b, T6 and T8, rebases onto the main line before its second stage and merges again.
 
 ## Steps that need you
 
@@ -327,7 +337,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Data immutability.** Raw files are never edited. The raw folders are `data/00_original_released/`, `data/00_original_reconstruction/`, `data/01_raw_current/` and `data/04_controversy_test_data/`. Only the acquisition script that owns a raw folder may add files to it, and it never overwrites an existing file. No script numbered 04 or higher may write to any raw folder, `data/02_harmonised/` or `data/03_analysis_ready/`. Analysis scripts write only to `outputs/` and to gitignored temporary folders. Any derived dataset comes from a numbered harmonisation script with a manifest row, a data dictionary entry and a source-year matrix.
 
-**Build modes.** `make acquire` is the only target that contacts live sources. It downloads, verifies and records assets. `make fetch-snapshot` downloads a frozen, published snapshot and verifies its checksums. It is the only other target that uses the network, and it never contacts a live source. `make all` runs every pipeline step fully offline from files already present, which needs the restricted files too and therefore runs locally. `make replay-ci` runs only the CI-reproducible steps, as described under the GitHub repository section. `make clean-env` creates a disposable environment from `pixi.lock`, empties `outputs/`, runs `make fetch-snapshot` and then runs `make all`. `make check-contracts` runs the merge checks.
+**Build modes.** `make acquire` is the only target that contacts live sources. It downloads, verifies and records assets. `make fetch-snapshot` downloads a frozen, published snapshot and verifies its checksums. It is the only other target that uses the network, and it never contacts a live source. `make acquire` runs only steps whose phase is `acquire`. `make all` runs every step whose phase is `replay`, fully offline from files already present, which needs the restricted files too and therefore runs locally. `make replay-ci` runs only the CI-reproducible replay steps, as described under the GitHub repository section. Neither `make all` nor `make replay-ci` ever runs an acquire step. `make clean-env` creates a disposable environment from `pixi.lock`, empties `outputs/`, runs `make fetch-snapshot` and then runs `make all`. `make check-contracts` runs the merge checks.
 
 **Source-verification log.** Each thread that verifies a fact writes only its own file in `docs/source_verification/`. A fact is usable in a rule only once it is logged with the passage, table or file it was verified from.
 
@@ -337,7 +347,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Controversy IDs.** `C-` followed by the category letter listed at the end of this section and a number, for example `C-B-002`. T2 assigns them.
 
-**Code ownership.** An owned script path covers that script in either language. Each thread also owns `code/pipeline/<thread>.toml` for its pipeline steps and `tests/<thread>/` for its pytest and testthat tests. Shared test utilities live in `tests/t0/` and change only through the integrator.
+**Code ownership.** An owned script path covers that script in either language. Each thread also owns `code/pipeline/<thread>.toml` for its pipeline steps and `tests/<thread>/` for its pytest and testthat tests. This applies to every thread, whether or not its own section repeats these paths, and the ownership check derives them from the thread ID. Shared test utilities live in `tests/t0/` and change only through the integrator.
 
 **Criticisms of the general hypothesis.** Some named criticisms predate *The Spirit Level* or address the income inequality and health hypothesis in general rather than the book's analyses. Judge 1995 and Gravelle 1998 are examples. Such a row has `target_level` set to `general_hypothesis`, while other rows use `original`, `current` or `both`. Its `mapping_rationale` states which book or current result the criticism bears on and why, and its `claim_or_result_affected` names that result. A general criticism whose testable implication requires individual-level data is classified as not testable in this design. Gravelle's artefact argument, which concerns a concave individual relationship between income and health, is an example where the country-level test can only be partial, and the register says so.
 

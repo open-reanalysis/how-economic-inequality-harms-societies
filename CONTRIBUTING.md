@@ -44,7 +44,7 @@ Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are I
 
 ### Naming and ownership
 
-Scripts are numbered by pipeline stage, and the number does not depend on the language. `code/06b_panel_models.R` belongs to the same thread that would own `code/06b_panel_models.py`. Tests go in `tests/<thread>/`, with pytest and testthat tests side by side. Each script is declared as a pipeline step in `code/pipeline/<thread>.toml` with its inputs and outputs, which lets CI tell steps it can replay from steps that need restricted data.
+Scripts are numbered by pipeline stage, and the number does not depend on the language. `code/06b_panel_models.R` belongs to the same thread that would own `code/06b_panel_models.py`. Tests go in `tests/<thread>/`, with pytest and testthat tests side by side. Each script is declared as a pipeline step in `code/pipeline/<thread>.toml` with its phase, inputs and outputs. The phase is `acquire` for a script that downloads or records assets and `replay` for a script that works only from files already present. `make acquire` runs acquire steps, while `make all` and `make replay-ci` run only replay steps, and CI uses the inputs to tell replay steps it can run from those that need restricted data.
 
 ### Agreement between the languages
 
