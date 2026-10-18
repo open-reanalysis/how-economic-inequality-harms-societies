@@ -42,7 +42,7 @@ For every retrieval attempt T1a records the HTTP status, redirect chain, respons
 
 The blinding is procedural only, and the lock says so in a section on prior knowledge. The original correlations are published, and table 1 of the 2024 technical appendix publishes correlations for 22 countries using recent data. Anyone writing the lock may know these results. The lock lists which published results its author had seen.
 
-A git commit in a private repository is an internal analysis lock, not a preregistration. The documents are called preregistration only if the lock commit is archived before T7 starts in an immutable public record such as OSF, Zenodo or Software Heritage. Archiving is your decision. Later changes to the lock are dated amendments with a stated reason, and affected results are reported under both the original and the amended rule.
+A git commit is an internal analysis lock, not a preregistration, even in a public repository, because commits and tags can be rewritten. The documents are called preregistration only if the lock commit is archived before T7 starts in an immutable public record such as OSF, Zenodo or Software Heritage. Archiving is your decision. Later changes to the lock are dated amendments with a stated reason, and affected results are reported under both the original and the amended rule.
 
 **G3. Harmonised data validated.** T7's validation passes. Every analysis-ready column traces to a raw source variable, a formula, a direction, a missing-data rule, a reference year and a source ID.
 
@@ -58,13 +58,13 @@ The project mixes Python and R. Each language does what it does best, and the bo
 
 **The language boundary.** Every script is in one language. Scripts exchange data only through Parquet and CSV files under the paths the contracts define, read with arrow in R and pyarrow in Python. Z-scoring and index construction exist once, in Python, and R reads the computed indices instead of reimplementing them. Where both languages can compute the same statistic, a cross-language test computes the primary OLS and Pearson results in both and fails on any difference beyond numerical tolerance.
 
-**Environment.** pixi manages one environment for both languages from conda-forge, with PyPI only for packages conda-forge lacks. Its single lockfile, `pixi.lock`, pins every Python and R package for macOS on Apple silicon and for Linux, so local runs and GitHub Actions resolve to the same builds. This was chosen for result quality. A separate Python lock and R lock, such as uv with renv, can drift apart and cannot pin the shared system libraries, while pixi pins the whole stack in one file. `environment.yml` and `requirements.txt`, which the brief requires, are exported from pixi and CI fails if they are out of date. R packages that exist only on GitHub are not used, because they cannot be locked.
+**Environment.** pixi manages one environment for both languages from conda-forge, with PyPI only for packages conda-forge lacks. Its single lockfile, `pixi.lock`, pins every Python and R package for macOS on Apple silicon and for Linux, so local runs and GitHub Actions resolve to the same builds. This was chosen for result quality. A separate Python lock and R lock, such as uv with renv, can drift apart and cannot pin the shared system libraries, while pixi pins the whole stack in one file. `environment.yml` and `requirements.txt`, which the original project specification requires, are exported from pixi and CI fails if they are out of date. R packages that exist only on GitHub are not used, because they cannot be locked.
 
 **Code quality.** ruff for Python, lintr and styler for R, and pre-commit to run them before every commit.
 
 **Build.** GNU Make remains the entry point, and each target calls `pixi run`. The download helper refuses network access when `OFFLINE=1`, which `make all` sets, so offline replay is enforced in code rather than by convention.
 
-**Report and site.** Quarto renders the report and the results website. It runs Python and R code chunks in the same document, so every number in the report is computed from the output tables at render time rather than typed in.
+**Report and site.** Quarto renders the report and the results website. The report source is `site/replication_report.qmd`. Quarto renders it both into the site and into `docs/replication_report.md` as GitHub-flavoured Markdown, so the Markdown report is a generated file, never edited by hand. It runs Python and R code chunks in the same document, so every number in the report is computed from the output tables at render time rather than typed in.
 
 **Bibliography tooling.** Crossref for DOIs, PubMed E-utilities for PMIDs, the PMC ID converter for PMCIDs, Unpaywall for legally open full texts and OpenAlex for citation chaining.
 
@@ -74,19 +74,21 @@ The project lives in the public GitHub repository https://github.com/open-reanal
 
 `main` is protected. Pull requests need the contract checks to pass and cannot be force-pushed. The analysis lock commit gets the tag `analysis-lock-v1`, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected.
 
-**Raw data are not stored in git.** Several sources are far larger than GitHub's file limits, and many cannot be redistributed. `make acquire` builds a data snapshot, a set of archives whose checksums are recorded in the manifest. Redistributable assets are published as a GitHub release asset named after the snapshot, such as `data-snapshot-2026-11`. Non-redistributable assets stay on your machine and are listed in `data/LOCAL_DATA_REQUIRED.md`. Offline replay downloads the frozen snapshot and verifies every checksum before running. Fetching a frozen snapshot is not the same as redownloading live data, so this is compatible with the offline rule.
+**Raw data are not stored in git.** This applies to every raw folder and to downloaded full texts under `sources/`, whatever their licence. Several sources are far larger than GitHub's file limits, and many cannot be redistributed. Git holds manifests, metadata, code and generated outputs. `make acquire` builds a data snapshot, a set of archives whose checksums are recorded in the manifest. Redistributable assets are published as a GitHub release asset named after the snapshot, such as `data-snapshot-2026-11`. Non-redistributable assets stay on your machine and are listed in `data/LOCAL_DATA_REQUIRED.md`. Offline replay downloads the frozen snapshot and verifies every checksum before running. Fetching a frozen snapshot is not the same as redownloading live data, so this is compatible with the offline rule.
+
+Because raw files do not appear in pull requests, the immutability check works on manifests and checksums instead. A pull request may add manifest rows but may not change the checksum, path or retrieval record of an existing row. CI verifies every redistributable file in the snapshot against its manifest checksum, and the thread verifies non-redistributable files locally and reports the result in its merge package.
 
 **What CI can and cannot replay.** CI replays every step that depends only on redistributable assets. Steps that need non-redistributable data run locally, and their aggregated outputs are committed together with the checksums of the inputs they used. The report marks which results CI reproduced and which were reproduced locally.
 
 ## GitHub Actions
 
-`ci.yml` runs on every pull request. It installs the locked environment, runs ruff, lintr, pytest and testthat, checks that the exported environment files match `pixi.lock`, and runs `make check-contracts`. The ownership check reads the thread from the branch name and fails if the pull request changes files outside that thread's owned paths.
+`ci.yml` runs on every pull request. It installs the locked environment, runs ruff, lintr, pytest and testthat, checks that the exported environment files match `pixi.lock`, and runs `make check-contracts`. The ownership check reads the thread from the branch name and fails if the pull request changes files outside that thread's owned paths. It also builds the Quarto site as a check and uploads it as a workflow artifact without deploying it.
 
 `replay.yml` runs on every push to `main`. It fetches the current data snapshot, verifies checksums, runs `make all` with `OFFLINE=1` and uploads the outputs as a workflow artifact. It fails if any committed output that CI can reproduce differs from the replayed one.
 
 `acquire.yml` runs only on manual dispatch. It runs `make acquire` for the open sources and drafts a new snapshot release for you to review. It never publishes a snapshot by itself.
 
-`pages.yml` runs when a tag matching `results-*` is pushed. It replays the analysis, renders the Quarto site and deploys it to GitHub Pages. Unfinished results therefore never appear on the public site.
+`pages.yml` runs only when a tag matching `results-*` is pushed. No test deployment exists. Rendering is verified by `ci.yml` without publishing anything. It replays the analysis, renders the Quarto site and deploys it to GitHub Pages. Unfinished results therefore never appear on the public site.
 
 Third-party actions are pinned to commit hashes, and workflows get the minimum permissions they need.
 
@@ -102,9 +104,11 @@ If the repository is connected to Zenodo, every release is archived with a DOI. 
 
 ### T0 Scaffold
 
-Runs in this session. Configures the GitHub repository with branch protection, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that deploys from a test tag, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, and z-scoring and index construction, so every thread computes them the same way. T0's commit is the base of every other branch.
+Runs in this session. Configures the GitHub repository with branch protection, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that `ci.yml` renders but does not deploy, the licence files, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, and z-scoring and index construction, so every thread computes them the same way. T0's commit is the base of every other branch.
 
-Owns `README.md`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `data/metadata/schemas/` and `data/LOCAL_DATA_REQUIRED.md`.
+Owns `README.md`, `LICENSE`, `LICENSE-docs`, `CITATION.cff`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `data/metadata/schemas/`, `data/LOCAL_DATA_REQUIRED.md` and `tests/t0/`.
+
+The README already on `main` was written before the plan settled. T0 keeps its framing and rewrites the parts that describe layout, labels, commands and logs so they match this plan.
 
 After T0 merges, a thread that needs a change in a T0 file asks for it in its merge package. The integrator makes the change as a separate commit on the main line, and the thread rebases onto it.
 
@@ -144,7 +148,7 @@ Writes the controversy register. A row enters it only with the critic's name, ex
 
 The seed list includes Greener 2025, Judge 1995, Gravelle 1998, the Equality Trust author response, Fischer in the Boston Review, Saunders, Snowdon, the TUC summary of criticisms and replies, and the 2024 technical appendix.
 
-Full texts are committed only where the licence allows redistribution. Otherwise the repository holds the bibliographic record, retrieval instructions and a gitignored local path.
+Full texts are never committed to git. They are stored locally under `sources/` and enter the public data snapshot only where the licence allows redistribution. The repository holds the bibliographic record, retrieval instructions and a gitignored local path for each.
 
 Extracts from the 2024 technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its part of the source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. T6a uses these only after they are logged.
 
@@ -202,9 +206,9 @@ Names every domain index and its component membership. If a component cannot be 
 
 Fixes the panel protocol. This covers the panel unit, a minimum number of countries and within-country observations per outcome below which no model is fitted, country and year fixed effects, whether country trends enter, the lag structure, serial-correlation handling, the standard-error method for a small number of countries and the missing-data treatment.
 
-Draws the DAG used for covariate selection, separating possible confounders from possible mediators.
+Draws the DAG used for covariate selection, separating possible confounders from possible mediators. The DAG is written in dagitty syntax, and an R script derives the adjustment sets from it so the covariate choice is computed rather than asserted.
 
-Owns `docs/analysis_lock.md`, `docs/inclusion_rules.md` and `docs/dag.md`.
+Owns `docs/analysis_lock.md`, `docs/inclusion_rules.md`, `docs/dag.md`, `docs/dag.dagitty`, `code/00b_dag_adjustment_sets.R` and `tests/t6/`.
 
 ### T6b Sample amendment
 
@@ -238,7 +242,9 @@ The equal-weighted, direction-aligned z-score index is the primary index. The do
 
 Every result row carries its dataset version, country sample, outcome-year range, inequality-year range, source IDs, component availability and the analysis-lock commit hash.
 
-Owns `code/05_current_replication.py`, `outputs/tables/current_replication_results.csv` and `outputs/diagnostics/influence_diagnostics.csv`.
+Also owns the cross-language test, which computes the primary OLS and Pearson results in both Python and R and fails on any difference beyond numerical tolerance.
+
+Owns `code/05_current_replication.py`, `tests/t8a/`, `outputs/tables/current_replication_results.csv` and `outputs/diagnostics/influence_diagnostics.csv`.
 
 ### T8b Sensitivity and controversy tests
 
@@ -252,13 +258,15 @@ Panel analyses run in a separate module. Before fitting any model, it reports fo
 
 Each controversy in the frozen register gets one result, labelled with one of five outcomes. Consistent, partly consistent or inconsistent with the critic's stated concern. Indeterminate when coverage, comparability or precision is insufficient to assess it. Not testable in this design when the register marks `empirical_test_possible` as no, as with a mechanism or causal claim that country-level correlations cannot address. Rows of the last kind get no test table. They are listed in a separate table with the reason, and the report discusses them under the matching heading of the terminology in INTENT.md.
 
-Owns `code/06_robustness_and_controversy_tests.py`, `code/06b_panel_models.py`, `outputs/tables/sensitivity_results.csv`, `outputs/tables/controversy_test_results.csv` and `outputs/tables/controversies_not_testable.csv`.
+If a register row requires re-running Greener's qualitative comparative analysis, it runs in R with the QCA package.
+
+Owns `code/06_robustness_and_controversy_tests.py`, `code/06b_panel_models.R`, `code/06c_qca.R`, `tests/t8b/`, `outputs/tables/sensitivity_results.csv`, `outputs/tables/controversy_test_results.csv` and `outputs/tables/controversies_not_testable.csv`.
 
 ### T9 Report and clean offline run
 
-Generates all figures and tables from code and builds the Quarto site, including `outputs/tables/all_model_results.csv` as the combination of T1b, T8a and T8b results, writes `docs/replication_report.md` with the report sections listed under shared contracts, runs `make clean-env`, and checks the completion criteria, listing anything unmet. When you approve, T9 tags the release as `results-v1`, which publishes the site.
+Generates all figures and tables from code and builds the Quarto site, including `outputs/tables/all_model_results.csv` as the combination of T1b, T8a and T8b results, writes `site/replication_report.qmd` with the report sections listed under shared contracts and renders it to `docs/replication_report.md`, runs `make clean-env`, and checks the completion criteria, listing anything unmet. When you approve, T9 tags the release as `results-v1`, which publishes the site.
 
-Owns `code/07_make_tables_figures.py`, `docs/replication_report.md`, the Quarto site pages under `site/`, `outputs/tables/all_model_results.csv`, `outputs/figures/` except files starting with `original_`, and `outputs/logs/`.
+Owns `code/07_make_tables_figures.py`, `site/` including `site/replication_report.qmd`, the generated `docs/replication_report.md`, `tests/t9/`, `outputs/tables/all_model_results.csv`, `outputs/figures/` except files starting with `original_`, and `outputs/logs/`.
 
 ## How the threads run as sessions
 
@@ -280,6 +288,8 @@ Access requirements are verified at run time and recorded per source. Nothing is
 
 When a source needs registration or acceptance of terms, the thread stops at the access page, adds an entry to `data/LOCAL_DATA_REQUIRED.md`, and tells you what to download and where to put it. Creating accounts and accepting terms is yours to do.
 
+You choose the licences before T0 merges. The recommendation is MIT for code, because it is the simplest permissive licence and fits both Python and R reuse, and CC BY 4.0 for documents, figures and result tables, because it requires attribution and is the norm for open research outputs. Each data source keeps its own licence, recorded in its manifest row, and the repository licence never covers raw data.
+
 You also decide whether to archive the analysis lock publicly, you approve every merge, you review each data snapshot before it is published, and you approve the `results-*` tag that publishes the site.
 
 ## Shared contracts
@@ -288,11 +298,11 @@ You also decide whether to archive the analysis lock publicly, you approve every
 
 **Manifest fields.** Every row carries the columns listed for its asset type at the end of this section. Every API, rolling database or periodically revised file also carries `retrieval_method`, `api_endpoint_or_landing_page`, `request_parameters`, `dataset_version`, `release_date`, `last_modified_header`, `etag`, `content_length_bytes`, `mime_type`, `archive_url`, `raw_file_sha256` and `code_version`. A dataset with no formal version gets `dataset_version` set to `unversioned` and keeps its raw response, retrieval timestamp and hash.
 
-**Licensing.** Restricted datasets, credentials, registration-protected files and copyrighted full texts are not committed unless their licence permits redistribution. For such material the repository holds the bibliographic record, the manifest row, retrieval instructions, the expected checksum once you have supplied the file locally, and a `.gitignore` rule for its path. `data/LOCAL_DATA_REQUIRED.md` lists every user-supplied file with its expected path, required version, acquisition page, acceptance steps and checksum verification.
+**Licensing.** No raw data or full text is committed to git. A source's licence decides only whether it may enter the public data snapshot. Restricted datasets, credentials, registration-protected files and copyrighted full texts never enter the snapshot. For such material the repository holds the bibliographic record, the manifest row, retrieval instructions, the expected checksum once you have supplied the file locally, and a `.gitignore` rule for its path. `data/LOCAL_DATA_REQUIRED.md` lists every user-supplied file with its expected path, required version, acquisition page, acceptance steps and checksum verification.
 
 **Data immutability.** Raw files are never edited. The raw folders are `data/00_original_released/`, `data/00_original_reconstruction/`, `data/01_raw_current/` and `data/04_controversy_test_data/`. Only the acquisition script that owns a raw folder may add files to it, and it never overwrites an existing file. No script numbered 04 or higher may write to any raw folder, `data/02_harmonised/` or `data/03_analysis_ready/`. Analysis scripts write only to `outputs/` and to gitignored temporary folders. Any derived dataset comes from a numbered harmonisation script with a manifest row, a data dictionary entry and a source-year matrix.
 
-**Build modes.** `make acquire` is the only network-enabled target. It downloads, verifies and records assets. `make all` runs in offline replay mode from files already present and never redownloads mutable data. `make clean-env` creates a disposable environment from `pixi.lock`, empties `outputs/`, fetches and verifies the data snapshot, and runs `make all`. `make check-contracts` runs the merge checks.
+**Build modes.** `make acquire` is the only target that contacts live sources. It downloads, verifies and records assets. `make fetch-snapshot` downloads a frozen, published snapshot and verifies its checksums. It is the only other target that uses the network, and it never contacts a live source. `make all` runs fully offline from files already present. `make clean-env` creates a disposable environment from `pixi.lock`, empties `outputs/`, runs `make fetch-snapshot` and then runs `make all`. `make check-contracts` runs the merge checks.
 
 **Source-verification log.** Each thread that verifies a fact writes only its own file in `docs/source_verification/`. A fact is usable in a rule only once it is logged with the passage, table or file it was verified from.
 
@@ -301,6 +311,10 @@ You also decide whether to archive the analysis lock publicly, you approve every
 **Country codes.** ISO 3166-1 alpha-3 throughout. Name variants map through one table in `code/lib/`.
 
 **Controversy IDs.** `C-` followed by the category letter listed at the end of this section and a number, for example `C-B-002`. T2 assigns them.
+
+**Code ownership.** An owned script path covers that script in either language. Each thread also owns `tests/<thread>/` for its pytest and testthat tests. Shared test utilities live in `tests/t0/` and change only through the integrator.
+
+**Criticisms of the general hypothesis.** Some named criticisms predate *The Spirit Level* or address the income inequality and health hypothesis in general rather than the book's analyses. Judge 1995 and Gravelle 1998 are examples. Such a row has `target_level` set to `general_hypothesis`, while other rows use `original`, `current` or `both`. Its `mapping_rationale` states which book or current result the criticism bears on and why, and its `claim_or_result_affected` names that result. A general criticism whose testable implication requires individual-level data is classified as not testable in this design. Gravelle's artefact argument, which concerns a concave individual relationship between income and health, is an example where the country-level test can only be partial, and the register says so.
 
 **Paths in code.** Relative to the project root, resolved through one helper in `code/lib/`.
 
@@ -312,7 +326,7 @@ You also decide whether to archive the analysis lock publicly, you approve every
 
 **Source bibliography columns.** `citation_key`, `authors`, `year`, `title`, `journal_or_publisher`, `doi`, `landing_url`, `direct_pdf_url`, `source_type`, `peer_review_status`, `research_design`, `geography`, `outcome`, `inequality_measure`, `main_finding_verbatim_short`, `methodological_limitations_verbatim_short`, `local_path`, `access_status` and `notes`. Quoted fields stay short enough to respect copyright.
 
-**Controversy register columns.** `controversy_id`, `claim_or_result_affected`, `critic_name`, `source_title`, `publication_year`, `source_type`, `peer_review_status`, `exact_controversy_in_neutral_words`, `critic_argument_summary`, `data_or_method_the_critic_targets`, `empirical_test_possible`, `test_plan`, `wilkinson_pickett_response_available`, `response_source_id`, `local_path`, `citation_url` and `notes`.
+**Controversy register columns.** `controversy_id`, `claim_or_result_affected`, `target_level`, `mapping_rationale`, `critic_name`, `source_title`, `publication_year`, `source_type`, `peer_review_status`, `exact_controversy_in_neutral_words`, `critic_argument_summary`, `data_or_method_the_critic_targets`, `empirical_test_possible`, `test_plan`, `wilkinson_pickett_response_available`, `response_source_id`, `local_path`, `citation_url` and `notes`.
 
 **Controversy categories.** A is country selection and sample definition. B is the inequality measure, including the 80:20 ratio against Gini, market against disposable income, and survey comparability and timing. C is composite-index construction, including weighting, component choice and reverse coding. D is outliers and influential countries. E is temporal persistence, in later data and in national time series. F is mechanism, including the psychosocial account and alternatives such as material conditions, public services, institutions and social cohesion. G is data availability and comparability.
 
