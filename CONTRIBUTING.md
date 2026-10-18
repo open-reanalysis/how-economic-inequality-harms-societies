@@ -8,7 +8,7 @@ Issues and pull requests are welcome at any time.
 
 No one computes, views or infers an association between current inequality data and current outcome data before the analysis lock is tagged. Downloading data, reading metadata and checking country coverage are fine.
 
-Raw data and downloaded full texts never go into git. They live in the data snapshot, and git holds their manifest rows.
+Acquired data files are committed exactly as acquired, with their manifest rows. No restricted data and no full texts are committed. A pull request may add data files but never modifies or deletes an existing one.
 
 An alternative enters the register only with a named author, an exact title, a publication year and a stable DOI, PMID, PMCID, ISBN or URL, and a book also needs its edition. Whether the source is a critic, the original authors or an independent researcher never decides whether the alternative is tested.
 
@@ -70,7 +70,7 @@ Every script starts with the same header.
 # Thread: <thread id>
 # Reads: <paths>
 # Writes: <paths>
-# Network: none | live sources | frozen snapshot
+# Network: none | live sources
 ```
 
 R scripts use the same fields.
@@ -95,9 +95,11 @@ A pull request from a fork has no thread branch. A maintainer gives it a label s
 
 ## Data and sources
 
-Every download goes through the shared download helper, which writes the manifest row with checksum, licence and `redistributable` flag. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
+Every download goes through the shared download helper, which writes the manifest row with checksum, size, licence and `redistributable` flag. A file up to 50 MiB is committed normally. A larger file goes through Git LFS, marked with `lfs` in the manifest and in the `.gitattributes` file of its raw folder. Prefer a source's per-indicator or per-country download to a bulk archive where one exists. A correction is a new dated file with `corrects_source_id`, never an overwrite.
 
-Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and also verifies every redistributable file. `full` runs locally and verifies every acquired file, restricted ones included. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
+Sources are bibliographic records in `sources/`, with links, not full texts. An open-access text whose licence permits it may be attached to a release and listed in its record. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
+
+Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and in `make verify-data` and verifies every committed data file. `full` runs locally and also checks the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
 
 ## The analysis lock
 

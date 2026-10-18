@@ -20,4 +20,4 @@ body:
     id: reproduce
     attributes:
       label: How to reproduce
-      description: Commands, environment and data snapshot, if relevant.
+      description: Commands, environment and the commit you ran, if relevant.

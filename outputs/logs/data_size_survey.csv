@@ -1,0 +1,4 @@
+measured_utc,kind,path_or_source,size_bytes,storage,note
+2026-10-18T19:24:16+00:00,remote,World Bank WDI bulk CSV <https://databank.worldbank.org/data/download/WDI_CSV.zip>,283089754,lfs,HEAD 200
+2026-10-18T19:24:16+00:00,remote,WID.world all data bulk <https://wid.world/bulk_download/wid_all_data.zip>,886945845,lfs,HEAD 200
+2026-10-18T19:24:16+00:00,remote,Spirit Level at 15 technical appendix <https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf>,1174318,git,HEAD 200
