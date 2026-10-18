@@ -87,6 +87,6 @@ The reproduction lock is committed before the updated reproduction. Every contro
 
 Every final result identifies its exact dataset version, country sample, outcome-year range, inequality-year range, source IDs, component availability and, for current results, the reproduction lock commit hash.
 
-The final clean build is an offline replay from a fresh clone, using only the project's stored and checksummed data files, fetched where they are not in git, plus any restricted files held locally. It generates the final tables, figures, manifests, data dictionaries and report.
+The final clean build is an offline replay from a fresh clone, using only the project's stored and checksummed data files, which all arrive with the clone, plus any restricted files held locally. It generates the final tables, figures, manifests, data dictionaries and report.
 
 The deliverables of goals 1 to 5 are released as `deliverables-v1` at the end of milestone 2. For goal 6 the report is published as a website on GitHub Pages, with links to the release and the repository, built from a tagged release and stating the release tag, the reproduction lock commit and the commit it was built from.

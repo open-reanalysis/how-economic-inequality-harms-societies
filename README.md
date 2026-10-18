@@ -102,7 +102,7 @@ The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATIO
 
 ## Reproducibility
 
-Every result that rests on redistributable data is reproducible from a clone, `make fetch-data` and the documented verification procedure. Results that depend on restricted inputs, such as data that require registration, carry the label `RESTRICTED INPUT` and list what a person must obtain locally. Results are replayed locally with `make all`.
+Every result that rests on redistributable data is reproducible from a clone and the documented verification procedure. Results that depend on restricted inputs, such as data that require registration, carry the label `RESTRICTED INPUT` and list what a person must obtain locally. Results are replayed locally with `make all`.
 
 ```text
 data/
@@ -139,10 +139,9 @@ Commands will work once the scripts exist.
 
 ```text
 git clone https://github.com/open-reanalysis/how-economic-inequality-harms-societies.git
-make fetch-data       # fetches the project's release assets and checks their hashes
 make verify-data      # checks every stored data file against the manifest
 make all              # offline, regenerates tables, figures and report
-make clean-env        # fresh clone and locked environment, fetch-data, verify-data, then make all
+make clean-env        # fresh clone and locked environment, verify-data, then make all
 make acquire          # contacts live sources, used only to add new data
 ```
 
