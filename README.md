@@ -106,7 +106,6 @@ docs/
   inclusion_rules.md
   controversy_register.md
   claims_register.csv          # statements by Wilkinson and Pickett, classified
-  claim_controversy_links.csv  # which criticisms challenge which claims
   source_verification/
   data_dictionary.md
 site/                          # Quarto report and results website
