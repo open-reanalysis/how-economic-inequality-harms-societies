@@ -10,13 +10,25 @@ The implementation runs in one day, 19 October 2026. No step waits for material 
 |---|---|---|
 | 1 | Scaffold | Merge of the planning pull request |
 | 2 | Original access, supporting sources, controversy sources and register, claims register | None |
-| 3 | Source lineage, historical reproduction | Agreement on each open point of the method rationale |
+| 3 | Source lineage, historical reproduction | Only a point the approved assumptions do not cover |
 | 4 | Inequality data, outcome data | Acceptance of the CDC WONDER terms of use |
 | 5 | Reproduction lock | None |
 | 6 | Milestone 1 review and `milestone-1` tag | Your review and approval of the method rationale, the historical specifications and the lock |
 | 7 | Updated reproduction, controversy test data | None |
 | 8 | Release check, milestone 2 review and `deliverables-v1` tag | Your review |
 | 9 | Report, release check, milestone 3 review and `results-v1` tag | Your review |
+
+## Assumptions approved before the run
+
+These fill the points the authors' published material leaves open. The historical reproduction thread writes them into the specifications and their reasons into the method rationale.
+
+- The method is taken from the released international data with its sources sheet and errata, the notes on statistical sources and methods, the frequently asked questions and the authors' 2010 responses.
+- Where the released file and the notes disagree, the released file is primary and the notes only fill its gaps, under the rule for parallel data.
+- The inequality measure is the ratio of the incomes of the richest and the poorest fifths, averaged from the UN Human Development Reports of 2003 to 2006, as the notes describe it.
+- The fixed country sample is the 23 countries in the released file.
+- The state sample is the 50 states without the District of Columbia, and the state index uses the nine components the notes list.
+- Index components, their direction and the handling of missing components follow the released file and the notes. A point neither settles is put to you.
+- For the historical eligibility check, the 50 richest countries are ranked by gross national income per capita by the Atlas method from the April 2004 World Development Indicators.
 
 ## Decisions for this run
 
