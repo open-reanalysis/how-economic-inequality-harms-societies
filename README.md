@@ -51,7 +51,7 @@ Words such as *debunk*, *toxic*, *cherry-picking*, *proves* and *disproves* appe
 ### Provenance before analysis
 Every file is stored exactly as downloaded, with URL, UTC timestamp, SHA-256 checksum and licence terms. Raw folders are never overwritten.
 
-### Wilkinson's sources first
+### Wilkinson and Pickett's sources first
 The source lineage records, for each indicator, the source Wilkinson and Pickett used and the newest release of that same series. Where a series has ended, it names the closest successor and the reason. Sources are never chosen by the strength of the correlation they produce.
 
 ### Declared before examined
@@ -92,9 +92,9 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 - [ ] The ranking measure and data vintage of the authors' selection rule, the 50 richest countries with more than 3 million people and comparable income distribution data, and whether the rule reproduces the released 23 countries.
 - [ ] Original country list and per-outcome sample sizes. No secondary-source count (21, 22 or 23) is used as a target.
 - [ ] Original inequality measure and reference year.
-- [ ] Original direction coding of each index component, recovered from original materials. The 2024 appendix's coding is recorded separately as update documentation.
+- [ ] Original direction coding of each index component, recovered from original materials.
 - [ ] Original handling of missing index components.
-- [ ] Details of the 2024 update, extracted from the [technical appendix](https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf) (sample, inequality year, Gini versus 80:20).
+- [ ] What the [technical appendix](https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf) says about the original timing and the meaning of 80:20.
 - [ ] Current availability and terms of the Equality Trust data files. The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained. This is the first task, because the historical reproduction depends on it.
 
 ## Planned repository layout
@@ -120,9 +120,9 @@ sources/
 code/                          # numbered Python scripts, shared helpers in code/lib/
 tests/
 docs/
-  source_lineage.csv           # Wilkinson's source per indicator and its current release
+  source_lineage.csv           # the authors' source per indicator and its current release
   reproduction_lock.md         # committed before the updated reproduction
-  controversy_register.md
+  controversy_register.csv
   claims_register.csv          # statements by Wilkinson and Pickett, classified
   controversy_data_map.csv     # datasets for each testable controversy
   goal_traceability.csv        # owner, output and acceptance test per goal
