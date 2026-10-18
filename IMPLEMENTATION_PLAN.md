@@ -12,7 +12,8 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 | 1A | T1a Original access and sample recovery, T2 Sources, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged |
 | 1B | T1b Original reproduction | T1a merged |
 | 1B | T6b Source hierarchy, sample amendment and lock | T1a, T3 and T4 merged, and T2 merged with its register frozen and its appendix verification logged |
-| 2 | T7 Primary harmonisation | T3, T4 and T6b merged, gate G2 passed |
+| 1C | Gate G2 sequence | T6b merged. The lock commit is tagged, the hash commit is made, and you decide whether to archive the lock |
+| 2 | T7 Primary harmonisation | T3 and T4 merged, gate G2 passed |
 | 2B | T5b Register-specific test data | T2 merged with its register frozen |
 | 3 | T8a Current replication | T7 merged |
 | 3 | T7b Controversy harmonisation | T7, T5a and T5b merged |
@@ -38,7 +39,11 @@ A thread reads another thread's output only from the main line after that thread
 
 For every retrieval attempt T1a records the HTTP status, redirect chain, response headers where available, UTC timestamp, SHA-256, file size, MIME type and whether the file is machine-readable. A 2017 Equality Trust post says the data could be downloaded. That establishes nothing about today, so the gate is decided only by these records.
 
-**G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock consists of `docs/analysis_lock.md`, `docs/inclusion_rules.md`, `docs/dag.md`, the executable DAG `docs/dag.dagitty`, the script `code/00b_dag_adjustment_sets.R` that derives adjustment sets from it, and the adjustment sets it produced in `docs/dag_adjustment_sets.csv`. The commit that contains them is the lock commit. A file cannot contain the hash of its own commit, so the lock commit is tagged `analysis-lock-v1` and the next commit writes `docs/analysis_lock_hash.txt` with the tag, the lock commit hash and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash, and `make check-contracts` verifies that the content hashes still match the tagged files.
+**G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock files are `docs/analysis_lock.md`, `docs/source_hierarchy.md`, `docs/inclusion_rules.md`, `docs/dag.md`, the executable DAG `docs/dag.dagitty`, the script `code/00b_dag_adjustment_sets.R` that derives adjustment sets from it, and the adjustment sets it produced in `docs/dag_adjustment_sets.csv`. The commit that contains them is the lock commit.
+
+`docs/analysis_lock_hash.txt` is not a lock file. It records the hashes and cannot contain its own. A file also cannot contain the hash of its own commit, so the lock commit is tagged `analysis-lock-v1` and the next commit writes `docs/analysis_lock_hash.txt` with the tag, the lock commit hash and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash, and `make check-contracts` verifies that the content hashes still match the tagged files.
+
+G2 passes in three steps, in this order. The lock commit is tagged. The hash commit is made. You then decide whether to archive the lock publicly, and the decision is recorded in `docs/analysis_lock_archive.md`, either with the archive record and its DOI or with a statement that the lock remains internal. G2 has passed once all three are merged to the main line, and only then does T7 branch.
 
 The blinding is procedural only, and the lock says so in a section on prior knowledge. The original correlations are published, and table 1 of the 2024 technical appendix publishes correlations for 22 countries using recent data. Anyone writing the lock may know these results. The lock lists which published results its author had seen.
 
@@ -150,7 +155,7 @@ Builds the literature package in the five `sources/` folders, keeping primary au
 
 Writes the controversy register. A row enters it only with the critic's name, exact title, year and a stable DOI, PMID, PMCID or URL, checked against PubMed, the DOI record or the publisher page. Rows are classified by target, which is data selection, measurement, index construction, robustness, mechanism, causal interpretation or policy inference. Each row names the data T5b must supply and the test T8b must run, or marks `empirical_test_possible` as no with the reason. Wilkinson and Pickett's published responses are linked to the criticisms they answer.
 
-The seed list includes Greener 2025, Judge 1995, Gravelle 1998, the Equality Trust author response, Fischer in the Boston Review, Saunders, Snowdon, the TUC summary of criticisms and replies, and the 2024 technical appendix.
+The seed list includes Greener's reproduction and update in the International Journal of Comparative Sociology, DOI 10.1177/00207152241245620, Judge 1995, Gravelle 1998, the Equality Trust author response, Fischer in the Boston Review, Saunders, Snowdon, the TUC summary of criticisms and replies, and the 2024 technical appendix. T2 records for every entry the exact publication date and whether it is the online-first or the issue date, in `publication_date_type`, and cites it the same way everywhere. Greener's DOI carries a 2024 suffix while the issue is dated 2025, so the distinction matters there.
 
 Full texts are never committed to git. They are stored locally under `sources/` and enter the public data snapshot only where the licence allows redistribution. The repository holds the bibliographic record, retrieval instructions and a gitignored local path for each.
 
@@ -202,7 +207,7 @@ Fixes the index direction per measure, not per concept. A measure where a higher
 
 Defines the expanded sample rule with population threshold, income threshold and its source, democracy criterion and the treatment of contested countries including Germany, Israel, Singapore, South Korea and Czechia. Fixes the multiverse dimensions and the reproducibility seed. Every alternative country rule, every multiverse dimension and the panel protocol cites either a register row or a sensitivity rationale stated in the lock, in line with question C of INTENT.md.
 
-Admits a macro-level covariate only where a named criticism, a cited alternative explanation or a stated sensitivity rationale identifies it, and records which one.
+Admits a macro-level covariate only where a named criticism, a cited alternative explanation or a stated sensitivity rationale identifies it, and records which one. A locked covariate for which no T5 thread obtained a usable source is reported as not tested, with the reason, and is never silently dropped from the model.
 
 Fixes the missing-component rule for the index. A mean of the available z-scores is itself a missing-data rule, even though no value is imputed, so the lock states it as one. It fixes the minimum number of components a country needs to receive an index value, reports the number of components behind every country's value, and adds a complete-case index over countries with every component as a declared sensitivity analysis. "No imputation" means that no missing value is filled in. It does not mean that the available-case mean is free of assumptions.
 
@@ -214,15 +219,15 @@ Fixes the panel protocol. This covers the panel unit, a minimum number of countr
 
 Draws the DAG used for covariate selection, separating possible confounders from possible mediators. The DAG is written in dagitty syntax, and an R script derives the adjustment sets from it so the covariate choice is computed rather than asserted.
 
-Owns `docs/analysis_lock.md`, `docs/analysis_lock_hash.txt`, `docs/inclusion_rules.md`, `docs/dag.md`, `docs/dag.dagitty`, `code/00b_dag_adjustment_sets.R`, `docs/dag_adjustment_sets.csv` and `tests/t6/`. Every one of these lock files is covered by the content hashes, so a change to the DAG or its script after the lock fails `make check-contracts` unless it comes as a dated amendment with a new tag.
+Owns the lock files listed under gate G2, together with `docs/analysis_lock_hash.txt`, `docs/analysis_lock_archive.md` and `tests/t6/`. The lock files are covered by the content hashes, so a change to any of them after the lock, the DAG and its script included, fails `make check-contracts` unless it comes as a dated amendment with a new tag. The hash file and the archive record are not hashed.
 
 ### T6b Sample amendment
 
 Starts from the main line after T1a, T2, T3 and T4 have merged.
 
-Fixes the source hierarchy for every indicator. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk and T2's logged appendix passages, but no outcome values.
+Fixes the source hierarchy for every indicator in `docs/source_hierarchy.md`. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk and T2's logged appendix passages, but no outcome values.
 
-Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Writes the prior-knowledge section. Then makes the lock commit, tags it, and writes `docs/analysis_lock_hash.txt` in the following commit, which passes gate G2. T6b is a second stage of the same thread, not a separate session. If T6a has already merged, the thread rebases onto the current main line before starting T6b and merges again afterwards.
+Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then makes the lock commit, tags it, and writes `docs/analysis_lock_hash.txt` in the following commit. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. If T6a has already merged, the thread rebases onto the current main line before starting T6b and merges again afterwards.
 
 ### T7 Primary harmonisation
 
@@ -288,7 +293,7 @@ T3, T4, T5a and T5b mainly download and catalogue and can use a cheaper model. T
 
 Before a branch is merged, its thread provides in the pull request description the commit hash, the list of changed files, its completion checklist, the manifest validation output, the tests run with exit status, known access failures, licence and redistribution status, and confirmation that it wrote nothing outside its owned files.
 
-`make check-contracts` runs in CI on every pull request and again after every merge. It validates file ownership, manifest schemas, source-ID uniqueness, country-code integrity, the absence of modified raw files and the reproducibility of the thread's declared commands.
+`make check-contracts` runs in CI on every pull request and again after every merge. In CI it runs in `metadata` mode and validates file ownership, manifest schemas, source-ID uniqueness, country-code integrity, unchanged manifest rows for raw files, the lock content hashes, and that `docs/dag_adjustment_sets.csv` matches a fresh run of its script, which needs no data files. Whether the thread's declared commands reproduce its outputs needs data, so the thread checks it locally in `full` mode and reports the result in the merge package, and `make replay-ci` checks it again on the main line for the CI-reproducible steps.
 
 Merges happen in wave order and only when you say so. Within wave 1, T6a can merge at any time, but T6b's lock commit must precede T7's branch point. A thread with two stages, which applies to T6 and T8, rebases onto the main line before its second stage and merges again.
 
@@ -346,7 +351,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Source bibliography columns.** `citation_key`, `authors`, `year`, `title`, `journal_or_publisher`, `doi`, `landing_url`, `direct_pdf_url`, `source_type`, `peer_review_status`, `research_design`, `geography`, `outcome`, `inequality_measure`, `main_finding_verbatim_short`, `methodological_limitations_verbatim_short`, `local_path`, `access_status` and `notes`. Quoted fields stay short enough to respect copyright.
 
-**Controversy register columns.** `controversy_id`, `claim_or_result_affected`, `target_level`, `mapping_rationale`, `critic_name`, `source_title`, `publication_year`, `source_type`, `peer_review_status`, `exact_controversy_in_neutral_words`, `critic_argument_summary`, `data_or_method_the_critic_targets`, `empirical_test_possible`, `test_plan`, `wilkinson_pickett_response_available`, `response_source_id`, `local_path`, `citation_url` and `notes`.
+**Controversy register columns.** `controversy_id`, `claim_or_result_affected`, `target_level`, `mapping_rationale`, `critic_name`, `source_title`, `publication_year`, `publication_date_type`, `source_type`, `peer_review_status`, `exact_controversy_in_neutral_words`, `critic_argument_summary`, `data_or_method_the_critic_targets`, `empirical_test_possible`, `test_plan`, `wilkinson_pickett_response_available`, `response_source_id`, `local_path`, `citation_url` and `notes`.
 
 **Controversy categories.** A is country selection and sample definition. B is the inequality measure, including the 80:20 ratio against Gini, market against disposable income, and survey comparability and timing. C is composite-index construction, including weighting, component choice and reverse coding. D is outliers and influential countries. E is temporal persistence, in later data and in national time series. F is mechanism, including the psychosocial account and alternatives such as material conditions, public services, institutions and social cohesion. G is data availability and comparability.
 

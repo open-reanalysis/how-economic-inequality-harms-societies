@@ -89,7 +89,7 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 A thread's branch is named `t<id>-<short-description>`, for example `t1a-original-access`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged. A change to a file owned by T0 is requested in the pull request and made by the integrator.
 
-A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:t2`, and the ownership check runs against that thread's paths. Until the label is set, the check waits.
+A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:t2`, and the ownership check runs against that thread's paths. Until the label is set, the check waits. While the ownership check is a required status, a pending check blocks the merge, so a fork pull request cannot be merged until a maintainer has labelled it.
 
 ## Data and sources
 
