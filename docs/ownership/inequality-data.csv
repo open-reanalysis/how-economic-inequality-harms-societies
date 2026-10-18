@@ -1,0 +1,7 @@
+path_pattern
+make/inequality-data.mk
+data/local_data_required/inequality-data.md
+docs/ownership/inequality-data.csv
+data/01_raw_current/inequality/**
+code/02a_download_inequality.py
+docs/source_verification/inequality-data.md

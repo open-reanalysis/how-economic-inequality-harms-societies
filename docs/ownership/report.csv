@@ -1,0 +1,14 @@
+path_pattern
+make/report.mk
+data/local_data_required/report.md
+docs/ownership/report.csv
+code/06_build_headline.py
+code/07_build_report.py
+report/**
+site/**
+docs/replication_report.md
+.github/workflows/pages.yml
+tests/report/**
+outputs/tables/headline_results.csv
+outputs/figures/report_*
+outputs/logs/**

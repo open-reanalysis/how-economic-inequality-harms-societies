@@ -1,0 +1,6 @@
+path_pattern
+make/source-lineage.mk
+data/local_data_required/source-lineage.md
+docs/ownership/source-lineage.csv
+docs/source_lineage.csv
+docs/source_verification/source-lineage.md

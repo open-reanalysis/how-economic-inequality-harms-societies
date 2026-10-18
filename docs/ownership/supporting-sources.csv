@@ -1,0 +1,11 @@
+path_pattern
+make/supporting-sources.mk
+data/local_data_required/supporting-sources.md
+docs/ownership/supporting-sources.csv
+sources/supporting/academic/**
+sources/supporting/non-academic/**
+sources/supporting/manifest.csv
+sources/supporting/README.md
+sources/supporting/screening_log.csv
+code/00_fetch_supporting_sources.py
+docs/source_verification/supporting-sources.md

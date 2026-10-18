@@ -8,7 +8,7 @@ Issues are welcome at any time.
 
 No one computes, views or infers an association between current inequality data and current outcome data before the reproduction lock has merged and milestone 1 is tagged. Downloading data, reading metadata and checking country coverage are fine.
 
-Acquired data files are stored exactly as acquired, by the storage method recorded for each source, with their manifest rows. Only data and texts whose terms allow publishing are committed. Anything else is handled locally and recorded as a source with its link, and data extracted from it stay below the threshold of originality and never take a substantial part of a database. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
+Acquired data files are stored exactly as acquired, with their acquisition records, and are never modified. Only data and texts whose terms allow publishing are committed. Anything else is handled locally and recorded as a source with its link, and data extracted from it stay below the threshold of originality and never take a substantial part of a database. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
 
 A controversy enters the register only with a named author, an exact title, a publication year and a stable DOI, PMID, PMCID, ISBN or URL, and a book also needs its edition.
 
@@ -24,9 +24,11 @@ Do not install packages with `pip install` or any other way outside pixi. To add
 
 The project is written in Python. Another language is added only when a method needs a reference implementation that Python lacks, and the pull request that adds it says why.
 
-Every file another script reads follows a pandera schema defined once in `code/lib/schemas.py`. A change to a schema is requested from the integrator, like any change to a scaffold file. Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are ISO 8601. A missing value is a null, never an empty string or the text NA. Pandas indexes are not written to file.
+Every rule of the computation lives in an analysis specification in `config/specs/`, and the code reads it from there. Never write a year, a direction, a weight or a sample into code or into prose as a second copy. The method rationale explains a rule and refers to its specification key.
 
-Scripts are numbered by pipeline stage. Tests go in `tests/<thread>/`. Each script is a Make target in your thread's `make/<thread>.mk`, with the script and its input files as prerequisites. Add the target to `ACQUIRE_TARGETS` if it downloads or records assets, or to `REPLAY_TARGETS` if it works only from files already present. `make acquire` builds acquire targets, and `make all` builds only replay targets. Put every acquire rule in the block of your `.mk` file that is read only when `MODE=acquire`, because Make builds prerequisites whichever list a target is in. A replay target that needs a restricted input also goes in `RESTRICTED_TARGETS`. Define its real rule only when the input is present, and otherwise a stand-in rule with no prerequisites that checks the recorded input checksums and keeps the committed outputs.
+Every file another script reads follows a pandera schema defined once in `code/lib/schemas.py`. A change to a schema is requested from the integrator, like any change to a scaffold file. Column names are snake_case. A unit is identified by `unit_type` and `unit_id`, an ISO 3166-1 alpha-3 code for a country and a two-digit FIPS code for a U.S. state, and must exist in its registry in `config/units/`. Shared code never assumes that a unit is a country. Dates are ISO 8601. A missing value is a null, never an empty string or the text NA. Pandas indexes are not written to file.
+
+Numbered scripts are thin command-line tools that load a specification or record, call the library and write their outputs. Source-specific parsing goes in a reader in `code/lib/readers/`, shared transformations in `code/lib/transform.py` and computation in `code/lib/compute.py`. Historical and updated reproduction use the same scripts with different specifications. Do not build a workflow system or a plugin framework. Each script step is a Make target in your thread's `make/<thread>.mk`, with the script and its input files as prerequisites. Add the target to `ACQUIRE_TARGETS` if it downloads or records assets, or to `REPLAY_TARGETS` if it works only from files already present. `make acquire` builds acquire targets, and `make all` builds only replay targets. Put every acquire rule in the block of your `.mk` file that is read only when `MODE=acquire`, because Make builds prerequisites whichever list a target is in. A replay target that needs a restricted input also goes in `RESTRICTED_TARGETS`. Define its real rule only when the input is present, and otherwise a stand-in rule with no prerequisites that checks the recorded input checksums and keeps the committed outputs.
 
 Python follows ruff.
 
@@ -45,9 +47,7 @@ Every script starts with the same header.
 # Network: none | live sources
 ```
 
-Code that applies a rule from the reproduction lock cites the section of the lock. Code that downloads data for a controversy cites the register row, for example `inequality-measure-002`. Code that reproduces the original method cites the source-verification log entry or the section of the original method specification it relies on. Code that combines parallel data cites the combining rule in the specification.
-
-The data dictionary is the canonical description of every transformation. A comment points to its entry instead of copying the formula, so the two cannot drift apart.
+Code does not cite or copy method rules, because it reads them from the specification. Code that downloads data for a controversy cites the register row, for example `inequality-measure-002`. A reader cites the source-verification log entry for any layout fact it relies on.
 
 Code that writes or reads an interface file names the schema the file follows.
 
@@ -59,21 +59,23 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 Thread pull requests go directly into `main`. Three milestones mark the points where a maintainer reviews what has merged, and each ends in a tag: `milestone-1`, `deliverables-v1` and `results-v1`. The first two deliver goals 1 to 5, and the third delivers goal 6, the site. The plan lists which thread belongs to which milestone. The integrator is a separate Claude session that creates the tags after a maintainer's approval and makes changes to scaffold files.
 
-A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`, and is branched from `main`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
+A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`, and is branched from `main`. A thread changes only the paths listed in its ownership file `docs/ownership/<thread-id>.csv`, and `make check-contracts` enforces this. When you create a record file, such as a data source or an acquisition record, add its path to your ownership file. A thread reads another thread's output only from `main` after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
 
 Pull requests from forks are not merged. If you are outside the project, propose a change in an issue, and a thread or the integrator makes it.
 
 ## Data and sources
 
-Every download goes through the shared download helper, which writes the manifest row with checksum, size, licence and `redistributable` flag. Acquire the smallest official input that holds what the deliverable needs, and record its storage method in the manifest. A file up to 50 MiB is committed normally. Git LFS is not used. An extract above 50 MiB is split, for example by indicator or country, so every stored file stays within 50 MiB. Never acquire a bulk archive, such as the complete WDI or WID.world download. Extract the relevant series through the provider's API or its per-indicator download. A correction is a new dated file with `corrects_source_id`, never an overwrite.
+Every data source has a record in `data/metadata/sources/`, and every request has an acquisition record in `data/metadata/acquisitions/` that lists the files it produced with their size, checksum, storage and `redistributable` flag. The shared download helper writes the acquisition record. Identifiers never contain a thread ID. Acquire the smallest official input that holds what the deliverable needs, and store the response as received. The relevant series are extracted from it by a replay step into `data/02_extracts/`. A file up to 50 MiB is committed normally. Git LFS is not used. An extract above 50 MiB is split, for example by indicator or country, so every stored file stays within 50 MiB. Never acquire a bulk archive, such as the complete WDI or WID.world download. Extract the relevant series through the provider's API or its per-indicator download. A raw file is never modified. A correction is a new acquisition whose record names the corrected acquisition or file in `corrects`. Derived files may be rebuilt at the same path. Metadata, such as a source description, an acquisition status or a lineage row, may be corrected, with the reason in the commit message or in the record's notes.
 
 `sources/supporting/` and `sources/controversies/` are the two packages. Search and screen both under the shared protocol in the plan, and log every screening decision. Download every text in a package that can be obtained legally, whether or not you read it. Commit a text whose terms allow publishing to its package folder and list it in its record. Keep any other text in the gitignored `local/` folder of its `sources/` folder, and record its local path, an archived landing-page URL where there is no DOI and the SHA-256 of the file. The package `README.md`, generated from the manifest, says what the package holds and what it lacks. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in your thread's file in `data/local_data_required/`, and a person obtains it. Ignore rules for user-supplied files go in the `.gitignore` of your raw folder, never in the root `.gitignore`. Paywalls and access controls are never bypassed.
 
-Manifest checks run in two modes. `metadata` runs in CI on every pull request and push and checks schemas, identifiers and references without touching data files. `full` runs locally and in `make verify-data`, and verifies every stored file and the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it. An output that would cross the threshold of originality of a source that may not be published is never committed. Keep it in `outputs/local/`, which is gitignored.
+Record checks run in two modes. `metadata` runs in CI on every pull request and push and checks schemas, identifiers, references, ownership and that no raw file or immutable file entry changed, without touching data files. `full` runs locally and in `make verify-data`, and hashes every stored file and the restricted files you hold. An acquisition whose status records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it. An output that would cross the threshold of originality of a source that may not be published is never committed. Keep it in `outputs/local/`, which is gitignored.
+
+When `make all` cannot run a step because a restricted input is missing, it keeps the committed output and marks the step `retained` in the run record. Only the recorded input checksums are then compared with the acquisition records, because the missing file cannot be checked. Never describe a retained result as recomputed. `RESTRICTED INPUT` describes a use restriction, not whether a result was recomputed. Commit the run record of the run that produced your committed outputs.
 
 ## The reproduction lock
 
-Until the reproduction lock has merged and milestone 1 is tagged, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After that, a change to the lock is made as a dated amendment in the same file, and results are reported under both the original and the amended rule. Every current result cites the lock commit.
+Until the reproduction lock has merged and milestone 1 is tagged, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After that, a change to a locked specification is a new specification version recorded as a dated amendment in the lock, and results are reported under both versions. Every current result names its specification and version.
 
 ## Proposing a controversy
 
@@ -87,7 +89,19 @@ Use the terminology in INTENT.md. The project's results are correlations and are
 
 ## Tests and checks
 
-Install the hooks once with `pixi run pre-commit install`. Before opening a pull request, run ruff, `pytest` and `make check-contracts` locally. CI runs the same checks.
+Install the hooks once with `pixi run pre-commit install`. Before opening a pull request, run ruff, `make test`, `make check-data` and `make check-contracts` locally, and `make all` if your work produces outputs. CI runs the same checks.
+
+Tests are organised by function, in the levels the plan's testing plan lists, not by thread.
+
+- Computation tests in `tests/compute/` use small examples whose expected values are calculated by hand and written into the test, never taken from the code under test.
+- Each reader has tests in `tests/readers/<reader>/` with small stored example files in `tests/fixtures/readers/<reader>/`. Ordinary tests never call an external service.
+- Integrity checks cover schemas, key uniqueness, units, allowed values, references, checksums and join row counts. Pandera checks structure and value constraints, not the correctness of a computation.
+- Include the edge cases that apply: a constant variable, a missing component, a duplicated key, a conflicting unit, an unknown unit, and a shuffled row order that must not change any result.
+- Replay comparisons require identifiers, samples and missing units to match exactly, and floating-point values within the plan's tolerances.
+
+A difference from a value the authors published is a research result. Log it in the discrepancy log. It is not by itself a software error, and never adjust the computation to match it.
+
+Do not add a coverage target, browser automation, load tests or tests for every helper.
 
 ## Commits and pull requests
 

@@ -1,0 +1,12 @@
+# Template for data/metadata/sources/<source_id>.yaml. Validated by code/lib/records.py.
+source_id: <provider-series in lower case>
+provider: <organisation>
+series_code: <provider's code or file name>
+title: <provider's title>
+definition: <what the series measures>
+unit: <unit as published>
+geography: <countries | us_states | ...>
+licence: <licence name or terms summary>
+terms_url: <url>
+redistributable: <true | false>
+notes: <text>

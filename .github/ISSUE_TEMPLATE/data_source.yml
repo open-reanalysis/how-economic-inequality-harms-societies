@@ -7,7 +7,7 @@ body:
     id: source_id
     attributes:
       label: Source ID
-      description: From the manifest, if known.
+      description: From the data source record, if known.
   - type: input
     id: url
     attributes:

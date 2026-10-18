@@ -1,0 +1,9 @@
+path_pattern
+make/updated-reproduction.mk
+data/local_data_required/updated-reproduction.md
+docs/ownership/updated-reproduction.csv
+data/03_analysis_ready/updated_*
+outputs/tables/updated_*
+outputs/figures/updated_*
+outputs/diagnostics/updated_reproduction_discrepancies.md
+docs/source_verification/updated-reproduction.md
