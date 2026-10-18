@@ -4,7 +4,7 @@ This file holds the schedule, the approved assumptions and the decisions of the 
 
 ## Current run
 
-The implementation runs in one day, 19 October 2026. No step waits for material that cannot be obtained that day. The threads start in the wave order of the plan as soon as their gates pass.
+The milestone-1 integration run starts on 19 October 2026. Its first stage establishes the runnable scaffold and one historical reproduction path, then assesses each required source. There is no one-day completion promise. Release timing is decided after the catalogue and acquisition barriers are known; later-stage work follows the plan’s gates.
 
 | Order | Work | Waits for the maintainer |
 |---|---|---|
@@ -44,3 +44,7 @@ These fill points the authors' published material leaves open. The historical re
 - Git LFS is not used.
 - Connecting the repository to Zenodo is left for later.
 - Whether to register research use of *The Spirit Level at 15* with the Equality Trust is still the maintainer's decision.
+
+## Milestone 1 integration status
+
+The maintainer authorised a new pull request containing the feasibility corrections and milestone-1 implementation. Work is on scaffold/milestone-one. Current associations remain forbidden until the reproduction lock is merged and milestone 1 is approved and tagged. No release tag is created or moved during implementation.

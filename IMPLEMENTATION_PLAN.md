@@ -45,7 +45,7 @@ Historical and updated reproduction run the same scripts and the same core with 
 
 ## Result catalogue and analysis specifications
 
-**Result catalogue.** `config/results_catalogue.csv` lists every comparison the research method includes, with one row per comparison and the canonical columns in `templates/results_catalogue.csv`: `result_id`, `dataset`, `indicator_or_index` as a lineage `variable_id` or `index`, `predictor`, `sample`, `reported_statistic`, `reported_value`, `source_reference`, `historical_reproduction_required`, `current_reproduction_required` and `notes`. It is the only list of what is computed and reported. Its variables refer to the lineage, and its samples to the sample names in the specifications. Lineage rows hold no reported values.
+**Result catalogue.** A missing published numeric benchmark is permitted with a reason in notes; the calculation can be reproduced without claiming numerical agreement with an unpublished statistic. Values estimated from a figure are identified as estimates with their precision. `config/results_catalogue.csv` lists every comparison the research method includes, with one row per comparison and the canonical columns in `templates/results_catalogue.csv`: `result_id`, `dataset`, `indicator_or_index` as a lineage `variable_id` or `index`, `predictor`, `sample`, `reported_statistic`, `reported_value`, `source_reference`, `historical_reproduction_required`, `current_reproduction_required` and `notes`. It is the only list of what is computed and reported. Its variables refer to the lineage, and its samples to the sample names in the specifications. Lineage rows hold no reported values.
 
 **Analysis specifications.** A specification is a YAML file `config/specs/<spec_id>.yaml`, validated against the schema in `code/lib/spec.py`, with the fields shown in `templates/analysis_spec.yaml`. It holds `spec_id`, `version` as an integer raised on every change, `dataset`, `unit_type`, its named samples, the eligibility details where a sample uses the rule, each variable with its lineage `variable_id`, data sources in priority order, period, unit, conversion, transformation and direction, the missing-component rule, the evidence or assumption status of each choice using the values in templates/analysis_spec.yaml, the standardisation reference, the index definition, the check against published values for a reconstruction, and the current result variants it produces, each with a unique `variant_id`. It selects the catalogue rows of its dataset and never copies them. Each choice the original material leaves open names its section in `docs/method_rationale.md`.
 
@@ -117,6 +117,8 @@ Every `make all` and every acquisition writes a run record, `outputs/runs/<run_i
 | `retained` | A required input was not held locally, so the earlier committed output was kept. Only the input checksums recorded with it were compared with the file entries. |
 | `not_produced` | The output could not be produced and no earlier output exists, with the reason. |
 
+A retained output keeps its original producer run, code commit and specification ID, version and hash. It is never relabelled as computed by the current code or specification. Retention is allowed only when the requested specification and input hashes match the recorded producer and no relevant computation change invalidates the output; otherwise the new request is not_produced and the earlier result remains available under its original version. A matching input checksum alone does not establish compatibility.
+
 Each input check is recorded as `file_verified` or `record_matched`. Skipped steps and missing inputs are listed. `RESTRICTED INPUT` is the `input_access` value of a result that depends on an input under use restrictions, and it says nothing about whether the result was recomputed. Result tables carry the other result properties of the research method in separate columns, and the replay state is joined from the run record wherever results are reported.
 
 ## Validation
@@ -137,7 +139,7 @@ Tests are organised by function, not by thread. Ordinary tests never call an ext
 | Computation unit tests | `tests/compute/` | Scaffold | `code/lib/transform.py`, `code/lib/compute.py` | Hand-checkable examples pass for direction coding, standardisation, missing components and the component report, index weights, the pairs entering a correlation and the sample size, and each expected value is calculated by hand and written into the test |
 | Reader tests | `tests/readers/<reader>/` with fixtures in `tests/fixtures/readers/<reader>/` | The thread that owns the reader | The reader module | Each reader turns its small stored example file into the expected observations, including units, periods and unit keys, without network access |
 | Data integrity | `tests/integrity/`, run by `make check-data` | Scaffold | Schemas, records, registries, catalogue | Schemas, key uniqueness, units, allowed values, references, checksums and join row counts pass on the data present |
-| End to end | `tests/e2e/` with `tests/fixtures/synthetic/` | Scaffold | All library modules and replay scripts | A synthetic dataset of countries and states runs all three current variants without duplicate row keys or overwritten observation and figure paths; each available result matches the independent expected values, and a missing-input case remains visible as not_produced with its reason |
+| End to end | `tests/e2e/` with `tests/fixtures/synthetic/` | Scaffold, then each replay-step owner | Initially the reader, preparation, computation and result-table core; later replay scripts as implemented | A synthetic dataset of countries and states runs all three current variants without duplicate row keys or overwritten observation and figure paths; each available result matches the independent expected values, and a missing-input case remains visible as not_produced with its reason |
 | Public data replay | `tests/replay/`, run by the CI replay job | Scaffold | Public data and replay steps on `main` | Once public data and replay steps exist, a CI replay from public inputs reproduces the committed outputs within the tolerances below |
 | Release check | Run by `make clean-env` | Integrator | Everything on `main` | Before `deliverables-v1` and `results-v1`, a fresh clone in the locked environment verifies all data and replays, and a separate replay on a machine holding the restricted inputs records which restricted steps were computed |
 | Eligibility | `tests/eligibility/` | Reproduction lock | `code/03a_eligibility.py` | The three conditions, the order of exclusion and the tie rule give the expected eligibility table on a constructed example |
@@ -147,7 +149,7 @@ The tests cover these edge cases: a constant variable, which must give a defined
 
 ## Continuous integration
 
-`ci.yml` runs on every pull request and on every push to `main`. It installs the locked environment, runs ruff, runs the computation, reader and end-to-end tests, checks the exported environment files, and runs `make check-contracts` in `metadata` mode. On a push the ownership check is skipped. Once public data and replay steps exist, a replay job in the same workflow runs `make all` on the public inputs and the replay tests. In milestone 3 the report thread adds `pages.yml`, which runs only when a tag matching `results-*` is pushed and publishes the committed `site/` folder. Third-party actions are pinned to commit hashes, and workflows get the minimum permissions they need.
+`ci.yml` runs on every pull request and on every push to `main`. It installs the locked environment, runs ruff, runs the computation, reader and end-to-end tests, checks the exported environment files, and runs `make check-contracts` in `metadata` mode. On a push the ownership check is skipped. Once public data and replay steps exist, a replay job in the same workflow runs `make verify-data`, `make check-data`, `make all` on the public inputs and the replay tests. In milestone 3 the report thread adds `pages.yml`, which runs only when a tag matching `results-*` is pushed and publishes the committed `site/` folder. Third-party actions are pinned to commit hashes, and workflows get the minimum permissions they need.
 
 ## Result outputs
 
@@ -219,7 +221,8 @@ Each thread is a separate Claude session that owns a fixed set of paths, works o
 | 1A | Original access | Scaffold merged | 1 |
 | 1A | Supporting sources, controversy sources and register | Scaffold merged | 2 |
 | 1A | Claims register | Scaffold merged. It never gates a tag | None |
-| 1B | Source lineage, historical reproduction | Original access merged | 1 |
+| 1B | Source lineage | Original access merged | 1 |
+| 1B.1 | Historical reproduction | Source lineage merged | 1 |
 | 1C | Inequality data, outcome data | Source lineage merged | 1 |
 | 1D | Reproduction lock | Historical reproduction, inequality data and outcome data merged | 1 |
 | 1E | Lock gate | Milestone 1 reviewed and tagged | 1 to 2 |
@@ -253,17 +256,17 @@ Each thread works on a branch `<thread-id>/<description>` from `main` and opens 
 
 | Artefact | Path | Owner | Depends on | Done when |
 |---|---|---|---|---|
-| Library skeleton and computation core | `code/lib/` except reader modules | Scaffold | This plan | The computation unit tests and the end-to-end test pass |
+| Library skeleton and computation core | `code/lib/` except reader modules | Scaffold | This plan | Computation unit tests and a synthetic read–prepare–compute–result-table test pass; later replay scripts are integrated when their owning steps are implemented |
 | Schemas | `code/lib/schemas.py`, `code/lib/spec.py` | Scaffold | Reference tables | Every interface table, specification, catalogue, record and run record validates against one schema |
 | Unit registries | `config/units/` | Scaffold | ISO 3166-1 and Census FIPS lists | Every unit in the released data and the lineage resolves to exactly one entry |
 | Templates | `templates/` | Scaffold | Reference tables | Each template validates against its schema |
 | Ownership files | `docs/ownership/<thread-id>.csv` | Each thread its own | This plan | The ownership check finds no overlap |
-| Result catalogue | `config/results_catalogue.csv` | Historical reproduction | Source lineage, the notes | Every comparison the research method includes has one row with a verified locator and published value |
+| Result catalogue | `config/results_catalogue.csv` | Historical reproduction | Source lineage, the notes | Every included comparison has a verified locator; a published numeric benchmark is recorded where available, otherwise its absence and any figure-only evidence are explicit |
 | Historical specifications and method rationale | `config/specs/historical_*.yaml`, `docs/method_rationale.md` | Historical reproduction | Lineage, catalogue, approved assumptions | The maintainer approves them in the milestone 1 review |
 | Updated specifications and lock | `config/specs/updated_*.yaml`, `docs/reproduction_lock.md` | Reproduction lock | Historical specifications, lineage, catalogue, coverage and eligibility tables | The lock lists every updated specification with version and SHA-256, and the contract check passes |
 | Readers | `code/lib/readers/<family>.py` with tests and fixtures | The thread that acquires the source family | Data source and acquisition records | The reader tests pass on stored example files |
 | Headline table and discrepancy summary | `outputs/tables/headline_results.csv`, `outputs/diagnostics/discrepancy_summary.md`, `code/06_build_headline.py` | Updated reproduction | Historical and updated result tables, catalogue | Every catalogue row appears once, with its deviations summarised |
-| Run records | `outputs/runs/` | The thread whose run produced committed outputs | `code/lib/runs.py` | Every committed output appears in exactly one committed run record |
+| Run records | `outputs/runs/` | The thread whose run produced committed outputs | `code/lib/runs.py` | Each committed output version (path and SHA-256) has an identified producer run; later verification or retention records refer back to that producer rather than claiming to produce it |
 | Storage report | `make storage-report` | Scaffold | File entries | It reports both sizes against the thresholds |
 | Site | `site/`, `code/07_build_report.py`, `.github/workflows/pages.yml` | Report | `deliverables-v1` | The goal 6 acceptance test passes |
 | Worklist | `docs/worklist.md` | Integrator, on scaffold branches | This plan | It names the current run's date, order, assumptions and decisions |
@@ -329,3 +332,9 @@ Builds `docs/claims_register.csv` from the authors' published material: the note
 ### Report and site
 
 Builds the report and the site from the outputs of milestone 2, adds `pages.yml`, writes the report tests, runs the release check before `results-v1` and checks the completion criteria, reporting each of the six goals first.
+
+## Milestone 1 integration run
+
+The maintainer requested implementation of milestone 1 in one new pull request after the planning merge. For this run the integrator may implement the milestone-1 threads on scaffold/milestone-one, using the same source, method and ownership boundaries but integrating dependent outputs on that branch in the order above. This is an explicit exception to separate thread pull requests and reading dependent outputs only after their main-branch merge. It does not waive tests, provenance, source terms, prospective decisions or the gate against current-data associations.
+
+Begin with one historical international comparison through a stored source, reader, specification, calculation, result table and run record. Expand only after that path passes. The scaffold acceptance test uses synthetic inputs and does not depend on the site, headline builder or future eligibility script. Source-specific access and comparability are assessed individually; failed acquisitions and unresolved method choices remain explicit. Milestone 1 is ready for review only after its catalogue, lineage, historical results or barriers, current acquisition/coverage records and prospective lock can all be inspected. A pull request or passing scaffold tests alone do not complete the milestone.
