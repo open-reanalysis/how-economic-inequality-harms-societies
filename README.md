@@ -38,7 +38,6 @@ Beside the results, the project delivers the two source packages, the controvers
 | Term | Meaning here |
 |---|---|
 | Reported correlation | What the authors computed |
-| Robustness | Whether that correlation survives reasonable alternative choices |
 | Mechanism | An explanation of why a correlation might exist |
 | Causal claim | Changing inequality would change outcomes |
 | Policy prediction | A specific intervention would produce a specific result |
@@ -62,7 +61,7 @@ The series, years, country rule, index procedure and statistic of the updated re
 "Current" means the version of each source retrieved during the declared acquisition window, pinned by retrieval time, release or version identifier, query parameters and checksum. A later rerun against revised live data is a new acquisition, not the same analysis.
 
 ### No silent choices
-Where the original method is undocumented, alternatives are implemented side by side and labelled. The reproductions use no imputation. Outliers are never dropped without reporting both retained and excluded results.
+Where the original method is undocumented, the original method specification records one choice and its reasons. Parallel data from two sources are compared, the comparison is published, and they are combined into the project's own series. The reproductions use no imputation and delete no outliers.
 
 ### Attributed controversies only
 A controversy enters the register only with four fields: author, exact source title, publication year, and a stable DOI, PMID, PMCID, ISBN or URL. A book also needs its edition. Generic critiques that no named author made are excluded.
@@ -89,7 +88,6 @@ Further entries are added only with all four fields complete. Supporting literat
 Each item is logged in `docs/source_verification/` with the passage, table or file it was verified from. Differences between reproduced and reported values go to `outputs/diagnostics/historical_reproduction_discrepancies.md`.
 
 - [ ] The source Wilkinson and Pickett used for each indicator, and whether the series still exists.
-- [ ] Whether the original material contains an analysis of U.S. states.
 - [ ] The ranking measure and data vintage of the authors' selection rule, the 50 richest countries with more than 3 million people and comparable income distribution data, and whether the rule reproduces the released 23 countries.
 - [ ] Original country list and per-outcome sample sizes. No secondary-source count (21, 22 or 23) is used as a target.
 - [ ] Original inequality measure and reference year.
@@ -141,7 +139,7 @@ Commands will work once the scripts exist.
 
 ```text
 git clone https://github.com/open-reanalysis/how-economic-inequality-harms-societies.git
-make fetch-data       # fetches the project's LFS files and release assets and checks their hashes
+make fetch-data       # fetches the project's release assets and checks their hashes
 make verify-data      # checks every stored data file against the manifest
 make all              # offline, regenerates tables, figures and report
 make clean-env        # fresh clone and locked environment, fetch-data, verify-data, then make all

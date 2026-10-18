@@ -45,7 +45,7 @@ Every script starts with the same header.
 # Network: none | live sources
 ```
 
-Code that applies a rule from the reproduction lock cites the section of the lock. Code that downloads data for a controversy cites the register row, for example `inequality-measure-002`. Code that reproduces the original method cites the source-verification log entry it relies on. A labelled alternative implementation says in its comment that it is an alternative and what it is an alternative to.
+Code that applies a rule from the reproduction lock cites the section of the lock. Code that downloads data for a controversy cites the register row, for example `inequality-measure-002`. Code that reproduces the original method cites the source-verification log entry or the section of the original method specification it relies on. Code that combines parallel data cites the combining rule in the specification.
 
 The data dictionary is the canonical description of every transformation. A comment points to its entry instead of copying the formula, so the two cannot drift apart.
 
@@ -57,7 +57,7 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 ## Threads, branches and ownership
 
-Thread pull requests go directly into `main`. Three milestones mark the points where a maintainer reviews what has merged, and each ends in a tag: `milestone-1`, `deliverables-v1` and `results-v1`. The first two deliver goals 1 to 5, and the third delivers goal 6, the site. The plan lists which thread belongs to which milestone.
+Thread pull requests go directly into `main`. Three milestones mark the points where a maintainer reviews what has merged, and each ends in a tag: `milestone-1`, `deliverables-v1` and `results-v1`. The first two deliver goals 1 to 5, and the third delivers goal 6, the site. The plan lists which thread belongs to which milestone. The integrator is a separate Claude session that creates the tags after a maintainer's approval and makes changes to scaffold files.
 
 A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`, and is branched from `main`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
 
@@ -65,7 +65,7 @@ Pull requests from forks are not merged. If you are outside the project, propose
 
 ## Data and sources
 
-Every download goes through the shared download helper, which writes the manifest row with checksum, size, licence and `redistributable` flag. Acquire the smallest official input that holds what the deliverable needs, and record its storage method in the manifest. A file up to 50 MiB is committed normally. How larger files are stored is open until a maintainer decides on Git LFS, so ask before acquiring one. Never acquire a bulk archive, such as the complete WDI or WID.world download. Extract the relevant series through the provider's API or its per-indicator download. A correction is a new dated file with `corrects_source_id`, never an overwrite.
+Every download goes through the shared download helper, which writes the manifest row with checksum, size, licence and `redistributable` flag. Acquire the smallest official input that holds what the deliverable needs, and record its storage method in the manifest. A file up to 50 MiB is committed normally. Git LFS is not used. An extract above 50 MiB is stored as a release asset. Never acquire a bulk archive, such as the complete WDI or WID.world download. Extract the relevant series through the provider's API or its per-indicator download. A correction is a new dated file with `corrects_source_id`, never an overwrite.
 
 `sources/supporting/` and `sources/controversies/` are the two packages. Search and screen both under the shared protocol in the plan, and log every screening decision. Download every text in a package that can be obtained legally, whether or not you read it. Commit a text whose terms allow publishing to its package folder and list it in its record. Keep any other text in the gitignored `local/` folder of its `sources/` folder, and record its local path, an archived landing-page URL where there is no DOI and the SHA-256 of the file. The package `README.md`, generated from the manifest, says what the package holds and what it lacks. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in your thread's file in `data/local_data_required/`, and a person obtains it. Ignore rules for fetched and user-supplied files go in the `.gitignore` of your raw folder, never in the root `.gitignore`. Paywalls and access controls are never bypassed.
 
