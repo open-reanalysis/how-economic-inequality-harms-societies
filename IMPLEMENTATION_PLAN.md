@@ -288,7 +288,7 @@ Access requirements are verified at run time and recorded per source. Nothing is
 
 When a source needs registration or acceptance of terms, the thread stops at the access page, adds an entry to `data/LOCAL_DATA_REQUIRED.md`, and tells you what to download and where to put it. Creating accounts and accepting terms is yours to do.
 
-You choose the licences before T0 merges. The recommendation is MIT for code, because it is the simplest permissive licence and fits both Python and R reuse, and CC BY 4.0 for documents, figures and result tables, because it requires attribution and is the norm for open research outputs. Each data source keeps its own licence, recorded in its manifest row, and the repository licence never covers raw data.
+The licences are decided. Code and tests are under MIT, in `LICENSE`. Documents, the report, the site, figures and result tables are under CC BY 4.0, in `LICENSE-docs`. Each data source keeps its own licence, recorded in its manifest row, and neither repository licence covers raw data or third-party full texts.
 
 You also decide whether to archive the analysis lock publicly, you approve every merge, you review each data snapshot before it is published, and you approve the `results-*` tag that publishes the site.
 

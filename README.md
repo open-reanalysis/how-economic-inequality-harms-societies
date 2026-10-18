@@ -134,4 +134,4 @@ make clean-env        # fresh locked environment, snapshot, then make all
 
 ## Licence and citation
 
-Code and documents: to be chosen before the scaffold is merged. The plan recommends MIT for code and CC BY 4.0 for documents, figures and result tables. Data: each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
+Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
