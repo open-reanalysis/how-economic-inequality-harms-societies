@@ -87,13 +87,13 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 
 - [ ] The source Wilkinson and Pickett used for each indicator, and whether the series still exists.
 - [ ] Whether the original material contains an analysis of U.S. states.
-- [ ] Criteria by which the original countries were selected.
+- [ ] Criteria by which the original countries were selected. Inferred from the released 23 countries until the book is obtained.
 - [ ] Original country list and per-outcome sample sizes. No secondary-source count (21, 22 or 23) is used as a target.
 - [ ] Original inequality measure and reference year.
 - [ ] Original direction coding of each index component, recovered from original materials. The 2024 appendix's coding is recorded separately as update documentation.
 - [ ] Original handling of missing index components.
 - [ ] Details of the 2024 update, extracted from the [technical appendix](https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf) (sample, inequality year, Gini versus 80:20).
-- [ ] Current availability and terms of the Equality Trust data files. This is the first task, because the original reproduction depends on it.
+- [ ] Current availability and terms of the Equality Trust data files. The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained. This is the first task, because the original reproduction depends on it.
 
 ## Planned repository layout
 
