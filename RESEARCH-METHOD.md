@@ -1,362 +1,194 @@
-# Research Method: Reproducing and Presenting Wilkinson and Pickett’s Data Without Issuing a Verdict
+# Research method
 
-## Purpose
+This document defines what the project reproduces and collects, how research choices are made, and what the results establish. [INTENT.md](INTENT.md) sets the goals and scope. [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) describes the technical implementation and work organisation. Machine-readable analysis specifications hold the exact computational choices; [docs/method_rationale.md](docs/method_rationale.md) explains their sources and reasons. Technical schemas, storage rules, software tests and publication requirements belong in the implementation plan rather than being maintained again here.
 
-This project acquires, documents, reproduces, updates, and visualises the data and calculations cited by Richard Wilkinson and Kate Pickett. Its purpose is to let users inspect the observations, sources, calculations, figures, and deviations and draw their own conclusions.
-
-The project does not decide whether Wilkinson and Pickett are right or wrong. It does not attempt to prove or disprove causality, resolve the published controversies, or issue an overall verdict. Supporting and critical materials are collected and presented transparently, but neither is adopted as the project’s own position.
-
-## Documents
-
-This document is the research method. [INTENT.md](INTENT.md) sets the goals and the scope, and [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) sets the technical implementation and the order of the work. The exact choices of each calculation are in the machine-readable analysis specifications in `config/specs/`, and `docs/method_rationale.md` records the source, the reason and the status of each choice. Other documents summarise this one and link to it.
-
-## Research goals
+## Purpose and boundaries
 
 The project has six goals, in priority order:
 
-1. Download current versions of the datasets used by Wilkinson and Pickett.
-2. Reproduce their reported findings from the historical data and apply the documented calculations to current data.
-3. Download a folder-based package of sources supporting their findings, including academic and non-academic sources.
-4. Download a folder-based package of sources setting out controversies about their findings.
-5. Download additional datasets needed to investigate those controversies.
-6. Publish the reproduced data, figures, calculations, sources, and deviations through a GitHub Pages site.
+1. Obtain current versions of the datasets Wilkinson and Pickett used.
+2. Reproduce their reported findings from released or reconstructed historical data and apply the documented calculations to current data.
+3. Assemble a package of supporting sources, academic and non-academic.
+4. Assemble a package of sources describing controversies and relevant responses.
+5. Obtain datasets needed to investigate the identified controversies.
+6. Publish the data, calculations, figures, sources and deviations on a GitHub Pages site.
 
-Goals 1–5 produce the research deliverables. Goal 6 presents those deliverables for public inspection. Publication must not redefine the analyses or add substantive conclusions.
+Goals 1–5 form a research release that can be inspected without the website. The website presents those deliverables. Its implementation does not redefine the analyses.
 
-## Governing principle
+The project reports what the authors published, what its calculations produce and where the two differ. It does not issue an overall verdict on the authors or their critics, test the controversies, estimate policy effects or assess causality. A reproduced correlation does not establish a causal claim, and a discrepancy does not establish a critic's explanation. These boundaries permit conclusions about whether a specified calculation was reproduced, which observations were available and whether a variable or method changed.
 
-The method follows the smallest set of rules needed to make the same inputs produce the same published outputs. It does not invent general methodological rules for hypothetical edge cases that do not occur in the data.
+## Target results
 
-A choice is specified in advance when all three conditions hold:
+The scope covers identified international-country and U.S. state comparisons in the released data and the authors' methodological materials:
 
-1. a real ambiguity exists in the available sources or data;
-2. alternative treatments could change the observations or reported result; and
-3. the choice must be made before the result is calculated.
+- income inequality against each reported health or social measure and the Index of Health and Social Problems;
+- average income against the index or a measure where the authors reported that comparison for the same data; and
+- current counterparts of those calculations where the required series can be obtained.
 
-If an ambiguity does not affect the result, it is documented only when encountered. If an original methodological choice cannot be verified, the project records the assumption and does not present it as a verified decision by Wilkinson and Pickett.
+Countries and U.S. states are separate datasets and are never pooled. Other figures, later analyses, mechanisms and policy claims are outside the scope unless an explicit decision adds their underlying analysis. A claims register may document statements without making them reproduction targets.
 
-## Role of the research system
+[config/results_catalogue.csv](config/results_catalogue.csv) is the single list of target comparisons. Each row identifies the dataset, predictor, outcome or index, sample, statistic, published comparison value and source locator. It is fixed before reproduction begins. Every row remains visible, including a result that cannot be calculated; availability determines its outcome, not whether it enters the list. Later additions or corrections are dated and explained.
 
-The research system performs source tracing, data acquisition, documentation, calculation, validation, and visualisation. It may make technical choices required to execute the documented analysis, but it must distinguish those choices from substantive interpretation.
+## Historical evidence and reconstruction
 
-The system must:
+### Evidence and versions
 
-- identify the historical datasets and variables;
-- obtain the closest current versions of those variables;
-- preserve provenance, definitions, periods, units, transformations, and source links;
-- reproduce the reported calculations;
-- present historical and current results separately;
-- expose the plotted observations and downloadable data;
-- document missing data and departures from the historical calculation;
-- collect supporting and critical sources without adopting either position; and
-- state clearly when a result could not be reproduced.
+The project currently proceeds without the book itself and states this limitation. It uses the released international file, its sources sheet and errata, the Equality Trust's notes on statistical sources and methods, frequently asked questions and the authors' responses, and the released U.S. state file if obtained. Archived copies are identified by version or capture date. The notes have been located through an Internet Archive capture of 7 January 2017.
 
-The system must not:
+The Spirit Level at 15 and its technical appendix are used for their descriptions of the original method, timing and income ratio. Comparing the project's results with the 2024 update is outside scope.
 
-- declare Wilkinson and Pickett correct or incorrect;
-- infer causality from reproduced correlations;
-- decide that a criticism is correct merely because a reproduced value differs;
-- choose a source, period, transformation, or sample because it produces a preferred result;
-- introduce new models solely to strengthen or weaken the original argument;
-- silently replace the reported construct with a different measure; or
-- issue an overall evidential or policy verdict.
+Evidence is ranked according to the question being answered. A released file establishes the values in that file; methodological notes describe an intended calculation; a dated correction may supersede an earlier value or instruction. A later file is not automatically evidence of exactly what was analysed for the original publication. Secondary accounts can identify leads but do not silently override primary evidence. Later access to stronger primary evidence triggers a documented verification and, where needed, a new analysis version rather than silent replacement.
 
-## Reproduction scope
+Three questions are kept apart:
 
-“Reproduce their findings” means reproducing the reported international-country and United States state-level associations that are identifiable in the released data and methodological materials and computable from the historical datasets assembled by the project.
+1. Does the calculation reproduce the contents of the available released file?
+2. Does that file represent the data version behind the cited publication?
+3. Does the computed statistic match the value reported in that publication?
 
-The scope includes:
+Known revisions, conflicting source years and unit differences are documented against the affected comparison. If a correction defines a different historical version, that version is identified explicitly.
 
-- each identified indicator-level correlation;
-- each identified composite-index correlation;
-- the corresponding country or state observations;
-- comparisons with average income when these are reported from the same datasets;
-- the calculation of the same identified results using current data when a sufficiently comparable current series is available; and
-- the separate presentation of international and United States state results.
+### Method uncertainty
 
-The scope does not automatically include every figure, sentence, mechanism claim, causal claim, or policy recommendation made across Wilkinson and Pickett’s publications. Such claims may be recorded in a claims register, but they are tested only when the project explicitly includes the underlying reported analysis.
+Each consequential method choice has a source or a recorded assumption. Its evidence status distinguishes verification from released data or primary documentation, inference from author materials, a user-approved assumption, and an unresolved point. Approval allows the work to proceed; it does not prove that the authors made that choice.
 
-A compact result catalogue, `config/results_catalogue.csv`, lists the target results before calculation. Calculation and reporting both read it, and no other list of target results is kept. The source lineage does not define a result, because one variable can appear in several comparisons.
+The current run's assumptions and decisions are in [docs/worklist.md](docs/worklist.md). An unresolved choice that can change a deliverable is decided before the affected calculation. Hypothetical cases need no elaborate advance rule. The final specification must nevertheless identify all choices needed to reproduce its calculation, including choices that were unambiguous.
 
-```text
-result_id
-dataset
-indicator_or_index
-predictor
-sample
-reported_statistic
-reported_value
-source_reference
-historical_reproduction_required
-current_reproduction_required
-notes
-```
+### Access and reconstruction
 
-The list prevents selective reproduction without creating a larger claims-adjudication programme.
+Access is assessed separately for the international and U.S. state datasets from recorded retrieval attempts.
 
-## Results and their properties
-
-Every target result is calculated as a historical result and, where the data allow, as three current results, all within the agreed scope.
-
-- **Historical result.** The historical data and the documented historical method, on the historical sample.
-- **Primary current result.** The fixed historical sample populated with current data, using exact and conceptual successor series.
-- **Parallel current result with a refreshed sample.** The eligibility-refreshed current sample, with the same series.
-- **Parallel current result with substitutes.** The fixed historical sample, adding substitute measures.
-
-No other sample, outcome, measure or model is calculated.
-
-Each result records five properties separately, because no single category can express them all.
-
-- **Data provenance.** Released historical data, reconstructed data, combined data or current data, and for a historical result the access label of its dataset.
-- **Sample.** Historical, fixed or refreshed, with the units included and missing.
-- **Series comparability.** For a current result, the lowest comparability class among the series it uses.
-- **Method deviations.** Every disclosed change from the historical calculation, such as a conceptual successor series, a changed index component set or an approved assumption.
-- **Replay state.** Whether the result was calculated in the run, retained because a required input was missing, or not produced.
-
-A substitute measure is never presented as an unchanged data update.
-
-## Access to the original data
-
-Access is decided separately for the international data and for the United States state data, from the records of the retrieval attempts, and it gives the label of every historical result of that dataset.
-
-| Status | Definition | Label |
+| Access status | Meaning | Historical label |
 |---|---|---|
-| `verified_release` | Files download and hash, contain usable original data, and carry enough documentation to identify variables and units. | `DIRECT REPRODUCTION` |
-| `incomplete_release` | Some files download, but required sheets, metadata, source notes or formulas are missing. | `PARTIAL REPRODUCTION` |
-| `archived_copy` | A credible archive or third party supplies historical files, but provenance to the original release cannot be fully verified. | `ARCHIVE-BASED RECONSTRUCTION` |
-| `unavailable` | No usable original package is accessible. | `INDEPENDENT RECONSTRUCTION` |
+| verified_release | A provenance-verified release contains usable data and enough documentation to identify its variables and units | DIRECT REPRODUCTION |
+| incomplete_release | Released material is accessible but required data or method details are missing | PARTIAL REPRODUCTION |
+| archived_copy | Historical material is available but its provenance to the original release is not fully verified | ARCHIVE-BASED RECONSTRUCTION |
+| unavailable | No usable released package is accessible | INDEPENDENT RECONSTRUCTION |
 
-## Source lineage
+The dataset access label is accompanied by result-level provenance and uncertainty. Access to a file does not by itself verify every method detail. Released, reconstructed and combined observations are distinguishable.
 
-Each reproduced variable has a lineage from the historical source to the current source. The record contains only information needed to understand and reproduce the calculation:
+Where released data are unavailable, reconstruction uses the original sources and vintages identified in the authors' documentation. Source versions, periods, transformations, index rules and the precision of comparison with the published statistic are recorded before calculating it. For U.S. states this includes the archived agency series and published state tables identified in the source lineage.
 
-```text
-variable_id
-dataset
-role
-historical_definition
-historical_source
-historical_period
-historical_unit
-historical_transformation
-current_source
-current_series
-current_period
-comparability_class
-deviation_reason
-verification_status
-notes
-```
+Matching a reported correlation within the declared tolerance establishes numerical agreement at that precision. It does not establish that the reconstructed observations or every method choice are identical to the original ones; those require separate source evidence. A mismatch is recorded with its likely cause or an explicit statement that its cause remains unresolved. Inputs are never changed merely to improve agreement.
 
-The technical record of each retrieval, with its request, date, files, sizes and checksums, is kept once in the acquisition records described in the implementation plan, and the lineage refers to data sources by their IDs. The lineage covers the inequality measure, average income, every index component and extra measure, and the income and population series of the eligibility rule. The comparability classes are `EXACT_SUCCESSOR`, `CONCEPTUAL_SUCCESSOR`, `SUBSTITUTE`, `NO_CURRENT_EQUIVALENT` and `NOT_YET_VERIFIED`, and a row stays `NOT_YET_VERIFIED` only with a logged verification attempt and its reason.
+A partial state reconstruction is an acceptable documented outcome. Missing inputs, attempted acquisitions, uncertain method details and uncomputed catalogue rows are listed. It neither changes the country dataset's access label nor prevents the independent research release.
 
-Where more than one source is plausible, the primary source is selected by a documented source rule before examining the result. Where two sources give values for the same variable and unit, the values are compared and every difference is published. The other source then fills only the gaps of the primary one, after units are harmonised, and the combined series is the project's own, with every value keeping its source. Values are never averaged, and no source is selected according to which produces the closest correlation. In historical data the released file is primary, and a value filled from another source counts as reconstructed. Three disagreements between the released international file and the authors' notes are known: infant mortality is World Bank 2000 in the notes and OECD 2005 in the file, homicides are a rate per 100,000 for 1990 to 2000 in the notes and per million for 1999 to 2000 in the file, and the education score is PISA 2000 in the notes and PISA 2003 in the file.
+## Current series and comparability
 
-## Historical method uncertainty
+[docs/source_lineage.csv](docs/source_lineage.csv) connects each variable's historical meaning and source to its current counterpart. It covers inequality, average income, index components, other included measures, and eligibility variables. Requests, files, retrieval times, licences and checksums are maintained in the acquisition and source records to which it refers, rather than copied into the lineage.
 
-Published data, methodological notes, author responses, and legally accessible primary materials are used to reconstruct the historical method. Missing access to a book or source does not stop all work, but the project must not convert an inference into a verified historical fact.
+Series are chosen by documented correspondence to the historical variable before inspecting their associations.
 
-Method details use statuses such as:
+| Class | Meaning |
+|---|---|
+| EXACT_SUCCESSOR | Continuation of the same series with no material change in definition, unit or population |
+| CONCEPTUAL_SUCCESSOR | The same intended concept and target population, with a documented provider, survey, coverage or method difference |
+| SUBSTITUTE | A related but different measure |
+| NO_CURRENT_EQUIVALENT | No defensible current counterpart was identified |
+| NOT_YET_VERIFIED | Verification was attempted but remains incomplete, with the reason recorded |
 
-- `VERIFIED_FROM_PRIMARY_SOURCE`;
-- `VERIFIED_FROM_RELEASED_DATA`;
-- `INFERRED_FROM_AUTHOR_MATERIALS`;
-- `USER_APPROVED_ASSUMPTION`; and
-- `UNRESOLVED`.
+Comparability is separate from access. A corresponding series may exist but require permission, be unavailable to this run or have an unsuccessful retrieval. Such a barrier is recorded as an acquisition status; it is not by itself evidence that no current equivalent exists.
 
-User approval determines how the project proceeds when a decision is unavoidable. It does not prove that the approved choice was the original authors’ choice. Any material uncertainty appears with the relevant result. Each choice in a specification records its status.
+A conceptual successor's differences are disclosed with the result. Substitutes appear only in the separately labelled fixed-sample variant. The lineage's nominated series determine reproduction-data acquisition. Additional datasets collected for controversies have their own data map and do not silently enter the reproductions.
 
-The book itself is not used, and every report states this as a limitation. The method rests on the released international data with its sources sheet and errata, the Equality Trust's notes on statistical sources and methods, its frequently asked questions, the authors' 2010 responses to their critics and the released United States state data when they can be obtained. *The Spirit Level at 15* and its technical appendix are used only for what they say about the original method, its timing and the meaning of 80:20, and the results are not compared with the 2024 update. The assumptions approved before the run are listed in `docs/worklist.md`. A point they do not cover is put to the user before the calculation that depends on it. No country count or correlation from a secondary source, such as the draft brief's 21 countries or r ≈ 0.85, is used as a target.
+## Samples, periods and transformations
 
-### Facts to establish
+### Samples
 
-- The source the authors used for each variable, and whether that series still exists.
-- The ranking series and vintage of the eligibility rule, and the source that counted as comparable income distribution data.
-- The historical country list and the sample of each target result.
-- The inequality measure and its years. The appendix calls 80:20 a decile ratio, while the notes describe the 20:20 ratio of the incomes of the richest and the poorest fifths, averaged from the UN Human Development Reports of 2003 to 2006, and the notes' description is used.
-- The average income measure of each dataset and the comparisons reported with it.
-- The direction coding of every index component, fixed per measure rather than per concept.
-- The historical handling of missing index components.
-- The historical timing, which the appendix describes as an inequality measure averaged from values reported in 2003 to 2006 and measured in 1992 to 2001, with outcomes from 1999 to 2004, checked against the notes.
+The historical country sample is the verified membership of the released international dataset, currently identified as 23 countries. The historical state sample is 50 states, with the District of Columbia excluded unless primary evidence establishes otherwise. Each individual comparison uses the members with the required observations.
 
-## Samples and eligibility
+The primary current analysis keeps the historical master sample. A parallel analysis refreshes country eligibility using the rule the authors state in their 2010 response to Peter Saunders: start with the 50 richest countries, retain those with a population above 3 million, and require comparable income-distribution data.
 
-The project distinguishes three samples:
+The specification identifies the ranking measure and vintage, population period and income-distribution source. A consequential ambiguity about non-sovereign economies or ties is resolved before sample selection is finalised. The historical eligibility check is performed only if the required historical vintage can be obtained. An unavailable vintage is reported as a barrier, not replaced silently.
 
-1. the historical sample used for historical reproduction;
-2. the fixed historical sample populated with current data; and
-3. an eligibility-refreshed current sample, when the historical eligibility rule can be applied to current data.
+The refreshed state sample equals the fixed state sample unless the documented original rule establishes otherwise, so identical results are reported once.
 
-The fixed sample is the primary current sample, and the refreshed sample gives a parallel result. The historical country sample is the 23 countries in the released international data, and the historical state sample is the 50 states, with the District of Columbia excluded unless the original material shows otherwise. The authors state the eligibility rule in their 2010 response to Peter Saunders's report for Policy Exchange: a country is eligible when it is among the 50 richest countries in the world, has more than 3 million people and has comparable income distribution data. Market democracy is the authors' reason for the rule, not a condition of it. For the states the rule is all 50 states, so the refreshed state sample equals the fixed one and is reported once with that note.
+Outcome values and availability never determine master-sample eligibility. Missing observations affect only the comparison that requires them. Every result identifies the master sample, included units, missing units and final sample size.
 
-The refreshed sample applies the documented rule to a declared current data vintage. A historical check applies the rule to the ranking vintage in the approved assumptions and compares the result with the released 23 countries. If that vintage cannot be obtained, the check is not made and the reason is recorded. At minimum, the project records the ranking series and period, the population threshold, and the source used to determine whether comparable income-distribution data exist. Outcome values and outcome availability never determine master-sample eligibility.
+### Periods and variables
 
-Only ambiguities that actually affect country inclusion require an additional decision. For example, a tie rule is needed only if a consequential tie occurs. Every included and excluded country is listed with a short reason, while common source information is stored once in the sample metadata rather than duplicated unnecessarily.
+For each variable, the specification identifies the series, reference period, target population, unit, conversion, transformation and direction coding. Direction is specified per measure; different measures of the same concept need not point in the same direction.
 
-A minimal eligibility table is:
+Publication year, retrieval date and observation period are distinguished. Current means the frozen release obtained within the declared acquisition window. The current specification fixes the period-selection rule, treatment of multi-year measures and temporal alignment between predictor and outcomes, preserving the documented historical timing where possible. A necessary departure is disclosed. Sources and periods are not selected according to the resulting correlation.
 
-```text
-country
-rank_value
-rank
-population
-comparable_inequality_data
-eligible
-exclusion_reason
-```
+### Parallel sources
 
-Outcome-specific missingness is reported separately. A country may remain eligible for the master sample while being absent from one result because that outcome is unavailable.
+Parallel sources are compared before combination. The specification identifies the primary source, the purpose of any secondary source and the conditions under which it may fill a gap. Definitions, populations, periods and units must be sufficiently compatible; unit conversion alone does not establish compatibility. Incompatible sources remain separate.
 
-## Index and missing components
+For reproduction of an available released file, that file supplies the primary values. Filling its gaps from another source is reconstruction and is labelled accordingly. Values are never averaged to improve agreement, every combined observation retains its source, and differing values are published in a comparison table. The combination rule is fixed before correlation is calculated.
 
-The index is standardised and combined as the documented historical procedure did it. A unit with missing components is handled by the historical rule if that rule can be established. If it cannot, the choice is approved by the user before any index is calculated and recorded as an assumption. No numeric comparability threshold, such as a minimum number of components, is introduced without a stated basis and that approval.
+## Index, missing values and statistics
 
-Every index result reports the component set it used, the availability of each component per unit, and how its component set differs from the historical index. A current index whose component set changed is reported as a changed index, never as the historical index with newer data. The reproductions impute nothing and delete no outliers.
+The calculation follows the documented historical procedure for standardisation, its reference population and denominator, direction coding, weights and index construction. The numerical settings are held in the analysis specification, with their evidence or assumption status in the method rationale.
 
-## United States state reconstruction
+Missing components are treated by the authors' rule where it can be established. Otherwise the necessary operational choice is approved before index calculation and identified as an assumption. No new minimum-component threshold is introduced without a stated basis and approval. Missing values are not imputed and outliers are not deleted.
 
-When a released state-level file is unavailable, the project reconstructs the variables from the sources, periods, and transformations stated in the authors’ methodological materials. Those choices and the acceptance tolerance are recorded before calculating the target correlation.
+Every index result shows its component set, component availability per unit and differences from the historical index. A reduced or substituted component set is reported as a changed index, not simply the historical index with newer observations.
 
-Agreement with the reported statistic is a validation check, not a tuning objective. Inputs are not revised after seeing the statistic except to correct a documented extraction or coding error. If the independently selected inputs produce the reported result within the declared tolerance, the comparison is recorded. If important source or method details remain uncertain, the result is labelled as a reconstruction.
+The project calculates the documented comparison statistic, Pearson correlation and its p-value where those are the reported calculation, and always discloses the number of observations. Figures show exactly the observations entering the calculation. New models and a general sensitivity-analysis programme are outside scope.
 
-The first release may be completed with a partial state reconstruction. The acquisition attempts, the missing inputs, the uncertain method points and the target results that could not be reproduced are then documented, and the partial status is shown with every state result. The access and reproduction labels of the international data and of the state data are decided separately, and the two datasets are never pooled.
+## Result variants and interpretation
 
-The historical state sources come from the authors' notes. The candidate current series are starting points for the source lineage, which confirms each one and assigns its class.
+Each catalogue comparison has a historical result or documented barrier and the following current counterparts where possible.
 
-| Variable | Historical definition, period and source | Candidate current series | Expected class |
+| Variant | Sample | Series | Role |
 |---|---|---|---|
-| Income inequality | Gini coefficient by state, 1999, US Census Bureau table S4 | American Community Survey table B19083 | `CONCEPTUAL_SUCCESSOR` |
-| Trust | Share agreeing that most people can be trusted, 1999, General Social Survey, reverse coded | General Social Survey by state, whose state identifier is restricted and needs a data agreement with NORC | `NO_CURRENT_EQUIVALENT` unless the restricted data are obtained |
-| Life expectancy | At birth, men and women, 2000, Census Population Division interim projections, reverse coded | NCHS U.S. State Life Tables | `EXACT_SUCCESSOR` or `CONCEPTUAL_SUCCESSOR` |
-| Infant mortality | Deaths in the first year per 1000 live births, 2002, NCHS | CDC WONDER linked birth and infant death data | `EXACT_SUCCESSOR` |
-| Obesity | BMI above 30, men and women averaged, 1999 to 2002, corrected for self-report bias by Ezzati and others, J R Soc Med 2006, PMID 16672759, PMC1457748 | Behavioral Risk Factor Surveillance System, self-reported | `SUBSTITUTE` |
-| Mental health | Days in the past month when mental health was not good, 1993 to 2001, BRFSS, as published by Zahran and others, MMWR Surveillance Summaries 2005, PMID 16251867 | BRFSS health-related quality of life, mentally unhealthy days | `EXACT_SUCCESSOR` |
-| Education | Grade 8 maths and reading scores combined, 2003, NAEP, reverse coded | NAEP, latest grade 8 maths and reading | `EXACT_SUCCESSOR` |
-| Teenage births | Births per 1000 women aged 15 to 19, 2000, National Vital Statistics | CDC WONDER natality | `EXACT_SUCCESSOR` |
-| Homicides | Homicides per 100,000, 1999, FBI Crime in the United States | CDC WONDER mortality by homicide, because the FBI series has gaps from the 2021 change to NIBRS | `CONCEPTUAL_SUCCESSOR` |
-| Imprisonment | Prisoners per 100,000, 1997 to 1998, Bureau of Justice Statistics, not log transformed | BJS Prisoners series | `EXACT_SUCCESSOR` |
-| Average income | As the notes name it | As the source lineage finds it | Assigned by the source lineage |
+| Historical reproduction or reconstruction | Historical | Historical sources | Check the available historical calculation against the cited result |
+| Fixed-sample current reproduction | Historical membership | Exact and conceptual successors | Primary current result |
+| Eligibility-refreshed current reproduction | Refreshed eligibility | Exact and conceptual successors | Parallel result |
+| Fixed-sample result with substitutes | Historical membership | Also permits declared substitutes | Parallel result |
 
-The notes list nine index components for the states but say that 40 states have all eight measures, and the state index uses all nine until the released file settles which is right. The notes report trust as missing for Alaska, Delaware, Hawaii, Idaho, Maine, Nebraska, New Mexico, Nevada and South Dakota, and homicides as missing for Wyoming.
+A component with no current counterpart remains missing. A substitute-only component is missing from the primary index under its missing-component rule and is added only in the substitute variant. A comparison with no admissible predictor or outcome is not produced and has a specific reason. The refreshed country result is not possible if comparable current inequality data cannot support its eligibility rule. No additional sample, outcome, measure or model is introduced without a scope decision.
 
-## Source packages
+Results record separately:
 
-Supporting and controversy materials are kept in separate folder-based packages with a shared documentation standard:
+- data provenance and the historical dataset's access label;
+- master and actual sample membership;
+- series comparability;
+- method deviations and material uncertainty; and
+- replay state: computed, retained from an earlier run or not produced.
 
-```text
-sources/
-  supporting/
-    academic/
-    original-authors/
-    responses/
-    non-academic/
-    manifest.csv
-    README.md
-  controversies/
-    academic/
-    books/
-    reports/
-    responses/
-    manifest.csv
-    README.md
-```
+A conceptual successor is not presented as an unchanged measurement merely because it enters the primary variant. A current result is a comparison under its declared data and method, not proof that a relationship persisted under identical conditions.
 
-The supporting package includes academic sources as well as relevant non-academic materials. The controversy package identifies each criticism through an author, exact title, year, publication, and stable identifier or URL. Replies and responses are linked to the relevant criticism rather than treated as the project’s conclusion.
+## Prospective decisions, corrections and validation
 
-Both packages are searched and screened by one protocol.
+Current specifications and the catalogue they implement are fixed before any current association in the catalogue, including average-income comparisons, is computed or inspected. The reproduction lock identifies the specifications and their versions. Prior knowledge of published historical or 2024 correlations is disclosed; the blinding is procedural.
 
-- **Topics.** Income inequality and health and social outcomes across rich countries and across United States states, the data, index and analyses of *The Spirit Level*, and the critiques of them and the replies.
-- **Services.** OpenAlex, Crossref and PubMed, the Equality Trust site, and the works the authors and their critics cite.
-- **Cut-off.** One search cut-off date, recorded in the worklist and in each package README.
-- **Citation chaining.** One step backward through the references and one step forward through the citing works of the seed works in the controversy register and of the authors' own works, and no further.
-- **Inclusion.** A source with an identifiable author, a citable record and an argument or evidence about the findings or the hypothesis behind them. Whether it supports or criticises the findings never decides inclusion.
+Unanticipated consequential choices are recorded before the affected calculation proceeds. A substantive change after the lock is a dated amendment with a new specification version; affected results remain available under both versions.
 
-Every search is logged in the package's `search_log.csv` and every screening decision in its `screening_log.csv`, and the package README states the known gaps. A package is complete when the protocol has been carried out and documented. Completion does not mean finding every possible source, and the two packages need not hold equal numbers of sources. The supporting package needs at least one peer-reviewed study by authors other than Wilkinson and Pickett.
+Documented extraction, transcription, unit, source-version or coding errors may be corrected after results have been seen. The correction records its evidence, reason and affected results and retains the earlier version in history. A software correction is distinguished from a change in research method. Neither is justified solely by closer agreement with a published number.
 
-Legally obtainable texts are downloaded into the declared research workspace. Redistributable files may be published when the terms for the exact version permit it. Other files remain in a documented local location where lawful, with provenance and a checksum recorded. A public link or open-access label alone is not treated as permission to redistribute a file.
+Validation establishes that the declared files, versions, sample and transformations were used and that the calculation can be independently regenerated. Numerical correctness is checked against independent test cases; comparison with the authors' values is a research result. Discrepancies are reported whether they increase, decrease or leave an association unchanged. An unresolved cause remains unresolved.
 
-## Controversy-related datasets
+Acquisition is separate from replay. Reproduction uses stored inputs rather than changing live services. Restricted inputs are identified. A result kept because its input was unavailable in a replay is described as retained, not recomputed. The technical implementation of these checks and records is specified in the implementation plan.
 
-Additional datasets are collected because they are needed to investigate identified controversies, not because the project presumes that they support either side. Each testable controversy is mapped to the variables, geography, years, and candidate sources it would require.
+## Source packages and controversy data
 
-Before anything is acquired, the variables, geographic coverage and years each controversy needs are defined in its row of the controversy data map. The smallest justified data package that meets that definition is then acquired, and a dataset that several controversies need is acquired once and linked to each of them. Each row ends as `acquired`, `partially_acquired` or `barrier_documented`, the last with the concrete access, licensing or availability barrier. The map keeps the coverage obtained apart from what the data could later be used to study. No statistical test of any controversy is run in this project.
+Supporting and controversy sources follow one search and screening protocol.
 
-## Calculations and validation
+- The topics are inequality and health or social outcomes across rich countries and U.S. states, the authors' data and analyses, and identified criticisms and responses.
+- Searches use OpenAlex, Crossref and PubMed, the Equality Trust site and cited sources.
+- One search cut-off is recorded in the worklist and package READMEs.
+- Citation chaining follows one step backward and one step forward from the declared author and controversy seed works.
+- Inclusion requires an identifiable author, a citable record and relevant argument or evidence. Whether a source supports or challenges the findings does not determine its inclusion.
 
-The project calculates only the statistics needed to reproduce the identified findings and current-data counterparts. It does not add models or diagnostics merely to comment on the adequacy of the original research.
+Searches and screening decisions are logged with their dates and reasons. Academic, non-academic, author, response and mixed roles remain visible. A source with several roles is acquired once and linked to each relevant package or controversy.
 
-Validation checks that:
+The supporting search explicitly seeks independent peer-reviewed evidence. Completion depends on carrying out the declared search and documenting what it found, not obtaining a predetermined number of favourable sources. If independent support is not identified under that procedure, this and the search limitations are reported. The packages need not contain equal numbers of sources and do not claim exhaustive coverage.
 
-- the intended source files and versions were used;
-- transformations follow the documented method;
-- sample membership is recorded;
-- missing observations are visible;
-- calculated values can be regenerated from stored inputs;
-- reported comparison values resolve to conventional source citations; and
-- no source or processing choice was selected after examining whether it favoured Wilkinson and Pickett or their critics.
+Every included text that can lawfully be obtained is downloaded. Redistribution requires permission under the terms of the exact version; public access alone is insufficient. Other texts remain local where lawful, with public bibliographic, version and acquisition information. Detailed folder and record layouts are defined in the implementation plan.
 
-A reported value that cannot be independently recreated is retained as a cited comparison value, not silently treated as reproduced. A difference between a reproduced and a reported value is a research result. It is logged in the discrepancy log with its likely cause, does not by itself mean a software error, and is never used to tune the calculation.
+Each controversy has an identified author, title, year, stable identifier and, for a book, edition. Criticisms of the general hypothesis are distinguished from criticisms of a particular reproduced result, with their mapping explained. The register records the argument and available responses without adopting either as the project's conclusion.
 
-## Visual presentation
+Before controversy-related data are acquired, the map specifies the smallest justified package: variables, units, geography and periods. Shared datasets are obtained once. Each package ends as acquired, partially acquired or barrier documented. Coverage obtained is distinguished from what a later investigation would require. No controversy test or verdict is calculated here.
 
-The GitHub Pages site is a transparent data presentation, not an argumentative verdict. For each included result, it should show where available:
+## Reporting and completion
 
-1. the result reported by Wilkinson and Pickett;
-2. the historical reproduction;
-3. the fixed-sample current result;
-4. the parallel current results with the refreshed sample and with substitutes;
-5. the observations underlying the plot;
-6. the countries or states included and missing;
-7. source, period, variable, and comparability information;
-8. disclosed deviations from the historical calculation; and
-9. a downloadable table containing the displayed data.
+For every target comparison the research release presents the cited statistic, historical result, primary current result and available parallel results, with observations, sample sizes, periods, sources, comparability and deviations. An unavailable calculation remains visible with its barrier. The release of goals 1–5 includes the headline table and a short deviation summary and does not wait for the website or a complete state reconstruction.
 
-The download contains exactly the observations the figure plots, where the licensing terms allow publishing them. Interactive features, such as switching between historical and current data, identifying a country or state from its plotted point or showing and hiding the fitted line, are a later addition, not a condition of the first version, and need no new application framework.
+The first website presents those results with figures, underlying tables and downloadable plotted observations where publication is permitted. It links the supporting and controversy records, source documentation and code. Restrictions are stated where observations cannot be distributed. Interactive controls are optional later enhancements and do not gate the first release.
 
-The site may make descriptive statements such as:
+The report may state that a calculation was reproduced, did not match, remained uncertain or used a materially different variable. Such statements do not establish an overall causal, policy or controversy verdict. Author and critic claims are attributed accurately and kept separate from the project's calculations.
 
-> Wilkinson and Pickett reported this association.
+The research deliverables are complete when every target result has a computed result, reconstruction or documented barrier; each in-scope variable has a current counterpart or a documented absence or access status; both source packages have completed the declared search with known gaps; and each testable controversy has its defined data package or documented partial acquisition or barrier. Published observations and calculations must be traceable to sources, specifications and run records.
 
-> The historical reproduction produced the following value.
-
-> Applying the documented calculation to the current dataset produced the following result.
-
-> This variable differs from the historical definition in the following way.
-
-The site must not state that the reproduced association proves or disproves Wilkinson and Pickett, establishes causality, resolves a criticism, or confirms a policy effect.
-
-## Symmetry and neutrality
-
-Neutrality means preserving the distinction between source claims, reproduced calculations, and project interpretation.
-
-- Wilkinson and Pickett’s claims are stated accurately before any criticism is linked to them.
-- Criticisms are attributed to identifiable sources and represented faithfully.
-- Responses are linked to the claims or criticisms they address.
-- Supporting and critical materials use the same bibliographic and provenance requirements.
-- Data and method decisions are not changed according to the direction or significance of a result.
-- Deviations are reported whether they strengthen, weaken, or leave unchanged the reported association.
-
-The project does not manufacture false balance. It reports what was found under the documented collection procedure and leaves the evidential assessment to users.
-
-## Reporting boundaries
-
-The final report explains what was reproduced, reconstructed, updated, or not reproducible. It distinguishes calculation from interpretation and uses conventional citations that resolve to stable sources.
-
-The report does not infer a mechanism from an aggregate association. It also does not introduce an opposing methodological standard that was not part of the reproduction. Questions about mechanisms, causality, policy effects, or the ultimate merits of published criticisms remain visible through the claims and source packages but outside the project’s own verdict.
-
-## Completion criteria
-
-The research is complete when:
-
-- current versions or documented absence statuses exist for the historical variables;
-- every target result has a historical reproduction, reconstruction, or documented barrier, and a partial United States state reconstruction is documented as partial;
-- current counterparts are calculated where sufficiently comparable data exist;
-- the supporting package contains academic and non-academic sources found under the documented search protocol, with its known gaps stated;
-- the controversy package identifies criticisms and responses through resolvable sources;
-- controversy-related datasets or documented barriers are present;
-- each figure and table can be traced to data, code, source metadata, and a declared sample;
-- the research deliverables of goals 1 to 5, with a headline table and a short summary of the deviations, can be read on their own without the site;
-- the Pages site exposes the data and calculations needed for independent inspection; and
-- neither the report nor the site issues an overall verdict.
-
-The governing test is simple: a user should be able to see what Wilkinson and Pickett reported, inspect what the project reproduced with historical and current data, understand every material deviation, download the observations, consult supporting and critical sources, and form an independent conclusion.
+Website publication is the separate sixth goal. Its completion requires the declared minimum presentation and working access to the research release, rather than new analyses or an overall judgement.
