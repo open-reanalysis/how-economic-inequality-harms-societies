@@ -31,7 +31,7 @@ A further section, **interpretation**, records what the analysis does and does n
 | Causal claim | Changing inequality would change outcomes |
 | Policy prediction | A specific intervention would produce a specific result |
 
-"Correlation does not establish causation" applies only to causal claims and policy predictions. It is never recorded as a criticism of whether a reported correlation is accurate.
+"Correlation does not establish causation" applies only to proposed mechanisms, causal claims and policy predictions. A correlation the authors reported without a causal interpretation is never presented as their causal inference. It is never recorded as a criticism of whether a reported correlation is accurate.
 
 Words such as *debunk*, *toxic*, *cherry-picking*, *proves* and *disproves* appear only inside quotations attributed to an identified source. Findings use neutral phrasing: "was correlated with", "the estimate was sensitive to", "the result changed when", "data were not sufficiently comparable to assess".
 
