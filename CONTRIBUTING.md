@@ -121,7 +121,7 @@ Install the hooks once with `pixi run pre-commit install`. Before opening a pull
 
 Write commit messages in the imperative, with a short subject line and a body that says why. Commits written with an AI assistant carry a `Co-Authored-By` line naming it.
 
-The pull request template is the merge package the plan requires. Fill in every item. A thread pull request from a branch in this repository auto-merges by squash into its integration branch once every required check passes. A milestone pull request into `main` is opened by the integrator, reviewed by a maintainer and merged with a merge commit only by that maintainer's decision. A Claude session never merges into `main`. An approving review becomes mandatory once more than one person contributes.
+The pull request template is the merge package the plan requires. Fill in every item. A thread pull request from a branch in this repository auto-merges by squash into its integration branch once every required check passes. A milestone pull request into `main` is opened by the integrator, reviewed by a maintainer and merged with a merge commit only by that maintainer's decision. A Claude session never merges into `main`. The ownership check does not apply one thread's paths to a milestone pull request. It runs in milestone mode instead and accepts the pull request only if every commit on the integration branch is the squash commit of a thread pull request that passed its own ownership check. An approving review becomes mandatory once more than one person contributes.
 
 ## Licences
 

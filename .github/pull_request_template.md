@@ -3,7 +3,7 @@
 
 ## Thread
 
-<!-- For example t2. A pull request from a fork gets a thread label from a maintainer instead. -->
+<!-- For example t2. A pull request from a fork gets a thread label from a maintainer instead. A milestone pull request names its milestone here, such as milestone/1-lock, and replaces the merge package with the constituent pull request report from milestone mode. -->
 
 ## What this changes and why
 
