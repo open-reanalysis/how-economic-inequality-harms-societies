@@ -2,6 +2,16 @@
 
 A transparent, reproducible examination of the macro-comparative analyses in Richard Wilkinson and Kate Pickett's *The Spirit Level*. The project does not set out to prove or disprove the authors. It produces four separate results and keeps them separate in every table, figure and sentence.
 
+## Goals
+
+1. Download the current version of every dataset Wilkinson and Pickett used.
+2. Reproduce their findings, from the released data and by their own method on the current data.
+3. Download a package of sources supporting their findings, academic and non-academic.
+4. Download a package of sources setting out controversies about their findings.
+5. Download datasets that may support those controversies.
+
+The goals come first. The sensitivity tests, the causal assessment and the website below extend them and never delay them.
+
 > **Status: pre-release.** Nothing has been analysed yet. The analysis lock (see [Declared before examined](#declared-before-examined)) has not been committed. No result is reported until it has.
 
 ## The results
@@ -9,7 +19,8 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 | Result | Question | Label used in outputs |
 |---|---|---|
 | **Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
-| **Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
+| **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? | `UPDATED REPRODUCTION` |
+| **Current replication** | Under the variants the analysis lock declares, are comparable cross-sectional correlations present today? | `CURRENT` |
 | **Sensitivity** | Do the original reproduction or the current replication change under alternatives that a named source has raised, whether a critic, the original authors or an independent researcher, or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
 | **Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | Evidence tier 1 to 4 and one verdict per outcome: `CAUSAL EFFECT SUPPORTED`, `CAUSAL EFFECT NOT SUPPORTED`, `REVERSE OR COMMON-CAUSE PATTERN` or `UNDETERMINED`, with the claim ID. A claim country-level data cannot address is `NOT TESTABLE IN THIS DESIGN` |
 
@@ -104,11 +115,13 @@ data/
   03_analysis_ready/
   04_controversy_test_data/
   metadata/manifests/          # URL, UTC time, SHA-256, size, licence, LFS flag per file
-sources/                       # bibliographic records with links, one folder per source type
+sources/                       # supporting and controversy packages, records and READMEs per folder
 code/                          # numbered Python and R scripts, shared helpers in code/lib/
 tests/
 docs/
-  analysis_lock.md             # committed before current outcome analysis
+  source_lineage.csv           # Wilkinson's source per indicator and its current release
+  reproduction_lock.md         # committed before the updated reproduction
+  analysis_lock.md             # committed before the extensions
   inclusion_rules.md
   controversy_register.md
   claims_register.csv          # statements by Wilkinson and Pickett, classified
@@ -130,22 +143,21 @@ make clean-env        # fresh clone and locked environment, verify-data, then ma
 make acquire          # contacts live sources, used only to add new data
 ```
 
-## Out of scope
-
-- Analysing U.S.-state material in the first release. If the original package contains it, only its existence, file names and provenance are recorded.
-
 ## Definition of done
 
-1. Original data are preserved, checksummed and analysed under the access label the evidence supports, with every retrieval attempt recorded.
-2. Every required primary dataset is validated, or a predeclared fallback or labelled omission applies. Access failure never permits silent substitution.
-3. Original findings are reproduced, or every non-reproduction is explained in the reproduction discrepancy log.
-4. The analysis lock is committed before current outcome analysis.
-5. Every controversy in the report is attributed to an identifiable source.
-6. Every assessed statement by Wilkinson and Pickett is in the claims register with a checked source and a class. Every causal claim is assessed with a declared design that states its assumptions, or marked not testable in this design with the reason. Every outcome has an evidence tier and a verdict with all nine criteria tabulated, and the power simulation and negative-control results are published.
-7. Test data for each stated criticism are saved.
-8. Every result states its dataset versions, country sample, year ranges, source IDs and lock commit hash.
-9. All scripts run end to end from a fresh clone in offline replay, and results from restricted inputs are labelled `RESTRICTED INPUT`.
-10. Results are published on GitHub Pages from a tagged release.
+1. The current version of every dataset Wilkinson and Pickett used is downloaded, with its original source recorded in the source lineage.
+2. Their findings are reproduced from the released data and by their own method on the current data, with every difference logged.
+3. The supporting source package is downloaded, academic and non-academic.
+4. The controversy source package is downloaded.
+5. The controversy test data are downloaded for every row of the frozen register.
+6. Original data are preserved, checksummed and analysed under the access label the evidence supports, with every retrieval attempt recorded.
+7. Every required primary dataset is validated, or a predeclared fallback or labelled omission applies. Access failure never permits silent substitution.
+8. The reproduction lock is committed before the updated reproduction, and the analysis lock before the extensions.
+9. Every controversy in the report is attributed to an identifiable source.
+10. Every assessed statement by Wilkinson and Pickett is in the claims register with a checked source and a class. Every causal claim is assessed with a declared design that states its assumptions, or marked not testable in this design with the reason. Every outcome has an evidence tier and a verdict with all nine criteria tabulated, and the power simulation and negative-control results are published.
+11. Every result states its dataset versions, country sample, year ranges, source IDs and lock commit hash.
+12. All scripts run end to end from a fresh clone in offline replay, and results from restricted inputs are labelled `RESTRICTED INPUT`.
+13. Results are published on GitHub Pages from a tagged release.
 
 ## Contributing
 

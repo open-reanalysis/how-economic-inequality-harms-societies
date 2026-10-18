@@ -1,5 +1,17 @@
 # Intent
 
+## Goals and priorities
+
+The project has five goals, in this order of priority.
+
+1. Download the current version of every dataset Wilkinson and Pickett used.
+2. Reproduce their findings, both from the data they released and by applying their documented method to the current version of the same data.
+3. Download a package of sources supporting their findings, academic and non-academic.
+4. Download a package of sources setting out controversies about their findings.
+5. Download datasets that may support those controversies.
+
+Everything else in this document serves these goals or extends them. The extensions are the designed variants of the current analysis, the sensitivity tests, the causal assessment and the website. An extension never delays a goal. If the original material contains an analysis of U.S. states, that analysis is part of goals 1 and 2, as a second dataset for the same hypothesis that is always reported separately from the country analysis.
+
 ## Purpose
 
 This project is a transparent, reproducible examination of Richard Wilkinson and Kate Pickett's macro-comparative analyses in *The Spirit Level*. It is not an attempt to prove or disprove the authors. It produces four separate results and keeps them separate in every table, figure and sentence.
@@ -10,7 +22,9 @@ The first result is whether the original released data produce the correlations 
 
 **Original reproduction.** Can the reported correlations and the composite Health and Social Problems Index be reproduced from the data Wilkinson and Pickett released? The answer carries one of four labels depending on what original material is accessible today, `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION`, and that label appears on every original reproduction output.
 
-**Current descriptive replication.** Using current data, a pre-specified country sample, a pre-specified source hierarchy and documented source-selection rules, are comparable cross-sectional correlations present today?
+**Updated reproduction.** Does the original method, applied unchanged to the current release of the same data, reproduce the reported correlations and the index? This is the primary answer to whether the findings hold today. It runs under a small reproduction lock that fixes only what the original method leaves open for current data.
+
+**Current descriptive replication.** Using current data, a pre-specified country sample, a pre-specified source hierarchy and documented source-selection rules, are comparable cross-sectional correlations present today under the variants the analysis lock declares? These variants extend the updated reproduction and never replace it.
 
 **Sensitivity.** How do the results change under alternatives that a named source has actually raised? Every alternative is in scope only where a named source or a sensitivity rationale declared in the analysis lock identifies it. The source may be a critic, Wilkinson and Pickett themselves, or an independent researcher, and its role does not affect whether the alternative is tested. The authors' own robustness tests, such as the population-weighted life-expectancy correlation in the 2024 technical appendix, enter on the same terms as a critic's alternative. This applies equally to country inclusion and expanded samples, inequality metric, index composition, weighting, outlier treatment, time alignment, data comparability, panel models and macro-level covariates. A panel model or a covariate belongs here when it tests the robustness of a descriptive correlation. When it tests a causal claim it belongs to the causal question.
 
@@ -34,7 +48,7 @@ Words such as debunk, toxic, cherry-picking, proves and disproves appear only in
 
 **Provenance before analysis.** Every file is stored exactly as downloaded, with URL, UTC timestamp, SHA-256 checksum and licence terms. Nothing in a raw folder is ever overwritten.
 
-**Declared before examined.** Country inclusion rules, inequality measure, source hierarchy, year alignment, index construction, domain membership, the panel protocol, the type of every analysis as either a sensitivity analysis or part of a causal assessment, with the identifying assumptions of each causal design, the thresholds of the causal standard, the verdict rules, the negative controls and the power simulation are committed as an analysis lock before anyone computes, views or infers an association between current inequality data and current outcome data. The blinding is procedural only. The original correlations and the 2024 update's correlations are published, so the lock records which of them its author had seen. The lock's commit hash is recorded in the report. It is called an internal analysis lock unless it has been archived in an immutable public record, in which case it may be called a preregistration.
+**Declared before examined.** Country inclusion rules, inequality measure, source hierarchy, year alignment, index construction, domain membership, the panel protocol, the type of every analysis as either a sensitivity analysis or part of a causal assessment, with the identifying assumptions of each causal design, the thresholds of the causal standard, the verdict rules, the negative controls and the power simulation are committed as an analysis lock before anyone computes, views or infers an association between current inequality data and current outcome data, other than the updated reproduction. The updated reproduction runs under its own earlier reproduction lock, and the analysis lock lists its results as prior knowledge. The blinding is procedural only. The original correlations and the 2024 update's correlations are published, so the lock records which of them its author had seen. The lock's commit hash is recorded in the report. It is called an internal analysis lock unless it has been archived in an immutable public record, in which case it may be called a preregistration.
 
 **Source hierarchy before outcome analysis.** For each indicator the analysis lock names a preferred source, permitted fallback sources, the minimum comparability conditions and the circumstances that justify a fallback. A fallback is recorded before the outcome is joined to inequality and never depends on the association it produces. Sources are never chosen by the strength of the correlation they produce.
 
@@ -64,7 +78,7 @@ Access to the original Equality Trust data is a gate, not an assumption. A 2017 
 
 ## Facts that must be verified before use
 
-Each of these is recorded in the source-verification log with the passage, table or file it was verified from. The original country list, per-outcome usable samples and composite-index sample. The original inequality measure and its year. The direction coding of every original index component, recovered from original materials and fixed per measure rather than per concept, since for example an intergenerational elasticity and a mobility index point in opposite directions. The 2024 appendix's direction coding is recorded separately as update-method documentation and is not taken as evidence of the original coding. The original handling of missing components in the index. The original timing, which the 2024 appendix describes as an inequality measure averaged from values reported in 2003 to 2006 and measured in 1992 to 2001, with outcomes from 1999 to 2004. This is the authors' later description and is checked against the book. The meaning of the term 80:20, which the appendix calls a decile ratio although the name suggests a ratio of quintile shares, is settled from the original source and used consistently. The details of the 2024 update listed above, including its index built as the mean of available z-scores, with 17 countries having all ten indicators and 5 lacking the mental illness indicator. The 2024 appendix's population-weighted life-expectancy correlation and its extended index of fifteen indicators, which adds five environmental indicators to the original ten. These are recorded as the update's methods and are never used as targets. The current availability and terms of the Equality Trust data files.
+Each of these is recorded in the source-verification log with the passage, table or file it was verified from. The source Wilkinson and Pickett used for each indicator and for the inequality measure, and whether that series still exists. Whether the original material contains an analysis of U.S. states. The original country list, per-outcome usable samples and composite-index sample. The original inequality measure and its year. The direction coding of every original index component, recovered from original materials and fixed per measure rather than per concept, since for example an intergenerational elasticity and a mobility index point in opposite directions. The 2024 appendix's direction coding is recorded separately as update-method documentation and is not taken as evidence of the original coding. The original handling of missing components in the index. The original timing, which the 2024 appendix describes as an inequality measure averaged from values reported in 2003 to 2006 and measured in 1992 to 2001, with outcomes from 1999 to 2004. This is the authors' later description and is checked against the book. The meaning of the term 80:20, which the appendix calls a decile ratio although the name suggests a ratio of quintile shares, is settled from the original source and used consistently. The details of the 2024 update listed above, including its index built as the mean of available z-scores, with 17 countries having all ten indicators and 5 lacking the mental illness indicator. The 2024 appendix's population-weighted life-expectancy correlation and its extended index of fifteen indicators, which adds five environmental indicators to the original ten. These are recorded as the update's methods and are never used as targets. The current availability and terms of the Equality Trust data files.
 
 ## Causal assessment
 
@@ -82,11 +96,9 @@ The project assesses causal claims where the data and the declared method can su
 
 **Policy inference.** A claim that reducing inequality would improve an outcome is separate from a causal verdict. It needs a stated counterfactual, the population it applies to and an effect size, and it is reported with its own uncertainty. Verdicts are written in the same form whether they agree or disagree with the original authors. A criticism found after the lock is reported as a post-lock analysis and cannot change a verdict the locked rules produced.
 
-## Out of scope
-
-If the original package contains U.S. state material, the original access thread records its existence, file names and provenance in the original-release manifest. It is not cleaned, harmonised, prepared for redistribution or analysed beyond that metadata record in the first release unless a separate scope amendment is approved.
-
 ## Done means
+
+The five goals come first. The current version of every dataset Wilkinson and Pickett used is downloaded, with the original source and the current release of each series recorded side by side, or the reason a series could not be updated. Their findings are reproduced from the released data and from the current data by their own method, with every difference logged. The supporting and the controversy source packages are downloaded, with every legally obtainable text held and a README in each folder saying what it holds and what it lacks. The controversy test data are downloaded for every row of the frozen register.
 
 Original data are preserved, checksummed and analysed under the access label the evidence supports, with every retrieval attempt recorded. Original findings are reproduced, or every non-reproduction is explained in an auditable discrepancy log.
 
