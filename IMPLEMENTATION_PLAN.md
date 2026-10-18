@@ -10,7 +10,7 @@ The project has five goals, in this order of priority. They come from the origin
 |---|---|---|---|---|
 | 1 | Download the current version of every dataset Wilkinson and Pickett used | Original access, source lineage, inequality data, outcome data | The released original data in `data/00_original_released/`, `docs/source_lineage.csv` and the current data in `data/01_raw_current/` | 1 |
 | 2 | Reproduce their findings, from the released data and by their documented method on the current data | Original reproduction, reproduction lock, updated reproduction | `outputs/tables/original_*` and `outputs/tables/updated_reproduction_*`, each with its discrepancy log | 1 and 2 |
-| 3 | Download a package of sources supporting their findings, academic and non-academic | Primary and supporting sources | `sources/00_primary_wilkinson/`, `sources/01_supporting_academic/` and `sources/05_supporting_nonacademic/`, each with its records and README | 2 |
+| 3 | Download a package of sources supporting their findings, academic and non-academic | Original access for the authors' own works, primary and supporting sources for the rest | `sources/00_primary_wilkinson/`, `sources/01_supporting_academic/` and `sources/05_supporting_nonacademic/`, each with its records and README | 1 and 2 |
 | 4 | Download a package of sources setting out controversies about their findings | Controversy sources and register | `sources/02_criticism_academic/`, `sources/03_criticism_nonacademic/` and `sources/04_replies_and_responses/`, each with its records and README, and the frozen controversy register | 2 |
 | 5 | Download datasets that may support those controversies | Controversy test data | `data/04_controversy_test_data/`, with every package linked to at least one controversy | 2 |
 
@@ -30,16 +30,16 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 |---|---|---|---|
 | 0 | Scaffold | Now | 1 |
 | 1A | Original access | Scaffold merged | 1 |
+| 1A | Primary and supporting sources, controversy sources and register, claims register | Scaffold merged. They work alongside milestone 1 and merge into milestone 2 | 2 |
 | 1B | Source lineage, original reproduction | Original access merged | 1 |
 | 1C | Inequality data, outcome data | Source lineage merged | 1 |
 | 1D | Reproduction lock | Original reproduction, inequality data and outcome data merged | 1 |
 | 1E | Reproduction lock gate | Milestone 1 reviewed, merged into `main` and tagged. The hash and archive decision merge into milestone 2 | 1 to 2 |
 | 2A | Updated reproduction | Reproduction lock gate passed | 2 |
-| 2A | Primary and supporting sources, controversy sources and register, claims register | Scaffold merged, with pull requests into milestone 2 | 2 |
 | 2B | Controversy test data | Frozen controversy register merged | 2 |
 | 3 | Report | Milestone 2 reviewed and merged into `main` | 3 |
 
-Each thread has a name used in prose and an ID used by tools. The ID names the thread's branches, its pipeline file, its test folder, its manifest and its source-verification log, and it prefixes its source IDs. Wave numbers and milestone numbers stay numeric because they give the order of execution.
+Each thread has a name used in prose and an ID used by tools. The ID names the thread's branches, its pipeline file, its test folder, its manifest and its source-verification log, and it prefixes its source IDs. Wave numbers and milestone numbers stay numeric because they give the order of execution. The wave says when a thread starts, and the milestone says where it merges.
 
 | Thread | ID | Goal |
 |---|---|---|
@@ -72,7 +72,7 @@ A thread reads another thread's output only from its milestone's integration bra
 
 For every retrieval attempt the original access thread records the HTTP status, redirect chain, response headers where available, UTC timestamp, SHA-256, file size, MIME type and whether the file is machine-readable. A 2017 Equality Trust post says the data could be downloaded. That establishes nothing about today, so the gate is decided only by these records.
 
-**Reproduction lock gate.** The reproduction lock thread commits `docs/reproduction_lock.md` before any thread computes, views or infers an association between current inequality data and current outcome data. The lock fixes, for current data, only what the original method leaves open. It names the series for each indicator from `docs/source_lineage.csv` and the successor rule where a series has ended. It fixes the reference years and the lag that keep the original timing, and which original countries still meet the original selection criteria. It also fixes the original index procedure, measure, statistic and graphic conventions, as the original reproduction thread verified them. Anything the original study did not document is fixed as one named choice with labelled alternatives. Downloading data, reading metadata and checking country coverage before the lock are allowed.
+**Reproduction lock gate.** The reproduction lock thread commits `docs/reproduction_lock.md` before any thread computes, views or infers an association between current inequality data and current outcome data. The lock fixes, for current data, only what the original method leaves open. It names the series for each indicator from `docs/source_lineage.csv` and the successor rule where a series has ended. It fixes the reference years and the lag that keep the original timing, and which original countries still meet the original selection criteria, as the original reproduction thread verified them from the book. Where the original material contains a U.S. state analysis, the lock fixes the state series, reference years and state inclusion rule in the same way. It also fixes the original index procedure, measure, statistic and graphic conventions, as the original reproduction thread verified them. Anything the original study did not document is fixed as one named choice with labelled alternatives. Downloading data, reading metadata and checking country coverage before the lock are allowed.
 
 The lock is defined on `main`, after your review. The reproduction lock pull request merges `docs/reproduction_lock.md` into milestone 1. When you have reviewed and merged milestone 1 into `main`, its merge commit on `main` is the lock commit, and the integrator tags it `reproduction-lock-v1`. The first pull request into milestone 2 then adds `docs/reproduction_lock_hash.txt` with the tag, the lock commit hash and the file's SHA-256. The hash file cannot be part of the lock, because it records the lock's own hash. Every result and the report cite the tag and the lock commit hash. `make check-contracts` compares the lock file's contents with the most recent `reproduction-lock-*` tag, and a later change is a dated amendment with a new tag, with affected results reported under both versions.
 
@@ -104,7 +104,7 @@ The project lives in the public GitHub repository https://github.com/open-reanal
 
 | Milestone | Integration branch | Threads | What you review first |
 |---|---|---|---|
-| 1. Data and original reproduction | `milestone/1-data` | Scaffold, original access, source lineage, original reproduction, inequality data, outcome data, reproduction lock | The source lineage, the original reproduction results with their access label, and the reproduction lock |
+| 1. Data and original reproduction | `milestone/1-data` | Scaffold, original access, source lineage, original reproduction, inequality data, outcome data, reproduction lock | The source lineage, the authors' own works in `sources/00_primary_wilkinson/`, the original reproduction results with their access label, and the reproduction lock |
 | 2. Updated reproduction and source packages | `milestone/2-reproduction` | Reproduction lock hash and archive decision, updated reproduction, primary and supporting sources, controversy sources and register, controversy test data, claims register | The updated reproduction results with their discrepancy log, the two source packages with their READMEs, the frozen controversy register, the controversy test data and the claims register |
 | 3. Report and publication | `milestone/3-report` | Report | The report and site, before you approve the `results-v1` tag |
 
@@ -164,17 +164,21 @@ After the scaffold thread merges, a thread that needs a change in a file the sca
 
 Serves goals 1 and 2. Decides the access gate. Downloads and preserves whatever original material is available without modifying it.
 
+Also obtains the authors' own works that milestone 1 depends on, because source lineage, original reproduction and the reproduction lock read them. These are *The Spirit Level*, *The Spirit Level at 15* with its technical appendix, and Pickett and Wilkinson's "Income inequality and health: a causal review", DOI 10.1016/j.socscimed.2014.12.031. They form `sources/00_primary_wilkinson/`, with its `records.csv` and `README.md`, which is the first part of the goal 3 package. The book is copyrighted and is supplied by you, so it is listed in `data/LOCAL_DATA_REQUIRED.md` with its edition. *The Spirit Level at 15*, DOI 10.15124/yao-de9s-7k93, is copyright of the Equality Trust and the authors. Its terms allow free use for research with full acknowledgement but require permission for re-use in other publications, so it is kept as a local copy and never attached to a release. The copy you supplied on 18 October 2026 has SHA-256 `c14eb8832b6aea4f7d02817e535125a7a34f0e630a271238db73175febdb2aea` and 39 pages. Its figures carry no correlation coefficients, which are in the technical appendix.
+
+Extracts from the technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. The log covers methods, definitions, samples and years. Result values are recorded by updated reproduction.
+
 Publishes `outputs/tables/original_sample_recovery.csv` as early as possible. The file contains country membership, outcome availability flags, source references and documented inclusion notes. It contains no outcome values, correlations or figures, because the reproduction lock thread reads it.
 
 Preserves any U.S. state material in the original package like every other file and records in `original_sample_recovery.csv` which states and outcomes it covers, so that original reproduction and source lineage can treat it as a second dataset.
 
 Records every verified fact about the original study, with the passage, table or file it came from, in its part of the source-verification log.
 
-Owns `data/00_original_released/`, `code/01_ingest_original.py`, `data/metadata/manifests/original-access.csv`, `outputs/tables/original_sample_recovery.csv`, `outputs/diagnostics/original_access_record.md` and `docs/source_verification/original-access.md`.
+Owns `data/00_original_released/`, `sources/00_primary_wilkinson/`, `code/01_ingest_original.py`, `data/metadata/manifests/original-access.csv`, `outputs/tables/original_sample_recovery.csv`, `outputs/diagnostics/original_access_record.md` and `docs/source_verification/original-access.md`.
 
 ### Source lineage
 
-Serves goal 1. Starts once original access has merged, so it can read the released data. Builds `docs/source_lineage.csv`, which records for each of the ten indicators, for the inequality measure and for any U.S. state series the source Wilkinson and Pickett actually used. Each row takes the source from the book's notes or the released data, never from a later summary. It records the original series and its years, and the newest release of that same series. Where the series has ended or changed definition, it names the closest successor and the reason. The inequality and outcome data threads download only what this table names, so "the data Wilkinson used" never becomes "comparable data" without a recorded reason.
+Serves goal 1. Starts once original access has merged, so it can read the released data. Builds `docs/source_lineage.csv`, which records for each of the ten indicators, for the inequality measure and for any U.S. state series the source Wilkinson and Pickett actually used. Each row takes the source from the book's notes or the released data, never from a later summary. It reads the book from the original access thread's local copy. It records the original series and its years, and the newest release of that same series. Where the series has ended or changed definition, it names the closest successor and the reason. The inequality and outcome data threads download only what this table names, so "the data Wilkinson used" never becomes "comparable data" without a recorded reason.
 
 Each row carries a verification status and a log reference. A row whose original source could not be confirmed is marked to be verified, and its current series is not chosen until it is confirmed. Reads the original material and the book, and reads no outcome values.
 
@@ -182,7 +186,7 @@ Owns `docs/source_lineage.csv` and `docs/source_verification/source-lineage.md`.
 
 ### Original reproduction
 
-Serves goal 2. Answers the original reproduction question under the label the access gate assigned. Verifies from the files and the original book's notes the inequality measure and year, the direction of each index component and the handling of missing components. None of these are assumed. Undocumented choices are implemented as labelled alternatives.
+Serves goal 2. Answers the original reproduction question under the label the access gate assigned. Verifies from the files and the original book's notes the country selection criteria, the inequality measure and year, the direction of each index component and the handling of missing components. None of these are assumed. Undocumented choices are implemented as labelled alternatives.
 
 Outputs are split into two kinds. Exact reproduction outputs use only the statistic, country cases, transformations and graphic conventions documented in the original study, including the authors' documented composite-index procedure as it actually handled countries with incomplete components. Supplementary diagnostics are labelled as modern additions and never presented as original-study outputs. These are confidence intervals, Spearman correlations, robust methods and influence diagnostics.
 
@@ -224,19 +228,17 @@ Owns `docs/reproduction_lock.md`, `docs/reproduction_lock_hash.txt`, `docs/repro
 
 Serves goal 2. Applies the original method, as fixed in the reproduction lock, unchanged to the current release of the same data. It uses the same countries where they still qualify, the same inequality measure, the same index procedure and the same statistic and graphic conventions. This is the project's answer to whether the findings hold in current data.
 
-Prepares its analysis file with `code/03c_prepare_updated_reproduction.py` into `data/03_analysis_ready/updated_reproduction/`, using the shared index helpers in `code/lib/index.py`. Analyses it with `code/05c_updated_reproduction.py`. Writes the results, each with the provenance fields every result row carries and the reproduction lock tag, and a discrepancy log that compares each value with the original and with the 2024 update where both report it. Supplementary diagnostics are labelled as modern additions, as in original reproduction. Reproduces the U.S. state analysis the same way where source lineage found a current release of its series.
+Prepares its analysis file with `code/03c_prepare_updated_reproduction.py` into `data/03_analysis_ready/updated_reproduction/`, using the shared index helpers in `code/lib/index.py`. Analyses it with `code/05c_updated_reproduction.py`. Writes the results, each with the provenance fields every result row carries and the reproduction lock tag, and a discrepancy log that compares each value with the original and with the 2024 update where both report it. After the reproduction lock it records the 2024 values it compares against, from table 1 of the technical appendix, in its own source-verification log, because *The Spirit Level at 15* shows them only as figures. Supplementary diagnostics are labelled as modern additions, as in original reproduction. Reproduces the U.S. state analysis the same way where source lineage found a current release of its series.
 
-Owns `code/03c_prepare_updated_reproduction.py`, `code/05c_updated_reproduction.py`, `data/03_analysis_ready/updated_reproduction/`, `data/metadata/manifests/updated-reproduction.csv`, `docs/data_dictionary_updated_reproduction.md`, `outputs/tables/updated_reproduction_*`, `outputs/figures/updated_reproduction_*` and `outputs/diagnostics/updated_reproduction_discrepancies.md`.
+Owns `code/03c_prepare_updated_reproduction.py`, `code/05c_updated_reproduction.py`, `data/03_analysis_ready/updated_reproduction/`, `data/metadata/manifests/updated-reproduction.csv`, `docs/data_dictionary_updated_reproduction.md`, `outputs/tables/updated_reproduction_*`, `outputs/figures/updated_reproduction_*` and `outputs/diagnostics/updated_reproduction_discrepancies.md` and `docs/source_verification/updated-reproduction.md`.
 
 ### Primary and supporting sources
 
-Serves goal 3. Builds the package of sources supporting Wilkinson and Pickett's findings in `sources/00_primary_wilkinson/`, `sources/01_supporting_academic/` and `sources/05_supporting_nonacademic/`. The primary folder holds the authors' own work, including *The Spirit Level*, Pickett and Wilkinson's "Income inequality and health: a causal review", DOI 10.1016/j.socscimed.2014.12.031, *The Spirit Level at 15* and its technical appendix. The supporting folders hold independent academic studies and non-academic material, such as policy reports and Equality Trust publications, that support the findings. Runs backward and forward citation searching from the authors' works and from the supporting studies it finds, with the same care as the controversy package.
+Serves goal 3. Builds the rest of the package of sources supporting Wilkinson and Pickett's findings in `sources/01_supporting_academic/` and `sources/05_supporting_nonacademic/`. The authors' own works are already in `sources/00_primary_wilkinson/`, from the original access thread. The supporting folders hold independent academic studies and non-academic material, such as policy reports and Equality Trust publications, that support the findings. Runs backward and forward citation searching from the authors' works and from the supporting studies it finds, with the same care as the controversy package.
 
 Downloads every text in the package that can be obtained legally, as described under the repository workflow. Each folder has a `records.csv` and a `README.md` that counts the texts downloaded locally, the texts attached to a release and the records without a text, with the reason for each record without one.
 
-Extracts from the 2024 technical appendix the passages, table definitions, country list, reference-year statements, index construction and direction coding, and records them in its source-verification log as update-method documentation. This includes the appendix's description of the original timing, its use of the term 80:20 and its use of PISA 2018 instead of PISA 2022. The log covers methods, definitions, samples and years only and excludes result values.
-
-Owns `sources/00_primary_wilkinson/`, `sources/01_supporting_academic/`, `sources/05_supporting_nonacademic/`, `code/00_fetch_supporting_sources.py` and `docs/source_verification/supporting-sources.md`.
+Owns `sources/01_supporting_academic/`, `sources/05_supporting_nonacademic/`, `code/00_fetch_supporting_sources.py` and `docs/source_verification/supporting-sources.md`.
 
 ### Controversy sources and register
 
@@ -306,7 +308,7 @@ The licences are decided. Code and tests are under MIT, in `LICENSE`. Documents,
 
 Branch protection does not require an approving review while you are the only human contributor, since GitHub does not let an author approve their own pull request. Your decision to merge a milestone pull request is the human review. Once a second person contributes, one approving review becomes required. Most commits so far are co-authored by an AI model, so a human pass over the gates in this plan before the scaffold thread starts is worth doing.
 
-You check each source's licence where a thread could not establish it, which decides whether its files may be committed. You decide whether to accept Git LFS and its quota for files above 50 MiB, or to require threads to acquire smaller per-indicator files instead. You connect the repository to Zenodo so that tagged releases are mirrored. You decide later what to do with the locally kept copies of texts that may not be redistributed.
+You check each source's licence where a thread could not establish it, which decides whether its files may be committed. You decide whether to accept Git LFS and its quota for files above 50 MiB, or to require threads to acquire smaller per-indicator files instead. You connect the repository to Zenodo so that tagged releases are mirrored. You decide later what to do with the locally kept copies of texts that may not be redistributed. You supply the book. The copyright holder of *The Spirit Level at 15* asks that research use be registered with the Equality Trust for impact assessment, and whether to do so is your decision.
 
 You also decide whether to archive the reproduction lock publicly, you review and merge the three milestone pull requests, and you approve the `results-*` tag that publishes the site.
 
