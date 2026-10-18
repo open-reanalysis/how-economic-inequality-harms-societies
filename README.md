@@ -18,7 +18,7 @@ The five deliverables are released together as `deliverables-v1`, which complete
 
 | Result | Question | Label used in outputs |
 |---|---|---|
-| **Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
+| **Historical reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
 | **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? The fixed-sample result keeps the historical sample. Series with no exact or conceptual successor are left out, and a separate result adds substitute measures. The eligibility-refreshed result reapplies the original selection rule once it is verified. | `UPDATED REPRODUCTION, FIXED SAMPLE`, `UPDATED REPRODUCTION, FIXED SAMPLE, WITH SUBSTITUTES` and `UPDATED REPRODUCTION, ELIGIBILITY REFRESHED` |
 
 Beside the results, the project delivers the two source packages, the controversy register with its datasets, and the register of the authors' claims.
@@ -53,7 +53,7 @@ Every file is stored exactly as downloaded, with URL, UTC timestamp, SHA-256 che
 The source lineage records, for each indicator, the source Wilkinson and Pickett used and the newest release of that same series. Where a series has ended, it names the closest successor and the reason. Sources are never chosen by the strength of the correlation they produce.
 
 ### Declared before examined
-The series, years, country rule, index procedure and statistic of the updated reproduction are committed in a **reproduction lock** before any current outcome is correlated with current inequality data. The lock does not cover the original reproduction, because the original data and correlations are already published. The blinding is procedural only, and the lock records which published results its author had seen. The lock's commit hash is stamped on every report.
+The series, years, country rule, index procedure and statistic of the updated reproduction are committed in a **reproduction lock** before any current outcome is correlated with current inequality data. The lock does not cover the historical reproduction, because the original data and correlations are already published. The blinding is procedural only, and the lock records which published results its author had seen. The lock's commit hash is stamped on every report.
 
 ### Versioned "current" data
 "Current" means the version of each source retrieved during the declared acquisition window, pinned by retrieval time, release or version identifier, query parameters and checksum. A later rerun against revised live data is a new acquisition, not the same analysis.
@@ -83,7 +83,7 @@ Further entries are added only with all four fields complete. Supporting literat
 
 ## Facts that must be verified before use
 
-Each item is logged in `docs/source_verification/` with the passage, table or file it was verified from. Differences between reproduced and reported values go to `outputs/diagnostics/original_reproduction_discrepancies.md`.
+Each item is logged in `docs/source_verification/` with the passage, table or file it was verified from. Differences between reproduced and reported values go to `outputs/diagnostics/historical_reproduction_discrepancies.md`.
 
 - [ ] The source Wilkinson and Pickett used for each indicator, and whether the series still exists.
 - [ ] Whether the original material contains an analysis of U.S. states.
@@ -93,7 +93,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 - [ ] Original direction coding of each index component, recovered from original materials. The 2024 appendix's coding is recorded separately as update documentation.
 - [ ] Original handling of missing index components.
 - [ ] Details of the 2024 update, extracted from the [technical appendix](https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf) (sample, inequality year, Gini versus 80:20).
-- [ ] Current availability and terms of the Equality Trust data files. The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained. This is the first task, because the original reproduction depends on it.
+- [ ] Current availability and terms of the Equality Trust data files. The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained. This is the first task, because the historical reproduction depends on it.
 
 ## Planned repository layout
 
@@ -101,13 +101,13 @@ The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATIO
 
 ## Reproducibility
 
-Every result that rests on redistributable data is reproducible from a clone and the documented acquisition and verification procedure. Results that depend on restricted inputs, such as data that require registration, carry the label `RESTRICTED INPUT` and list what a person must obtain locally. CI replays every step whose inputs are committed and skips steps whose inputs are restricted.
+Every result that rests on redistributable data is reproducible from a clone, `make fetch-data` and the documented verification procedure. Results that depend on restricted inputs, such as data that require registration, carry the label `RESTRICTED INPUT` and list what a person must obtain locally. CI replays every step whose inputs are redistributable and skips steps whose inputs are restricted.
 
 ```text
 data/
-  00_original_released/        # original files as downloaded, committed
+  00_original_released/        # original files as downloaded
   00_original_reconstruction/  # sources for a reconstruction, if needed
-  01_raw_current/              # current data as downloaded, committed
+  01_raw_current/              # current data as downloaded
   03_analysis_ready/
   04_controversy_test_data/
   metadata/manifests/          # URL, UTC time, SHA-256, size and licence per file
@@ -136,9 +136,10 @@ Commands will work once the scripts exist.
 
 ```text
 git clone https://github.com/open-reanalysis/how-economic-inequality-harms-societies.git
-make verify-data      # checks every committed data file against the manifest
+make fetch-data       # fetches the project's LFS files and release assets and checks their hashes
+make verify-data      # checks every stored data file against the manifest
 make all              # offline, regenerates tables, figures and report
-make clean-env        # fresh clone and locked environment, verify-data, then make all
+make clean-env        # fresh clone and locked environment, fetch-data, verify-data, then make all
 make acquire          # contacts live sources, used only to add new data
 ```
 

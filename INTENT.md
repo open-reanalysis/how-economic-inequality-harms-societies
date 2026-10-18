@@ -20,7 +20,7 @@ Beside the results it delivers two documented collections. The source packages g
 
 ## Research questions
 
-**Original reproduction.** Can the reported correlations and the composite Health and Social Problems Index be reproduced from the data Wilkinson and Pickett released? The answer carries one of four labels depending on what original material is accessible today, `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION`, and that label appears on every original reproduction output.
+**Historical reproduction.** Can the reported correlations and the composite Health and Social Problems Index be reproduced from the data Wilkinson and Pickett released? The answer carries one of four labels depending on what original material is accessible today, `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION`, and that label appears on every historical reproduction output.
 
 **Updated reproduction.** Does the original method, applied unchanged to the current release of the same data, reproduce the reported correlations and the index? It runs under a small reproduction lock that fixes only what the original method leaves open for current data. It has two results. The fixed-sample result keeps the verified historical sample. The eligibility-refreshed result applies the verified original selection rule at the current reference date, and for the countries it waits until the book confirms that rule. Any changed sample, outcome, measure or model is a modern extension, not a reproduction.
 
@@ -76,7 +76,7 @@ Each of these is recorded in the source-verification log with the passage, table
 
 ## Done means
 
-The five goals come first. The current version of every dataset Wilkinson and Pickett used is downloaded, with the original source and the current release of each series recorded side by side in the source lineage, or the reason a series could not be updated. Their findings are reproduced from the released data and from the current data by their own method, with every difference logged. The supporting and the controversy source packages are downloaded, with every legally obtainable text held and a README in each folder saying what it holds and what it lacks. The controversy datasets are downloaded for every row of the frozen register that names data, and each package is linked to at least one controversy.
+The five goals come first. The current version of every dataset Wilkinson and Pickett used is downloaded, with the original source and the current release of each series recorded side by side in the source lineage, or the reason a series could not be updated. Their findings are reproduced from the released data and from the current data by their own method, with every difference logged. The supporting and the controversy source packages are downloaded, with every legally obtainable text held and a README for each package saying what it holds and what it lacks. The controversy datasets are downloaded for every row of the frozen register that names data, and each package is linked to at least one controversy.
 
 Original data are preserved, checksummed and analysed under the access label the evidence supports, with every retrieval attempt recorded. Every non-reproduction, original or updated, is explained in an auditable discrepancy log. Access failure does not allow silent substitution or a claim that the corresponding outcome was reproduced.
 
@@ -84,6 +84,6 @@ The reproduction lock is committed before the updated reproduction. Every contro
 
 Every final result identifies its exact dataset version, country sample, outcome-year range, inequality-year range, source IDs, component availability and reproduction-lock commit hash.
 
-The final clean build is an offline replay from a fresh clone, using only the committed and checksummed data files, plus any restricted files held locally. It generates the final tables, figures, manifests, data dictionaries and report.
+The final clean build is an offline replay from a fresh clone, using only the project's stored and checksummed data files, fetched where they are not in git, plus any restricted files held locally. It generates the final tables, figures, manifests, data dictionaries and report.
 
 The five deliverables are released as `deliverables-v1` at the end of milestone 2, and that release completes the original assignment. As an addition, the results are published as a website on GitHub Pages, built by GitHub Actions from a tagged release and stating the release tag, the reproduction-lock tag and the commit it was built from.
