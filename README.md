@@ -99,7 +99,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 
 ## Planned repository layout
 
-The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are stored exactly as acquired, by a storage method chosen per source, and their checksums are recorded in the manifests. Whether files above 50 MiB use Git LFS is still open. `sources/supporting/` and `sources/controversies/` are the two packages. Every legally obtainable text is downloaded. Texts whose terms allow publishing are published in their package in the repository. Other texts are recorded as sources with their link, DOI or archived URL and the hash of the downloaded file, which is kept locally outside git.
+The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are stored exactly as acquired, by a storage method chosen per source, and their checksums are recorded in the manifests. Bulk archives are not acquired. Only the relevant series are extracted from them. `sources/supporting/` and `sources/controversies/` are the two packages. Every legally obtainable text is downloaded. Texts whose terms allow publishing are published in their package in the repository. Other texts are recorded as sources with their link, DOI or archived URL and the hash of the downloaded file, which is kept locally outside git.
 
 ## Reproducibility
 
