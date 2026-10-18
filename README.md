@@ -1,18 +1,25 @@
 # How Economic Inequality Harms Societies: an Open Reanalysis
 
-A transparent, reproducible examination of the macro-comparative analyses in Richard Wilkinson and Kate Pickett's *The Spirit Level*. The project does not set out to prove or disprove the authors. It produces three separate results and keeps them separate in every table, figure and sentence.
+A transparent, reproducible examination of the macro-comparative analyses in Richard Wilkinson and Kate Pickett's *The Spirit Level*. The project does not set out to prove or disprove the authors. It produces four separate results and keeps them separate in every table, figure and sentence.
 
 > **Status: pre-release.** Nothing has been analysed yet. The analysis lock (see [Declared before examined](#declared-before-examined)) has not been committed. No result is reported until it has.
 
-## The three results
+## The results
 
 | Result | Question | Label used in outputs |
 |---|---|---|
 | **A. Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
 | **B. Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
 | **C. Sensitivity** | Do A or B change under alternatives that a named critic has raised or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
+| **E. Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | `CAUSAL ASSESSMENT` + claim ID, or `NOT TESTABLE IN THIS DESIGN` |
 
-A fourth section, **interpretation**, records what the analysis does and does not establish. The project does not estimate a causal effect of inequality. Fixed-effects and covariate models are sensitivity analyses only.
+A further section, **interpretation**, records what the analysis does and does not establish.
+
+## What the project does and does not claim
+
+1. Descriptive results are reported as correlations.
+2. Causal claims are assessed only where the data and a method declared in the analysis lock can support an assessment. Each statement by Wilkinson and Pickett is first classified as a descriptive correlation, a proposed mechanism or a causal claim, and a correlation they reported without a causal interpretation is never presented as their causal inference.
+3. Every result states the assumptions it relies on. A causal assessment also states what its design cannot rule out, and a claim that country-level data cannot address is reported as not testable in this design.
 
 ## Vocabulary
 
@@ -24,11 +31,11 @@ A fourth section, **interpretation**, records what the analysis does and does no
 | Causal claim | Changing inequality would change outcomes |
 | Policy prediction | A specific intervention would produce a specific result |
 
-"Correlation does not establish causation" applies only to causal claims and policy predictions. It is never recorded as a criticism of whether a reported correlation is accurate.
+"Correlation does not establish causation" applies only to proposed mechanisms, causal claims and policy predictions. A correlation the authors reported without a causal interpretation is never presented as their causal inference. It is never recorded as a criticism of whether a reported correlation is accurate.
 
 Words such as *debunk*, *toxic*, *cherry-picking*, *proves* and *disproves* appear only inside quotations attributed to an identified source. Findings use neutral phrasing: "was correlated with", "the estimate was sensitive to", "the result changed when", "data were not sufficiently comparable to assess".
 
-Causal readings, mechanisms and policy predictions are reported only when explicitly advanced by Wilkinson and Pickett or another cited source, and each is labelled as an author claim, critic claim or project result.
+Causal readings, mechanisms and policy predictions are reported only when explicitly advanced by Wilkinson and Pickett or another cited source, or as results of a causal design declared in the analysis lock, and each is labelled as an author claim, critic claim or project result.
 
 ## Principles
 
@@ -98,6 +105,7 @@ docs/
   analysis_lock.md             # committed before current outcome analysis
   inclusion_rules.md
   controversy_register.md
+  claims_register.csv          # statements by Wilkinson and Pickett, classified
   source_verification/
   data_dictionary.md
 site/                          # Quarto report and results website
@@ -117,7 +125,6 @@ make clean-env        # fresh locked environment, snapshot, then make all
 
 ## Out of scope
 
-- Estimating a causal effect of inequality.
 - Analysing U.S.-state material in the first release. If the original package contains it, only its existence, file names and provenance are recorded.
 
 ## Definition of done
@@ -127,10 +134,11 @@ make clean-env        # fresh locked environment, snapshot, then make all
 3. Original findings are reproduced, or every non-reproduction is explained in the reproduction discrepancy log.
 4. The analysis lock is committed before current outcome analysis.
 5. Every controversy in the report is attributed to an identifiable source.
-6. Test data for each stated criticism are saved.
-7. Every result states its dataset versions, country sample, year ranges, source IDs and lock commit hash.
-8. All scripts run end to end from a clean environment in offline replay.
-9. Results are published on GitHub Pages from a tagged release.
+6. Every assessed statement by Wilkinson and Pickett is in the claims register with a checked source and a class. Every causal claim is assessed with a declared design that states its assumptions, or marked not testable in this design with the reason.
+7. Test data for each stated criticism are saved.
+8. Every result states its dataset versions, country sample, year ranges, source IDs and lock commit hash.
+9. All scripts run end to end from a clean environment in offline replay.
+10. Results are published on GitHub Pages from a tagged release.
 
 ## Contributing
 
