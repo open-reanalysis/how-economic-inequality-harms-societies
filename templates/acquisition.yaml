@@ -1,0 +1,20 @@
+# Template for data/metadata/acquisitions/<acquisition_id>.yaml. Validated by code/lib/records.py.
+# path, size_bytes and sha256 of a file never change once committed. Other fields may be corrected.
+acquisition_id: acq-<yyyymmddthhmmssz>-<slug>
+source_ids: [<source_id>, ...]
+method: <download | api | manual | archive>
+request: <exact URL or query with parameters>
+requested_utc: <ISO 8601 UTC>
+response_status: <HTTP status or archive status>
+dataset_version: <provider version | unversioned>
+status: <acquired | user_supplied | awaiting_user | access_failed | not_downloaded_restricted | removed>
+corrects: <acquisition_id or file path | null>
+retrieval_log: <path to the retrieval record>
+notes: <text>
+files:
+  - path: <repository path>
+    size_bytes: <integer>
+    sha256: <hex>
+    storage: <git | local>
+    redistributable: <true | false>
+    source_ids: [<source_id>, ...]

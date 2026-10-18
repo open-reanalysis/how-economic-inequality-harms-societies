@@ -1,0 +1,10 @@
+path_pattern
+make/outcome-data.mk
+data/local_data_required/outcome-data.md
+docs/ownership/outcome-data.csv
+data/01_raw_current/outcomes/**
+data/01_raw_current/eligibility/**
+code/02b_download_outcomes.py
+code/02f_build_outcome_coverage.py
+outputs/tables/outcome_source_coverage.csv
+docs/source_verification/outcome-data.md

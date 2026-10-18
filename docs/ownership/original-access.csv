@@ -1,0 +1,15 @@
+path_pattern
+make/original-access.mk
+data/local_data_required/original-access.md
+docs/ownership/original-access.csv
+data/00_original_released/**
+sources/supporting/original-authors/**
+code/01_ingest_original.py
+code/lib/readers/equality_trust.py
+tests/readers/equality_trust/**
+tests/fixtures/readers/equality_trust/**
+outputs/tables/original_sample_recovery.csv
+outputs/diagnostics/original_access_record.md
+docs/source_verification/original-access.md
+docs/original-video.md
+code/00_prepare_ted_transcript.py

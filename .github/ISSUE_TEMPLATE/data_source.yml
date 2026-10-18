@@ -1,0 +1,34 @@
+name: Data source problem
+description: Report a broken link, changed terms, a revision or a comparability problem in a source.
+title: "Source: "
+labels: ["data-source"]
+body:
+  - type: input
+    id: source_id
+    attributes:
+      label: Source ID
+      description: From the data source record, if known.
+  - type: input
+    id: url
+    attributes:
+      label: URL or landing page
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Not accessible
+        - Terms or licence changed
+        - Data revised
+        - Comparability or definition problem
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+    validations:
+      required: true

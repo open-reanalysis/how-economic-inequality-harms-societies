@@ -1,0 +1,59 @@
+# Template for config/specs/<spec_id>.yaml. Validated by code/lib/spec.py.
+# The research method sets the rules. This file holds their exact values.
+# Every choice the original material leaves open names its section of
+# docs/method_rationale.md in `rationale`.
+spec_id: <historical_international | historical_us_states | updated_international | updated_us_states>
+version: 1
+dataset: <international | us_states>
+unit_type: <country | us_state>
+catalogue: config/results_catalogue.csv   # rows of this dataset are selected, never copied
+samples:
+  historical:
+    units: [<unit_id>, ...]
+    rationale: <section>
+  refreshed:                              # updated specs only
+    table: outputs/tables/refreshed_country_eligibility.csv
+eligibility:                              # updated_international only. Fix a detail only if it changes which countries are eligible
+  income_series: <source_id>
+  income_vintage: <provider release>
+  measurement_year: <year for income and population>
+  population_threshold: 3000000
+  inequality_source: <source_id>
+  rank_non_sovereign: <true | false>       # only if a non-sovereign economy would enter the top 50
+  tie_break: <rule at rank 50>             # only if a consequential tie occurs
+  rationale: <section>
+variables:
+  - variable_id: <lineage variable_id>
+    role: <inequality | mean_income | index_component | extra_measure>
+    sources: [<primary source_id>, <secondary source_id>]   # priority order for parallel data
+    period: <year or range>
+    unit: <unit after conversion>
+    conversion: <none | expression>
+    transformation: <none | log | ...>
+    direction: <as_is | reverse_coded>
+    rationale: <section>
+index:
+  components: [<variable_id>, ...]
+  weights: <equal | mapping>
+  standardisation_reference: <sample name>
+  missing_components:
+    rule: <the rule as established or approved>
+    basis: <authors_rule | approved_assumption>
+    rationale: <section>
+  status: <VERIFIED_FROM_PRIMARY_SOURCE | VERIFIED_FROM_RELEASED_DATA | INFERRED_FROM_AUTHOR_MATERIALS | USER_APPROVED_ASSUMPTION | UNRESOLVED>
+statistics: [pearson_r, p_value, n]
+reported_value_check:                     # historical specs with reconstructed data, committed before any correlation
+  tolerance_r: <absolute tolerance>
+  rationale: <section>
+# Historical specifications use variant_id historical in their outputs.
+# Each current variant is distinct in result keys, observation paths and figure paths.
+current_results:                          # updated specs only. The fixed sample is the historical sample applied to current data
+  - variant_id: updated
+    sample: historical
+    series_set: successors
+  - variant_id: refreshed
+    sample: refreshed
+    series_set: successors
+  - variant_id: with_substitutes
+    sample: historical
+    series_set: successors_and_substitutes

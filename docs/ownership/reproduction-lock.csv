@@ -1,0 +1,10 @@
+path_pattern
+make/reproduction-lock.mk
+data/local_data_required/reproduction-lock.md
+docs/ownership/reproduction-lock.csv
+config/specs/updated_*.yaml
+docs/reproduction_lock.md
+code/03a_eligibility.py
+outputs/tables/refreshed_country_eligibility.csv
+tests/eligibility/**
+docs/source_verification/reproduction-lock.md

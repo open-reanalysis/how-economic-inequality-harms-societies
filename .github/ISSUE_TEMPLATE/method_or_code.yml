@@ -1,0 +1,23 @@
+name: Method or code issue
+description: Report an error in code, a calculation or a documented method.
+title: "Issue: "
+labels: ["method-or-code"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Point to the file, line, table or figure.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected and why
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: Commands, environment and the commit you ran, if relevant.

@@ -1,0 +1,72 @@
+name: Criticism proposal
+description: Propose a named, published criticism for the controversy register.
+title: "Criticism: "
+labels: ["criticism-proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The register accepts only criticisms made by an identifiable author in a citable source. A proposal made after the register is frozen is still welcome. It is added in a dated amendment.
+  - type: input
+    id: critic
+    attributes:
+      label: Author of the source
+      description: Name of the author or authors, whether a critic or an independent researcher.
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Exact source title
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: Publication year
+    validations:
+      required: true
+  - type: input
+    id: identifier
+    attributes:
+      label: Stable identifier
+      description: DOI, PMID, PMCID, ISBN or a stable URL. For a book, also give the edition.
+    validations:
+      required: true
+  - type: dropdown
+    id: target_level
+    attributes:
+      label: What the criticism addresses
+      options:
+        - The original Spirit Level results
+        - Current or updated results
+        - Both
+        - The income inequality and health hypothesis in general
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Country selection and sample definition
+        - Inequality measure
+        - Composite-index construction
+        - Outliers and influential countries
+        - Temporal persistence
+        - Mechanism
+        - Data availability and comparability
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: The critic's argument in neutral words
+      description: Summarise the argument. Quote no more than a short phrase.
+    validations:
+      required: true
+  - type: textarea
+    id: test
+    attributes:
+      label: Data that would support or test it
+      description: Optional. The datasets the project should download for this criticism, and how it could be tested.

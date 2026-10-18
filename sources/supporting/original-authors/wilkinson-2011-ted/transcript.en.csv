@@ -1,0 +1,386 @@
+cue_id,start_ms,duration_ms,end_ms,start_time,end_time,text
+1,15260,3000,18260,00:00:15.260,00:00:18.260,You all know the truth of what I'm going to say.
+2,18260,4000,22260,00:00:18.260,00:00:22.260,I think the intuition that inequality is divisive and socially corrosive
+3,22260,4000,26260,00:00:22.260,00:00:26.260,has been around since before the French Revolution.
+4,26260,2000,28260,00:00:26.260,00:00:28.260,What's changed
+5,28260,2000,30260,00:00:28.260,00:00:30.260,"is we now can look at the evidence,"
+6,30260,3000,33260,00:00:30.260,00:00:33.260,"we can compare societies, more and less equal societies,"
+7,33260,3000,36260,00:00:33.260,00:00:36.260,and see what inequality does.
+8,36260,3000,39260,00:00:36.260,00:00:39.260,I'm going to take you through that data
+9,39260,2000,41260,00:00:39.260,00:00:41.260,and then explain why
+10,41260,4000,45260,00:00:41.260,00:00:45.260,the links I'm going to be showing you exist.
+11,45260,3000,48260,00:00:45.260,00:00:48.260,"But first, see what a miserable lot we are."
+12,48260,2000,50260,00:00:48.260,00:00:50.260,(Laughter)
+13,50260,2000,52260,00:00:50.260,00:00:52.260,I want to start though
+14,52260,3000,55260,00:00:52.260,00:00:55.260,with a paradox.
+15,55260,2000,57260,00:00:55.260,00:00:57.260,This shows you life expectancy
+16,57260,2000,59260,00:00:57.260,00:00:59.260,against gross national income --
+17,59260,2000,61260,00:00:59.260,00:01:01.260,how rich countries are on average.
+18,61260,2000,63260,00:01:01.260,00:01:03.260,"And you see the countries on the right,"
+19,63260,2000,65260,00:01:03.260,00:01:05.260,"like Norway and the USA,"
+20,65260,5000,70260,00:01:05.260,00:01:10.260,"are twice as rich as Israel, Greece, Portugal on the left."
+21,70260,4000,74260,00:01:10.260,00:01:14.260,And it makes no difference to their life expectancy at all.
+22,74260,2000,76260,00:01:14.260,00:01:16.260,There's no suggestion of a relationship there.
+23,76260,3000,79260,00:01:16.260,00:01:19.260,"But if we look within our societies,"
+24,79260,3000,82260,00:01:19.260,00:01:22.260,there are extraordinary social gradients in health
+25,82260,2000,84260,00:01:22.260,00:01:24.260,running right across society.
+26,84260,2000,86260,00:01:24.260,00:01:26.260,"This, again, is life expectancy."
+27,86260,2000,88260,00:01:26.260,00:01:28.260,These are small areas of England and Wales --
+28,88260,4000,92260,00:01:28.260,00:01:32.260,"the poorest on the right, the richest on the left."
+29,92260,3000,95260,00:01:32.260,00:01:35.260,A lot of difference between the poor and the rest of us.
+30,95260,2000,97260,00:01:35.260,00:01:37.260,Even the people just below the top
+31,97260,2000,99260,00:01:37.260,00:01:39.260,have less good health
+32,99260,2000,101260,00:01:39.260,00:01:41.260,than the people at the top.
+33,101260,2000,103260,00:01:41.260,00:01:43.260,So income means something very important
+34,103260,2000,105260,00:01:43.260,00:01:45.260,"within our societies,"
+35,105260,3000,108260,00:01:45.260,00:01:48.260,and nothing between them.
+36,108260,3000,111260,00:01:48.260,00:01:51.260,The explanation of that paradox
+37,111260,2000,113260,00:01:51.260,00:01:53.260,"is that, within our societies,"
+38,113260,2000,115260,00:01:53.260,00:01:55.260,we're looking at relative income
+39,115260,3000,118260,00:01:55.260,00:01:58.260,"or social position, social status --"
+40,118260,3000,121260,00:01:58.260,00:02:01.260,where we are in relation to each other
+41,121260,3000,124260,00:02:01.260,00:02:04.260,and the size of the gaps between us.
+42,124260,2000,126260,00:02:04.260,00:02:06.260,"And as soon as you've got that idea,"
+43,126260,2000,128260,00:02:06.260,00:02:08.260,you should immediately wonder:
+44,128260,3000,131260,00:02:08.260,00:02:11.260,"what happens if we widen the differences,"
+45,131260,2000,133260,00:02:11.260,00:02:13.260,"or compress them,"
+46,133260,2000,135260,00:02:13.260,00:02:15.260,make the income differences bigger or smaller?
+47,135260,3000,138260,00:02:15.260,00:02:18.260,And that's what I'm going to show you.
+48,138260,2000,140260,00:02:18.260,00:02:20.260,I'm not using any hypothetical data.
+49,140260,2000,142260,00:02:20.260,00:02:22.260,I'm taking data from the U.N. --
+50,142260,2000,144260,00:02:22.260,00:02:24.260,it's the same as the World Bank has --
+51,144260,2000,146260,00:02:24.260,00:02:26.260,on the scale of income differences
+52,146260,3000,149260,00:02:26.260,00:02:29.260,in these rich developed market democracies.
+53,149260,2000,151260,00:02:29.260,00:02:31.260,"The measure we've used,"
+54,151260,2000,153260,00:02:31.260,00:02:33.260,"because it's easy to understand and you can download it,"
+55,153260,2000,155260,00:02:33.260,00:02:35.260,is how much richer the top 20 percent
+56,155260,3000,158260,00:02:35.260,00:02:38.260,than the bottom 20 percent in each country.
+57,158260,3000,161260,00:02:38.260,00:02:41.260,And you see in the more equal countries on the left --
+58,161260,2000,163260,00:02:41.260,00:02:43.260,"Japan, Finland, Norway, Sweden --"
+59,163260,2000,165260,00:02:43.260,00:02:45.260,"the top 20 percent are about three and a half, four times as rich"
+60,165260,3000,168260,00:02:45.260,00:02:48.260,as the bottom 20 percent.
+61,168260,2000,170260,00:02:48.260,00:02:50.260,But on the more unequal end --
+62,170260,2000,172260,00:02:50.260,00:02:52.260,"U.K., Portugal, USA, Singapore --"
+63,172260,3000,175260,00:02:52.260,00:02:55.260,the differences are twice as big.
+64,175260,3000,178260,00:02:55.260,00:02:58.260,"On that measure, we are twice as unequal"
+65,178260,4000,182260,00:02:58.260,00:03:02.260,as some of the other successful market democracies.
+66,182260,4000,186260,00:03:02.260,00:03:06.260,Now I'm going to show you what that does to our societies.
+67,186260,3000,189260,00:03:06.260,00:03:09.260,"We collected data on problems with social gradients,"
+68,189260,2000,191260,00:03:09.260,00:03:11.260,the kind of problems that are more common
+69,191260,2000,193260,00:03:11.260,00:03:13.260,at the bottom of the social ladder.
+70,193260,3000,196260,00:03:13.260,00:03:16.260,"Internationally comparable data on life expectancy,"
+71,196260,3000,199260,00:03:16.260,00:03:19.260,"on kids' maths and literacy scores,"
+72,199260,3000,202260,00:03:19.260,00:03:22.260,"on infant mortality rates, homicide rates,"
+73,202260,3000,205260,00:03:22.260,00:03:25.260,"proportion of the population in prison, teenage birthrates,"
+74,205260,2000,207260,00:03:25.260,00:03:27.260,"levels of trust,"
+75,207260,2000,209260,00:03:27.260,00:03:29.260,"obesity, mental illness --"
+76,209260,3000,212260,00:03:29.260,00:03:32.260,which in standard diagnostic classification
+77,212260,2000,214260,00:03:32.260,00:03:34.260,includes drug and alcohol addiction --
+78,214260,2000,216260,00:03:34.260,00:03:36.260,and social mobility.
+79,216260,3000,219260,00:03:36.260,00:03:39.260,We put them all in one index.
+80,219260,2000,221260,00:03:39.260,00:03:41.260,They're all weighted equally.
+81,221260,3000,224260,00:03:41.260,00:03:44.260,Where a country is is a sort of average score on these things.
+82,224260,2000,226260,00:03:44.260,00:03:46.260,"And there, you see it"
+83,226260,3000,229260,00:03:46.260,00:03:49.260,"in relation to the measure of inequality I've just shown you,"
+84,229260,3000,232260,00:03:49.260,00:03:52.260,which I shall use over and over again in the data.
+85,232260,2000,234260,00:03:52.260,00:03:54.260,The more unequal countries
+86,234260,2000,236260,00:03:54.260,00:03:56.260,are doing worse
+87,236260,2000,238260,00:03:56.260,00:03:58.260,on all these kinds of social problems.
+88,238260,3000,241260,00:03:58.260,00:04:01.260,It's an extraordinarily close correlation.
+89,241260,2000,243260,00:04:01.260,00:04:03.260,But if you look at that same index
+90,243260,2000,245260,00:04:03.260,00:04:05.260,of health and social problems
+91,245260,2000,247260,00:04:05.260,00:04:07.260,"in relation to GNP per capita,"
+92,247260,2000,249260,00:04:07.260,00:04:09.260,"gross national income,"
+93,249260,2000,251260,00:04:09.260,00:04:11.260,"there's nothing there,"
+94,251260,3000,254260,00:04:11.260,00:04:14.260,no correlation anymore.
+95,254260,2000,256260,00:04:14.260,00:04:16.260,We were a little bit worried
+96,256260,2000,258260,00:04:16.260,00:04:18.260,that people might think
+97,258260,2000,260260,00:04:18.260,00:04:20.260,we'd been choosing problems to suit our argument
+98,260260,3000,263260,00:04:20.260,00:04:23.260,"and just manufactured this evidence,"
+99,263260,3000,266260,00:04:23.260,00:04:26.260,so we also did a paper in the British Medical Journal
+100,266260,4000,270260,00:04:26.260,00:04:30.260,on the UNICEF index of child well-being.
+101,270260,2000,272260,00:04:30.260,00:04:32.260,It has 40 different components
+102,272260,2000,274260,00:04:32.260,00:04:34.260,put together by other people.
+103,274260,3000,277260,00:04:34.260,00:04:37.260,"It contains whether kids can talk to their parents,"
+104,277260,2000,279260,00:04:37.260,00:04:39.260,"whether they have books at home,"
+105,279260,3000,282260,00:04:39.260,00:04:42.260,"what immunization rates are like, whether there's bullying at school."
+106,282260,2000,284260,00:04:42.260,00:04:44.260,Everything goes into it.
+107,284260,4000,288260,00:04:44.260,00:04:48.260,Here it is in relation to that same measure of inequality.
+108,288260,3000,291260,00:04:48.260,00:04:51.260,Kids do worse in the more unequal societies.
+109,291260,3000,294260,00:04:51.260,00:04:54.260,Highly significant relationship.
+110,294260,2000,296260,00:04:54.260,00:04:56.260,"But once again,"
+111,296260,3000,299260,00:04:56.260,00:04:59.260,"if you look at that measure of child well-being,"
+112,299260,2000,301260,00:04:59.260,00:05:01.260,"in relation to national income per person,"
+113,301260,2000,303260,00:05:01.260,00:05:03.260,"there's no relationship,"
+114,303260,3000,306260,00:05:03.260,00:05:06.260,no suggestion of a relationship.
+115,306260,3000,309260,00:05:06.260,00:05:09.260,What all the data I've shown you so far says
+116,309260,2000,311260,00:05:09.260,00:05:11.260,is the same thing.
+117,311260,2000,313260,00:05:11.260,00:05:13.260,The average well-being of our societies
+118,313260,3000,316260,00:05:13.260,00:05:16.260,is not dependent any longer
+119,316260,3000,319260,00:05:16.260,00:05:19.260,on national income and economic growth.
+120,319260,2000,321260,00:05:19.260,00:05:21.260,"That's very important in poorer countries,"
+121,321260,3000,324260,00:05:21.260,00:05:24.260,but not in the rich developed world.
+122,324260,2000,326260,00:05:24.260,00:05:26.260,But the differences between us
+123,326260,2000,328260,00:05:26.260,00:05:28.260,and where we are in relation to each other
+124,328260,3000,331260,00:05:28.260,00:05:31.260,now matter very much.
+125,331260,3000,334260,00:05:31.260,00:05:34.260,I'm going to show you some of the separate bits of our index.
+126,334260,2000,336260,00:05:34.260,00:05:36.260,"Here, for instance, is trust."
+127,336260,2000,338260,00:05:36.260,00:05:38.260,It's simply the proportion of the population
+128,338260,2000,340260,00:05:38.260,00:05:40.260,who agree most people can be trusted.
+129,340260,2000,342260,00:05:40.260,00:05:42.260,It comes from the World Values Survey.
+130,342260,2000,344260,00:05:42.260,00:05:44.260,"You see, at the more unequal end,"
+131,344260,3000,347260,00:05:44.260,00:05:47.260,it's about 15 percent of the population
+132,347260,2000,349260,00:05:47.260,00:05:49.260,who feel they can trust others.
+133,349260,2000,351260,00:05:49.260,00:05:51.260,"But in the more equal societies,"
+134,351260,4000,355260,00:05:51.260,00:05:55.260,it rises to 60 or 65 percent.
+135,355260,3000,358260,00:05:55.260,00:05:58.260,And if you look at measures of involvement in community life
+136,358260,2000,360260,00:05:58.260,00:06:00.260,"or social capital,"
+137,360260,2000,362260,00:06:00.260,00:06:02.260,very similar relationships
+138,362260,3000,365260,00:06:02.260,00:06:05.260,closely related to inequality.
+139,365260,3000,368260,00:06:05.260,00:06:08.260,"I may say, we did all this work twice."
+140,368260,3000,371260,00:06:08.260,00:06:11.260,"We did it first on these rich, developed countries,"
+141,371260,2000,373260,00:06:11.260,00:06:13.260,"and then as a separate test bed,"
+142,373260,3000,376260,00:06:13.260,00:06:16.260,we repeated it all on the 50 American states --
+143,376260,2000,378260,00:06:16.260,00:06:18.260,asking just the same question:
+144,378260,2000,380260,00:06:18.260,00:06:20.260,do the more unequal states
+145,380260,2000,382260,00:06:20.260,00:06:22.260,do worse on all these kinds of measures?
+146,382260,4000,386260,00:06:22.260,00:06:26.260,So here is trust from a general social survey of the federal government
+147,386260,2000,388260,00:06:26.260,00:06:28.260,related to inequality.
+148,388260,2000,390260,00:06:28.260,00:06:30.260,Very similar scatter
+149,390260,2000,392260,00:06:30.260,00:06:32.260,over a similar range of levels of trust.
+150,392260,2000,394260,00:06:32.260,00:06:34.260,Same thing is going on.
+151,394260,2000,396260,00:06:34.260,00:06:36.260,Basically we found
+152,396260,3000,399260,00:06:36.260,00:06:39.260,that almost anything that's related to trust internationally
+153,399260,2000,401260,00:06:39.260,00:06:41.260,is related to trust amongst the 50 states
+154,401260,2000,403260,00:06:41.260,00:06:43.260,in that separate test bed.
+155,403260,2000,405260,00:06:43.260,00:06:45.260,We're not just talking about a fluke.
+156,405260,2000,407260,00:06:45.260,00:06:47.260,This is mental illness.
+157,407260,2000,409260,00:06:47.260,00:06:49.260,WHO put together figures
+158,409260,2000,411260,00:06:49.260,00:06:51.260,using the same diagnostic interviews
+159,411260,2000,413260,00:06:51.260,00:06:53.260,on random samples of the population
+160,413260,3000,416260,00:06:53.260,00:06:56.260,to allow us to compare rates of mental illness
+161,416260,2000,418260,00:06:56.260,00:06:58.260,in each society.
+162,418260,2000,420260,00:06:58.260,00:07:00.260,This is the percent of the population
+163,420260,3000,423260,00:07:00.260,00:07:03.260,with any mental illness in the preceding year.
+164,423260,3000,426260,00:07:03.260,00:07:06.260,And it goes from about eight percent
+165,426260,2000,428260,00:07:06.260,00:07:08.260,up to three times that --
+166,428260,2000,430260,00:07:08.260,00:07:10.260,whole societies
+167,430260,3000,433260,00:07:10.260,00:07:13.260,with three times the level of mental illness of others.
+168,433260,4000,437260,00:07:13.260,00:07:17.260,"And again, closely related to inequality."
+169,437260,2000,439260,00:07:17.260,00:07:19.260,This is violence.
+170,439260,2000,441260,00:07:19.260,00:07:21.260,"These red dots are American states,"
+171,441260,4000,445260,00:07:21.260,00:07:25.260,and the blue triangles are Canadian provinces.
+172,445260,3000,448260,00:07:25.260,00:07:28.260,But look at the scale of the differences.
+173,448260,3000,451260,00:07:28.260,00:07:31.260,It goes from 15 homicides per million
+174,451260,3000,454260,00:07:31.260,00:07:34.260,up to 150.
+175,454260,3000,457260,00:07:34.260,00:07:37.260,This is the proportion of the population in prison.
+176,457260,3000,460260,00:07:37.260,00:07:40.260,"There's a about a tenfold difference there,"
+177,460260,2000,462260,00:07:40.260,00:07:42.260,log scale up the side.
+178,462260,2000,464260,00:07:42.260,00:07:44.260,But it goes from about 40 to 400
+179,464260,3000,467260,00:07:44.260,00:07:47.260,people in prison.
+180,467260,2000,469260,00:07:47.260,00:07:49.260,That relationship
+181,469260,2000,471260,00:07:49.260,00:07:51.260,is not mainly driven by more crime.
+182,471260,3000,474260,00:07:51.260,00:07:54.260,"In some places, that's part of it."
+183,474260,2000,476260,00:07:54.260,00:07:56.260,"But most of it is about more punitive sentencing,"
+184,476260,2000,478260,00:07:56.260,00:07:58.260,harsher sentencing.
+185,478260,2000,480260,00:07:58.260,00:08:00.260,And the more unequal societies
+186,480260,4000,484260,00:08:00.260,00:08:04.260,are more likely also to retain the death penalty.
+187,484260,5000,489260,00:08:04.260,00:08:09.260,Here we have children dropping out of high school.
+188,489260,2000,491260,00:08:09.260,00:08:11.260,"Again, quite big differences."
+189,491260,2000,493260,00:08:11.260,00:08:13.260,"Extraordinarily damaging,"
+190,493260,3000,496260,00:08:13.260,00:08:16.260,if you're talking about using the talents of the population.
+191,496260,3000,499260,00:08:16.260,00:08:19.260,This is social mobility.
+192,499260,2000,501260,00:08:19.260,00:08:21.260,It's actually a measure of mobility
+193,501260,2000,503260,00:08:21.260,00:08:23.260,based on income.
+194,503260,2000,505260,00:08:23.260,00:08:25.260,"Basically, it's asking:"
+195,505260,2000,507260,00:08:25.260,00:08:27.260,do rich fathers have rich sons
+196,507260,2000,509260,00:08:27.260,00:08:29.260,"and poor fathers have poor sons,"
+197,509260,3000,512260,00:08:29.260,00:08:32.260,or is there no relationship between the two?
+198,512260,2000,514260,00:08:32.260,00:08:34.260,"And at the more unequal end,"
+199,514260,3000,517260,00:08:34.260,00:08:37.260,fathers' income is much more important --
+200,517260,3000,520260,00:08:37.260,00:08:40.260,"in the U.K., USA."
+201,520260,2000,522260,00:08:40.260,00:08:42.260,"And in Scandinavian countries,"
+202,522260,2000,524260,00:08:42.260,00:08:44.260,fathers' income is much less important.
+203,524260,3000,527260,00:08:44.260,00:08:47.260,There's more social mobility.
+204,527260,2000,529260,00:08:47.260,00:08:49.260,And as we like to say --
+205,529260,3000,532260,00:08:49.260,00:08:52.260,and I know there are a lot of Americans in the audience here --
+206,532260,3000,535260,00:08:52.260,00:08:55.260,"if Americans want to live the American dream,"
+207,535260,2000,537260,00:08:55.260,00:08:57.260,they should go to Denmark.
+208,537260,2000,539260,00:08:57.260,00:08:59.260,(Laughter)
+209,539260,4000,543260,00:08:59.260,00:09:03.260,(Applause)
+210,543260,3000,546260,00:09:03.260,00:09:06.260,I've shown you just a few things in italics here.
+211,546260,2000,548260,00:09:06.260,00:09:08.260,I could have shown a number of other problems.
+212,548260,2000,550260,00:09:08.260,00:09:10.260,They're all problems that tend to be more common
+213,550260,2000,552260,00:09:10.260,00:09:12.260,at the bottom of the social gradient.
+214,552260,5000,557260,00:09:12.260,00:09:17.260,But there are endless problems with social gradients
+215,557260,2000,559260,00:09:17.260,00:09:19.260,that are worse in more unequal countries --
+216,559260,2000,561260,00:09:19.260,00:09:21.260,"not just a little bit worse,"
+217,561260,3000,564260,00:09:21.260,00:09:24.260,but anything from twice as common to 10 times as common.
+218,564260,2000,566260,00:09:24.260,00:09:26.260,"Think of the expense,"
+219,566260,3000,569260,00:09:26.260,00:09:29.260,the human cost of that.
+220,569260,2000,571260,00:09:29.260,00:09:31.260,I want to go back though to this graph that I showed you earlier
+221,571260,2000,573260,00:09:31.260,00:09:33.260,where we put it all together
+222,573260,2000,575260,00:09:33.260,00:09:35.260,to make two points.
+223,575260,3000,578260,00:09:35.260,00:09:38.260,"One is that, in graph after graph,"
+224,578260,2000,580260,00:09:38.260,00:09:40.260,"we find the countries that do worse,"
+225,580260,2000,582260,00:09:40.260,00:09:42.260,"whatever the outcome,"
+226,582260,2000,584260,00:09:42.260,00:09:44.260,"seem to be the more unequal ones,"
+227,584260,2000,586260,00:09:44.260,00:09:46.260,and the ones that do well
+228,586260,3000,589260,00:09:46.260,00:09:49.260,seem to be the Nordic countries and Japan.
+229,589260,2000,591260,00:09:49.260,00:09:51.260,So what we're looking at
+230,591260,3000,594260,00:09:51.260,00:09:54.260,is general social disfunction related to inequality.
+231,594260,2000,596260,00:09:54.260,00:09:56.260,"It's not just one or two things that go wrong,"
+232,596260,2000,598260,00:09:56.260,00:09:58.260,it's most things.
+233,598260,3000,601260,00:09:58.260,00:10:01.260,The other really important point I want to make on this graph
+234,601260,2000,603260,00:10:01.260,00:10:03.260,"is that, if you look at the bottom,"
+235,603260,3000,606260,00:10:03.260,00:10:06.260,"Sweden and Japan,"
+236,606260,3000,609260,00:10:06.260,00:10:09.260,they're very different countries in all sorts of ways.
+237,609260,2000,611260,00:10:09.260,00:10:11.260,"The position of women,"
+238,611260,2000,613260,00:10:11.260,00:10:13.260,"how closely they keep to the nuclear family,"
+239,613260,2000,615260,00:10:13.260,00:10:15.260,are on opposite ends of the poles
+240,615260,2000,617260,00:10:15.260,00:10:17.260,in terms of the rich developed world.
+241,617260,2000,619260,00:10:17.260,00:10:19.260,But another really important difference
+242,619260,3000,622260,00:10:19.260,00:10:22.260,is how they get their greater equality.
+243,622260,3000,625260,00:10:22.260,00:10:25.260,"Sweden has huge differences in earnings,"
+244,625260,2000,627260,00:10:25.260,00:10:27.260,"and it narrows the gap through taxation,"
+245,627260,2000,629260,00:10:27.260,00:10:29.260,"general welfare state,"
+246,629260,3000,632260,00:10:29.260,00:10:32.260,generous benefits and so on.
+247,632260,2000,634260,00:10:32.260,00:10:34.260,Japan is rather different though.
+248,634260,3000,637260,00:10:34.260,00:10:37.260,It starts off with much smaller differences in earnings before tax.
+249,637260,2000,639260,00:10:37.260,00:10:39.260,It has lower taxes.
+250,639260,2000,641260,00:10:39.260,00:10:41.260,It has a smaller welfare state.
+251,641260,2000,643260,00:10:41.260,00:10:43.260,"And in our analysis of the American states,"
+252,643260,2000,645260,00:10:43.260,00:10:45.260,we find rather the same contrast.
+253,645260,3000,648260,00:10:45.260,00:10:48.260,"There are some states that do well through redistribution,"
+254,648260,2000,650260,00:10:48.260,00:10:50.260,some states that do well
+255,650260,3000,653260,00:10:50.260,00:10:53.260,because they have smaller income differences before tax.
+256,653260,2000,655260,00:10:53.260,00:10:55.260,So we conclude
+257,655260,3000,658260,00:10:55.260,00:10:58.260,"that it doesn't much matter how you get your greater equality,"
+258,658260,2000,660260,00:10:58.260,00:11:00.260,as long as you get there somehow.
+259,660260,2000,662260,00:11:00.260,00:11:02.260,"I am not talking about perfect equality,"
+260,662260,4000,666260,00:11:02.260,00:11:06.260,I'm talking about what exists in rich developed market democracies.
+261,668260,5000,673260,00:11:08.260,00:11:13.260,Another really surprising part of this picture
+262,673260,2000,675260,00:11:13.260,00:11:15.260,is that it's not just the poor
+263,675260,3000,678260,00:11:15.260,00:11:18.260,who are affected by inequality.
+264,678260,2000,680260,00:11:18.260,00:11:20.260,There seems to be some truth in John Donne's
+265,680260,3000,683260,00:11:20.260,00:11:23.260,"""No man is an island."""
+266,683260,3000,686260,00:11:23.260,00:11:26.260,"And in a number of studies, it's possible to compare"
+267,686260,3000,689260,00:11:26.260,00:11:29.260,how people do in more and less equal countries
+268,689260,3000,692260,00:11:29.260,00:11:32.260,at each level in the social hierarchy.
+269,692260,3000,695260,00:11:32.260,00:11:35.260,This is just one example.
+270,695260,2000,697260,00:11:35.260,00:11:37.260,It's infant mortality.
+271,697260,3000,700260,00:11:37.260,00:11:40.260,Some Swedes very kindly classified a lot of their infant deaths
+272,700260,5000,705260,00:11:40.260,00:11:45.260,according to the British register of general socioeconomic classification.
+273,705260,3000,708260,00:11:45.260,00:11:48.260,And so it's anachronistically
+274,708260,2000,710260,00:11:48.260,00:11:50.260,"a classification by fathers' occupations,"
+275,710260,2000,712260,00:11:50.260,00:11:52.260,so single parents go on their own.
+276,712260,3000,715260,00:11:52.260,00:11:55.260,"But then where it says ""low social class,"""
+277,715260,3000,718260,00:11:55.260,00:11:58.260,that's unskilled manual occupations.
+278,718260,4000,722260,00:11:58.260,00:12:02.260,"It goes through towards the skilled manual occupations in the middle,"
+279,722260,2000,724260,00:12:02.260,00:12:04.260,"then the junior non-manual,"
+280,724260,3000,727260,00:12:04.260,00:12:07.260,going up high to the professional occupations --
+281,727260,2000,729260,00:12:07.260,00:12:09.260,"doctors, lawyers,"
+282,729260,2000,731260,00:12:09.260,00:12:11.260,directors of larger companies.
+283,731260,3000,734260,00:12:11.260,00:12:14.260,You see there that Sweden does better than Britain
+284,734260,3000,737260,00:12:14.260,00:12:17.260,all the way across the social hierarchy.
+285,739260,2000,741260,00:12:19.260,00:12:21.260,The biggest differences are at the bottom of society.
+286,741260,2000,743260,00:12:21.260,00:12:23.260,"But even at the top,"
+287,743260,2000,745260,00:12:23.260,00:12:25.260,there seems to be a small benefit
+288,745260,2000,747260,00:12:25.260,00:12:27.260,to being in a more equal society.
+289,747260,3000,750260,00:12:27.260,00:12:30.260,We show that on about five different sets of data
+290,750260,2000,752260,00:12:30.260,00:12:32.260,covering educational outcomes
+291,752260,3000,755260,00:12:32.260,00:12:35.260,and health in the United States and internationally.
+292,755260,3000,758260,00:12:35.260,00:12:38.260,And that seems to be the general picture --
+293,758260,3000,761260,00:12:38.260,00:12:41.260,"that greater equality makes most difference at the bottom,"
+294,761260,3000,764260,00:12:41.260,00:12:44.260,but has some benefits even at the top.
+295,764260,4000,768260,00:12:44.260,00:12:48.260,But I should say a few words about what's going on.
+296,768260,2000,770260,00:12:48.260,00:12:50.260,I think I'm looking and talking
+297,770260,3000,773260,00:12:50.260,00:12:53.260,about the psychosocial effects of inequality.
+298,773260,3000,776260,00:12:53.260,00:12:56.260,"More to do with feelings of superiority and inferiority,"
+299,776260,2000,778260,00:12:56.260,00:12:58.260,"of being valued and devalued,"
+300,778260,3000,781260,00:12:58.260,00:13:01.260,respected and disrespected.
+301,781260,2000,783260,00:13:01.260,00:13:03.260,"And of course, those feelings"
+302,783260,3000,786260,00:13:03.260,00:13:06.260,of the status competition that comes out of that
+303,786260,3000,789260,00:13:06.260,00:13:09.260,drives the consumerism in our society.
+304,789260,3000,792260,00:13:09.260,00:13:12.260,It also leads to status insecurity.
+305,792260,4000,796260,00:13:12.260,00:13:16.260,"We worry more about how we're judged and seen by others,"
+306,796260,3000,799260,00:13:16.260,00:13:19.260,"whether we're regarded as attractive, clever,"
+307,799260,3000,802260,00:13:19.260,00:13:22.260,all that kind of thing.
+308,802260,3000,805260,00:13:22.260,00:13:25.260,"The social-evaluative judgments increase,"
+309,805260,4000,809260,00:13:25.260,00:13:29.260,the fear of those social-evaluative judgments.
+310,809260,2000,811260,00:13:29.260,00:13:31.260,"Interestingly,"
+311,811260,4000,815260,00:13:31.260,00:13:35.260,some parallel work going on in social psychology:
+312,815260,3000,818260,00:13:35.260,00:13:38.260,some people reviewed 208 different studies
+313,818260,3000,821260,00:13:38.260,00:13:41.260,in which volunteers had been invited
+314,821260,2000,823260,00:13:41.260,00:13:43.260,into a psychological laboratory
+315,823260,2000,825260,00:13:43.260,00:13:45.260,"and had their stress hormones,"
+316,825260,4000,829260,00:13:45.260,00:13:49.260,"their responses to doing stressful tasks, measured."
+317,829260,2000,831260,00:13:49.260,00:13:51.260,"And in the review,"
+318,831260,2000,833260,00:13:51.260,00:13:53.260,what they were interested in seeing
+319,833260,2000,835260,00:13:53.260,00:13:55.260,is what kind of stresses
+320,835260,3000,838260,00:13:55.260,00:13:58.260,"most reliably raise levels of cortisol,"
+321,838260,2000,840260,00:13:58.260,00:14:00.260,the central stress hormone.
+322,840260,2000,842260,00:14:00.260,00:14:02.260,And the conclusion was
+323,842260,3000,845260,00:14:02.260,00:14:05.260,it was tasks that included social-evaluative threat --
+324,845260,3000,848260,00:14:05.260,00:14:08.260,threats to self-esteem or social status
+325,848260,3000,851260,00:14:08.260,00:14:11.260,in which others can negatively judge your performance.
+326,851260,2000,853260,00:14:11.260,00:14:13.260,Those kind of stresses
+327,853260,3000,856260,00:14:13.260,00:14:16.260,have a very particular effect
+328,856260,3000,859260,00:14:16.260,00:14:19.260,on the physiology of stress.
+329,860260,2000,862260,00:14:20.260,00:14:22.260,Now we have been criticized.
+330,862260,3000,865260,00:14:22.260,00:14:25.260,"Of course, there are people who dislike this stuff"
+331,865260,3000,868260,00:14:25.260,00:14:28.260,and people who find it very surprising.
+332,868260,2000,870260,00:14:28.260,00:14:30.260,I should tell you though
+333,870260,3000,873260,00:14:30.260,00:14:33.260,"that when people criticize us for picking and choosing data,"
+334,873260,2000,875260,00:14:33.260,00:14:35.260,we never pick and choose data.
+335,875260,2000,877260,00:14:35.260,00:14:37.260,We have an absolute rule
+336,877260,3000,880260,00:14:37.260,00:14:40.260,"that if our data source has data for one of the countries we're looking at,"
+337,880260,2000,882260,00:14:40.260,00:14:42.260,it goes into the analysis.
+338,882260,2000,884260,00:14:42.260,00:14:44.260,Our data source decides
+339,884260,2000,886260,00:14:44.260,00:14:46.260,"whether it's reliable data,"
+340,886260,2000,888260,00:14:46.260,00:14:48.260,we don't.
+341,888260,2000,890260,00:14:48.260,00:14:50.260,Otherwise that would introduce bias.
+342,890260,2000,892260,00:14:50.260,00:14:52.260,What about other countries?
+343,892260,3000,895260,00:14:52.260,00:14:55.260,There are 200 studies
+344,895260,3000,898260,00:14:55.260,00:14:58.260,of health in relation to income and equality
+345,898260,3000,901260,00:14:58.260,00:15:01.260,in the academic peer-reviewed journals.
+346,901260,3000,904260,00:15:01.260,00:15:04.260,"This isn't confined to these countries here,"
+347,904260,2000,906260,00:15:04.260,00:15:06.260,hiding a very simple demonstration.
+348,906260,2000,908260,00:15:06.260,00:15:08.260,"The same countries,"
+349,908260,2000,910260,00:15:08.260,00:15:10.260,"the same measure of inequality,"
+350,910260,3000,913260,00:15:10.260,00:15:13.260,one problem after another.
+351,914260,2000,916260,00:15:14.260,00:15:16.260,Why don't we control for other factors?
+352,916260,2000,918260,00:15:16.260,00:15:18.260,Well we've shown you that GNP per capita
+353,918260,2000,920260,00:15:18.260,00:15:20.260,doesn't make any difference.
+354,920260,4000,924260,00:15:20.260,00:15:24.260,"And of course, others using more sophisticated methods in the literature"
+355,924260,2000,926260,00:15:24.260,00:15:26.260,have controlled for poverty and education
+356,926260,3000,929260,00:15:26.260,00:15:29.260,and so on.
+357,930260,2000,932260,00:15:30.260,00:15:32.260,What about causality?
+358,932260,3000,935260,00:15:32.260,00:15:35.260,Correlation in itself doesn't prove causality.
+359,935260,2000,937260,00:15:35.260,00:15:37.260,We spend a good bit of time.
+360,937260,2000,939260,00:15:37.260,00:15:39.260,"And indeed, people know the causal links quite well"
+361,939260,2000,941260,00:15:39.260,00:15:41.260,in some of these outcomes.
+362,941260,2000,943260,00:15:41.260,00:15:43.260,The big change in our understanding
+363,943260,2000,945260,00:15:43.260,00:15:45.260,of drivers of chronic health
+364,945260,2000,947260,00:15:45.260,00:15:47.260,in the rich developed world
+365,947260,4000,951260,00:15:47.260,00:15:51.260,is how important chronic stress from social sources
+366,951260,2000,953260,00:15:51.260,00:15:53.260,"is affecting the immune system,"
+367,953260,3000,956260,00:15:53.260,00:15:56.260,the cardiovascular system.
+368,956260,2000,958260,00:15:56.260,00:15:58.260,"Or for instance, the reason why violence"
+369,958260,3000,961260,00:15:58.260,00:16:01.260,becomes more common in more unequal societies
+370,961260,5000,966260,00:16:01.260,00:16:06.260,is because people are sensitive to being looked down on.
+371,966260,3000,969260,00:16:06.260,00:16:09.260,"I should say that to deal with this,"
+372,969260,2000,971260,00:16:09.260,00:16:11.260,we've got to deal with the post-tax things
+373,971260,2000,973260,00:16:11.260,00:16:13.260,and the pre-tax things.
+374,973260,3000,976260,00:16:13.260,00:16:16.260,"We've got to constrain income,"
+375,976260,2000,978260,00:16:16.260,00:16:18.260,the bonus culture incomes at the top.
+376,978260,3000,981260,00:16:18.260,00:16:21.260,I think we must make our bosses accountable to their employees
+377,981260,3000,984260,00:16:21.260,00:16:24.260,in any way we can.
+378,984260,3000,987260,00:16:24.260,00:16:27.260,I think the take-home message though
+379,987260,4000,991260,00:16:27.260,00:16:31.260,is that we can improve the real quality of human life
+380,991260,3000,994260,00:16:31.260,00:16:34.260,by reducing the differences in incomes between us.
+381,994260,2000,996260,00:16:34.260,00:16:36.260,Suddenly we have a handle
+382,996260,2000,998260,00:16:36.260,00:16:38.260,"on the psychosocial well-being of whole societies,"
+383,998260,2000,1000260,00:16:38.260,00:16:40.260,and that's exciting.
+384,1000260,2000,1002260,00:16:40.260,00:16:42.260,Thank you.
+385,1002260,6000,1008260,00:16:42.260,00:16:48.260,(Applause)

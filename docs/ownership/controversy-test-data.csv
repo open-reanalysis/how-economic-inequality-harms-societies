@@ -1,0 +1,7 @@
+path_pattern
+make/controversy-test-data.mk
+data/local_data_required/controversy-test-data.md
+docs/ownership/controversy-test-data.csv
+data/04_controversy_test_data/**
+docs/controversy_data_map.csv
+code/02d_download_controversy_test_data.py

@@ -1,0 +1,21 @@
+{
+  "run_id": "<yyyymmddthhmmssz>-<short commit>",
+  "started_utc": "<ISO 8601>",
+  "finished_utc": "<ISO 8601>",
+  "commit": "<full hash>",
+  "tree_clean": true,
+  "pixi_lock_sha256": "<hex>",
+  "mode": "<replay | acquire>",
+  "specs": [{"spec_id": "<id>", "version": 1, "sha256": "<hex>"}],
+  "steps": [
+    {
+      "target": "<make target>",
+      "state": "<computed | retained | not_produced>",
+      "reason": "<text when retained or not_produced>",
+      "inputs": [{"path": "<path>", "sha256": "<hex>", "check": "<file_verified | record_matched>", "restricted": false}],
+      "outputs": [{"path": "<path>", "sha256": "<hex>"}]
+    }
+  ],
+  "missing_inputs": ["<path>"],
+  "skipped_steps": ["<target>"]
+}

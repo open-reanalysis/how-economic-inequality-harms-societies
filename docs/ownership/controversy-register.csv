@@ -1,0 +1,8 @@
+path_pattern
+make/controversy-register.mk
+data/local_data_required/controversy-register.md
+docs/ownership/controversy-register.csv
+sources/controversies/**
+code/00_fetch_controversy_sources.py
+docs/controversy_register.csv
+docs/source_verification/controversy-register.md

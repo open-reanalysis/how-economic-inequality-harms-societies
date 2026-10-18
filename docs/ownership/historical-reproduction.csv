@@ -1,0 +1,15 @@
+path_pattern
+make/historical-reproduction.mk
+data/local_data_required/historical-reproduction.md
+docs/ownership/historical-reproduction.csv
+config/specs/historical_*.yaml
+docs/method_rationale.md
+code/01c_download_reconstruction_sources.py
+data/00_original_reconstruction/**
+data/03_analysis_ready/historical_*
+outputs/tables/historical_*
+outputs/diagnostics/historical_reproduction_discrepancies.md
+docs/source_verification/historical-reproduction.md
+config/results_catalogue.csv
+outputs/observations/historical_*/**
+outputs/figures/historical_*/**

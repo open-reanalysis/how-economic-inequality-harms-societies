@@ -1,0 +1,2323 @@
+{
+  "wireMagic": "pb3",
+  "pens": [ {
+  
+  } ],
+  "wsWinStyles": [ {
+  
+  } ],
+  "wpWinPositions": [ {
+  
+  } ],
+  "events": [ {
+    "tStartMs": 15260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "You all know the truth of what I'm going to say."
+    } ]
+  }, {
+    "tStartMs": 18260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "I think the intuition that inequality is divisive and socially corrosive"
+    } ]
+  }, {
+    "tStartMs": 22260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "has been around since before the French Revolution."
+    } ]
+  }, {
+    "tStartMs": 26260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "What's changed"
+    } ]
+  }, {
+    "tStartMs": 28260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is we now can look at the evidence,"
+    } ]
+  }, {
+    "tStartMs": 30260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "we can compare societies, more and less equal societies,"
+    } ]
+  }, {
+    "tStartMs": 33260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and see what inequality does."
+    } ]
+  }, {
+    "tStartMs": 36260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I'm going to take you through that data"
+    } ]
+  }, {
+    "tStartMs": 39260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and then explain why"
+    } ]
+  }, {
+    "tStartMs": 41260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "the links I'm going to be showing you exist."
+    } ]
+  }, {
+    "tStartMs": 45260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "But first, see what a miserable lot we are."
+    } ]
+  }, {
+    "tStartMs": 48260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "(Laughter)"
+    } ]
+  }, {
+    "tStartMs": 50260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I want to start though"
+    } ]
+  }, {
+    "tStartMs": 52260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "with a paradox."
+    } ]
+  }, {
+    "tStartMs": 55260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "This shows you life expectancy"
+    } ]
+  }, {
+    "tStartMs": 57260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "against gross national income --"
+    } ]
+  }, {
+    "tStartMs": 59260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "how rich countries are on average."
+    } ]
+  }, {
+    "tStartMs": 61260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And you see the countries on the right,"
+    } ]
+  }, {
+    "tStartMs": 63260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "like Norway and the USA,"
+    } ]
+  }, {
+    "tStartMs": 65260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "are twice as rich as Israel, Greece, Portugal on the left."
+    } ]
+  }, {
+    "tStartMs": 70260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "And it makes no difference to their life expectancy at all."
+    } ]
+  }, {
+    "tStartMs": 74260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "There's no suggestion of a relationship there."
+    } ]
+  }, {
+    "tStartMs": 76260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "But if we look within our societies,"
+    } ]
+  }, {
+    "tStartMs": 79260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "there are extraordinary social gradients in health"
+    } ]
+  }, {
+    "tStartMs": 82260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "running right across society."
+    } ]
+  }, {
+    "tStartMs": 84260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "This, again, is life expectancy."
+    } ]
+  }, {
+    "tStartMs": 86260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "These are small areas of England and Wales --"
+    } ]
+  }, {
+    "tStartMs": 88260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "the poorest on the right, the richest on the left."
+    } ]
+  }, {
+    "tStartMs": 92260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "A lot of difference between the poor and the rest of us."
+    } ]
+  }, {
+    "tStartMs": 95260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Even the people just below the top"
+    } ]
+  }, {
+    "tStartMs": 97260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "have less good health"
+    } ]
+  }, {
+    "tStartMs": 99260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "than the people at the top."
+    } ]
+  }, {
+    "tStartMs": 101260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "So income means something very important"
+    } ]
+  }, {
+    "tStartMs": 103260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "within our societies,"
+    } ]
+  }, {
+    "tStartMs": 105260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and nothing between them."
+    } ]
+  }, {
+    "tStartMs": 108260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "The explanation of that paradox"
+    } ]
+  }, {
+    "tStartMs": 111260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is that, within our societies,"
+    } ]
+  }, {
+    "tStartMs": 113260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we're looking at relative income"
+    } ]
+  }, {
+    "tStartMs": 115260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "or social position, social status --"
+    } ]
+  }, {
+    "tStartMs": 118260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "where we are in relation to each other"
+    } ]
+  }, {
+    "tStartMs": 121260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and the size of the gaps between us."
+    } ]
+  }, {
+    "tStartMs": 124260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And as soon as you've got that idea,"
+    } ]
+  }, {
+    "tStartMs": 126260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "you should immediately wonder:"
+    } ]
+  }, {
+    "tStartMs": 128260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "what happens if we widen the differences,"
+    } ]
+  }, {
+    "tStartMs": 131260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "or compress them,"
+    } ]
+  }, {
+    "tStartMs": 133260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "make the income differences bigger or smaller?"
+    } ]
+  }, {
+    "tStartMs": 135260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And that's what I'm going to show you."
+    } ]
+  }, {
+    "tStartMs": 138260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I'm not using any hypothetical data."
+    } ]
+  }, {
+    "tStartMs": 140260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I'm taking data from the U.N. --"
+    } ]
+  }, {
+    "tStartMs": 142260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "it's the same as the World Bank has --"
+    } ]
+  }, {
+    "tStartMs": 144260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "on the scale of income differences"
+    } ]
+  }, {
+    "tStartMs": 146260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in these rich developed market democracies."
+    } ]
+  }, {
+    "tStartMs": 149260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The measure we've used,"
+    } ]
+  }, {
+    "tStartMs": 151260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "because it's easy to understand and you can download it,"
+    } ]
+  }, {
+    "tStartMs": 153260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is how much richer the top 20 percent"
+    } ]
+  }, {
+    "tStartMs": 155260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "than the bottom 20 percent in each country."
+    } ]
+  }, {
+    "tStartMs": 158260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And you see in the more equal countries on the left --"
+    } ]
+  }, {
+    "tStartMs": 161260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Japan, Finland, Norway, Sweden --"
+    } ]
+  }, {
+    "tStartMs": 163260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "the top 20 percent are about three and a half, four times as rich"
+    } ]
+  }, {
+    "tStartMs": 165260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "as the bottom 20 percent."
+    } ]
+  }, {
+    "tStartMs": 168260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But on the more unequal end --"
+    } ]
+  }, {
+    "tStartMs": 170260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "U.K., Portugal, USA, Singapore --"
+    } ]
+  }, {
+    "tStartMs": 172260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "the differences are twice as big."
+    } ]
+  }, {
+    "tStartMs": 175260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "On that measure, we are twice as unequal"
+    } ]
+  }, {
+    "tStartMs": 178260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "as some of the other successful market democracies."
+    } ]
+  }, {
+    "tStartMs": 182260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "Now I'm going to show you what that does to our societies."
+    } ]
+  }, {
+    "tStartMs": 186260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "We collected data on problems with social gradients,"
+    } ]
+  }, {
+    "tStartMs": 189260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "the kind of problems that are more common"
+    } ]
+  }, {
+    "tStartMs": 191260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "at the bottom of the social ladder."
+    } ]
+  }, {
+    "tStartMs": 193260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Internationally comparable data on life expectancy,"
+    } ]
+  }, {
+    "tStartMs": 196260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "on kids' maths and literacy scores,"
+    } ]
+  }, {
+    "tStartMs": 199260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "on infant mortality rates, homicide rates,"
+    } ]
+  }, {
+    "tStartMs": 202260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "proportion of the population in prison, teenage birthrates,"
+    } ]
+  }, {
+    "tStartMs": 205260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "levels of trust,"
+    } ]
+  }, {
+    "tStartMs": 207260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "obesity, mental illness --"
+    } ]
+  }, {
+    "tStartMs": 209260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "which in standard diagnostic classification"
+    } ]
+  }, {
+    "tStartMs": 212260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "includes drug and alcohol addiction --"
+    } ]
+  }, {
+    "tStartMs": 214260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and social mobility."
+    } ]
+  }, {
+    "tStartMs": 216260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "We put them all in one index."
+    } ]
+  }, {
+    "tStartMs": 219260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "They're all weighted equally."
+    } ]
+  }, {
+    "tStartMs": 221260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Where a country is is a sort of average score on these things."
+    } ]
+  }, {
+    "tStartMs": 224260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And there, you see it"
+    } ]
+  }, {
+    "tStartMs": 226260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in relation to the measure of inequality I've just shown you,"
+    } ]
+  }, {
+    "tStartMs": 229260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "which I shall use over and over again in the data."
+    } ]
+  }, {
+    "tStartMs": 232260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The more unequal countries"
+    } ]
+  }, {
+    "tStartMs": 234260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "are doing worse"
+    } ]
+  }, {
+    "tStartMs": 236260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "on all these kinds of social problems."
+    } ]
+  }, {
+    "tStartMs": 238260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "It's an extraordinarily close correlation."
+    } ]
+  }, {
+    "tStartMs": 241260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But if you look at that same index"
+    } ]
+  }, {
+    "tStartMs": 243260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "of health and social problems"
+    } ]
+  }, {
+    "tStartMs": 245260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in relation to GNP per capita,"
+    } ]
+  }, {
+    "tStartMs": 247260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "gross national income,"
+    } ]
+  }, {
+    "tStartMs": 249260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "there's nothing there,"
+    } ]
+  }, {
+    "tStartMs": 251260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "no correlation anymore."
+    } ]
+  }, {
+    "tStartMs": 254260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "We were a little bit worried"
+    } ]
+  }, {
+    "tStartMs": 256260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "that people might think"
+    } ]
+  }, {
+    "tStartMs": 258260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we'd been choosing problems to suit our argument"
+    } ]
+  }, {
+    "tStartMs": 260260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and just manufactured this evidence,"
+    } ]
+  }, {
+    "tStartMs": 263260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "so we also did a paper in the British Medical Journal"
+    } ]
+  }, {
+    "tStartMs": 266260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "on the UNICEF index of child well-being."
+    } ]
+  }, {
+    "tStartMs": 270260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It has 40 different components"
+    } ]
+  }, {
+    "tStartMs": 272260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "put together by other people."
+    } ]
+  }, {
+    "tStartMs": 274260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "It contains whether kids can talk to their parents,"
+    } ]
+  }, {
+    "tStartMs": 277260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "whether they have books at home,"
+    } ]
+  }, {
+    "tStartMs": 279260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "what immunization rates are like, whether there's bullying at school."
+    } ]
+  }, {
+    "tStartMs": 282260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Everything goes into it."
+    } ]
+  }, {
+    "tStartMs": 284260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "Here it is in relation to that same measure of inequality."
+    } ]
+  }, {
+    "tStartMs": 288260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Kids do worse in the more unequal societies."
+    } ]
+  }, {
+    "tStartMs": 291260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Highly significant relationship."
+    } ]
+  }, {
+    "tStartMs": 294260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But once again,"
+    } ]
+  }, {
+    "tStartMs": 296260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "if you look at that measure of child well-being,"
+    } ]
+  }, {
+    "tStartMs": 299260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in relation to national income per person,"
+    } ]
+  }, {
+    "tStartMs": 301260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "there's no relationship,"
+    } ]
+  }, {
+    "tStartMs": 303260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "no suggestion of a relationship."
+    } ]
+  }, {
+    "tStartMs": 306260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "What all the data I've shown you so far says"
+    } ]
+  }, {
+    "tStartMs": 309260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is the same thing."
+    } ]
+  }, {
+    "tStartMs": 311260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The average well-being of our societies"
+    } ]
+  }, {
+    "tStartMs": 313260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "is not dependent any longer"
+    } ]
+  }, {
+    "tStartMs": 316260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "on national income and economic growth."
+    } ]
+  }, {
+    "tStartMs": 319260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "That's very important in poorer countries,"
+    } ]
+  }, {
+    "tStartMs": 321260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "but not in the rich developed world."
+    } ]
+  }, {
+    "tStartMs": 324260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But the differences between us"
+    } ]
+  }, {
+    "tStartMs": 326260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and where we are in relation to each other"
+    } ]
+  }, {
+    "tStartMs": 328260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "now matter very much."
+    } ]
+  }, {
+    "tStartMs": 331260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I'm going to show you some of the separate bits of our index."
+    } ]
+  }, {
+    "tStartMs": 334260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Here, for instance, is trust."
+    } ]
+  }, {
+    "tStartMs": 336260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It's simply the proportion of the population"
+    } ]
+  }, {
+    "tStartMs": 338260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "who agree most people can be trusted."
+    } ]
+  }, {
+    "tStartMs": 340260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It comes from the World Values Survey."
+    } ]
+  }, {
+    "tStartMs": 342260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "You see, at the more unequal end,"
+    } ]
+  }, {
+    "tStartMs": 344260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "it's about 15 percent of the population"
+    } ]
+  }, {
+    "tStartMs": 347260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "who feel they can trust others."
+    } ]
+  }, {
+    "tStartMs": 349260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But in the more equal societies,"
+    } ]
+  }, {
+    "tStartMs": 351260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "it rises to 60 or 65 percent."
+    } ]
+  }, {
+    "tStartMs": 355260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And if you look at measures of involvement in community life"
+    } ]
+  }, {
+    "tStartMs": 358260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "or social capital,"
+    } ]
+  }, {
+    "tStartMs": 360260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "very similar relationships"
+    } ]
+  }, {
+    "tStartMs": 362260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "closely related to inequality."
+    } ]
+  }, {
+    "tStartMs": 365260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I may say, we did all this work twice."
+    } ]
+  }, {
+    "tStartMs": 368260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "We did it first on these rich, developed countries,"
+    } ]
+  }, {
+    "tStartMs": 371260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and then as a separate test bed,"
+    } ]
+  }, {
+    "tStartMs": 373260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "we repeated it all on the 50 American states --"
+    } ]
+  }, {
+    "tStartMs": 376260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "asking just the same question:"
+    } ]
+  }, {
+    "tStartMs": 378260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "do the more unequal states"
+    } ]
+  }, {
+    "tStartMs": 380260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "do worse on all these kinds of measures?"
+    } ]
+  }, {
+    "tStartMs": 382260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "So here is trust from a general social survey of the federal government"
+    } ]
+  }, {
+    "tStartMs": 386260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "related to inequality."
+    } ]
+  }, {
+    "tStartMs": 388260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Very similar scatter"
+    } ]
+  }, {
+    "tStartMs": 390260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "over a similar range of levels of trust."
+    } ]
+  }, {
+    "tStartMs": 392260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Same thing is going on."
+    } ]
+  }, {
+    "tStartMs": 394260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Basically we found"
+    } ]
+  }, {
+    "tStartMs": 396260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "that almost anything that's related to trust internationally"
+    } ]
+  }, {
+    "tStartMs": 399260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is related to trust amongst the 50 states"
+    } ]
+  }, {
+    "tStartMs": 401260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in that separate test bed."
+    } ]
+  }, {
+    "tStartMs": 403260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "We're not just talking about a fluke."
+    } ]
+  }, {
+    "tStartMs": 405260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "This is mental illness."
+    } ]
+  }, {
+    "tStartMs": 407260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "WHO put together figures"
+    } ]
+  }, {
+    "tStartMs": 409260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "using the same diagnostic interviews"
+    } ]
+  }, {
+    "tStartMs": 411260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "on random samples of the population"
+    } ]
+  }, {
+    "tStartMs": 413260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "to allow us to compare rates of mental illness"
+    } ]
+  }, {
+    "tStartMs": 416260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in each society."
+    } ]
+  }, {
+    "tStartMs": 418260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "This is the percent of the population"
+    } ]
+  }, {
+    "tStartMs": 420260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "with any mental illness in the preceding year."
+    } ]
+  }, {
+    "tStartMs": 423260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And it goes from about eight percent"
+    } ]
+  }, {
+    "tStartMs": 426260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "up to three times that --"
+    } ]
+  }, {
+    "tStartMs": 428260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "whole societies"
+    } ]
+  }, {
+    "tStartMs": 430260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "with three times the level of mental illness of others."
+    } ]
+  }, {
+    "tStartMs": 433260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "And again, closely related to inequality."
+    } ]
+  }, {
+    "tStartMs": 437260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "This is violence."
+    } ]
+  }, {
+    "tStartMs": 439260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "These red dots are American states,"
+    } ]
+  }, {
+    "tStartMs": 441260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "and the blue triangles are Canadian provinces."
+    } ]
+  }, {
+    "tStartMs": 445260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "But look at the scale of the differences."
+    } ]
+  }, {
+    "tStartMs": 448260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "It goes from 15 homicides per million"
+    } ]
+  }, {
+    "tStartMs": 451260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "up to 150."
+    } ]
+  }, {
+    "tStartMs": 454260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "This is the proportion of the population in prison."
+    } ]
+  }, {
+    "tStartMs": 457260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "There's a about a tenfold difference there,"
+    } ]
+  }, {
+    "tStartMs": 460260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "log scale up the side."
+    } ]
+  }, {
+    "tStartMs": 462260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But it goes from about 40 to 400"
+    } ]
+  }, {
+    "tStartMs": 464260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "people in prison."
+    } ]
+  }, {
+    "tStartMs": 467260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "That relationship"
+    } ]
+  }, {
+    "tStartMs": 469260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is not mainly driven by more crime."
+    } ]
+  }, {
+    "tStartMs": 471260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "In some places, that's part of it."
+    } ]
+  }, {
+    "tStartMs": 474260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But most of it is about more punitive sentencing,"
+    } ]
+  }, {
+    "tStartMs": 476260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "harsher sentencing."
+    } ]
+  }, {
+    "tStartMs": 478260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And the more unequal societies"
+    } ]
+  }, {
+    "tStartMs": 480260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "are more likely also to retain the death penalty."
+    } ]
+  }, {
+    "tStartMs": 484260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "Here we have children dropping out of high school."
+    } ]
+  }, {
+    "tStartMs": 489260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Again, quite big differences."
+    } ]
+  }, {
+    "tStartMs": 491260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Extraordinarily damaging,"
+    } ]
+  }, {
+    "tStartMs": 493260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "if you're talking about using the talents of the population."
+    } ]
+  }, {
+    "tStartMs": 496260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "This is social mobility."
+    } ]
+  }, {
+    "tStartMs": 499260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It's actually a measure of mobility"
+    } ]
+  }, {
+    "tStartMs": 501260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "based on income."
+    } ]
+  }, {
+    "tStartMs": 503260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Basically, it's asking:"
+    } ]
+  }, {
+    "tStartMs": 505260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "do rich fathers have rich sons"
+    } ]
+  }, {
+    "tStartMs": 507260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and poor fathers have poor sons,"
+    } ]
+  }, {
+    "tStartMs": 509260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "or is there no relationship between the two?"
+    } ]
+  }, {
+    "tStartMs": 512260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And at the more unequal end,"
+    } ]
+  }, {
+    "tStartMs": 514260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "fathers' income is much more important --"
+    } ]
+  }, {
+    "tStartMs": 517260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in the U.K., USA."
+    } ]
+  }, {
+    "tStartMs": 520260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And in Scandinavian countries,"
+    } ]
+  }, {
+    "tStartMs": 522260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "fathers' income is much less important."
+    } ]
+  }, {
+    "tStartMs": 524260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "There's more social mobility."
+    } ]
+  }, {
+    "tStartMs": 527260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And as we like to say --"
+    } ]
+  }, {
+    "tStartMs": 529260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and I know there are a lot of Americans in the audience here --"
+    } ]
+  }, {
+    "tStartMs": 532260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "if Americans want to live the American dream,"
+    } ]
+  }, {
+    "tStartMs": 535260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "they should go to Denmark."
+    } ]
+  }, {
+    "tStartMs": 537260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "(Laughter)"
+    } ]
+  }, {
+    "tStartMs": 539260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "(Applause)"
+    } ]
+  }, {
+    "tStartMs": 543260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I've shown you just a few things in italics here."
+    } ]
+  }, {
+    "tStartMs": 546260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I could have shown a number of other problems."
+    } ]
+  }, {
+    "tStartMs": 548260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "They're all problems that tend to be more common"
+    } ]
+  }, {
+    "tStartMs": 550260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "at the bottom of the social gradient."
+    } ]
+  }, {
+    "tStartMs": 552260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "But there are endless problems with social gradients"
+    } ]
+  }, {
+    "tStartMs": 557260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "that are worse in more unequal countries --"
+    } ]
+  }, {
+    "tStartMs": 559260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "not just a little bit worse,"
+    } ]
+  }, {
+    "tStartMs": 561260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "but anything from twice as common to 10 times as common."
+    } ]
+  }, {
+    "tStartMs": 564260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Think of the expense,"
+    } ]
+  }, {
+    "tStartMs": 566260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "the human cost of that."
+    } ]
+  }, {
+    "tStartMs": 569260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I want to go back though to this graph that I showed you earlier"
+    } ]
+  }, {
+    "tStartMs": 571260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "where we put it all together"
+    } ]
+  }, {
+    "tStartMs": 573260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "to make two points."
+    } ]
+  }, {
+    "tStartMs": 575260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "One is that, in graph after graph,"
+    } ]
+  }, {
+    "tStartMs": 578260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we find the countries that do worse,"
+    } ]
+  }, {
+    "tStartMs": 580260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "whatever the outcome,"
+    } ]
+  }, {
+    "tStartMs": 582260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "seem to be the more unequal ones,"
+    } ]
+  }, {
+    "tStartMs": 584260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and the ones that do well"
+    } ]
+  }, {
+    "tStartMs": 586260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "seem to be the Nordic countries and Japan."
+    } ]
+  }, {
+    "tStartMs": 589260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "So what we're looking at"
+    } ]
+  }, {
+    "tStartMs": 591260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "is general social disfunction related to inequality."
+    } ]
+  }, {
+    "tStartMs": 594260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It's not just one or two things that go wrong,"
+    } ]
+  }, {
+    "tStartMs": 596260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "it's most things."
+    } ]
+  }, {
+    "tStartMs": 598260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "The other really important point I want to make on this graph"
+    } ]
+  }, {
+    "tStartMs": 601260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is that, if you look at the bottom,"
+    } ]
+  }, {
+    "tStartMs": 603260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Sweden and Japan,"
+    } ]
+  }, {
+    "tStartMs": 606260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "they're very different countries in all sorts of ways."
+    } ]
+  }, {
+    "tStartMs": 609260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The position of women,"
+    } ]
+  }, {
+    "tStartMs": 611260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "how closely they keep to the nuclear family,"
+    } ]
+  }, {
+    "tStartMs": 613260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "are on opposite ends of the poles"
+    } ]
+  }, {
+    "tStartMs": 615260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in terms of the rich developed world."
+    } ]
+  }, {
+    "tStartMs": 617260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But another really important difference"
+    } ]
+  }, {
+    "tStartMs": 619260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "is how they get their greater equality."
+    } ]
+  }, {
+    "tStartMs": 622260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Sweden has huge differences in earnings,"
+    } ]
+  }, {
+    "tStartMs": 625260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and it narrows the gap through taxation,"
+    } ]
+  }, {
+    "tStartMs": 627260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "general welfare state,"
+    } ]
+  }, {
+    "tStartMs": 629260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "generous benefits and so on."
+    } ]
+  }, {
+    "tStartMs": 632260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Japan is rather different though."
+    } ]
+  }, {
+    "tStartMs": 634260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "It starts off with much smaller differences in earnings before tax."
+    } ]
+  }, {
+    "tStartMs": 637260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It has lower taxes."
+    } ]
+  }, {
+    "tStartMs": 639260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It has a smaller welfare state."
+    } ]
+  }, {
+    "tStartMs": 641260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And in our analysis of the American states,"
+    } ]
+  }, {
+    "tStartMs": 643260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we find rather the same contrast."
+    } ]
+  }, {
+    "tStartMs": 645260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "There are some states that do well through redistribution,"
+    } ]
+  }, {
+    "tStartMs": 648260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "some states that do well"
+    } ]
+  }, {
+    "tStartMs": 650260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "because they have smaller income differences before tax."
+    } ]
+  }, {
+    "tStartMs": 653260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "So we conclude"
+    } ]
+  }, {
+    "tStartMs": 655260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "that it doesn't much matter how you get your greater equality,"
+    } ]
+  }, {
+    "tStartMs": 658260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "as long as you get there somehow."
+    } ]
+  }, {
+    "tStartMs": 660260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I am not talking about perfect equality,"
+    } ]
+  }, {
+    "tStartMs": 662260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "I'm talking about what exists in rich developed market democracies."
+    } ]
+  }, {
+    "tStartMs": 668260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "Another really surprising part of this picture"
+    } ]
+  }, {
+    "tStartMs": 673260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is that it's not just the poor"
+    } ]
+  }, {
+    "tStartMs": 675260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "who are affected by inequality."
+    } ]
+  }, {
+    "tStartMs": 678260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "There seems to be some truth in John Donne's"
+    } ]
+  }, {
+    "tStartMs": 680260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "\"No man is an island.\""
+    } ]
+  }, {
+    "tStartMs": 683260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And in a number of studies, it's possible to compare"
+    } ]
+  }, {
+    "tStartMs": 686260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "how people do in more and less equal countries"
+    } ]
+  }, {
+    "tStartMs": 689260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "at each level in the social hierarchy."
+    } ]
+  }, {
+    "tStartMs": 692260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "This is just one example."
+    } ]
+  }, {
+    "tStartMs": 695260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "It's infant mortality."
+    } ]
+  }, {
+    "tStartMs": 697260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Some Swedes very kindly classified a lot of their infant deaths"
+    } ]
+  }, {
+    "tStartMs": 700260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "according to the British register of general socioeconomic classification."
+    } ]
+  }, {
+    "tStartMs": 705260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And so it's anachronistically"
+    } ]
+  }, {
+    "tStartMs": 708260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "a classification by fathers' occupations,"
+    } ]
+  }, {
+    "tStartMs": 710260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "so single parents go on their own."
+    } ]
+  }, {
+    "tStartMs": 712260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "But then where it says \"low social class,\""
+    } ]
+  }, {
+    "tStartMs": 715260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "that's unskilled manual occupations."
+    } ]
+  }, {
+    "tStartMs": 718260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "It goes through towards the skilled manual occupations in the middle,"
+    } ]
+  }, {
+    "tStartMs": 722260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "then the junior non-manual,"
+    } ]
+  }, {
+    "tStartMs": 724260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "going up high to the professional occupations --"
+    } ]
+  }, {
+    "tStartMs": 727260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "doctors, lawyers,"
+    } ]
+  }, {
+    "tStartMs": 729260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "directors of larger companies."
+    } ]
+  }, {
+    "tStartMs": 731260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "You see there that Sweden does better than Britain"
+    } ]
+  }, {
+    "tStartMs": 734260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "all the way across the social hierarchy."
+    } ]
+  }, {
+    "tStartMs": 739260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The biggest differences are at the bottom of society."
+    } ]
+  }, {
+    "tStartMs": 741260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "But even at the top,"
+    } ]
+  }, {
+    "tStartMs": 743260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "there seems to be a small benefit"
+    } ]
+  }, {
+    "tStartMs": 745260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "to being in a more equal society."
+    } ]
+  }, {
+    "tStartMs": 747260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "We show that on about five different sets of data"
+    } ]
+  }, {
+    "tStartMs": 750260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "covering educational outcomes"
+    } ]
+  }, {
+    "tStartMs": 752260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and health in the United States and internationally."
+    } ]
+  }, {
+    "tStartMs": 755260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "And that seems to be the general picture --"
+    } ]
+  }, {
+    "tStartMs": 758260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "that greater equality makes most difference at the bottom,"
+    } ]
+  }, {
+    "tStartMs": 761260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "but has some benefits even at the top."
+    } ]
+  }, {
+    "tStartMs": 764260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "But I should say a few words about what's going on."
+    } ]
+  }, {
+    "tStartMs": 768260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I think I'm looking and talking"
+    } ]
+  }, {
+    "tStartMs": 770260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "about the psychosocial effects of inequality."
+    } ]
+  }, {
+    "tStartMs": 773260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "More to do with feelings of superiority and inferiority,"
+    } ]
+  }, {
+    "tStartMs": 776260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "of being valued and devalued,"
+    } ]
+  }, {
+    "tStartMs": 778260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "respected and disrespected."
+    } ]
+  }, {
+    "tStartMs": 781260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And of course, those feelings"
+    } ]
+  }, {
+    "tStartMs": 783260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "of the status competition that comes out of that"
+    } ]
+  }, {
+    "tStartMs": 786260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "drives the consumerism in our society."
+    } ]
+  }, {
+    "tStartMs": 789260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "It also leads to status insecurity."
+    } ]
+  }, {
+    "tStartMs": 792260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "We worry more about how we're judged and seen by others,"
+    } ]
+  }, {
+    "tStartMs": 796260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "whether we're regarded as attractive, clever,"
+    } ]
+  }, {
+    "tStartMs": 799260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "all that kind of thing."
+    } ]
+  }, {
+    "tStartMs": 802260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "The social-evaluative judgments increase,"
+    } ]
+  }, {
+    "tStartMs": 805260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "the fear of those social-evaluative judgments."
+    } ]
+  }, {
+    "tStartMs": 809260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Interestingly,"
+    } ]
+  }, {
+    "tStartMs": 811260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "some parallel work going on in social psychology:"
+    } ]
+  }, {
+    "tStartMs": 815260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "some people reviewed 208 different studies"
+    } ]
+  }, {
+    "tStartMs": 818260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in which volunteers had been invited"
+    } ]
+  }, {
+    "tStartMs": 821260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "into a psychological laboratory"
+    } ]
+  }, {
+    "tStartMs": 823260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and had their stress hormones,"
+    } ]
+  }, {
+    "tStartMs": 825260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "their responses to doing stressful tasks, measured."
+    } ]
+  }, {
+    "tStartMs": 829260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And in the review,"
+    } ]
+  }, {
+    "tStartMs": 831260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "what they were interested in seeing"
+    } ]
+  }, {
+    "tStartMs": 833260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is what kind of stresses"
+    } ]
+  }, {
+    "tStartMs": 835260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "most reliably raise levels of cortisol,"
+    } ]
+  }, {
+    "tStartMs": 838260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "the central stress hormone."
+    } ]
+  }, {
+    "tStartMs": 840260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And the conclusion was"
+    } ]
+  }, {
+    "tStartMs": 842260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "it was tasks that included social-evaluative threat --"
+    } ]
+  }, {
+    "tStartMs": 845260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "threats to self-esteem or social status"
+    } ]
+  }, {
+    "tStartMs": 848260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in which others can negatively judge your performance."
+    } ]
+  }, {
+    "tStartMs": 851260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Those kind of stresses"
+    } ]
+  }, {
+    "tStartMs": 853260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "have a very particular effect"
+    } ]
+  }, {
+    "tStartMs": 856260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "on the physiology of stress."
+    } ]
+  }, {
+    "tStartMs": 860260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Now we have been criticized."
+    } ]
+  }, {
+    "tStartMs": 862260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Of course, there are people who dislike this stuff"
+    } ]
+  }, {
+    "tStartMs": 865260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and people who find it very surprising."
+    } ]
+  }, {
+    "tStartMs": 868260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "I should tell you though"
+    } ]
+  }, {
+    "tStartMs": 870260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "that when people criticize us for picking and choosing data,"
+    } ]
+  }, {
+    "tStartMs": 873260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we never pick and choose data."
+    } ]
+  }, {
+    "tStartMs": 875260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "We have an absolute rule"
+    } ]
+  }, {
+    "tStartMs": 877260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "that if our data source has data for one of the countries we're looking at,"
+    } ]
+  }, {
+    "tStartMs": 880260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "it goes into the analysis."
+    } ]
+  }, {
+    "tStartMs": 882260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Our data source decides"
+    } ]
+  }, {
+    "tStartMs": 884260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "whether it's reliable data,"
+    } ]
+  }, {
+    "tStartMs": 886260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we don't."
+    } ]
+  }, {
+    "tStartMs": 888260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Otherwise that would introduce bias."
+    } ]
+  }, {
+    "tStartMs": 890260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "What about other countries?"
+    } ]
+  }, {
+    "tStartMs": 892260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "There are 200 studies"
+    } ]
+  }, {
+    "tStartMs": 895260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "of health in relation to income and equality"
+    } ]
+  }, {
+    "tStartMs": 898260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in the academic peer-reviewed journals."
+    } ]
+  }, {
+    "tStartMs": 901260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "This isn't confined to these countries here,"
+    } ]
+  }, {
+    "tStartMs": 904260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "hiding a very simple demonstration."
+    } ]
+  }, {
+    "tStartMs": 906260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The same countries,"
+    } ]
+  }, {
+    "tStartMs": 908260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "the same measure of inequality,"
+    } ]
+  }, {
+    "tStartMs": 910260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "one problem after another."
+    } ]
+  }, {
+    "tStartMs": 914260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Why don't we control for other factors?"
+    } ]
+  }, {
+    "tStartMs": 916260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Well we've shown you that GNP per capita"
+    } ]
+  }, {
+    "tStartMs": 918260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "doesn't make any difference."
+    } ]
+  }, {
+    "tStartMs": 920260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "And of course, others using more sophisticated methods in the literature"
+    } ]
+  }, {
+    "tStartMs": 924260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "have controlled for poverty and education"
+    } ]
+  }, {
+    "tStartMs": 926260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "and so on."
+    } ]
+  }, {
+    "tStartMs": 930260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "What about causality?"
+    } ]
+  }, {
+    "tStartMs": 932260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "Correlation in itself doesn't prove causality."
+    } ]
+  }, {
+    "tStartMs": 935260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "We spend a good bit of time."
+    } ]
+  }, {
+    "tStartMs": 937260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "And indeed, people know the causal links quite well"
+    } ]
+  }, {
+    "tStartMs": 939260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in some of these outcomes."
+    } ]
+  }, {
+    "tStartMs": 941260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "The big change in our understanding"
+    } ]
+  }, {
+    "tStartMs": 943260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "of drivers of chronic health"
+    } ]
+  }, {
+    "tStartMs": 945260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "in the rich developed world"
+    } ]
+  }, {
+    "tStartMs": 947260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "is how important chronic stress from social sources"
+    } ]
+  }, {
+    "tStartMs": 951260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "is affecting the immune system,"
+    } ]
+  }, {
+    "tStartMs": 953260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "the cardiovascular system."
+    } ]
+  }, {
+    "tStartMs": 956260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Or for instance, the reason why violence"
+    } ]
+  }, {
+    "tStartMs": 958260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "becomes more common in more unequal societies"
+    } ]
+  }, {
+    "tStartMs": 961260,
+    "dDurationMs": 5000,
+    "segs": [ {
+      "utf8": "is because people are sensitive to being looked down on."
+    } ]
+  }, {
+    "tStartMs": 966260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I should say that to deal with this,"
+    } ]
+  }, {
+    "tStartMs": 969260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "we've got to deal with the post-tax things"
+    } ]
+  }, {
+    "tStartMs": 971260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and the pre-tax things."
+    } ]
+  }, {
+    "tStartMs": 973260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "We've got to constrain income,"
+    } ]
+  }, {
+    "tStartMs": 976260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "the bonus culture incomes at the top."
+    } ]
+  }, {
+    "tStartMs": 978260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I think we must make our bosses accountable to their employees"
+    } ]
+  }, {
+    "tStartMs": 981260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "in any way we can."
+    } ]
+  }, {
+    "tStartMs": 984260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "I think the take-home message though"
+    } ]
+  }, {
+    "tStartMs": 987260,
+    "dDurationMs": 4000,
+    "segs": [ {
+      "utf8": "is that we can improve the real quality of human life"
+    } ]
+  }, {
+    "tStartMs": 991260,
+    "dDurationMs": 3000,
+    "segs": [ {
+      "utf8": "by reducing the differences in incomes between us."
+    } ]
+  }, {
+    "tStartMs": 994260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Suddenly we have a handle"
+    } ]
+  }, {
+    "tStartMs": 996260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "on the psychosocial well-being of whole societies,"
+    } ]
+  }, {
+    "tStartMs": 998260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "and that's exciting."
+    } ]
+  }, {
+    "tStartMs": 1000260,
+    "dDurationMs": 2000,
+    "segs": [ {
+      "utf8": "Thank you."
+    } ]
+  }, {
+    "tStartMs": 1002260,
+    "dDurationMs": 6000,
+    "segs": [ {
+      "utf8": "(Applause)"
+    } ]
+  } ]
+}
