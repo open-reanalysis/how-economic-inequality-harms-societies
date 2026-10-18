@@ -8,7 +8,7 @@ Issues are welcome at any time.
 
 No one computes, views or infers an association between current inequality data and current outcome data before the reproduction lock has merged and milestone 1 is tagged. Downloading data, reading metadata and checking country coverage are fine.
 
-Acquired data files are stored exactly as acquired, by the storage method recorded for each source, with their manifest rows. Only data and texts whose terms allow publishing are committed. Anything else is handled locally and recorded as a source with its link, and data extracted from it stay below the threshold of originality. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
+Acquired data files are stored exactly as acquired, by the storage method recorded for each source, with their manifest rows. Only data and texts whose terms allow publishing are committed. Anything else is handled locally and recorded as a source with its link, and data extracted from it stay below the threshold of originality and never take a substantial part of a database. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
 
 A controversy enters the register only with a named author, an exact title, a publication year and a stable DOI, PMID, PMCID, ISBN or URL, and a book also needs its edition.
 
