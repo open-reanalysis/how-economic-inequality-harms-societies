@@ -9,10 +9,11 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 | Wave | Threads | Starts when | Milestone |
 |---|---|---|---|
 | 0 | T0 Scaffold | Now | 1 |
-| 1A | T1a Original access and sample recovery, T2 stage 1 Register and appendix log, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged | 1 |
+| 1A | T1a Original access and sample recovery, T2 stage 1 Register and appendix log, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock, T10 Author claims register | T0 merged | 1 |
 | 1B | T1b Original reproduction | T1a merged | 1 |
 | 1B | T5b stage 1 Test-data availability inventory | T2 stage 1 merged with the register frozen | 1 |
-| 1B | T6b Lock completion | T6a, T1a, T3, T4 and T5a merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged | 1 |
+| 1B | T11 Analysis-type declaration | T6a, T10 and T2 stage 1 merged | 1 |
+| 1B | T6b Lock completion | T6a, T1a, T3, T4, T5a, T10 and T11 merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged | 1 |
 | 1C | Gate G2 sequence | Milestone 1 reviewed and merged into `main`, then tagged. The hash and archive decision merge into milestone 2 | 1 to 2 |
 | 2 | T7 Primary harmonisation | Gate G2 passed | 2 |
 | 2 | T2 stage 2 Supporting literature | Milestone 2 branch exists | 2 |
@@ -24,7 +25,7 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 
 The answer to question B never waits for controversy-specific downloads. T7 builds the primary datasets and T8a analyses them while T5b and T7b are still working on named criticisms.
 
-The lock waits for T2's frozen register so that every criticism-driven covariate, sample rule and panel test is declared before harmonisation, rather than added afterwards as an amendment. This makes T2 the critical path of wave 1A. The lock also waits for T5a and for T5b's availability inventory, so it is known before the lock which covariates and alternative components have an obtainable source. A covariate the register requires is declared in the lock whether or not a source exists. If the inventory found none, the lock says so in advance, and the result is reported as not tested for lack of data rather than discovered as a gap later.
+The lock waits for T2's frozen register so that every criticism-driven covariate, sample rule and panel test is declared before harmonisation, rather than added afterwards as an amendment. This makes T2 the critical path of wave 1A. For the same reason the lock waits for T10's frozen claims register and for T11's declaration of each analysis as a sensitivity analysis or part of a causal assessment. The lock also waits for T5a and for T5b's availability inventory, so it is known before the lock which covariates and alternative components have an obtainable source. A covariate the register requires is declared in the lock whether or not a source exists. If the inventory found none, the lock says so in advance, and the result is reported as not tested for lack of data rather than discovered as a gap later.
 
 A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. An integration branch always contains everything already on `main`. No thread reads from an unmerged thread branch.
 
@@ -41,7 +42,7 @@ A thread reads another thread's output only from its milestone's integration bra
 
 For every retrieval attempt T1a records the HTTP status, redirect chain, response headers where available, UTC timestamp, SHA-256, file size, MIME type and whether the file is machine-readable. A 2017 Equality Trust post says the data could be downloaded. That establishes nothing about today, so the gate is decided only by these records.
 
-**G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock files are `docs/analysis_lock.md`, `docs/source_hierarchy.md`, `docs/inclusion_rules.md`, `docs/dag.md`, the executable DAG `docs/dag.dagitty`, the script `code/00b_dag_adjustment_sets.R` that derives adjustment sets from it, and the adjustment sets it produced in `docs/dag_adjustment_sets.csv`. The commit that contains them is the lock commit.
+**G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock files are `docs/analysis_lock.md`, `docs/source_hierarchy.md`, `docs/inclusion_rules.md`, `docs/analysis_types.md`, `docs/dag.md`, the executable DAG `docs/dag.dagitty`, the script `code/00b_dag_adjustment_sets.R` that derives adjustment sets from it, and the adjustment sets it produced in `docs/dag_adjustment_sets.csv`. The commit that contains them is the lock commit.
 
 `docs/analysis_lock_hash.txt` is not a lock file. It records the hashes and cannot contain its own. The lock is defined on `main`, after your review. T6b's pull request squash-merges the lock files into the milestone 1 integration branch. When you have reviewed and merged milestone 1 into `main`, its merge commit on `main` is the lock commit, and the integrator tags that commit `analysis-lock-v1`. The first pull request into the milestone 2 integration branch then adds `docs/analysis_lock_hash.txt` with the tag, the lock commit hash on `main` and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash.
 
@@ -85,8 +86,8 @@ The project lives in the public GitHub repository https://github.com/open-reanal
 
 | Milestone | Integration branch | Threads | What you review first |
 |---|---|---|---|
-| 1. Foundations, original reproduction and lock | `milestone/1-lock` | T0, T1a, T1b, T2 stage 1, T3, T4, T5a, T5b stage 1, T6a, T6b | The lock files, the source hierarchy, the inclusion rules, the frozen register and the question A results with their access label |
-| 2. Analysis | `milestone/2-analysis` | Lock hash and archive decision, T2 stage 2, T5b stage 2, T7, T7b, T8a, T8b | The question B and C results, the source-selection log, the specification curve and the controversy tests |
+| 1. Foundations, original reproduction and lock | `milestone/1-lock` | T0, T1a, T1b, T2 stage 1, T3, T4, T5a, T5b stage 1, T6a, T6b, T10, T11 | The lock files, the source hierarchy, the inclusion rules, the analysis-type declaration, the frozen controversy and claims registers, and the question A results with their access label |
+| 2. Analysis | `milestone/2-analysis` | Lock hash and archive decision, T2 stage 2, T5b stage 2, T7, T7b, T8a, T8b | The question B, C and E results, the source-selection log, the specification curve, the controversy tests and the causal assessments |
 | 3. Report and publication | `milestone/3-report` | T9 | The report and site, before you approve the `results-v1` tag |
 
 Each thread works on a branch named after it, such as `t1a-original-access`, and opens a pull request into its milestone's integration branch when its stage is done. The pull request description is the merge package, using a template that lists every item the merge protocol requires. A thread pull request has no human review. It auto-merges by squash once every required check passes. Your review happens at the milestone pull request, which merges into `main` only when you say so.
@@ -227,9 +228,9 @@ Writes the parts of the analysis plan that need no other thread's output, withou
 
 Fixes the index direction per measure, not per concept. A measure where a higher value means more of a problem keeps its sign, and every other measure is reversed. For mobility this matters, because an intergenerational elasticity and a mobility index point in opposite directions.
 
-Defines the expanded sample rule with population threshold, income threshold and its source, democracy criterion and the treatment of contested countries including Germany, Israel, Singapore, South Korea and Czechia. Fixes the multiverse dimensions and the reproducibility seed. Every alternative country rule, every multiverse dimension and the panel protocol cites either a register row or a sensitivity rationale stated in the lock, in line with question C of INTENT.md.
+Defines the expanded sample rule with population threshold, income threshold and its source, democracy criterion and the treatment of contested countries including Germany, Israel, Singapore, South Korea and Czechia. Fixes the multiverse dimensions and the reproducibility seed. Every alternative country rule, every multiverse dimension and the panel protocol cites a controversy-register row, a claims-register row or a sensitivity rationale stated in the lock, in line with questions C and E of INTENT.md.
 
-Admits a macro-level covariate only where a named criticism, a cited alternative explanation or a stated sensitivity rationale identifies it, and records which one. A locked covariate for which no T5 thread obtained a usable source is reported as not tested, with the reason, and is never silently dropped from the model.
+Admits a macro-level covariate only where a named criticism, a cited alternative explanation, a causal claim in the claims register or a stated sensitivity rationale identifies it, and records which one. Whether a covariate model is a sensitivity analysis or part of a causal assessment is declared by T11. A locked covariate for which no T5 thread obtained a usable source is reported as not tested, with the reason, and is never silently dropped from the model.
 
 Fixes the missing-component rule for the index. A mean of the available z-scores is itself a missing-data rule, even though no value is imputed, so the lock states it as one. It fixes the minimum number of components a country needs to receive an index value, reports the number of components behind every country's value, and adds a complete-case index over countries with every component as a declared sensitivity analysis. "No imputation" means that no missing value is filled in. It does not mean that the available-case mean is free of assumptions.
 
@@ -239,11 +240,11 @@ Fixes how the many comparisons are reported. Every specification in the multiver
 
 Names every domain index and its component membership. If a component cannot be harmonised, the domain is reported with fewer components and the change appears in the component-availability table.
 
-Fixes the panel protocol. This covers the panel unit, a minimum number of countries and within-country observations per outcome below which no model is fitted, country and year fixed effects, whether country trends enter, the lag structure, serial-correlation handling, the standard-error method for a small number of countries and the missing-data treatment.
+Fixes the panel protocol. This covers the panel unit, a minimum number of countries and within-country observations per outcome below which no model is fitted, country and year fixed effects, whether country trends enter, the lag structure, serial-correlation handling, the standard-error method for a small number of countries and the missing-data treatment. Whether each panel model is a sensitivity analysis or part of a causal assessment is declared by T11.
 
 Draws the DAG used for covariate selection, separating possible confounders from possible mediators. The DAG is written in dagitty syntax, and an R script derives the adjustment sets from it so the covariate choice is computed rather than asserted.
 
-Owns the lock files listed under gate G2, together with `docs/analysis_lock_hash.txt`, `docs/analysis_lock_archive.md` and `tests/t6/`. The lock files are covered by the content hashes, so a change to any of them after the lock, the DAG and its script included, fails `make check-contracts` unless it comes as a dated amendment with a new tag. The hash file and the archive record are not hashed.
+Owns the lock files listed under gate G2 except `docs/analysis_types.md`, which T11 owns, together with `docs/analysis_lock_hash.txt`, `docs/analysis_lock_archive.md` and `tests/t6/`. The lock files are covered by the content hashes, so a change to any of them after the lock, the DAG and its script included, fails `make check-contracts` unless it comes as a dated amendment with a new tag. The hash file and the archive record are not hashed.
 
 ### T6b Lock completion
 
@@ -251,7 +252,7 @@ Starts from the milestone 1 integration branch once its wave-table conditions ar
 
 Fixes the source hierarchy for every indicator in `docs/source_hierarchy.md`. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk, T2's logged appendix passages, T5a's manifest and T5b's availability inventory, but no outcome values.
 
-Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then opens the lock pull request into milestone 1. After you have merged milestone 1 into `main` and the integrator has tagged the merge commit, the thread opens the hash pull request with `docs/analysis_lock_hash.txt` into milestone 2. The thread never creates tags itself. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. T6a merges first, and the thread rebases onto the milestone 1 integration branch before starting T6b.
+Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. It also adds to the DAG the covariates and adjustment sets that T11's causal designs require, and checks that every causal design in `docs/analysis_types.md` names an adjustment set the DAG produces. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then opens the lock pull request into milestone 1. After you have merged milestone 1 into `main` and the integrator has tagged the merge commit, the thread opens the hash pull request with `docs/analysis_lock_hash.txt` into milestone 2. The thread never creates tags itself. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. T6a merges first, and the thread rebases onto the milestone 1 integration branch before starting T6b.
 
 ### T7 Primary harmonisation
 
@@ -293,13 +294,15 @@ A register row whose `claim_or_result_affected` names the original result is tes
 
 Runs the multiverse over the locked country rules and inequality measures and reports it as the full specification curve the lock defines. A principal-component index is an exploratory sensitivity analysis only. It reports loadings, explained variance, sign choice, country sample and missing-data treatment, and it is never described as a reproduction or used in place of the primary index.
 
-Panel analyses run in a separate module. Before fitting any model, it reports for each outcome the number of countries, years, country-year observations and within-country variation. No model is fitted below the minimum set in the lock. Results are described as within-country associations, not causal estimates.
+Panel analyses run in a separate module. Before fitting any model, it reports for each outcome the number of countries, years, country-year observations and within-country variation. No model is fitted below the minimum set in the lock. A panel model that T11 declared a sensitivity analysis is described as a within-country association. One that T11 declared part of a causal assessment is reported under question E with the identifying assumptions and limits the declaration states.
 
 Each controversy in the frozen register gets one result, labelled with one of five outcomes. Consistent, partly consistent or inconsistent with the critic's stated concern. Indeterminate when coverage, comparability or precision is insufficient to assess it. Not testable in this design when the register marks `empirical_test_possible` as no, as with a mechanism or causal claim that country-level correlations cannot address. Rows of the last kind get no test table. They are listed in a separate table with the reason, and the report discusses them under the matching heading of the terminology in INTENT.md.
 
+Runs every causal design declared in `docs/analysis_types.md` and writes `outputs/tables/causal_assessment_results.csv`. Each row names the claim ID, the design, the estimand, the identifying assumptions, what the design cannot rule out and the result. A causal claim that T10 marked not testable in this design gets no model and is listed with its reason.
+
 If a register row requires re-running Greener's qualitative comparative analysis, it runs in R with the QCA package.
 
-Owns `code/06_robustness_and_controversy_tests.py`, `code/06b_panel_models.R`, `code/06c_qca.R`, `tests/t8b/`, `outputs/tables/sensitivity_results.csv`, `outputs/tables/controversy_test_results.csv` and `outputs/tables/controversies_not_testable.csv`.
+Owns `code/06_robustness_and_controversy_tests.py`, `code/06b_panel_models.R`, `code/06c_qca.R`, `tests/t8b/`, `outputs/tables/sensitivity_results.csv`, `outputs/tables/controversy_test_results.csv`, `outputs/tables/controversies_not_testable.csv` and `outputs/tables/causal_assessment_results.csv`.
 
 ### T9 Report and clean offline run
 
@@ -307,11 +310,31 @@ Generates all figures and tables from code and builds the Quarto site, including
 
 Owns `code/07_make_tables_figures.py`, `outputs/LICENSE_EXCEPTIONS.md`, `site/` including `site/replication_report.qmd`, the generated `docs/replication_report.md`, `tests/t9/`, `outputs/tables/all_model_results.csv`, `outputs/figures/` except files starting with `original_`, and `outputs/logs/`.
 
+### T10 Author claims register
+
+Builds `docs/claims_register.csv`, which records statements by Wilkinson and Pickett that the project assesses. The sources are *The Spirit Level*, *The Spirit Level at 15* and its technical appendix, Wilkinson's 2011 TED talk, and the authors' published replies to criticism. T10 reads them from their publishers or from local copies and adds no files under `sources/`.
+
+Each entry carries the four fields the controversy register requires, which are author, exact work, year and stable identifier, together with the page or chapter. Its wording is a short verbatim quotation or a concise paraphrase marked as such, kept short enough to respect copyright. Each entry is classified as a descriptive correlation, a proposed mechanism or a causal claim, and as testable with country-level data or not testable in this design. A policy prediction is recorded as a causal claim with a note, because it asserts that an intervention would change an outcome.
+
+An entry whose source T10 could not check is kept with `verification_status` set to to_be_verified and is left unclassified. No quotation, page number or identifier is entered without checking it against the source. The register never attributes a causal inference to a correlation they reported without one, nor omits a causal claim they did advance.
+
+The register is frozen by a commit that records its cut-off date before T11 starts. A statement added after the freeze goes in a dated amendment, and its assessment is reported as a post-lock analysis.
+
+Owns `docs/claims_register.csv`, `docs/claims_register_method.md` and `docs/source_verification/t10_claims.md`.
+
+### T11 Analysis-type declaration
+
+Writes `docs/analysis_types.md`, a lock file that separates causal assessments from sensitivity analyses before any result is examined. Every analysis named in the lock and in the frozen controversy register is listed with its type. A sensitivity analysis tests the robustness of a descriptive correlation and names the controversy-register row or lock rationale behind it. A causal assessment tests a causal claim from the claims register and names the claim ID, the design, the estimand, the identifying assumptions, what the design cannot rule out and the DAG adjustment set it relies on.
+
+Panel models, covariate adjustment such as for poverty, and critic-named alternatives may appear under either type, and the same model may appear twice if it serves both purposes. T6b then adds any covariates the causal designs need to the DAG.
+
+Owns `docs/analysis_types.md`.
+
 ## How the threads run as sessions
 
 T0 runs here. Every other thread runs as its own Claude session in its own git worktree, branched from its milestone's integration branch when its wave opens. A thread's brief is its section of this plan plus INTENT.md. A thread finishes by pushing its branch, opening a pull request into its integration branch whose description is the merge package described below, and enabling auto-merge. A thread session never merges into `main` and never opens a milestone pull request.
 
-T3, T4, T5a and T5b mainly download and catalogue and can use a cheaper model. T1a, T1b, T2, T6, T7, T7b and T8 in both stages involve judgement and use the default model. T2 is among them because its register freeze decides what counts as a valid criticism, and it is on the critical path.
+T3, T4, T5a and T5b mainly download and catalogue and can use a cheaper model. T1a, T1b, T2, T6, T7, T7b, T8 in both stages, T10 and T11 involve judgement and use the default model. T2 is among them because its register freeze decides what counts as a valid criticism, and it is on the critical path.
 
 ## Merge protocol
 
@@ -379,6 +402,8 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Controversy register columns.** `controversy_id`, `claim_or_result_affected`, `target_level`, `mapping_rationale`, `critic_name`, `source_title`, `publication_year`, `publication_date_type`, `source_type`, `peer_review_status`, `exact_controversy_in_neutral_words`, `critic_argument_summary`, `data_or_method_the_critic_targets`, `empirical_test_possible`, `test_plan`, `wilkinson_pickett_response_available`, `response_source_id`, `local_path`, `citation_url` and `notes`.
 
+**Claims register columns.** `claim_id`, `author`, `source_work`, `source_locator` as page or chapter, `publication_year`, `stable_identifier`, `wording`, `wording_type` as verbatim or paraphrase, `claim_class` as descriptive_correlation, proposed_mechanism or causal_claim, `testability` as testable_country_level or not_testable_in_design, `verification_status` as verified or to_be_verified, `verification_log_ref` and `notes`. Claim IDs are `W-` followed by a number, for example `W-007`. `claim_class` and `testability` stay empty while `verification_status` is to_be_verified.
+
 **Controversy categories.** A is country selection and sample definition. B is the inequality measure, including the 80:20 ratio against Gini, market against disposable income, and survey comparability and timing. C is composite-index construction, including weighting, component choice and reverse coding. D is outliers and influential countries. E is temporal persistence, in later data and in national time series. F is mechanism, including the psychosocial account and alternatives such as material conditions, public services, institutions and social cohesion. G is data availability and comparability.
 
-**Report sections.** The report has these sections in this order. Scope and terminology. Original analysis. Current update. Findings. Controversies, where each entry states the critic's claim, cites it, describes the test, shows the result, names its category and links any published Wilkinson and Pickett response. Limitations, covering the small country sample, cross-national comparability, temporal misalignment, missing data, measurement changes, dependence among outcomes and the limits of observational designs. Reproducibility, with exact commands, environment versions, checksums and data-access limits.
+**Report sections.** The report has these sections in this order. Scope and terminology. Original analysis. Current update. Findings. Controversies, where each entry states the critic's claim, cites it, describes the test, shows the result, names its category and links any published Wilkinson and Pickett response. Causal assessment, where each causal claim states its source and class, the design used, its identifying assumptions, what the design cannot rule out and the result, or the reason it is not testable in this design. Limitations, covering the small country sample, cross-national comparability, temporal misalignment, missing data, measurement changes, dependence among outcomes and the limits of observational designs. Reproducibility, with exact commands, environment versions, checksums and data-access limits.

@@ -111,7 +111,7 @@ A proposal made before the register is frozen is considered for the register. A 
 
 ## Writing about results
 
-Use the terminology in INTENT.md. A correlation is described as a correlation. Causal readings and mechanisms appear only as claims attributed to Wilkinson and Pickett or another cited source. The full specification curve is reported, and significance is never used to choose what to report. Controversy tests use the five outcome labels in the plan.
+Use the terminology in INTENT.md. A correlation is described as a correlation, and a correlation that Wilkinson and Pickett reported without a causal interpretation is never presented as their causal inference. Causal readings and mechanisms appear as claims attributed to their source in the claims register or the controversy register, or as results of a causal design declared in the analysis lock, stated with its identifying assumptions and what it cannot rule out. The full specification curve is reported, and significance is never used to choose what to report. Controversy tests use the five outcome labels in the plan.
 
 ## Tests and checks
 
