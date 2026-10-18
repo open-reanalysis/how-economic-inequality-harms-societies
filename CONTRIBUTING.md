@@ -26,7 +26,7 @@ The project is written in Python. Another language is added only when a method n
 
 Every file another script reads follows a pandera schema defined once in `code/lib/schemas.py`. A change to a schema is requested from the integrator, like any change to a scaffold file. Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are ISO 8601. A missing value is a null, never an empty string or the text NA. Pandas indexes are not written to file.
 
-Scripts are numbered by pipeline stage. Tests go in `tests/<thread>/`. Each script is declared as a pipeline step in `code/pipeline/<thread>.toml` with its phase, inputs and outputs. The phase is `acquire` for a script that downloads or records assets and `replay` for a script that works only from files already present. `make acquire` runs acquire steps, and `make all` runs only replay steps.
+Scripts are numbered by pipeline stage. Tests go in `tests/<thread>/`. Each script is a Make target in your thread's `make/<thread>.mk`, with the script and its input files as prerequisites. Add the target to `ACQUIRE_TARGETS` if it downloads or records assets, or to `REPLAY_TARGETS` if it works only from files already present. `make acquire` builds acquire targets, and `make all` builds only replay targets.
 
 Python follows ruff. Quarto pages contain Python chunks only and render through the Jupyter engine.
 
