@@ -6,27 +6,27 @@ This plan turns [INTENT.md](INTENT.md) into work that separate Claude sessions c
 
 Work runs in waves. A thread starts only when every gate it depends on has passed.
 
-| Wave | Threads | Starts when |
-|---|---|---|
-| 0 | T0 Scaffold | Now |
-| 1A | T1a Original access and sample recovery, T2 stage 1 Register and appendix log, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged |
-| 1B | T1b Original reproduction | T1a merged |
-| 1B | T5b stage 1 Test-data availability inventory | T2 stage 1 merged with the register frozen |
-| 1B | T6b Lock completion | T6a, T1a, T3, T4 and T5a merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged |
-| 1C | Gate G2 sequence | T6b squash-merged. The integrator tags the squash commit, the hash pull request is merged, and your archive decision is merged |
-| 2 | T7 Primary harmonisation | T3 and T4 merged, gate G2 passed |
-| 2 | T2 stage 2 Supporting literature | T2 stage 1 merged |
-| 2B | T5b stage 2 Register-specific downloads | T5b stage 1 merged |
-| 3 | T8a Current replication | T7 merged |
-| 3 | T7b Controversy harmonisation | T7, T5a and T5b stage 2 merged |
-| 3 | T8b Sensitivity and controversy tests | T8a, T7b and T1b merged |
-| 4 | T9 Report and clean offline run | T1b, T8b and T2 stage 2 merged |
+| Wave | Threads | Starts when | Milestone |
+|---|---|---|---|
+| 0 | T0 Scaffold | Now | 1 |
+| 1A | T1a Original access and sample recovery, T2 stage 1 Register and appendix log, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged | 1 |
+| 1B | T1b Original reproduction | T1a merged | 1 |
+| 1B | T5b stage 1 Test-data availability inventory | T2 stage 1 merged with the register frozen | 1 |
+| 1B | T6b Lock completion | T6a, T1a, T3, T4 and T5a merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged | 1 |
+| 1C | Gate G2 sequence | Milestone 1 reviewed and merged into `main`, then tagged. The hash and archive decision merge into milestone 2 | 1 to 2 |
+| 2 | T7 Primary harmonisation | Gate G2 passed | 2 |
+| 2 | T2 stage 2 Supporting literature | Milestone 2 branch exists | 2 |
+| 2B | T5b stage 2 Register-specific downloads | Milestone 2 branch exists | 2 |
+| 3 | T8a Current replication | T7 merged | 2 |
+| 3 | T7b Controversy harmonisation | T7 and T5b stage 2 merged | 2 |
+| 3 | T8b Sensitivity and controversy tests | T8a and T7b merged | 2 |
+| 4 | T9 Report and clean offline run | Milestone 2 reviewed and merged into `main` | 3 |
 
 The answer to question B never waits for controversy-specific downloads. T7 builds the primary datasets and T8a analyses them while T5b and T7b are still working on named criticisms.
 
 The lock waits for T2's frozen register so that every criticism-driven covariate, sample rule and panel test is declared before harmonisation, rather than added afterwards as an amendment. This makes T2 the critical path of wave 1A. The lock also waits for T5a and for T5b's availability inventory, so it is known before the lock which covariates and alternative components have an obtainable source. A covariate the register requires is declared in the lock whether or not a source exists. If the inventory found none, the lock says so in advance, and the result is reported as not tested for lack of data rather than discovered as a gap later.
 
-A thread reads another thread's output only from the main line after that thread has merged. No thread reads from an unmerged branch.
+A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. An integration branch always contains everything already on `main`. No thread reads from an unmerged thread branch.
 
 ## Gates
 
@@ -43,11 +43,11 @@ For every retrieval attempt T1a records the HTTP status, redirect chain, respons
 
 **G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock files are `docs/analysis_lock.md`, `docs/source_hierarchy.md`, `docs/inclusion_rules.md`, `docs/dag.md`, the executable DAG `docs/dag.dagitty`, the script `code/00b_dag_adjustment_sets.R` that derives adjustment sets from it, and the adjustment sets it produced in `docs/dag_adjustment_sets.csv`. The commit that contains them is the lock commit.
 
-`docs/analysis_lock_hash.txt` is not a lock file. It records the hashes and cannot contain its own. Pull requests are squash-merged, so a commit made on T6's branch never reaches the main line. The lock is therefore defined on `main`. The lock commit is the squash commit on `main` that T6b's pull request produces, and the integrator tags that commit `analysis-lock-v1`. A second small pull request then adds `docs/analysis_lock_hash.txt` with the tag, the lock commit hash on `main` and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash.
+`docs/analysis_lock_hash.txt` is not a lock file. It records the hashes and cannot contain its own. The lock is defined on `main`, after your review. T6b's pull request squash-merges the lock files into the milestone 1 integration branch. When you have reviewed and merged milestone 1 into `main`, its merge commit on `main` is the lock commit, and the integrator tags that commit `analysis-lock-v1`. The first pull request into the milestone 2 integration branch then adds `docs/analysis_lock_hash.txt` with the tag, the lock commit hash on `main` and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash.
 
 `make check-contracts` compares the lock files' contents with the most recent `analysis-lock-*` tag, so an amendment always has a defined reference. Before the first tag exists there is nothing to compare. Between the tag and the hash pull request, the check compares against the tag and reports the missing hash file as pending, not as a failure.
 
-G2 passes in four steps, in this order. T6b's pull request is squash-merged. The integrator tags the resulting commit on `main`. The hash pull request is merged. You then decide whether to archive the lock publicly, and the decision is recorded in `docs/analysis_lock_archive.md`, either with the archive record and its DOI or with a statement that the lock remains internal. The decision is merged in its own small pull request. G2 has passed once all of this is on the main line, and only then does T7 branch.
+G2 passes in four steps, in this order. You review and merge milestone 1 into `main`. The integrator tags the merge commit and creates the milestone 2 integration branch from it. The hash pull request merges into milestone 2. You then decide whether to archive the lock publicly, and the decision is recorded in `docs/analysis_lock_archive.md`, either with the archive record and its DOI or with a statement that the lock remains internal. The decision merges into milestone 2 in its own small pull request. G2 has passed once both are on the milestone 2 integration branch, and only then does T7 branch.
 
 The blinding is procedural only, and the lock says so in a section on prior knowledge. The original correlations are published, and table 1 of the 2024 technical appendix publishes correlations for 22 countries using recent data. Anyone writing the lock may know these results. The lock lists which published results its author had seen.
 
@@ -81,9 +81,19 @@ The project mixes Python and R. Each language does what it does best, and the bo
 
 ## GitHub repository and workflow
 
-The project lives in the public GitHub repository https://github.com/open-reanalysis/how-economic-inequality-harms-societies under the `open-reanalysis` organisation. The site is published at https://open-reanalysis.github.io/how-economic-inequality-harms-societies/. Each thread works on a branch named after it, such as `t1a-original-access`, and opens a pull request into `main` when its stage is done. The pull request description is the merge package, using a template that lists every item the merge protocol requires. Merging still happens only when you say so.
+The project lives in the public GitHub repository https://github.com/open-reanalysis/how-economic-inequality-harms-societies under the `open-reanalysis` organisation. The site is published at https://open-reanalysis.github.io/how-economic-inequality-harms-societies/. Work reaches `main` through three milestone pull requests, and you review each of them.
 
-`main` is protected. Pull requests need the contract checks to pass and cannot be force-pushed. The lock commit gets the tag `analysis-lock-v1`, as described under gate G2, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected by a tag ruleset that lets only organisation owners create, move or delete them. Owners are on the ruleset's bypass list, and the integrator creates these tags with an owner account. Workflows cannot create them. Pull requests into `main` are squash-merged, so each merged pull request is one commit with a descriptive message, whatever its branch history.
+| Milestone | Integration branch | Threads | What you review first |
+|---|---|---|---|
+| 1. Foundations, original reproduction and lock | `milestone/1-lock` | T0, T1a, T1b, T2 stage 1, T3, T4, T5a, T5b stage 1, T6a, T6b | The lock files, the source hierarchy, the inclusion rules, the frozen register and the question A results with their access label |
+| 2. Analysis | `milestone/2-analysis` | Lock hash and archive decision, T2 stage 2, T5b stage 2, T7, T7b, T8a, T8b | The question B and C results, the source-selection log, the specification curve and the controversy tests |
+| 3. Report and publication | `milestone/3-report` | T9 | The report and site, before you approve the `results-v1` tag |
+
+Each thread works on a branch named after it, such as `t1a-original-access`, and opens a pull request into its milestone's integration branch when its stage is done. The pull request description is the merge package, using a template that lists every item the merge protocol requires. A thread pull request has no human review. It auto-merges by squash once every required check passes. Your review happens at the milestone pull request, which merges into `main` only when you say so.
+
+The integration branch for milestone 1 is created from `main` when T0 starts. Each later one is created from `main` right after the previous milestone merges.
+
+`main` is protected by a ruleset. Changes arrive only through pull requests from a `milestone/*` branch, the checks must pass, force pushes are blocked, and only organisation owners may merge. Claude sessions push and open pull requests with your GitHub account, which is an owner, so for them the rule that they never merge into `main` is procedural, written into every brief and into CONTRIBUTING.md. It becomes technical if you give the sessions a separate machine account or GitHub App with write access but no owner role. The `milestone/*` branches are protected too. They accept only pull requests, require the checks and allow auto-merge. The lock commit gets the tag `analysis-lock-v1`, as described under gate G2, and amendments get `analysis-lock-v1.1` and so on. Tags matching `analysis-lock-*` and `results-*` are protected by a tag ruleset that lets only organisation owners create, move or delete them. Owners are on the ruleset's bypass list, and the integrator creates these tags with an owner account. Workflows cannot create them. Thread pull requests are squash-merged into their integration branch, so each thread stage becomes one commit with a descriptive message. Milestone pull requests are merged into `main` with a merge commit, so those thread commits stay visible in the history of `main`.
 
 **Raw data are not stored in git.** This applies to every raw folder and to downloaded full texts under `sources/`, whatever their licence. Several sources are far larger than GitHub's file limits, and many cannot be redistributed. Git holds manifests, metadata, code and generated outputs. `make acquire` builds a data snapshot, a set of archives whose checksums are recorded in the manifest. Redistributable assets are published as a GitHub release asset named after the snapshot, such as `data-snapshot-2026-11`. Non-redistributable assets stay on your machine and are listed in `data/LOCAL_DATA_REQUIRED.md`. Offline replay downloads the frozen snapshot and verifies every checksum before running. Fetching a frozen snapshot is not the same as redownloading live data, so this is compatible with the offline rule.
 
@@ -97,9 +107,9 @@ Each thread declares its pipeline steps in its own file `code/pipeline/<thread>.
 
 ## GitHub Actions
 
-`ci.yml` runs on every pull request. It installs the locked environment, runs ruff, lintr, pytest and testthat, checks that the exported environment files match `pixi.lock`, and runs `make check-contracts` in `metadata` mode. The ownership check reads the thread from the branch name and fails if the pull request changes files outside that thread's owned paths. A pull request from a fork has no thread branch, so a maintainer gives it a label such as `thread:t2` and the check runs against that thread's paths. Until the label is set, the check stays pending. It also builds the Quarto site as a check and uploads it as a workflow artifact without deploying it.
+`ci.yml` runs on every pull request. It installs the locked environment, runs ruff, lintr, pytest and testthat, checks that the exported environment files match `pixi.lock`, and runs `make check-contracts` in `metadata` mode. The ownership check reads the thread from the branch name and fails if the pull request changes files outside that thread's owned paths. A pull request from a fork has no thread branch, so a maintainer gives it a label such as `thread:t2` and the check runs against that thread's paths. Until the label is set, the check stays pending. A fork pull request targets the current integration branch and never auto-merges. A maintainer reviews and merges it, because code from outside the repository should not reach an integration branch without a person reading it. It also builds the Quarto site as a check and uploads it as a workflow artifact without deploying it.
 
-`replay.yml` runs on every push to `main`. The published snapshot in use is declared in `data/metadata/snapshot.toml`, which names the release tag and the checksum of every archive. Until that file names a published snapshot, the workflow reports that there is nothing to replay and passes. Once it does, the workflow fetches that snapshot, verifies checksums, runs `make replay-ci` with `OFFLINE=1` and uploads the outputs as a workflow artifact. It fails if any committed output that CI can reproduce differs from the replayed one.
+`replay.yml` runs on every push to `main` or to a `milestone/*` branch. The published snapshot in use is declared in `data/metadata/snapshot.toml`, which names the release tag and the checksum of every archive. Until that file names a published snapshot, the workflow reports that there is nothing to replay and passes. Once it does, the workflow fetches that snapshot, verifies checksums, runs `make replay-ci` with `OFFLINE=1` and uploads the outputs as a workflow artifact. It fails if any committed output that CI can reproduce differs from the replayed one.
 
 `acquire.yml` runs only on manual dispatch. It runs `make acquire` for the open sources and drafts a new snapshot release for you to review. It never publishes a snapshot by itself.
 
@@ -119,13 +129,13 @@ If the repository is connected to Zenodo, every release is archived with a DOI. 
 
 ### T0 Scaffold
 
-Runs in this session. Configures the GitHub repository with branch protection, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that `ci.yml` renders but does not deploy, the licence files, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, the pipeline runner, and z-scoring and index construction, so every thread computes them the same way. Z-scoring and index construction live in `code/lib/index.py`, which T0 owns, so T1b can use them in wave 1B before T7 exists. `code/lib/harmonise.py`, owned by T7, contains harmonisation helpers only. T0's commit is the base of every other branch.
+Runs in this session. Creates the `milestone/1-lock` integration branch and configures the GitHub repository with the rulesets for `main`, `milestone/*` and the protected tags, auto-merge enabled at repository level, the pull request template, the four workflows, the pixi workspace with its lockfile and the exported `environment.yml` and `requirements.txt`, the pre-commit configuration, a minimal Quarto site that `ci.yml` renders but does not deploy, the licence files, the `Makefile` targets described under shared contracts, a `code/lib/` package with shared helpers, the manifest schema, `.gitignore` rules for user-supplied files, `data/LOCAL_DATA_REQUIRED.md` as a template and `LICENSES_AND_ACCESS.md` as a template. The shared helpers cover recorded downloads, manifest rows, path resolution, country-code mapping, logging, the pipeline runner, and z-scoring and index construction, so every thread computes them the same way. Z-scoring and index construction live in `code/lib/index.py`, which T0 owns, so T1b can use them in wave 1B before T7 exists. `code/lib/harmonise.py`, owned by T7, contains harmonisation helpers only. T0 is the first pull request into `milestone/1-lock`, and its CI runs on that pull request itself. Its squash commit is the base of every other thread branch in milestone 1.
 
 Owns `README.md`, `CONTRIBUTING.md`, `LICENSE`, `LICENSE-docs`, `CITATION.cff`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `code/pipeline/t0.toml`, `data/metadata/schemas/`, `data/LOCAL_DATA_REQUIRED.md`, `data/metadata/snapshot.toml` and `tests/t0/`. After T0, `snapshot.toml` changes only through the integrator, when you approve a snapshot release.
 
-This pull request, which adds the planning documents before T0, is exempt from the ownership check, which does not exist yet. It already adds `README.md`, `CONTRIBUTING.md`, the licences and the GitHub templates. T0 keeps them and changes them only where its own setup requires, for example to add real commands to the README.
+This pull request, which adds the planning documents before T0, merges directly into `main` because no milestone branch exists yet. It is exempt from the ownership check, which does not exist yet either. It already adds `README.md`, `CONTRIBUTING.md`, the licences and the GitHub templates. T0 keeps them and changes them only where its own setup requires, for example to add real commands to the README.
 
-After T0 merges, a thread that needs a change in a T0 file asks for it in its merge package. `main` accepts changes only through pull requests, so the integrator makes the change on a branch named `t0-<description>`, which the ownership check treats as T0, and merges it. Changes to `snapshot.toml` go the same way. The thread then rebases onto the main line.
+After T0 merges, a thread that needs a change in a T0 file asks for it in its merge package. The integrator makes the change on a branch named `t0-<description>`, which the ownership check treats as T0, and opens a pull request into the current integration branch, where it auto-merges like any thread pull request. Changes to `snapshot.toml` go the same way after you have approved the snapshot release. The thread then rebases onto the integration branch.
 
 ### T1a Original access and sample recovery
 
@@ -173,7 +183,7 @@ Owns `sources/`, `code/00_download_sources.py`, `docs/controversy_register.md`, 
 
 Runs backward and forward citation searching over the criticism literature and the author replies before the freeze. Expanding the supporting literature can continue afterwards.
 
-T2 merges twice. Stage 1 ends when the register is frozen and the appendix is logged, and its merge unblocks T5b and T6b. Stage 2 expands the supporting literature and merges separately before T9. Both stages are the same thread, which rebases onto the main line before stage 2.
+T2 merges twice. Stage 1 ends when the register is frozen and the appendix is logged, and its merge unblocks T5b and T6b. Stage 2 expands the supporting literature and merges separately before T9. Both stages are the same thread. Stage 1 targets milestone 1 and stage 2 targets milestone 2, so the thread rebases onto the milestone 2 integration branch before stage 2.
 
 Stage 1 is done when the register is frozen by a commit that records the search cut-off date and the search log. Later threads read only a frozen version. A named criticism found after the freeze is added in a dated register amendment and a matching dated lock amendment. Its test is reported separately as a post-lock analysis, and the report states that it was not declared before the data were examined.
 
@@ -237,11 +247,11 @@ Owns the lock files listed under gate G2, together with `docs/analysis_lock_hash
 
 ### T6b Lock completion
 
-Starts from the main line once its wave-table conditions are met.
+Starts from the milestone 1 integration branch once its wave-table conditions are met.
 
 Fixes the source hierarchy for every indicator in `docs/source_hierarchy.md`. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk, T2's logged appendix passages, T5a's manifest and T5b's availability inventory, but no outcome values.
 
-Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then opens the lock pull request. After it is squash-merged and the integrator has tagged the commit on `main`, the thread opens the hash pull request with `docs/analysis_lock_hash.txt`. The thread never creates tags itself. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. T6a merges first, and the thread rebases onto the current main line before starting T6b.
+Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then opens the lock pull request into milestone 1. After you have merged milestone 1 into `main` and the integrator has tagged the merge commit, the thread opens the hash pull request with `docs/analysis_lock_hash.txt` into milestone 2. The thread never creates tags itself. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. T6a merges first, and the thread rebases onto the milestone 1 integration branch before starting T6b.
 
 ### T7 Primary harmonisation
 
@@ -277,7 +287,7 @@ Owns `code/05_current_replication.py`, `code/05b_crosscheck.R`, `tests/t8a/`, `o
 
 ### T8b Sensitivity and controversy tests
 
-Answers question C for both the original and the current result. A second stage of the same thread as T8a, which rebases onto the main line once T7b and T1b have merged.
+Answers question C for both the original and the current result. A second stage of the same thread as T8a, which rebases onto the milestone 2 integration branch once T7b has merged.
 
 A register row whose `claim_or_result_affected` names the original result is tested on T1b's original release dataset in `data/03_analysis_ready/original/`. This covers, for example, criticisms of the original country selection or the original index. A row that names the current result is tested on T7 and T7b data, and a row that names both is tested on both. T8b only reads T1b's data. T1b's own alternative specifications remain labelled diagnostics and are not counted as controversy tests. Writes only to `outputs/`, and every result row carries the same provenance fields as in T8a.
 
@@ -299,17 +309,19 @@ Owns `code/07_make_tables_figures.py`, `outputs/LICENSE_EXCEPTIONS.md`, `site/` 
 
 ## How the threads run as sessions
 
-T0 runs here. Every other thread runs as its own Claude session in its own git worktree, branched from the current main line when its wave opens. A thread's brief is its section of this plan plus INTENT.md. A thread finishes by pushing its branch and opening a pull request whose description is the merge package described below.
+T0 runs here. Every other thread runs as its own Claude session in its own git worktree, branched from its milestone's integration branch when its wave opens. A thread's brief is its section of this plan plus INTENT.md. A thread finishes by pushing its branch, opening a pull request into its integration branch whose description is the merge package described below, and enabling auto-merge. A thread session never merges into `main` and never opens a milestone pull request.
 
 T3, T4, T5a and T5b mainly download and catalogue and can use a cheaper model. T1a, T1b, T2, T6, T7, T7b and T8 in both stages involve judgement and use the default model. T2 is among them because its register freeze decides what counts as a valid criticism, and it is on the critical path.
 
 ## Merge protocol
 
-Before a branch is merged, its thread provides in the pull request description the commit hash, the list of changed files, its completion checklist, the manifest validation output, the tests run with exit status, known access failures, licence and redistribution status, and confirmation that it wrote nothing outside its owned files.
+**Thread pull requests.** Before a thread pull request can merge into its integration branch, its thread provides in the pull request description the commit hash, the list of changed files, its completion checklist, the manifest validation output, the tests run with exit status, known access failures, licence and redistribution status, and confirmation that it wrote nothing outside its owned files.
 
-`make check-contracts` runs in CI on every pull request and again after every merge. In CI it runs in `metadata` mode and validates file ownership, manifest schemas, source-ID uniqueness, country-code integrity, unchanged manifest rows for raw files, the lock content hashes, and that `docs/dag_adjustment_sets.csv` matches a fresh run of its script, which needs no data files. Whether the thread's declared commands reproduce its outputs needs data, so the thread checks it locally in `full` mode and reports the result in the merge package, and `make replay-ci` checks it again on the main line for the CI-reproducible steps.
+`make check-contracts` runs in CI on every pull request and again after every merge. In CI it runs in `metadata` mode and validates file ownership, manifest schemas, source-ID uniqueness, country-code integrity, unchanged manifest rows for raw files, the lock content hashes, and that `docs/dag_adjustment_sets.csv` matches a fresh run of its script, which needs no data files. Whether the thread's declared commands reproduce its outputs needs data, so the thread checks it locally in `full` mode and reports the result in the merge package, and `make replay-ci` checks it again on the integration branch and on `main` for the CI-reproducible steps. A thread pull request merges automatically once every required check passes. It needs no human approval, and it opens only when the thread's start conditions in the wave table are met.
 
-Merges happen in wave order and only when you say so. Within wave 1, T6a can merge at any time, but T6b's lock commit must precede T7's branch point. A thread with two stages, which applies to T2, T5b, T6 and T8, rebases onto the main line before its second stage and merges again.
+**Milestone pull requests.** The integrator opens each milestone pull request from its integration branch into `main` once every thread in that milestone has merged. Its description lists the gate files to read first, links every thread pull request with its merge package, and reports the latest replay and contract-check results. You review it and merge it with a merge commit. Nothing else merges into `main`.
+
+Thread pull requests merge in wave order, because each opens only when its conditions are met. A thread with two stages, which applies to T2, T5b, T6 and T8, rebases onto its integration branch before its second stage and merges again.
 
 ## Steps that need you
 
@@ -319,9 +331,9 @@ When a source needs registration or acceptance of terms, the thread stops at the
 
 The licences are decided. Code and tests are under MIT, in `LICENSE`. Documents, the report, the site, figures and result tables are under CC BY 4.0, in `LICENSE-docs`. Each data source keeps its own licence, recorded in its manifest row, and neither repository licence covers raw data or third-party full texts. A derived table or figure that contains values from a source follows that source's terms where they are stricter than CC BY 4.0. Each output's manifest row names the source terms it inherits, T9 generates `outputs/LICENSE_EXCEPTIONS.md` from those rows, and an output whose source terms forbid publication is not put on the site.
 
-Branch protection does not require an approving review while you are the only human contributor, since GitHub does not let an author approve their own pull request. Your merge decision is the human review. Once a second person contributes, one approving review becomes required. Most commits so far are co-authored by an AI model, so a human pass over the gates in this plan before T0 starts is worth doing.
+Branch protection does not require an approving review while you are the only human contributor, since GitHub does not let an author approve their own pull request. Your decision to merge a milestone pull request is the human review. Once a second person contributes, one approving review becomes required. Most commits so far are co-authored by an AI model, so a human pass over the gates in this plan before T0 starts is worth doing.
 
-You also decide whether to archive the analysis lock publicly, you approve every merge, you review each data snapshot before it is published, and you approve the `results-*` tag that publishes the site.
+You also decide whether to archive the analysis lock publicly, you review and merge the three milestone pull requests, you review each data snapshot before it is published, and you approve the `results-*` tag that publishes the site.
 
 ## Shared contracts
 
@@ -361,7 +373,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Outcome manifest columns.** `source_id`, `outcome`, `source_organisation`, `dataset_title`, `url`, `indicator_code`, `indicator_definition`, `unit`, `population`, `geography`, `reference_year`, `publication_or_release_year`, `download_utc`, `local_path`, `sha256`, `licence`, `comparability_rating`, `transformation_needed` and `notes`. The inequality and controversy-test manifests use the same columns, with `outcome` holding the measure or variable name.
 
-**Derived data manifest columns.** `derived_id`, `local_path`, `sha256`, `created_utc`, `producing_script`, `code_version` as the git tree hash of `code/` together with the blob hash of the producing script, `base_commit` as the `main` commit the run started from, `input_source_ids`, `input_sha256s`, `transformation_summary`, `data_dictionary_ref`, `source_year_matrix_ref`, `analysis_lock_hash`, which is empty for T1b's original release dataset, `superseded_by` and `notes`. A tree hash is the same before and after a squash merge when the code is unchanged, so it identifies the code even though the branch commit disappears. The same two fields identify code in every result row. `make manifests` fails if any input ID is missing from the manifest, if an input hash does not match, or if the data dictionary or source-year matrix reference does not resolve.
+**Derived data manifest columns.** `derived_id`, `local_path`, `sha256`, `created_utc`, `producing_script`, `code_version` as the git tree hash of `code/` together with the blob hash of the producing script, `base_commit` as the integration-branch commit the run started from, `input_source_ids`, `input_sha256s`, `transformation_summary`, `data_dictionary_ref`, `source_year_matrix_ref`, `analysis_lock_hash`, which is empty for T1b's original release dataset, `superseded_by` and `notes`. A tree hash is the same before and after a squash merge and a milestone merge when the code is unchanged, so it identifies the code even though the thread's branch commit disappears. The same two fields identify code in every result row. `make manifests` fails if any input ID is missing from the manifest, if an input hash does not match, or if the data dictionary or source-year matrix reference does not resolve.
 
 **Source bibliography columns.** `citation_key`, `authors`, `year`, `title`, `journal_or_publisher`, `doi`, `landing_url`, `direct_pdf_url`, `source_type`, `peer_review_status`, `research_design`, `geography`, `outcome`, `inequality_measure`, `main_finding_verbatim_short`, `methodological_limitations_verbatim_short`, `local_path`, `access_status` and `notes`. Quoted fields stay short enough to respect copyright.
 

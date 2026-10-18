@@ -87,9 +87,11 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 ## Threads, branches and ownership
 
-A thread's branch is named `t<id>-<short-description>`, for example `t1a-original-access`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged. A change to a file owned by T0 is requested in the pull request and made by the integrator.
+Work reaches `main` in three milestones, and each has an integration branch: `milestone/1-lock`, `milestone/2-analysis` and `milestone/3-report`. Thread pull requests go into the current integration branch. Only the three milestone pull requests go into `main`, and a maintainer reviews and merges each of them. The plan lists which thread belongs to which milestone.
 
-A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:t2`, and the ownership check runs against that thread's paths. Until the label is set, the check waits. While the ownership check is a required status, a pending check blocks the merge, so a fork pull request cannot be merged until a maintainer has labelled it.
+A thread's branch is named `t<id>-<short-description>`, for example `t1a-original-access`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. A change to a file owned by T0 is requested in the pull request and made by the integrator.
+
+A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:t2`, and the ownership check runs against that thread's paths. Until the label is set, the check waits. While the ownership check is a required status, a pending check blocks the merge, so a fork pull request cannot be merged until a maintainer has labelled it. A fork pull request targets the current integration branch and never auto-merges. A maintainer reviews and merges it.
 
 ## Data and sources
 
@@ -119,7 +121,7 @@ Install the hooks once with `pixi run pre-commit install`. Before opening a pull
 
 Write commit messages in the imperative, with a short subject line and a body that says why. Commits written with an AI assistant carry a `Co-Authored-By` line naming it.
 
-The pull request template is the merge package the plan requires. Fill in every item. A pull request is merged only by a maintainer's decision. An approving review becomes mandatory once more than one person contributes.
+The pull request template is the merge package the plan requires. Fill in every item. A thread pull request from a branch in this repository auto-merges by squash into its integration branch once every required check passes. A milestone pull request into `main` is opened by the integrator, reviewed by a maintainer and merged with a merge commit only by that maintainer's decision. A Claude session never merges into `main`. An approving review becomes mandatory once more than one person contributes.
 
 ## Licences
 

@@ -1,4 +1,5 @@
 <!-- This description is the merge package required by IMPLEMENTATION_PLAN.md. Fill in every item. -->
+<!-- Thread pull requests target the current milestone/* integration branch, not main. -->
 
 ## Thread
 
