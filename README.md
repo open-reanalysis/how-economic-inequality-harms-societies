@@ -19,7 +19,7 @@ The project also keeps a register of the authors' claims and publishes a report 
 | Result | Question | Label used in outputs |
 |---|---|---|
 | **Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
-| **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? | `UPDATED REPRODUCTION` |
+| **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? Series with no exact or conceptual successor are left out, and a separate result adds substitute measures. | `UPDATED REPRODUCTION`, and `UPDATED REPRODUCTION WITH SUBSTITUTES` for the separate result |
 
 Beside the results, the project delivers the two source packages, the controversy register with its datasets, and the register of the authors' claims.
 

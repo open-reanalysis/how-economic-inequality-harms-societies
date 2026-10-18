@@ -190,7 +190,15 @@ Owns `data/00_original_released/`, `sources/00_primary_wilkinson/`, `code/01_ing
 
 ### Source lineage
 
-Serves goal 1. Starts once original access has merged, so it can read the released data. Builds `docs/source_lineage.csv`, which records for each of the ten indicators, for the inequality measure and for any U.S. state series the source Wilkinson and Pickett actually used. Each row takes the source from the released data file's sources sheet and from the Equality Trust's notes on sources and methods, never from a later summary. Where the two disagree, the data file comes first, because it describes the values in the file, and both are recorded. A row that only the book could settle is marked to be verified. It records the original series and its years, and the newest release of that same series. Where the series has ended or changed definition, it names the closest successor and the reason. The inequality and outcome data threads download only what this table names, so "the data Wilkinson used" never becomes "comparable data" without a recorded reason.
+Serves goal 1. Starts once original access has merged, so it can read the released data. Builds `docs/source_lineage.csv`, which records for each of the ten indicators, for the inequality measure and for any U.S. state series the source Wilkinson and Pickett actually used. Each row takes the source from the released data file's sources sheet and from the Equality Trust's notes on sources and methods, never from a later summary. Where the two disagree, the data file comes first, because it describes the values in the file, and both are recorded. A row that only the book could settle is marked to be verified. It records the original series and its years, and the newest release of that same series. Where the series has ended or changed definition, it names the closest successor and the reason. Each row gets one comparability class:
+
+- `EXACT_SUCCESSOR`. The same series from the same provider, with the same definition, unit and population.
+- `CONCEPTUAL_SUCCESSOR`. A series that measures the same concept for the same population, but whose provider, survey or method has changed, such as the American Community Survey replacing the census income question.
+- `SUBSTITUTE`. A different measure of a related concept, such as self-reported obesity in place of obesity corrected for self-report bias, or a Gini coefficient in place of an income ratio.
+- `NO_CURRENT_EQUIVALENT`. No current series measures the concept for the original units.
+- `NOT_YET_VERIFIED`. The original source or the current series has not been confirmed.
+
+The inequality and outcome data threads download only what this table names, so "the data Wilkinson used" never becomes "comparable data" without a recorded reason.
 
 Each row carries a verification status and a log reference. A row whose original source could not be confirmed is marked to be verified, and its current series is not chosen until it is confirmed. Reads the original material and the stand-in sources, and reads no outcome values.
 
@@ -208,7 +216,7 @@ The original reproduction thread is the only thread that prepares the original r
 
 Under the status `archived_copy` or `unavailable`, the original reproduction thread rebuilds the original analysis from published tables, the notes on sources and methods and independently sourced historical data. Under `incomplete_release` it takes a hybrid path. It uses the released files for everything they contain and reconstructs only the missing sheets, formulas or source notes by the same route. Every value carries a provenance flag, released or reconstructed, and a component-provenance table accompanies every original reproduction output, so the partial-reproduction label shows exactly which parts were reconstructed. `code/01c_download_reconstruction_sources.py` stores that material as downloaded in `data/00_original_reconstruction/`, separate from the original access thread's released files.
 
-Reproduces the U.S. state analysis in the same way if the original material contains it, as a separate dataset with its own outputs.
+Reproduces the U.S. state analysis as a separate dataset with its own outputs, following the U.S. state data model under shared contracts. The released U.S. file is not yet available. Until it is, the thread rebuilds the state data from the historical sources listed there into `data/00_original_reconstruction/us_states/`, with every value flagged as reconstructed. The rebuild is accepted when its correlations match the ones the notes on sources and methods report, such as r = 0.59 for the index, within a tolerance fixed in the reproduction lock. Every mismatch is logged with its likely cause. When the released file arrives, it replaces the rebuild, and the two are compared.
 
 Writes a data dictionary and a source-year matrix for the original release dataset and records every raw and derived file it creates in its own manifest.
 
@@ -238,11 +246,11 @@ Owns `docs/reproduction_lock.md`, `docs/reproduction_lock_hash.txt`, `docs/repro
 
 ### Updated reproduction
 
-Serves goal 2. Applies the original method, as fixed in the reproduction lock, unchanged to the current release of the same data. It uses the same countries where they still qualify, the same inequality measure, the same index procedure and the same statistic and graphic conventions. This is the project's answer to whether the findings hold in current data.
+Serves goal 2. Applies the original method, as fixed in the reproduction lock, unchanged to the current release of the same data. It uses the same countries where they still qualify, the same inequality measure, the same index procedure and the same statistic and graphic conventions. This is the project's answer to whether the findings hold in current data. It uses only series whose lineage class is `EXACT_SUCCESSOR` or `CONCEPTUAL_SUCCESSOR`. A component whose only current series is a `SUBSTITUTE` is left out of the strict result and treated like a missing component under the original index rule, and the omission is logged. A second result, labelled `UPDATED REPRODUCTION WITH SUBSTITUTES`, adds the substitute series, so the effect of each substitution is visible. A component with `NO_CURRENT_EQUIVALENT` is left out of both. A substitute never replaces the original measure in the strict result.
 
 Prepares its analysis file with `code/03c_prepare_updated_reproduction.py` into `data/03_analysis_ready/updated_reproduction/`, using the shared index helpers in `code/lib/index.py`. Analyses it with `code/05c_updated_reproduction.py`. Writes the results, each with the provenance fields every result row carries and the reproduction lock tag, and a discrepancy log that compares each value with the original and with the 2024 update where both report it. After the reproduction lock it records the 2024 values it compares against, from table 1 of the technical appendix, in its own source-verification log, because *The Spirit Level at 15* shows them only as figures. Supplementary diagnostics are labelled as modern additions, as in original reproduction. Reproduces the U.S. state analysis the same way where source lineage found a current release of its series.
 
-Owns `code/03c_prepare_updated_reproduction.py`, `code/05c_updated_reproduction.py`, `data/03_analysis_ready/updated_reproduction/`, `data/metadata/manifests/updated-reproduction.csv`, `docs/data_dictionary_updated_reproduction.md`, `outputs/tables/updated_reproduction_*`, `outputs/figures/updated_reproduction_*` and `outputs/diagnostics/updated_reproduction_discrepancies.md` and `docs/source_verification/updated-reproduction.md`.
+Owns `code/03c_prepare_updated_reproduction.py`, `code/05c_updated_reproduction.py`, `data/03_analysis_ready/updated_reproduction/`, `data/metadata/manifests/updated-reproduction.csv`, `docs/data_dictionary_updated_reproduction.md`, `outputs/tables/updated_reproduction_*`, `outputs/figures/updated_reproduction_*`, `outputs/diagnostics/updated_reproduction_discrepancies.md` and `docs/source_verification/updated-reproduction.md`.
 
 ### Primary and supporting sources
 
@@ -356,7 +364,32 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Criticisms of the general hypothesis.** Some named criticisms predate *The Spirit Level* or address the income inequality and health hypothesis in general rather than the book's analyses. Judge 1995 and Gravelle 1998 are examples. Such a row has `target_level` set to `general_hypothesis`, while other rows use `original`, `current` or `both`. Its `mapping_rationale` states which book or current result the criticism bears on and why, and its `claim_or_result_affected` names that result. Where a criticism could only be tested with individual-level data, its `test_plan` says so and names the design. Gravelle's artefact argument, which concerns a concave individual relationship between income and health, is an example.
 
-**Result rows.** Every result row carries `result_type` as original_reproduction or updated_reproduction, and `input_access`, which is `RESTRICTED INPUT` when any input is restricted and empty otherwise, with the restricted source IDs listed.
+**Result rows.** Every result row carries `result_type` as original_reproduction, updated_reproduction or updated_reproduction_with_substitutes, and `input_access`, which is `RESTRICTED INPUT` when any input is restricted and empty otherwise, with the restricted source IDs listed.
+
+**U.S. state data model.** The state data are stored in long form in three tables, so every value traces to its source. Z-scores and the index are never stored. They are computed from these tables with the same shared functions as for the countries.
+
+- `us_states` has one row per state. Its columns are `state_fips` as the key, `state_abbr`, `state_name`, `in_original_sample`, which is true for the 50 states and false for the District of Columbia until verified otherwise, and `missing_in_original`, which lists the components the notes report as missing. Those are trust for Alaska, Delaware, Hawaii, Idaho, Maine, Nebraska, New Mexico, Nevada and South Dakota, and homicides for Wyoming.
+- `us_state_variables` holds the state rows of the source lineage, with the columns listed above.
+- `us_state_observations` has one row per state, variable and dataset. Its columns are `state_fips`, `variable_id`, `dataset` as et_release, historical_reconstruction or current, `reference_period`, `value`, `unit`, `source_id`, `source_sha256` and `provenance` as released, reconstructed or current.
+
+The notes on sources and methods list nine index components for the states but say that 40 states have all eight measures. The rebuild uses all nine until the released file settles which is right.
+
+**U.S. state sources.** The original source of each state variable comes from the notes on sources and methods. The candidate current series below are starting points for source lineage, which confirms each one and assigns its comparability class.
+
+| Variable | Original definition, period and source | Candidate current series | Expected class |
+|---|---|---|---|
+| Income inequality | Gini coefficient by state, 1999, US Census Bureau table S4 | American Community Survey table B19083 | `CONCEPTUAL_SUCCESSOR` |
+| Trust | Share agreeing that most people can be trusted, 1999, General Social Survey, reverse coded | General Social Survey by state, whose state identifier is likely restricted and would need a data agreement with NORC | `NOT_YET_VERIFIED`, otherwise `NO_CURRENT_EQUIVALENT` |
+| Life expectancy | At birth, men and women, 2000, Census Population Division interim projections, reverse coded | NCHS U.S. State Life Tables | `EXACT_SUCCESSOR` or `CONCEPTUAL_SUCCESSOR` |
+| Infant mortality | Deaths in the first year per 1000 live births, 2002, NCHS | CDC WONDER linked birth and infant death data | `EXACT_SUCCESSOR` |
+| Obesity | BMI above 30, men and women averaged, 1999 to 2002, corrected for self-report bias by Ezzati and others, J R Soc Med 2006, PMID 16672759, PMC1457748 | Behavioral Risk Factor Surveillance System, self-reported | `SUBSTITUTE` |
+| Mental health | Days in the past month when mental health was not good, 1993 to 2001, BRFSS, as published by Zahran and others, MMWR Surveillance Summaries 2005, PMID 16251867 | BRFSS health-related quality of life, mentally unhealthy days | `EXACT_SUCCESSOR` |
+| Education | Grade 8 maths and reading scores combined, 2003, NAEP, reverse coded | NAEP, latest grade 8 maths and reading | `EXACT_SUCCESSOR` |
+| Teenage births | Births per 1000 women aged 15 to 19, 2000, National Vital Statistics | CDC WONDER natality | `EXACT_SUCCESSOR` |
+| Homicides | Homicides per 100,000, 1999, FBI Crime in the United States | FBI Crime Data Explorer, with gaps from the 2021 change to NIBRS, or CDC WONDER mortality by homicide | `CONCEPTUAL_SUCCESSOR`, with the source chosen in the reproduction lock |
+| Imprisonment | Prisoners per 100,000, 1997 to 1998, Bureau of Justice Statistics, not log transformed | BJS Prisoners series | `EXACT_SUCCESSOR` |
+
+The historical rebuild takes the same series in the vintage the notes name, from the agencies' archives and the two articles' state tables. The released U.S. file remains the first choice for the historical reproduction, and you obtain it from the Equality Trust. Two decisions are yours: whether to apply for the restricted General Social Survey state data, and which homicide source the current run uses.
 
 **Paths in code.** Relative to the project root, resolved through one helper in `code/lib/`.
 
@@ -370,7 +403,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Controversy register columns.** `controversy_id`, `claim_or_result_affected`, `target_level`, `mapping_rationale`, `source_role` as critic or independent, `source_author`, `source_title`, `publication_year`, `publication_date_type`, `source_type`, `peer_review_status`, `exact_controversy_in_neutral_words`, `argument_summary`, `data_or_method_targeted`, `data_needed`, `test_plan`, `wilkinson_pickett_response_available`, `response_source_id`, `local_path`, `citation_url` and `notes`.
 
-**Source lineage columns.** `indicator`, `original_source`, `original_locator` as the released file's sources sheet, the notes page or a book page, `original_series`, `original_years`, `current_release`, `current_source_id`, `successor_source`, `successor_reason`, `us_state_series`, `verification_status`, `verification_log_ref` and `notes`.
+**Source lineage columns.** `variable_id`, `dataset` as international or us_states, `role` as inequality, index_component or extra_measure, `original_definition`, `original_source`, `original_series`, `original_locator` as the released file's sources sheet, the notes page or a book page, `original_reference_period`, `original_population`, `original_geographic_unit`, `original_unit`, `original_transformation`, `direction` as as_is or reverse_coded, `reported_r` and `reported_p` where the authors published them, `current_provider`, `current_series_id`, `current_vintage`, `retrieval_date`, `request` as the exact download URL or API query, `comparability` from the classes under the source lineage thread, `deviation_reason`, `licence`, `local_path`, `sha256`, `current_source_id`, `verification_status`, `verification_log_ref` and `notes`.
 
 **Claims register columns.** `claim_id`, `author`, `source_work`, `source_locator` as page or chapter, `publication_year`, `stable_identifier`, `wording`, `wording_type` as verbatim or paraphrase, `claim_class` as descriptive_correlation, proposed_mechanism, causal_claim or policy_prediction, `policy_counterfactual`, `policy_population`, `policy_expected_effect`, `testability` as testable_country_level, needs_other_design or not_testable, `needed_design`, `verification_status` as verified or to_be_verified, `verification_log_ref` and `notes`. Claim IDs are `claim-` followed by a number, for example `claim-007`. `claim_class` and `testability` stay empty while `verification_status` is to_be_verified.
 
