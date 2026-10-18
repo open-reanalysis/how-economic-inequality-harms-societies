@@ -10,7 +10,7 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 |---|---|---|
 | **Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
 | **Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
-| **Sensitivity** | Do the original reproduction or the current replication change under alternatives that a named critic has raised or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
+| **Sensitivity** | Do the original reproduction or the current replication change under alternatives that a named source has raised, whether a critic, the original authors or an independent researcher, or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
 | **Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | Evidence tier 1 to 4 and one verdict per outcome: `CAUSAL EFFECT SUPPORTED`, `CAUSAL EFFECT NOT SUPPORTED`, `REVERSE OR COMMON-CAUSE PATTERN` or `UNDETERMINED`, with the claim ID. A claim country-level data cannot address is `NOT TESTABLE IN THIS DESIGN` |
 
 A further section, **interpretation**, records what the analysis does and does not establish.
@@ -56,8 +56,8 @@ For each indicator the lock names a preferred source, permitted fallbacks, minim
 ### No silent choices
 Where the original method is undocumented, alternatives are implemented side by side and labelled. The primary analysis uses no imputation. Outliers are never dropped without reporting both retained and excluded results.
 
-### Attributed criticism only
-A criticism enters the executable register only with four fields: critic name, exact source title, publication year, and a stable DOI, PMID, PMCID or URL. Generic critiques that no named author made are excluded.
+### Attributed alternatives, symmetrically
+An alternative enters the executable register only with four fields: author, exact source title, publication year, and a stable DOI, PMID, PMCID, ISBN or URL. A book also needs its edition. Generic critiques that no named author made are excluded. Whether the source is a critic, the original authors or an independent researcher never decides whether an alternative is tested, and the lock records in advance which way each test could move the original result.
 
 ### Legal access only
 Paywalls and access controls are not bypassed. A restricted item gets a bibliographic record and a note that it was not downloaded.

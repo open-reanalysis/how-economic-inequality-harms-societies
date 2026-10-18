@@ -10,8 +10,8 @@ body:
   - type: input
     id: critic
     attributes:
-      label: Critic
-      description: Name of the author or authors.
+      label: Author of the source
+      description: Name of the author or authors, whether a critic, the original authors or an independent researcher.
     validations:
       required: true
   - type: input
@@ -30,7 +30,7 @@ body:
     id: identifier
     attributes:
       label: Stable identifier
-      description: DOI, PMID, PMCID or a stable URL.
+      description: DOI, PMID, PMCID, ISBN or a stable URL. For a book, also give the edition.
     validations:
       required: true
   - type: dropdown
