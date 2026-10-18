@@ -110,6 +110,7 @@ data/
   01_raw_current/              # current data as downloaded
   03_analysis_ready/
   04_controversy_test_data/
+  local_data_required/         # per thread, files a person must obtain by hand
   metadata/manifests/          # URL, UTC time, SHA-256, size and licence per file
 sources/
   supporting/                  # original-authors/, academic/, non-academic/, manifest, README, screening log
