@@ -1,1 +1,1 @@
-spec_id,spec_version,spec_sha256,result_type,dataset,variable_id,r,p,n,missing_units,access_label,input_access
+result_id,spec_id,spec_version,spec_sha256,data_basis,data_provenance,access_label,sample,series_set,comparability,method_deviations,r,p,n,missing_units,components_used,components_missing,input_access

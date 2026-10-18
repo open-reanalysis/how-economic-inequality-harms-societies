@@ -1,1 +1,1 @@
-indicator,dataset,reported_r,historical_r,historical_n,updated_r,updated_n,comparability,deviation_reason
+result_id,dataset,explanatory_variable,outcome,published_value,historical_r,historical_n,updated_r,updated_n,comparability,components_changed,deviation_summary

@@ -1,16 +1,19 @@
 # Template for config/specs/<spec_id>.yaml. Validated by code/lib/spec.py.
-# Placeholders in angle brackets. Every choice the original material leaves
-# open names its section of docs/method_rationale.md in `rationale`.
+# The research method sets the rules. This file holds their exact values.
+# Every choice the original material leaves open names its section of
+# docs/method_rationale.md in `rationale`.
 spec_id: <historical_international | historical_us_states | updated_international | updated_us_states>
 version: 1
 dataset: <international | us_states>
 unit_type: <country | us_state>
-sample:
-  kind: <fixed | eligibility_table>
-  units: [<unit_id>, ...]            # for kind fixed
-  table: <outputs/tables/...csv>     # for kind eligibility_table
-  rationale: <section>
-eligibility:                         # specs with kind eligibility_table only
+catalogue: config/results_catalogue.csv   # rows of this dataset are selected, never copied
+samples:
+  original:
+    units: [<unit_id>, ...]
+    rationale: <section>
+  refreshed:                              # updated specs only
+    table: outputs/tables/refreshed_country_eligibility.csv
+eligibility:                              # updated_international only
   income_series: <source_id>
   income_vintage: <provider release>
   measurement_year: <year for income and population>
@@ -19,34 +22,35 @@ eligibility:                         # specs with kind eligibility_table only
   rank_non_sovereign: <true | false>
   tie_break: <rule at rank 50>
   rationale: <section>
-reported_value_check:                # historical specs only, committed before any correlation is computed
-  tolerance_r: <absolute tolerance>
-  rationale: <section>
-variables:                           # the analyses are the lineage rows with reported_r filled
+variables:
   - variable_id: <lineage variable_id>
-    role: <inequality | index_component | extra_measure>
+    role: <inequality | mean_income | index_component | extra_measure>
     sources: [<primary source_id>, <secondary source_id>]   # priority order for parallel data
     period: <year or range>
     unit: <unit after conversion>
     conversion: <none | expression>
     transformation: <none | log | ...>
     direction: <as_is | reverse_coded>
-    series_classes: [<EXACT_SUCCESSOR>, <CONCEPTUAL_SUCCESSOR>]   # updated specs only
     rationale: <section>
-missing_values:
-  rule: <rule name>
-  rationale: <section>
-standardisation:
-  method: z_score
-  reference: <sample units>
-  rationale: <section>
 index:
   components: [<variable_id>, ...]
   weights: <equal | mapping>
-  minimum_components: <integer>
-  rationale: <section>
+  standardisation_reference: <sample name>
+  missing_components:
+    rule: <the rule as established or approved>
+    basis: <authors_rule | approved_assumption>
+    rationale: <section>
 statistics: [pearson_r, p_value, n]
-results:
-  - result_type: <historical_reproduction | current_fixed_sample | current_fixed_sample_with_substitutes | current_eligibility_refreshed>
-    sample: <fixed | eligibility_table>
-    series_classes: [<class>, ...]
+reported_value_check:                     # historical specs with reconstructed data, committed before any correlation
+  tolerance_r: <absolute tolerance>
+  rationale: <section>
+current_results:                          # updated specs only. The fixed sample is the original sample applied to current data
+  - name: updated
+    sample: original
+    series_set: successors
+  - name: refreshed
+    sample: refreshed
+    series_set: successors
+  - name: with_substitutes
+    sample: original
+    series_set: successors_and_substitutes

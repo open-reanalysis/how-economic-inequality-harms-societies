@@ -9,3 +9,4 @@ sources/supporting/README.md
 sources/supporting/screening_log.csv
 code/00_fetch_supporting_sources.py
 docs/source_verification/supporting-sources.md
+sources/supporting/search_log.csv

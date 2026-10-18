@@ -1,6 +1,6 @@
 # How Economic Inequality Harms Societies: an Open Reanalysis
 
-A transparent, reproducible examination of the macro-comparative analyses in Richard Wilkinson and Kate Pickett's *The Spirit Level*. The project does not set out to prove or disprove the authors. It produces two result families and keeps them separate in every table, figure and sentence.
+A transparent, reproducible examination of the macro-comparative analyses in Richard Wilkinson and Kate Pickett's *The Spirit Level*. The project does not set out to prove or disprove the authors. The research method is in [RESEARCH-METHOD.md](RESEARCH-METHOD.md), the goals and scope in [INTENT.md](INTENT.md), and the implementation in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). This page summarises them.
 
 ## Goals
 
@@ -11,18 +11,22 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 5. Download datasets that may support those controversies.
 6. Publish the results on a GitHub Pages site.
 
-The deliverables of goals 1 to 5 are released together as `deliverables-v1`, and the site publishes the results. The project also keeps a register of the authors' claims, which never delays a goal.
+The deliverables of goals 1 to 5 are released together as `deliverables-v1`, with a headline table and a short summary of the deviations, and the site publishes the results later. The project also keeps a register of the authors' claims, which never delays a goal.
 
 > **Status: pre-release.** Nothing has been analysed yet. No updated-reproduction result is produced before the reproduction lock (see [Declared before examined](#declared-before-examined)) is committed.
 
 ## The results
 
-| Result | Question | Label used in outputs |
-|---|---|---|
-| **Historical reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
-| **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? The fixed-sample result keeps the historical sample. Series with no exact or conceptual successor are left out, and a separate result adds substitute measures. The eligibility-refreshed result reapplies the authors' selection rule to current data, without letting outcome data decide which country is eligible. | `UPDATED REPRODUCTION, FIXED SAMPLE`, `UPDATED REPRODUCTION, FIXED SAMPLE, WITH SUBSTITUTES` and `UPDATED REPRODUCTION, ELIGIBILITY REFRESHED` |
+Every comparison the authors reported for their international and U.S. state data, including those with average income, is listed once in `config/results_catalogue.csv` and computed in four ways.
 
-A headline table puts the reported, the historical and the updated correlation of each indicator side by side, with the comparability class of its current series and the reason for any deviation.
+| Result | Data and sample | Role |
+|---|---|---|
+| **Historical reproduction** | The released data, or a documented reconstruction, and the original sample | Labelled with the access status of its dataset |
+| **Updated reproduction** | Current releases of the same or successor series, original sample | The primary current result |
+| **Updated reproduction, refreshed sample** | As above, with the authors' eligibility rule applied to current data | Parallel result |
+| **Updated reproduction, with substitutes** | As the primary result, adding substitute measures | Parallel result |
+
+Each result reports its data provenance, sample, series comparability, method deviations and replay state separately. A headline table puts the published, the historical and the updated value of each comparison side by side.
 
 Beside the results, the project delivers the two source packages, the controversy register with its datasets, and the register of the authors' claims.
 
@@ -48,29 +52,15 @@ Words such as *debunk*, *toxic*, *cherry-picking*, *proves* and *disproves* appe
 
 ## Principles
 
-### Provenance before analysis
-Every file is stored exactly as downloaded, with URL, UTC timestamp, SHA-256 checksum and licence terms. Raw folders are never overwritten.
+These summarise the principles in [INTENT.md](INTENT.md) and the rules in the research method.
 
-### Wilkinson and Pickett's sources first
-The source lineage records, for each indicator, the source Wilkinson and Pickett used and the newest release of that same series. Where a series has ended, it names the closest successor and the reason. Sources are never chosen by the strength of the correlation they produce.
-
-### Declared before examined
-Every rule the computation uses is written once in a machine-readable **analysis specification**, and the method rationale explains its sources and reasons. The specifications of the updated reproduction are fixed and identified in a **reproduction lock** before any current outcome is correlated with current inequality data. The lock does not cover the historical reproduction, because the original data and correlations are already published. The blinding is procedural only, and the lock records which published results its author had seen.
-
-### Versioned "current" data
-"Current" means the version of each source retrieved during the declared acquisition window, pinned by retrieval time, release or version identifier, query parameters and checksum. A later rerun against revised live data is a new acquisition, not the same analysis.
-
-### No silent choices
-Where the original method is undocumented, the analysis specification records one choice and the method rationale its reasons. Parallel data from two sources are compared, the comparison is published, and they are combined into the project's own series. The reproductions use no imputation and delete no outliers.
-
-### Attributed controversies only
-A controversy enters the register only with four fields: author, exact source title, publication year, and a stable DOI, PMID, PMCID, ISBN or URL. A book also needs its edition. Generic critiques that no named author made are excluded.
-
-### Legal access only
-Paywalls and access controls are not bypassed. A restricted item gets a bibliographic record and a note that it was not downloaded.
-
-### Everything from code
-Tables, figures, metadata views and the report are generated by scripts. Acquired data files are stored exactly as acquired and never modified. Derived files are rebuilt in place, each computation has a run record, and the final build is an offline replay from a fresh clone. Data acquisition is a separate, network-enabled command.
+- **Wilkinson and Pickett's sources first.** Each variable is traced to the source the authors used and its current successor.
+- **One specification.** Every computation rule is written once in a machine-readable analysis specification.
+- **Declared before examined.** The current specifications are fixed in a reproduction lock before any current association is computed.
+- **No silent choices.** Open points are filled by assumptions approved in advance, and every deviation is reported.
+- **Provenance before analysis.** Acquired files are stored as received and never modified, and every computation has a run record.
+- **Attributed controversies only.** A controversy enters the register only with an identifiable author, title, year and stable identifier.
+- **Legal access only.** Paywalls and access controls are not bypassed.
 
 ## Controversy register (seed entries)
 
@@ -83,18 +73,9 @@ Both predate *The Spirit Level* and address the income inequality and health hyp
 
 Further entries are added only with all four fields complete. Supporting literature is stored separately from criticism.
 
-## Facts that must be verified before use
+## Facts to establish
 
-Each item is logged in `docs/source_verification/` with the passage, table or file it was verified from. Differences between reproduced and reported values go to `outputs/diagnostics/historical_reproduction_discrepancies.md`.
-
-- [ ] The source Wilkinson and Pickett used for each indicator, and whether the series still exists.
-- [ ] The ranking measure and data vintage of the authors' selection rule, the 50 richest countries with more than 3 million people and comparable income distribution data, and whether the rule reproduces the released 23 countries.
-- [ ] Original country list and per-outcome sample sizes. No secondary-source count (21, 22 or 23) is used as a target.
-- [ ] Original inequality measure and reference year.
-- [ ] Original direction coding of each index component, recovered from original materials.
-- [ ] Original handling of missing index components.
-- [ ] What the [technical appendix](https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf) says about the original timing and the meaning of 80:20.
-- [ ] Current availability and terms of the Equality Trust data files. The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained. This is the first task, because the historical reproduction depends on it.
+The facts the method must establish before use, such as the authors' sources, the eligibility details, the direction coding and the handling of missing index components, are listed in [RESEARCH-METHOD.md](RESEARCH-METHOD.md#facts-to-establish). The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained.
 
 ## Planned repository layout
 
@@ -117,13 +98,15 @@ data/
   metadata/acquisitions/       # one record per request, with its files, sizes and SHA-256
 config/
   specs/                       # analysis specifications, the single source of computation rules
+  results_catalogue.csv        # every comparison that is computed and reported
   units/                       # registries of countries and U.S. states
 sources/
-  supporting/                  # original-authors/, academic/, non-academic/, manifest, README, screening log
-  controversies/               # academic/, non-academic/, responses/, manifest, README, screening log
+  supporting/                  # original-authors/, academic/, non-academic/, manifest, README, search and screening logs
+  controversies/               # academic/, non-academic/, responses/, manifest, README, search and screening logs
 code/                          # thin numbered scripts, readers and computation core in code/lib/
 tests/                         # compute, readers, integrity, e2e, replay, eligibility, report
 templates/                     # templates for specifications, records and package tables
+RESEARCH-METHOD.md             # the research method
 docs/
   source_lineage.csv           # meaning, original and current data source per variable
   method_rationale.md          # sources and reasons for the rules in the specifications
@@ -137,7 +120,7 @@ docs/
   source_verification/
 report/                        # prose of the report sections
 site/                          # generated report published on GitHub Pages
-outputs/                       # tables, figures, diagnostics and runs/ with run records
+outputs/                       # tables, observations/, figures/, diagnostics/ and runs/ with run records
 ```
 
 ## Running it
@@ -150,25 +133,14 @@ make verify-data      # checks every stored data file against its acquisition re
 make test             # computation, reader and end-to-end tests, offline
 make check-data       # schemas, keys, units, references and join row counts
 make storage-report   # data and repository size against the review thresholds
-make all              # offline, regenerates tables, figures and report
+make all              # offline, regenerates tables, figures, headline table and site
 make clean-env        # fresh clone and locked environment, verify-data, then make all
 make acquire          # contacts live sources, used only to add new data
 ```
 
 ## Definition of done
 
-1. The current version of every dataset Wilkinson and Pickett used is downloaded, with its original source recorded in the source lineage.
-2. Their findings are reproduced from the released data and by their own method on the current data, with every difference logged.
-3. The supporting source package is downloaded, academic and non-academic.
-4. The controversy source package is downloaded, with the frozen controversy register.
-5. The controversy datasets are downloaded for every register row that names data, each linked to its controversies.
-6. Original data are preserved, checksummed and analysed under the access label the evidence supports, with every retrieval attempt recorded. Access failure never permits silent substitution.
-7. The reproduction lock identifies the updated specifications before the updated reproduction.
-8. Every statement in the claims register has a checked source and a class, or is marked to be verified.
-9. Every result names its analysis specification and version, data sources, sample, years and missing units, and its run record states whether it was computed or retained.
-10. All scripts run end to end from a fresh clone in offline replay, and results from restricted inputs are labelled `RESTRICTED INPUT`.
-11. The deliverables of goals 1 to 5 are released as `deliverables-v1`.
-12. The report is published on GitHub Pages from a tagged release, with links to the release and the repository.
+The completion criteria are in [INTENT.md](INTENT.md#done-means), and each goal's acceptance test is in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md#goals-and-priorities).
 
 ## Contributing
 
