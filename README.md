@@ -8,10 +8,10 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 
 | Result | Question | Label used in outputs |
 |---|---|---|
-| **A. Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
-| **B. Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
-| **C. Sensitivity** | Do A or B change under alternatives that a named critic has raised or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
-| **E. Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | `CAUSAL ASSESSMENT` + claim ID, or `NOT TESTABLE IN THIS DESIGN` |
+| **Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
+| **Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
+| **Sensitivity** | Do the original reproduction or the current replication change under alternatives that a named critic has raised or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
+| **Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | `CAUSAL ASSESSMENT` + claim ID, or `NOT TESTABLE IN THIS DESIGN` |
 
 A further section, **interpretation**, records what the analysis does and does not establish.
 
@@ -43,7 +43,7 @@ Causal readings, mechanisms and policy predictions are reported only when explic
 Every file is stored exactly as downloaded, with URL, UTC timestamp, SHA-256 checksum and licence terms. Raw folders are never overwritten.
 
 ### Declared before examined
-Country inclusion rules, inequality measure, source hierarchy, year alignment and index construction are written down and committed in an **analysis lock** before any current outcome is correlated with current inequality data. The lock does not cover Result A, because the original data and correlations are already published. The blinding is procedural only, and the lock records which published results its author had seen. The lock's commit hash is stamped on every report. Sources are never chosen by the strength of the correlation they produce.
+Country inclusion rules, inequality measure, source hierarchy, year alignment and index construction are written down and committed in an **analysis lock** before any current outcome is correlated with current inequality data. The lock does not cover the original reproduction, because the original data and correlations are already published. The blinding is procedural only, and the lock records which published results its author had seen. The lock's commit hash is stamped on every report. Sources are never chosen by the strength of the correlation they produce.
 
 ### Source hierarchy, not fixed sources
 For each indicator the lock names a preferred source, permitted fallbacks, minimum comparability conditions and the circumstances that justify a fallback. A fallback is recorded before the outcome is joined to inequality.
@@ -83,7 +83,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 - [ ] Original direction coding of each index component, recovered from original materials. The 2024 appendix's coding is recorded separately as update documentation.
 - [ ] Original handling of missing index components.
 - [ ] Details of the 2024 update, extracted from the [technical appendix](https://eprints.whiterose.ac.uk/id/eprint/215026/7/Technical_Appendix_20_07.pdf) (sample, inequality year, Gini versus 80:20).
-- [ ] Current availability and terms of the Equality Trust data files. This is the first task, because Result A depends on it.
+- [ ] Current availability and terms of the Equality Trust data files. This is the first task, because the original reproduction depends on it.
 
 ## Planned repository layout
 

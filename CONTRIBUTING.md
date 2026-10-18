@@ -48,7 +48,7 @@ Scripts are numbered by pipeline stage, and the number does not depend on the la
 
 ### Agreement between the languages
 
-T8a's cross-language test computes the primary OLS and Pearson results in both Python and R and fails beyond the tolerance written in the test. Stochastic results are not compared across languages, because the random number generators differ. Each language records its own seed, taken from the lock.
+Current replication's cross-language test computes the primary OLS and Pearson results in both Python and R and fails beyond the tolerance written in the test. Stochastic results are not compared across languages, because the random number generators differ. Each language records its own seed, taken from the lock.
 
 ### Style
 
@@ -75,7 +75,7 @@ Every script starts with the same header.
 
 R scripts use the same fields.
 
-Code that applies a rule from the analysis lock cites the section of the lock. Code that tests a criticism cites the register row, for example `C-B-002`. Code that reproduces the original method cites the source-verification log entry it relies on. A labelled alternative implementation says in its comment that it is an alternative and what it is an alternative to.
+Code that applies a rule from the analysis lock cites the section of the lock. Code that tests a criticism cites the register row, for example `inequality-measure-002`. Code that reproduces the original method cites the source-verification log entry it relies on. A labelled alternative implementation says in its comment that it is an alternative and what it is an alternative to.
 
 The data dictionary is the canonical description of every transformation. A comment points to its entry instead of copying the formula, so the two cannot drift apart.
 
@@ -89,9 +89,9 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 Work reaches `main` in three milestones, and each has an integration branch: `milestone/1-lock`, `milestone/2-analysis` and `milestone/3-report`. Thread pull requests go into the current integration branch. Only the three milestone pull requests go into `main`, and a maintainer reviews and merges each of them. The plan lists which thread belongs to which milestone.
 
-A thread's branch is named `t<id>-<short-description>`, for example `t1a-original-access`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. A change to a file owned by T0 is requested in the pull request and made by the integrator.
+A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
 
-A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:t2`, and the ownership check runs against that thread's paths. Until the label is set, the check waits. While the ownership check is a required status, a pending check blocks the merge, so a fork pull request cannot be merged until a maintainer has labelled it. A fork pull request targets the current integration branch and never auto-merges. A maintainer reviews and merges it.
+A pull request from a fork has no thread branch. A maintainer gives it a label such as `thread:controversy-register`, and the ownership check runs against that thread's paths. Until the label is set, the check waits. While the ownership check is a required status, a pending check blocks the merge, so a fork pull request cannot be merged until a maintainer has labelled it. A fork pull request targets the current integration branch and never auto-merges. A maintainer reviews and merges it.
 
 ## Data and sources
 
@@ -101,7 +101,7 @@ Manifest checks run in three modes. `metadata` runs in CI on every pull request 
 
 ## The analysis lock
 
-Before gate G2, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After the lock is tagged, its files are covered by content hashes. That includes the DAG and the script that derives adjustment sets from it. A change to any of them is made as a dated amendment with a new tag, and results are reported under both the original and the amended rule.
+Before the lock gate, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After the lock is tagged, its files are covered by content hashes. That includes the DAG and the script that derives adjustment sets from it. A change to any of them is made as a dated amendment with a new tag, and results are reported under both the original and the amended rule.
 
 ## Proposing a criticism
 

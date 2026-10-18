@@ -49,13 +49,13 @@ body:
     attributes:
       label: Category
       options:
-        - A. Country selection and sample definition
-        - B. Inequality measure
-        - C. Composite-index construction
-        - D. Outliers and influential countries
-        - E. Temporal persistence
-        - F. Mechanism
-        - G. Data availability and comparability
+        - Country selection and sample definition
+        - Inequality measure
+        - Composite-index construction
+        - Outliers and influential countries
+        - Temporal persistence
+        - Mechanism
+        - Data availability and comparability
     validations:
       required: true
   - type: textarea

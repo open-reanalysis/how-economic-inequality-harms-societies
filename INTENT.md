@@ -8,15 +8,15 @@ The first result is whether the original released data produce the correlations 
 
 ## Research questions
 
-**A. Original reproduction.** Can the reported correlations and the composite Health and Social Problems Index be reproduced from the data Wilkinson and Pickett released? The answer carries one of four labels depending on what original material is accessible today, ranging from direct reproduction from released data to independent reconstruction, and that label appears on every question A output.
+**Original reproduction.** Can the reported correlations and the composite Health and Social Problems Index be reproduced from the data Wilkinson and Pickett released? The answer carries one of four labels depending on what original material is accessible today, ranging from direct reproduction from released data to independent reconstruction, and that label appears on every original reproduction output.
 
-**B. Current descriptive replication.** Using current data, a pre-specified country sample, a pre-specified source hierarchy and documented source-selection rules, are comparable cross-sectional correlations present today?
+**Current descriptive replication.** Using current data, a pre-specified country sample, a pre-specified source hierarchy and documented source-selection rules, are comparable cross-sectional correlations present today?
 
-**C. Sensitivity.** How do the results change under alternatives that a named critic has actually raised? Every alternative is in scope only where a named criticism, a cited alternative explanation or a sensitivity rationale declared in the analysis lock identifies it. This applies equally to country inclusion and expanded samples, inequality metric, index composition, weighting, outlier treatment, time alignment, data comparability, panel models and macro-level covariates. A panel model or a covariate belongs here when it tests the robustness of a descriptive correlation. When it tests a causal claim it belongs to question E.
+**Sensitivity.** How do the results change under alternatives that a named critic has actually raised? Every alternative is in scope only where a named criticism, a cited alternative explanation or a sensitivity rationale declared in the analysis lock identifies it. This applies equally to country inclusion and expanded samples, inequality metric, index composition, weighting, outlier treatment, time alignment, data comparability, panel models and macro-level covariates. A panel model or a covariate belongs here when it tests the robustness of a descriptive correlation. When it tests a causal claim it belongs to the causal question.
 
-**D. Interpretation.** What the analysis establishes is reported as such. Correlations are described as correlations. Before any statement by Wilkinson or Pickett is assessed, it is classified as a descriptive correlation, a proposed mechanism or a causal claim, and the class is recorded next to its source in the claims register. Causal readings, alternative mechanisms and policy predictions are reported only when Wilkinson and Pickett or another cited source explicitly advances them, or as results of a causal design this project declared in the analysis lock. Each is identified as an author claim, a critic claim or a result of this project, and all of them are kept apart from questions about whether a descriptive correlation is accurate or robust.
+**Interpretation.** What the analysis establishes is reported as such. Correlations are described as correlations. Before any statement by Wilkinson or Pickett is assessed, it is classified as a descriptive correlation, a proposed mechanism or a causal claim, and the class is recorded next to its source in the claims register. Causal readings, alternative mechanisms and policy predictions are reported only when Wilkinson and Pickett or another cited source explicitly advances them, or as results of a causal design this project declared in the analysis lock. Each is identified as an author claim, a critic claim or a result of this project, and all of them are kept apart from questions about whether a descriptive correlation is accurate or robust.
 
-**E. Causal assessment.** Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? Panel models, control variables such as poverty, and the alternatives named critics raise can each serve either as a sensitivity analysis, when they test the robustness of a descriptive correlation, or as part of a causal assessment, when they test a causal claim. The type of every analysis is declared in the analysis lock before any result is examined.
+**Causal assessment.** Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? Panel models, control variables such as poverty, and the alternatives named critics raise can each serve either as a sensitivity analysis, when they test the robustness of a descriptive correlation, or as part of a causal assessment, when they test a causal claim. The type of every analysis is declared in the analysis lock before any result is examined.
 
 ## Terminology that the whole project follows
 
@@ -52,7 +52,7 @@ Words such as debunk, toxic, cherry-picking, proves and disproves appear only in
 
 ## Corrections carried in from spec review
 
-The draft brief attributed a 1995 BMJ paper to "Richard Gravelle". The criticism register uses the correct authors instead. Ken Judge wrote "Income distribution and life expectancy: a critical appraisal", BMJ 1995, PMCID PMC2551188, PMID 7496240, DOI 10.1136/bmj.311.7015.1282. Hugh Gravelle wrote "How much of the relation between population mortality and unequal distribution of income is a statistical artefact?", BMJ 1998, PMID 9487182, DOI 10.1136/bmj.316.7128.382. These identifiers were checked during plan review and are logged again by T2.
+The draft brief attributed a 1995 BMJ paper to "Richard Gravelle". The criticism register uses the correct authors instead. Ken Judge wrote "Income distribution and life expectancy: a critical appraisal", BMJ 1995, PMCID PMC2551188, PMID 7496240, DOI 10.1136/bmj.311.7015.1282. Hugh Gravelle wrote "How much of the relation between population mortality and unequal distribution of income is a statistical artefact?", BMJ 1998, PMID 9487182, DOI 10.1136/bmj.316.7128.382. These identifiers were checked during plan review and are logged again by the controversy register thread.
 
 The draft fixed the original exercise at 21 countries and treated r ≈ 0.85 as a benchmark. Neither number is used as a target, and no country count from a secondary source is used as a benchmark. The original country list, the usable country set for each outcome and the composite-index sample remain unresolved until verified from primary documentation or a provenance-verified original data release. Reconstructed sample sizes and coefficients are reported exactly as observed.
 
@@ -70,7 +70,7 @@ The project assesses causal claims where the data and the declared method can su
 
 ## Out of scope
 
-If the original package contains U.S. state material, T1a records its existence, file names and provenance in the original-release manifest. It is not cleaned, harmonised, prepared for redistribution or analysed beyond that metadata record in the first release unless a separate scope amendment is approved.
+If the original package contains U.S. state material, the original access thread records its existence, file names and provenance in the original-release manifest. It is not cleaned, harmonised, prepared for redistribution or analysed beyond that metadata record in the first release unless a separate scope amendment is approved.
 
 ## Done means
 
