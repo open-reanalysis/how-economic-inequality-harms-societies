@@ -11,7 +11,7 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 | **Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
 | **Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
 | **Sensitivity** | Do the original reproduction or the current replication change under alternatives that a named critic has raised or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
-| **Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | `CAUSAL ASSESSMENT` + claim ID, or `NOT TESTABLE IN THIS DESIGN` |
+| **Causal assessment** | Do the causal claims that Wilkinson and Pickett or named critics advance survive designs matched to those claims? | Evidence tier 1 to 4 and one verdict per outcome: `CAUSAL EFFECT SUPPORTED`, `CAUSAL EFFECT NOT SUPPORTED`, `REVERSE OR COMMON-CAUSE PATTERN` or `UNDETERMINED`, with the claim ID. A claim country-level data cannot address is `NOT TESTABLE IN THIS DESIGN` |
 
 A further section, **interpretation**, records what the analysis does and does not establish.
 
@@ -20,6 +20,8 @@ A further section, **interpretation**, records what the analysis does and does n
 1. Descriptive results are reported as correlations.
 2. Causal claims are assessed only where the data and a method declared in the analysis lock can support an assessment. Each statement by Wilkinson and Pickett is first classified as a descriptive correlation, a proposed mechanism or a causal claim, and a correlation they reported without a causal interpretation is never presented as their causal inference.
 3. Every result states the assumptions it relies on. A causal assessment also states what its design cannot rule out, and a claim that country-level data cannot address is reported as not testable in this design.
+4. A causal conclusion is possible in either direction. Each outcome gets one of four verdicts from rules locked before the current data are analysed, and each verdict carries the same burden of proof. A cross-section alone never reaches a causal conclusion, and a null result from an underpowered design is reported as undetermined.
+5. The words "causes" and "does not cause" appear only next to a verdict the locked rules produced, with the assumptions it rests on.
 
 ## Vocabulary
 
@@ -134,7 +136,7 @@ make clean-env        # fresh locked environment, snapshot, then make all
 3. Original findings are reproduced, or every non-reproduction is explained in the reproduction discrepancy log.
 4. The analysis lock is committed before current outcome analysis.
 5. Every controversy in the report is attributed to an identifiable source.
-6. Every assessed statement by Wilkinson and Pickett is in the claims register with a checked source and a class. Every causal claim is assessed with a declared design that states its assumptions, or marked not testable in this design with the reason.
+6. Every assessed statement by Wilkinson and Pickett is in the claims register with a checked source and a class. Every causal claim is assessed with a declared design that states its assumptions, or marked not testable in this design with the reason. Every outcome has an evidence tier and a verdict with all nine criteria tabulated, and the power simulation and negative-control results are published.
 7. Test data for each stated criticism are saved.
 8. Every result states its dataset versions, country sample, year ranges, source IDs and lock commit hash.
 9. All scripts run end to end from a clean environment in offline replay.

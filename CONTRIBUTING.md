@@ -111,7 +111,7 @@ A proposal made before the register is frozen is considered for the register. A 
 
 ## Writing about results
 
-Use the terminology in INTENT.md. A correlation is described as a correlation, and a correlation that Wilkinson and Pickett reported without a causal interpretation is never presented as their causal inference. Causal readings and mechanisms appear as claims attributed to their source in the claims register or the controversy register, or as results of a causal design declared in the analysis lock, stated with its identifying assumptions and what it cannot rule out. The full specification curve is reported, and significance is never used to choose what to report. Controversy tests use the five outcome labels in the plan.
+Use the terminology in INTENT.md. A correlation is described as a correlation, and a correlation that Wilkinson and Pickett reported without a causal interpretation is never presented as their causal inference. Causal readings and mechanisms appear as claims attributed to their source in the claims register or the controversy register, or as results of a causal design declared in the analysis lock, stated with its identifying assumptions and what it cannot rule out. Every result carries its evidence tier. Results in tiers 1 to 3 use the neutral association vocabulary. The words "causes" and "does not cause" appear only next to a verdict that the locked verdict rules produced, together with its assumptions sentence, and a verdict is written in the same form whether it agrees or disagrees with the original authors. The full specification curve is reported, and significance is never used to choose what to report. Controversy tests use the five outcome labels in the plan.
 
 ## Tests and checks
 
