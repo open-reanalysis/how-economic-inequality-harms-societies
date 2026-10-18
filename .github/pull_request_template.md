@@ -1,9 +1,9 @@
 <!-- This description is the merge package required by IMPLEMENTATION_PLAN.md. Fill in every item. -->
-<!-- Thread pull requests target the current milestone/* integration branch, not main. -->
+<!-- Thread pull requests target main. -->
 
 ## Thread
 
-<!-- The thread ID, for example controversy-register. A milestone pull request names its milestone here, such as milestone/1-data, and replaces the merge package with the constituent pull request report from milestone mode. -->
+<!-- The thread ID, for example controversy-register. -->
 
 ## What this changes and why
 
@@ -19,7 +19,7 @@
 ## Confirmations
 
 - [ ] I changed only files my thread owns, or a maintainer asked for this change.
-- [ ] No restricted data and no full texts are committed, and no existing data file was modified or deleted.
-- [ ] No association between current inequality and current outcome data was computed or viewed before the reproduction lock, or the lock is already tagged.
+- [ ] No restricted data, no full texts and no output that may not be published are committed, and no existing data file was modified or deleted.
+- [ ] No association between current inequality and current outcome data was computed or viewed before the reproduction lock merged and milestone 1 was tagged.
 - [ ] Code comments and prose use the neutral terminology in INTENT.md.
 - [ ] Commits written with an AI assistant carry a Co-Authored-By line.

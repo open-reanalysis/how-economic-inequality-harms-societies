@@ -6,7 +6,7 @@ Issues are welcome at any time.
 
 ## Rules that are never broken
 
-No one computes, views or infers an association between current inequality data and current outcome data before the reproduction lock is tagged. Downloading data, reading metadata and checking country coverage are fine.
+No one computes, views or infers an association between current inequality data and current outcome data before the reproduction lock has merged and milestone 1 is tagged. Downloading data, reading metadata and checking country coverage are fine.
 
 Acquired data files are stored exactly as acquired, by the storage method recorded for each source, with their manifest rows. No restricted data and no full texts are committed. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
 
@@ -28,7 +28,7 @@ Every file another script reads follows a pandera schema defined once in `code/l
 
 Scripts are numbered by pipeline stage. Tests go in `tests/<thread>/`. Each script is a Make target in your thread's `make/<thread>.mk`, with the script and its input files as prerequisites. Add the target to `ACQUIRE_TARGETS` if it downloads or records assets, or to `REPLAY_TARGETS` if it works only from files already present. `make acquire` builds acquire targets, and `make all` builds only replay targets. A replay target that needs a restricted input also goes in `RESTRICTED_TARGETS`, so `make all` skips it where the input is missing and keeps its committed outputs.
 
-Python follows ruff. Quarto pages contain Python chunks only and render through the Jupyter engine.
+Python follows ruff.
 
 ## Commenting code
 
@@ -57,9 +57,9 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 ## Threads, branches and ownership
 
-Work reaches `main` in three milestones, and each has an integration branch: `milestone/1-data`, `milestone/2-reproduction` and `milestone/3-report`. The first two deliver the project's five goals. Thread pull requests go into the current integration branch. Only the three milestone pull requests go into `main`, and a maintainer reviews and merges each of them. The plan lists which thread belongs to which milestone.
+Thread pull requests go directly into `main`. Three milestones mark the points where a maintainer reviews what has merged, and each ends in a tag: `milestone-1`, `deliverables-v1` and `results-v1`. The first two deliver the project's five goals. The plan lists which thread belongs to which milestone.
 
-A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from its milestone's integration branch after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
+A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`, and is branched from `main`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
 
 Pull requests from forks are not merged. If you are outside the project, propose a change in an issue, and a thread or the integrator makes it.
 
@@ -69,11 +69,11 @@ Every download goes through the shared download helper, which writes the manifes
 
 `sources/supporting/` and `sources/controversies/` are the two packages. Search and screen both under the shared protocol in the plan, and log every screening decision. Download every text in a package that can be obtained legally, whether or not you read it. Attach a text whose licence permits redistribution to a release and list it in its record. Keep any other text in the gitignored `local/` folder of its `sources/` folder, and record its local path, an archived landing-page URL where there is no DOI and the SHA-256 of the file. The package `README.md`, generated from the manifest, says what the package holds and what it lacks. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in your thread's file in `data/local_data_required/`, and a person obtains it. Ignore rules for fetched and user-supplied files go in the `.gitignore` of your raw folder, never in the root `.gitignore`. Paywalls and access controls are never bypassed.
 
-Manifest checks run in two modes. `metadata` runs in CI on every pull request and push and checks schemas, identifiers and references without touching data files. `full` runs locally and in `make verify-data`, and verifies every stored file, after `make fetch-data` has fetched those not in git, and the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
+Manifest checks run in two modes. `metadata` runs in CI on every pull request and push and checks schemas, identifiers and references without touching data files. `full` runs locally and in `make verify-data`, and verifies every stored file, after `make fetch-data` has fetched those not in git, and the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it. An output whose source terms do not allow publishing it is never committed. Keep it in `outputs/local/`, which is gitignored, and document its licence exception in `outputs/local/LICENSE_EXCEPTIONS.md`.
 
 ## The reproduction lock
 
-Before the reproduction lock is tagged, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After the lock is tagged, its file is covered by a content hash. A change to it is made as a dated amendment with a new tag, and results are reported under both the original and the amended rule.
+Until the reproduction lock has merged and milestone 1 is tagged, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After that, a change to the lock is made as a dated amendment in the same file, and results are reported under both the original and the amended rule. Every current result cites the lock commit.
 
 ## Proposing a controversy
 
@@ -95,13 +95,13 @@ Write commit messages in the imperative, with a short subject line and a body th
 
 Push every commit to the remote as soon as you make it. Several agents work on the project at the same time, and a commit that exists only in one local clone is invisible to the others. They then build on an outdated branch, and the work conflicts when it meets. Fetch the remote branch and merge it into yours before you start and again before you push. Never end a session with commits or changes that exist only locally.
 
-The pull request template is the merge package the plan requires. Fill in every item. A thread pull request from a branch in this repository auto-merges into its integration branch with a merge commit once every required check passes. A milestone pull request into `main` is opened by the integrator, reviewed by a maintainer and merged with a merge commit only by that maintainer's decision. A Claude session never merges into `main`. The ownership check does not apply one thread's paths to a milestone pull request. It runs in milestone mode instead and checks that every thread the milestone lists has a merged pull request and that each of those passed its own ownership check. An approving review becomes mandatory once more than one person contributes.
+The pull request template is the merge package the plan requires. Fill in every item. A thread pull request from a branch in this repository auto-merges into `main` with a merge commit once every required check passes. A maintainer reviews `main` at each milestone, and only after that review does the integrator create the milestone's tag. A Claude session never creates a tag. An approving review becomes mandatory once more than one person contributes.
 
 ## History is never rewritten
 
 Every commit stays in the history as it was made, with its hash, timestamp, author and message. The history records the order in which the work was done, and that order is part of the project's evidence, for example that the updated reproduction followed the lock.
 
-- Bring a branch up to date by merging the remote branch or the integration branch into it.
+- Bring a branch up to date by merging the remote branch or `main` into it.
 - Merge every pull request with a merge commit.
 - To correct a commit, make a new commit that corrects it.
 
@@ -109,4 +109,4 @@ Squash, rebase, amend, force push and any other command that rewrites or removes
 
 ## Licences
 
-By contributing you agree that your contribution is published under the project's licences. Code and tests are under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are covered by neither, and derived outputs follow a source's stricter terms where they apply.
+By contributing you agree that your contribution is published under the project's licences. Code and tests are under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are covered by neither, and derived outputs follow a source's stricter terms where they apply. An output that may not be published stays local, as described under data and sources.

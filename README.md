@@ -21,6 +21,8 @@ The five deliverables are released together as `deliverables-v1`, which complete
 | **Historical reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
 | **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? The fixed-sample result keeps the historical sample. Series with no exact or conceptual successor are left out, and a separate result adds substitute measures. The eligibility-refreshed result reapplies the original selection rule once it is verified. | `UPDATED REPRODUCTION, FIXED SAMPLE`, `UPDATED REPRODUCTION, FIXED SAMPLE, WITH SUBSTITUTES` and `UPDATED REPRODUCTION, ELIGIBILITY REFRESHED` |
 
+A headline table puts the reported, the historical and the updated correlation of each indicator side by side, with the comparability class of its current series and the reason for any deviation.
+
 Beside the results, the project delivers the two source packages, the controversy register with its datasets, and the register of the authors' claims.
 
 ## What the project does and does not claim
@@ -97,7 +99,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 
 ## Planned repository layout
 
-The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are stored exactly as acquired, by a storage method chosen per source, and their checksums are recorded in the manifests. Whether files above 50 MiB use Git LFS is still open. `sources/supporting/` and `sources/controversies/` are the two packages. Every legally obtainable text is downloaded. Texts whose licence permits redistribution are attached to GitHub releases and mirrored on Zenodo. Other texts are identified by DOI or an archived URL and the hash of the downloaded file, which is kept locally outside git.
+The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are stored exactly as acquired, by a storage method chosen per source, and their checksums are recorded in the manifests. Whether files above 50 MiB use Git LFS is still open. `sources/supporting/` and `sources/controversies/` are the two packages. Every legally obtainable text is downloaded. Texts whose licence permits redistribution are attached to GitHub releases. Other texts are identified by DOI or an archived URL and the hash of the downloaded file, which is kept locally outside git.
 
 ## Reproducibility
 
@@ -127,7 +129,8 @@ docs/
   source_verification/
   data_dictionary_original.md
   data_dictionary_updated_reproduction.md
-site/                          # Quarto report and results website
+report/                        # prose of the report sections
+site/                          # generated report published on GitHub Pages
 outputs/
 ```
 
@@ -157,7 +160,7 @@ make acquire          # contacts live sources, used only to add new data
 9. Every result states its dataset versions, country sample, year ranges, source IDs and reproduction-lock commit hash.
 10. All scripts run end to end from a fresh clone in offline replay, and results from restricted inputs are labelled `RESTRICTED INPUT`.
 11. The five deliverables are released as `deliverables-v1`.
-12. As an addition, results are published on GitHub Pages from a tagged release.
+12. As an addition, the report is published on GitHub Pages from a tagged release, with links to the release and the repository.
 
 ## Contributing
 
@@ -165,4 +168,4 @@ Issues are welcome at any time. See [CONTRIBUTING.md](CONTRIBUTING.md) for how t
 
 ## Licence and citation
 
-Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. A derived table or figure that contains a source's values follows that source's terms where they are stricter than CC BY 4.0. These exceptions are listed in `outputs/LICENSE_EXCEPTIONS.md`. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
+Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. A derived table or figure that contains a source's values follows that source's terms where they are stricter than CC BY 4.0. An output whose source terms do not allow publishing it is not committed. It is kept locally, and its licence exception is documented and managed there. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.

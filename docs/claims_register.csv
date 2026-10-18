@@ -1,1 +1,1 @@
-claim_id,author,source_work,source_locator,publication_year,stable_identifier,wording,wording_type,claim_class,policy_counterfactual,policy_population,policy_expected_effect,testability,needed_design,verification_status,verification_log_ref,notes
+claim_id,author,source_work,source_locator,publication_year,stable_identifier,wording,wording_type,claim_class,verification_status,verification_log_ref,notes
