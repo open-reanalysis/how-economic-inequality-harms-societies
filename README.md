@@ -89,7 +89,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 
 ## Planned repository layout
 
-The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are committed exactly as acquired, files above 50 MiB through Git LFS, and their checksums are recorded in the manifests. Sources are bibliographic records with links, not full texts.
+The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are committed exactly as acquired, files above 50 MiB through Git LFS, and their checksums are recorded in the manifests. Sources are bibliographic records with links. Texts whose licence permits redistribution are attached to GitHub releases and mirrored on Zenodo. Other texts are identified by DOI or an archived URL and the hash of the file read.
 
 ## Reproducibility
 
