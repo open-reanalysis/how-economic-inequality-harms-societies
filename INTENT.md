@@ -2,15 +2,16 @@
 
 ## Goals and priorities
 
-The project has five goals, in this order of priority.
+The project has six goals, in this order of priority.
 
 1. Download the current version of every dataset Wilkinson and Pickett used.
 2. Reproduce their findings, both from the data they released and by applying their documented method to the current version of the same data.
 3. Download a package of sources supporting their findings, academic and non-academic.
 4. Download a package of sources setting out controversies about their findings.
 5. Download datasets that may support those controversies.
+6. Publish the results on a GitHub Pages site.
 
-Milestone 2 ends with an independent release of the five deliverables, which completes the original assignment on its own. The project keeps two additions beyond the goals. The author claims register records and classifies what Wilkinson and Pickett claim. The report and the website publish the results. Neither delays a goal. If the original material contains an analysis of U.S. states, that analysis is part of goals 1 and 2, as a second dataset for the same hypothesis that is always reported separately from the country analysis.
+Milestone 2 ends with an independent release of the deliverables of goals 1 to 5. Milestone 3 publishes the results on the site. The project keeps one addition beyond the goals. The author claims register records and classifies what Wilkinson and Pickett claim, and it never delays a goal. If the original material contains an analysis of U.S. states, that analysis is part of goals 1 and 2, as a second dataset for the same hypothesis that is always reported separately from the country analysis.
 
 ## Purpose
 
@@ -76,7 +77,7 @@ Each of these is recorded in the source-verification log with the passage, table
 
 ## Done means
 
-The five goals come first. The current version of every dataset Wilkinson and Pickett used is downloaded, with the original source and the current release of each series recorded side by side in the source lineage, or the reason a series could not be updated. Their findings are reproduced from the released data and from the current data by their own method, with every difference logged. The supporting and the controversy source packages are downloaded, with every legally obtainable text held and a README for each package saying what it holds and what it lacks. The controversy datasets are downloaded for every row of the frozen register that names data, and each package is linked to at least one controversy.
+The six goals come first. The current version of every dataset Wilkinson and Pickett used is downloaded, with the original source and the current release of each series recorded side by side in the source lineage, or the reason a series could not be updated. Their findings are reproduced from the released data and from the current data by their own method, with every difference logged. The supporting and the controversy source packages are downloaded, with every legally obtainable text held and a README for each package saying what it holds and what it lacks. The controversy datasets are downloaded for every row of the frozen register that names data, and each package is linked to at least one controversy.
 
 Original data are preserved, checksummed and analysed under the access label the evidence supports, with every retrieval attempt recorded. Every non-reproduction, original or updated, is explained in an auditable discrepancy log. Access failure does not allow silent substitution or a claim that the corresponding outcome was reproduced.
 
@@ -86,4 +87,4 @@ Every final result identifies its exact dataset version, country sample, outcome
 
 The final clean build is an offline replay from a fresh clone, using only the project's stored and checksummed data files, fetched where they are not in git, plus any restricted files held locally. It generates the final tables, figures, manifests, data dictionaries and report.
 
-The five deliverables are released as `deliverables-v1` at the end of milestone 2, and that release completes the original assignment. As an addition, the report is published as a website on GitHub Pages, with links to the release and the repository, built from a tagged release and stating the release tag, the reproduction lock commit and the commit it was built from.
+The deliverables of goals 1 to 5 are released as `deliverables-v1` at the end of milestone 2. For goal 6 the report is published as a website on GitHub Pages, with links to the release and the repository, built from a tagged release and stating the release tag, the reproduction lock commit and the commit it was built from.

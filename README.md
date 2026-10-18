@@ -9,8 +9,9 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 3. Download a package of sources supporting their findings, academic and non-academic.
 4. Download a package of sources setting out controversies about their findings.
 5. Download datasets that may support those controversies.
+6. Publish the results on a GitHub Pages site.
 
-The five deliverables are released together as `deliverables-v1`, which completes the assignment. The project also keeps a register of the authors' claims and publishes a report and a website. Neither delays a goal.
+The deliverables of goals 1 to 5 are released together as `deliverables-v1`, and the site publishes the results. The project also keeps a register of the authors' claims, which never delays a goal.
 
 > **Status: pre-release.** Nothing has been analysed yet. No updated-reproduction result is produced before the reproduction lock (see [Declared before examined](#declared-before-examined)) is committed.
 
@@ -159,8 +160,8 @@ make acquire          # contacts live sources, used only to add new data
 8. Every statement in the claims register has a checked source and a class, or is marked to be verified.
 9. Every result states its dataset versions, country sample, year ranges, source IDs and reproduction-lock commit hash.
 10. All scripts run end to end from a fresh clone in offline replay, and results from restricted inputs are labelled `RESTRICTED INPUT`.
-11. The five deliverables are released as `deliverables-v1`.
-12. As an addition, the report is published on GitHub Pages from a tagged release, with links to the release and the repository.
+11. The deliverables of goals 1 to 5 are released as `deliverables-v1`.
+12. The report is published on GitHub Pages from a tagged release, with links to the release and the repository.
 
 ## Contributing
 

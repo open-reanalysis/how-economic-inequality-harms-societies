@@ -57,7 +57,7 @@ Comments contain no commented-out code, no TODO without an issue reference, and 
 
 ## Threads, branches and ownership
 
-Thread pull requests go directly into `main`. Three milestones mark the points where a maintainer reviews what has merged, and each ends in a tag: `milestone-1`, `deliverables-v1` and `results-v1`. The first two deliver the project's five goals. The plan lists which thread belongs to which milestone.
+Thread pull requests go directly into `main`. Three milestones mark the points where a maintainer reviews what has merged, and each ends in a tag: `milestone-1`, `deliverables-v1` and `results-v1`. The first two deliver goals 1 to 5, and the third delivers goal 6, the site. The plan lists which thread belongs to which milestone.
 
 A thread's branch is named `<thread-id>/<short-description>`, for example `original-access/first-download`, and is branched from `main`. A thread changes only the files it owns, and `make check-contracts` enforces this. A thread reads another thread's output only from `main` after that thread has merged into it. A change to a file owned by the scaffold thread is requested in the pull request and made by the integrator.
 

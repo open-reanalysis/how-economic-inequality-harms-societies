@@ -4,7 +4,7 @@ This plan turns [INTENT.md](INTENT.md) into work that separate Claude sessions c
 
 ## Goals and priorities
 
-The project has five goals, in this order of priority. They come from the original project specification.
+The project has six goals, in this order of priority. They come from the original project specification.
 
 | Priority | Goal | Threads | Output path | Acceptance test | Blocking dependencies | Milestone | Human decision |
 |---|---|---|---|---|---|---|---|
@@ -13,12 +13,13 @@ The project has five goals, in this order of priority. They come from the origin
 | 3 | Download a package of sources supporting their findings, academic and non-academic | Original access for the authors' own works, supporting sources for the rest | `sources/supporting/` | The package has at least one peer-reviewed study by other authors, every record follows the screening protocol, and every legally obtainable text is downloaded or has a recorded reason | Scaffold | 2 | None |
 | 4 | Download a package of sources setting out controversies about their findings | Controversy sources and register | `sources/controversies/`, `docs/controversy_register.csv` | Every register row has an identifiable source, its argument in neutral words, its target and any reply, and every legally obtainable text is downloaded or has a recorded reason | Scaffold | 2 | None |
 | 5 | Download datasets that may support those controversies | Controversy test data | `data/04_controversy_test_data/`, `docs/controversy_data_map.csv` | Every register row with a testable statement has a map row whose datasets are acquired with provenance, or whose barrier is documented | Goal 4 register freeze | 2 | None |
+| 6 | Publish the results on a GitHub Pages site | Report | `site/`, `.github/workflows/pages.yml` | The `results-v1` tag publishes the report with the headline table and links to the `deliverables-v1` release and the repository | Goals 1 to 5 | 3 | Approve the `results-v1` tag |
 
 The same table is kept in machine-readable form in `docs/goal_traceability.csv`. `make check-contracts` fails if any goal lacks a thread, an output path, an acceptance test or a milestone, if an output path is not owned by one of the goal's threads, or if a goal in milestone 1 or 2 depends on a thread outside milestones 1 and 2.
 
-The project keeps two additions beyond the goals. The author claims register records and classifies what Wilkinson and Pickett claim. The report and the website publish the results. Neither delays a goal.
+The project keeps one addition beyond the goals. The author claims register records and classifies what Wilkinson and Pickett claim. It never delays a goal.
 
-Milestone 2 ends with an independent release of the original assignment, tagged `deliverables-v1`. It holds all five deliverables and is complete even if the report and the website are never built.
+Milestone 2 ends with an independent release of goals 1 to 5, tagged `deliverables-v1`. It holds those five deliverables and is complete even if the report and the website are not yet built. Milestone 3 delivers goal 6, the site that publishes the results.
 
 Milestone 1 holds only the path to goals 1 and 2, so nothing from goals 3 to 5 gates the reproductions. The threads for goals 3 to 5 may start as soon as the scaffold has merged and merge into `main` whenever their work is done, but only milestone 2 requires them. The claims register may start at the same time, but it is an addition, and only milestone 3 requires it.
 
@@ -62,7 +63,7 @@ Each thread has a name used in prose and an ID used by tools. The ID names the t
 | Controversy sources and register | `controversy-register` | 4 |
 | Controversy test data | `controversy-test-data` | 5 |
 | Author claims register | `claims-register` | Addition |
-| Report and clean offline run | `report` | Addition |
+| Report and clean offline run | `report` | 6 |
 
 A thread reads another thread's output only from `main` after that thread has merged into it. No thread reads from an unmerged thread branch.
 
@@ -149,7 +150,7 @@ Third-party actions are pinned to commit hashes, and workflows get the minimum p
 
 ## Deliverables release
 
-When you have approved milestone 2, the integrator tags that commit of `main` `deliverables-v1` and publishes a GitHub release from it. Its notes are generated from the five goals' acceptance tests and the package READMEs and list every lineage row still marked not yet verified with its reason. Its assets are the redistributable files stored as release assets. This release is the complete original assignment. If the repository is connected to Zenodo, every release is archived with a DOI.
+When you have approved milestone 2, the integrator tags that commit of `main` `deliverables-v1` and publishes a GitHub release from it. Its notes are generated from the acceptance tests of goals 1 to 5 and the package READMEs and list every lineage row still marked not yet verified with its reason. Its assets are the redistributable files stored as release assets. This release completes goals 1 to 5. If the repository is connected to Zenodo, every release is archived with a DOI.
 
 ## Results website
 
@@ -311,7 +312,7 @@ Owns `docs/claims_register.csv`, `docs/claims_register_method.md` and `docs/sour
 
 ### Report and clean offline run
 
-Builds `outputs/tables/headline_results.csv`, the project's one headline table, from the historical and updated reproduction tables. It has one row per indicator and dataset, with the reported r, the historical r and n, the updated r and n, the comparability class and the deviation reason. Writes the prose of the report sections listed under shared contracts in `report/`, and `code/07_build_report.py` assembles the report from them and the output tables, as described under the tech stack. Runs `make clean-env` and checks the completion criteria, listing anything unmet and reporting each of the five goals first. When you approve, the integrator tags the release as `results-v1` with an owner account, which publishes the site.
+Builds `outputs/tables/headline_results.csv`, the project's one headline table, from the historical and updated reproduction tables. It has one row per indicator and dataset, with the reported r, the historical r and n, the updated r and n, the comparability class and the deviation reason. Writes the prose of the report sections listed under shared contracts in `report/`, and `code/07_build_report.py` assembles the report from them and the output tables, as described under the tech stack. Runs `make clean-env` and checks the completion criteria, listing anything unmet and reporting each of the six goals first. When you approve, the integrator tags the release as `results-v1` with an owner account, which publishes the site.
 
 Adds `pages.yml`, so the site exists only from milestone 3. Owns `code/07_build_report.py`, `report/`, `.github/workflows/pages.yml`, `site/`, the generated `docs/replication_report.md`, `tests/report/`, `outputs/tables/headline_results.csv`, `outputs/figures/` except files starting with `historical_` or `updated_reproduction_`, and `outputs/logs/`.
 
@@ -439,4 +440,4 @@ The historical rebuild takes the same series in the vintage the notes name, from
 
 **Controversy categories.** `country-selection` covers country selection and sample definition. `inequality-measure` covers the inequality measure, including the 80:20 ratio against Gini, market against disposable income, and survey comparability and timing. `index-construction` covers composite-index construction, including weighting, component choice and reverse coding. `outliers` covers outliers and influential countries. `temporal-persistence` covers persistence in later data and in national time series. `mechanism` covers the psychosocial account and alternatives such as material conditions, public services, institutions and social cohesion. `data-comparability` covers data availability and comparability.
 
-**Report sections.** The report has these sections in this order. Scope and terminology. Headline results, the headline table with one line on how to read it. Goals and deliverables, which reports each of the five goals with its deliverable and lists what each source package and dataset folder holds. Historical reproduction. Fixed-sample current reproduction, with its substitute variant. Eligibility-refreshed current reproduction, or the reason it is not possible. Each reproduction section reports the countries and the U.S. states separately. Supporting sources. Controversies, where each entry states the source's claim, cites it, names its category, lists the datasets downloaded for it and links any published Wilkinson and Pickett response. Author claims, which presents the claims register by class. Limitations, covering the small country sample, cross-national comparability, temporal misalignment, missing data, measurement changes, series that ended or changed definition, and the fact that the project tests neither the controversies nor causality. Reproducibility, with exact commands, environment versions, the reproduction lock commit and data-access limits, and links to the `deliverables-v1` release and the repository.
+**Report sections.** The report has these sections in this order. Scope and terminology. Headline results, the headline table with one line on how to read it. Goals and deliverables, which reports each of the six goals with its deliverable and lists what each source package and dataset folder holds. Historical reproduction. Fixed-sample current reproduction, with its substitute variant. Eligibility-refreshed current reproduction, or the reason it is not possible. Each reproduction section reports the countries and the U.S. states separately. Supporting sources. Controversies, where each entry states the source's claim, cites it, names its category, lists the datasets downloaded for it and links any published Wilkinson and Pickett response. Author claims, which presents the claims register by class. Limitations, covering the small country sample, cross-national comparability, temporal misalignment, missing data, measurement changes, series that ended or changed definition, and the fact that the project tests neither the controversies nor causality. Reproducibility, with exact commands, environment versions, the reproduction lock commit and data-access limits, and links to the `deliverables-v1` release and the repository.
