@@ -6,12 +6,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        The register accepts only criticisms made by an identifiable author in a citable source. A proposal made after the register is frozen is still welcome. It is added in a dated amendment and its test is reported separately as a post-lock analysis.
+        The register accepts only criticisms made by an identifiable author in a citable source. A proposal made after the register is frozen is still welcome. It is added in a dated amendment.
   - type: input
     id: critic
     attributes:
       label: Author of the source
-      description: Name of the author or authors, whether a critic, the original authors or an independent researcher.
+      description: Name of the author or authors, whether a critic or an independent researcher.
     validations:
       required: true
   - type: input
@@ -68,5 +68,5 @@ body:
   - type: textarea
     id: test
     attributes:
-      label: How it could be tested
-      description: Optional. Data and method that would test it, or why country-level data cannot.
+      label: Data that would support or test it
+      description: Optional. The datasets the project should download for this criticism, and how it could be tested.
