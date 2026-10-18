@@ -99,7 +99,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 
 ## Planned repository layout
 
-The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are stored exactly as acquired, by a storage method chosen per source, and their checksums are recorded in the manifests. Whether files above 50 MiB use Git LFS is still open. `sources/supporting/` and `sources/controversies/` are the two packages. Every legally obtainable text is downloaded. Texts whose licence permits redistribution are attached to GitHub releases. Other texts are identified by DOI or an archived URL and the hash of the downloaded file, which is kept locally outside git.
+The full layout and file ownership are in [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md). Data files are stored exactly as acquired, by a storage method chosen per source, and their checksums are recorded in the manifests. Whether files above 50 MiB use Git LFS is still open. `sources/supporting/` and `sources/controversies/` are the two packages. Every legally obtainable text is downloaded. Texts whose terms allow publishing are published in their package in the repository. Other texts are recorded as sources with their link, DOI or archived URL and the hash of the downloaded file, which is kept locally outside git.
 
 ## Reproducibility
 
@@ -168,4 +168,4 @@ Issues are welcome at any time. See [CONTRIBUTING.md](CONTRIBUTING.md) for how t
 
 ## Licence and citation
 
-Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and result tables are licensed under [CC BY 4.0](LICENSE-docs). Raw data and third-party full texts are not covered by either licence. A derived table or figure that contains a source's values follows that source's terms where they are stricter than CC BY 4.0. An output whose source terms do not allow publishing it is not committed. It is kept locally, and its licence exception is documented and managed there. Each source keeps its own licence, recorded in its manifest entry. Citation metadata will be added with the first tagged release.
+Code and tests are licensed under the [MIT License](LICENSE). Documents, the report, the website, figures and the project's own data collection are licensed under [CC BY 4.0](LICENSE-docs). The data collection is assembled from extracts that stay below the threshold of originality and from values the project derives. Data and texts fetched from elsewhere are published as they are, under their own terms, which are recorded with each source. Material whose terms do not allow publishing is handled locally and recorded as a source with its link. Citation metadata will be added with the first tagged release.

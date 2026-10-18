@@ -19,7 +19,7 @@
 ## Confirmations
 
 - [ ] I changed only files my thread owns, or a maintainer asked for this change.
-- [ ] No restricted data, no full texts and no output that may not be published are committed, and no existing data file was modified or deleted.
+- [ ] Nothing whose terms forbid publishing is committed, every extract from such material stays below the threshold of originality, and no existing data file was modified or deleted.
 - [ ] No association between current inequality and current outcome data was computed or viewed before the reproduction lock merged and milestone 1 was tagged.
 - [ ] Code comments and prose use the neutral terminology in INTENT.md.
 - [ ] Commits written with an AI assistant carry a Co-Authored-By line.
