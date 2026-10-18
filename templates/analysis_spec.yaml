@@ -10,7 +10,19 @@ sample:
   units: [<unit_id>, ...]            # for kind fixed
   table: <outputs/tables/...csv>     # for kind eligibility_table
   rationale: <section>
-variables:
+eligibility:                         # specs with kind eligibility_table only
+  income_series: <source_id>
+  income_vintage: <provider release>
+  measurement_year: <year for income and population>
+  population_threshold: 3000000
+  inequality_source: <source_id>
+  rank_non_sovereign: <true | false>
+  tie_break: <rule at rank 50>
+  rationale: <section>
+reported_value_check:                # historical specs only, committed before any correlation is computed
+  tolerance_r: <absolute tolerance>
+  rationale: <section>
+variables:                           # the analyses are the lineage rows with reported_r filled
   - variable_id: <lineage variable_id>
     role: <inequality | index_component | extra_measure>
     sources: [<primary source_id>, <secondary source_id>]   # priority order for parallel data

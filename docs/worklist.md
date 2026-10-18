@@ -8,9 +8,10 @@ The implementation runs in one day, 19 October 2026. No step waits for material 
 
 | Order | Work | Waits for you |
 |---|---|---|
+| 0 | Approval of the assumptions below | Your approval |
 | 1 | Scaffold | Merge of the planning pull request |
 | 2 | Original access, supporting sources, controversy sources and register, claims register | None |
-| 3 | Source lineage, historical reproduction | Only a point the approved assumptions do not cover |
+| 3 | Source lineage, historical reproduction. The historical state specification and its tolerance are committed before any state correlation is computed | Only a point the approved assumptions do not cover |
 | 4 | Inequality data, outcome data | Acceptance of the CDC WONDER terms of use |
 | 5 | Reproduction lock | None |
 | 6 | Milestone 1 review and `milestone-1` tag | Your review and approval of the method rationale, the historical specifications and the lock |
@@ -28,7 +29,8 @@ These fill the points the authors' published material leaves open. The historica
 - The fixed country sample is the 23 countries in the released file.
 - The state sample is the 50 states without the District of Columbia, and the state index uses the nine components the notes list.
 - Index components, their direction and the handling of missing components follow the released file and the notes. A point neither settles is put to you.
-- For the historical eligibility check, the 50 richest countries are ranked by gross national income per capita by the Atlas method from the April 2004 World Development Indicators.
+- For the historical eligibility check, the 50 richest countries are ranked by gross national income per capita by the Atlas method from the April 2004 World Development Indicators. The other details that change which countries are eligible, the measurement year, the source of comparable income distribution data, non-sovereign economies and ties at rank 50, are put to you if the authors' material does not settle them.
+- The analyses are the correlations the authors reported, as listed by the lineage rows with a reported correlation.
 
 ## Decisions for this run
 
