@@ -19,7 +19,7 @@ The five deliverables are released together as `deliverables-v1`, which complete
 | Result | Question | Label used in outputs |
 |---|---|---|
 | **Historical reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
-| **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? The fixed-sample result keeps the historical sample. Series with no exact or conceptual successor are left out, and a separate result adds substitute measures. The eligibility-refreshed result reapplies the original selection rule once it is verified. | `UPDATED REPRODUCTION, FIXED SAMPLE`, `UPDATED REPRODUCTION, FIXED SAMPLE, WITH SUBSTITUTES` and `UPDATED REPRODUCTION, ELIGIBILITY REFRESHED` |
+| **Updated reproduction** | Does the original method, applied unchanged to the current release of the same data, reproduce the findings? The fixed-sample result keeps the historical sample. Series with no exact or conceptual successor are left out, and a separate result adds substitute measures. The eligibility-refreshed result reapplies the authors' selection rule to current data, without letting outcome data decide which country is eligible. | `UPDATED REPRODUCTION, FIXED SAMPLE`, `UPDATED REPRODUCTION, FIXED SAMPLE, WITH SUBSTITUTES` and `UPDATED REPRODUCTION, ELIGIBILITY REFRESHED` |
 
 A headline table puts the reported, the historical and the updated correlation of each indicator side by side, with the comparability class of its current series and the reason for any deviation.
 
@@ -89,7 +89,7 @@ Each item is logged in `docs/source_verification/` with the passage, table or fi
 
 - [ ] The source Wilkinson and Pickett used for each indicator, and whether the series still exists.
 - [ ] Whether the original material contains an analysis of U.S. states.
-- [ ] Criteria by which the original countries were selected. Inferred from the released 23 countries until the book is obtained.
+- [ ] The ranking measure and data vintage of the authors' selection rule, the 50 richest countries with more than 3 million people and comparable income distribution data, and whether the rule reproduces the released 23 countries.
 - [ ] Original country list and per-outcome sample sizes. No secondary-source count (21, 22 or 23) is used as a target.
 - [ ] Original inequality measure and reference year.
 - [ ] Original direction coding of each index component, recovered from original materials. The 2024 appendix's coding is recorded separately as update documentation.
