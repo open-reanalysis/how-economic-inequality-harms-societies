@@ -8,7 +8,7 @@ Issues and pull requests are welcome at any time.
 
 No one computes, views or infers an association between current inequality data and current outcome data before the reproduction lock is tagged. Downloading data, reading metadata and checking country coverage are fine.
 
-Acquired data files are committed exactly as acquired, with their manifest rows. No restricted data and no full texts are committed. A pull request may add data files but never modifies or deletes an existing one.
+Acquired data files are stored exactly as acquired, by the storage method recorded for each source, with their manifest rows. No restricted data and no full texts are committed. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
 
 A controversy enters the register only with a named author, an exact title, a publication year and a stable DOI, PMID, PMCID, ISBN or URL, and a book also needs its edition.
 
@@ -67,7 +67,7 @@ A pull request from a fork has no thread branch. A maintainer gives it a label s
 
 Every download goes through the shared download helper, which writes the manifest row with checksum, size, licence and `redistributable` flag. A file up to 50 MiB is committed normally. How larger files are stored is open until a maintainer decides on Git LFS, so ask before acquiring one. Prefer a source's per-indicator or per-country download to a bulk archive where one exists. A correction is a new dated file with `corrects_source_id`, never an overwrite.
 
-The folders in `sources/` are the supporting and controversy packages. Download every text in a package that can be obtained legally, whether or not you read it. Attach a text whose licence permits redistribution to a release and list it in its record. Keep any other text in the gitignored `local/` folder of its `sources/` folder, and record its local path, an archived landing-page URL where there is no DOI and the SHA-256 of the file. Keep each folder's `README.md` up to date with what it holds and what it lacks. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
+`sources/supporting/` and `sources/controversies/` are the two packages. Search and screen both under the shared protocol in the plan, and log every screening decision. Download every text in a package that can be obtained legally, whether or not you read it. Attach a text whose licence permits redistribution to a release and list it in its record. Keep any other text in the gitignored `local/` folder of its `sources/` folder, and record its local path, an archived landing-page URL where there is no DOI and the SHA-256 of the file. Keep each folder's `README.md` up to date with what it holds and what it lacks. The source-verification log cites the section or page, quotes at most a short phrase and records which version was read. A source that needs registration or acceptance of terms is recorded in `data/LOCAL_DATA_REQUIRED.md`, and a person obtains it. Paywalls and access controls are never bypassed.
 
 Manifest checks run in three modes. `metadata` runs in CI on every pull request and checks schemas, identifiers and references without touching data files. `available` runs in CI replay and in `make verify-data` and verifies every committed data file. `full` runs locally and also checks the restricted files you hold. A manifest row whose `acquisition_status` records a failed attempt, a source awaiting you or a metadata-only source needs its retrieval record instead of a file. Run `make check-contracts` in `full` mode before opening a pull request and report the result in it.
 
@@ -105,7 +105,7 @@ Every commit stays in the history as it was made, with its hash, timestamp, auth
 - Merge every pull request with a merge commit.
 - To correct a commit, make a new commit that corrects it.
 
-Squash, rebase, amend, force push and any other command that rewrites or removes commits are forbidden. Squash and rebase are each allowed only with their own stated reason and their own explicit permission from a maintainer, given for that one case. Permission for a squash never covers a rebase, and permission for one case never covers another. The reason and the permission are recorded in the pull request description before the command is run.
+Squash, rebase, amend, force push and any other command that rewrites or removes commits are forbidden. The one exception is purging credentials or personal data from history, which a maintainer approves and records in `docs/removals.md`. Squash and rebase are each allowed only with their own stated reason and their own explicit permission from a maintainer, given for that one case. Permission for a squash never covers a rebase, and permission for one case never covers another. The reason and the permission are recorded in the pull request description before the command is run.
 
 ## Licences
 
