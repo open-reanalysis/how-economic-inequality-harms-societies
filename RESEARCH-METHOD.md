@@ -139,6 +139,8 @@ Each catalogue comparison has a historical result or documented barrier and the 
 
 A component with no current counterpart remains missing. A substitute-only component is missing from the primary index under its missing-component rule and is added only in the substitute variant. A comparison with no admissible predictor or outcome is not produced and has a specific reason. The refreshed country result is not possible if comparable current inequality data cannot support its eligibility rule. No additional sample, outcome, measure or model is introduced without a scope decision.
 
+Each specification assigns each variant a stable identifier so its observations and figures remain distinct. A catalogue comparison keeps the same identity across its variants.
+
 Results record separately:
 
 - data provenance and the historical dataset's access label;

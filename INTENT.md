@@ -65,6 +65,6 @@ The draft brief attributed a 1995 BMJ paper to "Richard Gravelle". Ken Judge wro
 3. The supporting source package is complete under the search protocol, with academic and non-academic sources and its known gaps stated.
 4. The controversy source package is complete under the same protocol, with the frozen register.
 5. Every testable controversy has its datasets acquired, partially acquired or its barrier documented.
-6. The site publishes every result with its figure, observations, sample, sources, comparability and deviations.
+6. The site lists every catalogue comparison and specified variant with its state. Computed or retained variants show their available figure, observations, sample, sources, comparability and deviations, with downloads only where publication is permitted. A not-produced variant shows its barrier without requiring nonexistent outputs.
 
-Every result names its analysis specification and version, and its run record states whether it was computed, retained or not produced. The deliverables of goals 1 to 5 are released as `deliverables-v1` after a release check from a fresh clone. The claims register has a checked source and a class for every entry, or marks it to be verified.
+Every result names its analysis specification, version and result variant, and its run record states whether it was computed, retained or not produced. The deliverables of goals 1 to 5 are released as `deliverables-v1` after a release check from a fresh clone. The claims register has a checked source and a class for every entry, or marks it to be verified.

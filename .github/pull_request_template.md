@@ -22,6 +22,6 @@
 - [ ] I changed only paths in my ownership file, or a maintainer asked for this change, and I added every record file I created to my ownership file.
 - [ ] No computation rule is written into code or prose outside its analysis specification.
 - [ ] Nothing whose terms forbid publishing is committed, every extract from such material stays below the threshold of originality, and no raw file or immutable file entry was modified or deleted.
-- [ ] No association between current inequality and current outcome data was computed or viewed before the reproduction lock merged and milestone 1 was tagged.
+- [ ] No current-data association in the result catalogue, including average-income comparisons, was computed or viewed before the reproduction lock merged and milestone 1 was approved and tagged.
 - [ ] Code comments and prose use the neutral terminology in INTENT.md.
 - [ ] Commits written with an AI assistant carry a Co-Authored-By line.

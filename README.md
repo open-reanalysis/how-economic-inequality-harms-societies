@@ -13,11 +13,11 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 
 The deliverables of goals 1 to 5 are released together as `deliverables-v1`, with a headline table and a short summary of the deviations, and the site publishes the results later. The project also keeps a register of the authors' claims, which never delays a goal.
 
-> **Status: pre-release.** Nothing has been analysed yet. No updated-reproduction result is produced before the reproduction lock (see [Declared before examined](#declared-before-examined)) is committed.
+> **Status: pre-release.** Nothing has been analysed yet. No updated-reproduction result is produced before the reproduction lock (see [prospective decisions](RESEARCH-METHOD.md#prospective-decisions-corrections-and-validation)) is committed.
 
 ## The results
 
-Every comparison the authors reported for their international and U.S. state data, including those with average income, is listed once in `config/results_catalogue.csv` and computed in four ways.
+Every comparison the authors reported for their international and U.S. state data, including those with average income, is listed once in `config/results_catalogue.csv` and attempted in four ways. Each comparison and variant remains visible with a specific reason when it cannot be produced.
 
 | Result | Data and sample | Role |
 |---|---|---|
@@ -75,7 +75,7 @@ Further entries are added only with all four fields complete. Supporting literat
 
 ## Facts to establish
 
-The facts the method must establish before use, such as the authors' sources, the eligibility details, the direction coding and the handling of missing index components, are listed in [RESEARCH-METHOD.md](RESEARCH-METHOD.md#facts-to-establish). The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained.
+The facts the method must establish before use, such as the authors' sources, the eligibility details, the direction coding and the handling of missing index components, are listed in [RESEARCH-METHOD.md](RESEARCH-METHOD.md#historical-evidence-and-reconstruction). The international file was downloaded on 18 October 2026, and the U.S. state file is still to be obtained.
 
 ## Planned repository layout
 

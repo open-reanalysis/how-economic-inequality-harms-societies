@@ -6,9 +6,9 @@ Issues are welcome at any time.
 
 ## Rules that are never broken
 
-No one computes, views or infers an association between current inequality data and current outcome data before the reproduction lock has merged and milestone 1 is tagged. Downloading data, reading metadata and checking country coverage are fine.
+No one computes, views or infers any current-data association in the result catalogue, including average-income comparisons, before the reproduction lock has merged and milestone 1 is approved and tagged. Downloading data, reading metadata and checking country coverage are fine.
 
-Acquired data files are stored exactly as acquired, with their acquisition records, and are never modified. Only data and texts whose terms allow publishing are committed. Anything else is handled locally and recorded as a source with its link, and data extracted from it stay below the threshold of originality and never take a substantial part of a database. A pull request may add data files but never modifies or deletes an existing one, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
+Acquired data files are stored exactly as acquired, with their acquisition records, and are never modified. Only data and texts whose terms allow publishing are committed. Anything else is handled locally and recorded as a source with its link, and data extracted from it stay below the threshold of originality and never take a substantial part of a database. A pull request may add acquired raw files but never modifies or deletes an existing raw file, except to remove credentials, personal data, licence breaches, files under a takedown request or malicious files, with a maintainer's approval and a record in `docs/removals.md`.
 
 A controversy enters the register only with a named author, an exact title, a publication year and a stable DOI, PMID, PMCID, ISBN or URL, and a book also needs its edition.
 
@@ -75,7 +75,7 @@ When `make all` cannot run a step because a restricted input is missing, it keep
 
 ## The reproduction lock
 
-Until the reproduction lock has merged and milestone 1 is tagged, work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After that, a change to a locked specification is a new specification version recorded as a dated amendment in the lock, and results are reported under both versions. Every current result names its specification and version.
+Until the reproduction lock has merged and milestone 1 is approved and tagged, no current-data comparison in the catalogue may be calculated or inspected, regardless of whether its predictor is inequality or average income. Work that touches current outcome data is limited to downloading it, reading its metadata and checking coverage. After that, a change to a locked specification is a new specification version recorded as a dated amendment in the lock, and results are reported under both versions. Every current result names its specification and version.
 
 ## Proposing a controversy
 
@@ -97,7 +97,7 @@ Tests are organised by function, in the levels the plan's testing plan lists, no
 - Each reader has tests in `tests/readers/<reader>/` with small stored example files in `tests/fixtures/readers/<reader>/`. Ordinary tests never call an external service.
 - Integrity checks cover schemas, key uniqueness, units, allowed values, references, checksums and join row counts. Pandera checks structure and value constraints, not the correctness of a computation.
 - Include the edge cases that apply: a constant variable, a missing component, a duplicated key, a conflicting unit, an unknown unit, and a shuffled row order that must not change any result.
-- Replay comparisons require identifiers, samples and missing units to match exactly, and floating-point values within the plan's tolerances.
+- Replay comparisons require identifiers including `variant_id`, samples and missing units to match exactly, and floating-point values within the plan's tolerances. Check that all current variants have distinct output paths and that a not_produced variant is reported without fabricated observations or a required figure.
 
 A difference from a value the authors published is a research result. Log it in the discrepancy log. It is not by itself a software error, and never adjust the computation to match it.
 

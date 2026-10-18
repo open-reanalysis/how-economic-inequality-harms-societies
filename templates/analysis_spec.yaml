@@ -45,13 +45,15 @@ statistics: [pearson_r, p_value, n]
 reported_value_check:                     # historical specs with reconstructed data, committed before any correlation
   tolerance_r: <absolute tolerance>
   rationale: <section>
+# Historical specifications use variant_id historical in their outputs.
+# Each current variant is distinct in result keys, observation paths and figure paths.
 current_results:                          # updated specs only. The fixed sample is the historical sample applied to current data
-  - name: updated
+  - variant_id: updated
     sample: historical
     series_set: successors
-  - name: refreshed
+  - variant_id: refreshed
     sample: refreshed
     series_set: successors
-  - name: with_substitutes
+  - variant_id: with_substitutes
     sample: historical
     series_set: successors_and_substitutes
