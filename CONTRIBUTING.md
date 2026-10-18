@@ -38,7 +38,7 @@ Logic that has one canonical implementation exists once. Z-scores and the compos
 
 ### Interface files
 
-Every file that crosses the boundary follows a schema in `data/metadata/schemas/`. Python validates it with pandera and R validates it with testthat against the same schema.
+Every file that crosses the boundary follows a schema in `data/metadata/schemas/`, written once as a Frictionless Table Schema JSON file. Python validates against it through a pandera schema generated from the JSON, and R validates against it through a small base R and jsonlite validator that testthat calls. Neither language defines a schema in code.
 
 Column names are snake_case. Countries are ISO 3166-1 alpha-3 codes. Dates are ISO 8601. A missing value is a null, never an empty string or the text NA. Neither R factors nor pandas indexes are written to file.
 

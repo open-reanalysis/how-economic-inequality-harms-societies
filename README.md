@@ -10,7 +10,7 @@ A transparent, reproducible examination of the macro-comparative analyses in Ric
 |---|---|---|
 | **A. Original reproduction** | Do the data Wilkinson and Pickett released reproduce the correlations and the composite Health and Social Problems Index they reported? The label depends on what original material is accessible today. | `DIRECT REPRODUCTION`, `PARTIAL REPRODUCTION`, `ARCHIVE-BASED RECONSTRUCTION` or `INDEPENDENT RECONSTRUCTION` |
 | **B. Current replication** | Using current data, a pre-specified country sample and a pre-specified source hierarchy, are comparable cross-sectional correlations present today? | `CURRENT` |
-| **C. Sensitivity** | Do A or B change under alternatives that a named critic has actually raised? | `SENSITIVITY` + critic ID |
+| **C. Sensitivity** | Do A or B change under alternatives that a named critic has raised or that the analysis lock declares with a stated rationale? | `SENSITIVITY` + register ID or lock rationale ID |
 
 A fourth section, **interpretation**, records what the analysis does and does not establish. The project does not estimate a causal effect of inequality. Fixed-effects and covariate models are sensitivity analyses only.
 

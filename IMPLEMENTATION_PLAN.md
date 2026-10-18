@@ -12,8 +12,8 @@ Work runs in waves. A thread starts only when every gate it depends on has passe
 | 1A | T1a Original access and sample recovery, T2 stage 1 Register and appendix log, T3 Inequality data, T4 Outcome data, T5a Core test data, T6a Design lock | T0 merged |
 | 1B | T1b Original reproduction | T1a merged |
 | 1B | T5b stage 1 Test-data availability inventory | T2 stage 1 merged with the register frozen |
-| 1B | T6b Lock completion | T1a, T3, T4 and T5a merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged |
-| 1C | Gate G2 sequence | T6b merged. The lock commit is tagged, the hash commit is made, and you decide whether to archive the lock |
+| 1B | T6b Lock completion | T6a, T1a, T3, T4 and T5a merged, T2 stage 1 merged with the register frozen and the appendix logged, and T5b stage 1 merged |
+| 1C | Gate G2 sequence | T6b squash-merged. The integrator tags the squash commit, the hash pull request is merged, and your archive decision is merged |
 | 2 | T7 Primary harmonisation | T3 and T4 merged, gate G2 passed |
 | 2 | T2 stage 2 Supporting literature | T2 stage 1 merged |
 | 2B | T5b stage 2 Register-specific downloads | T5b stage 1 merged |
@@ -43,9 +43,11 @@ For every retrieval attempt T1a records the HTTP status, redirect chain, respons
 
 **G2. Analysis lock.** T6 commits the analysis lock before any thread computes, views or infers an association between current inequality data and current outcome data. The gate does not cover T1b, because the original data and the authors' correlations are already published and reproducing them reveals nothing new about the current analysis. Downloading sources, reading metadata and checking country coverage before the lock are allowed. The lock files are `docs/analysis_lock.md`, `docs/source_hierarchy.md`, `docs/inclusion_rules.md`, `docs/dag.md`, the executable DAG `docs/dag.dagitty`, the script `code/00b_dag_adjustment_sets.R` that derives adjustment sets from it, and the adjustment sets it produced in `docs/dag_adjustment_sets.csv`. The commit that contains them is the lock commit.
 
-`docs/analysis_lock_hash.txt` is not a lock file. It records the hashes and cannot contain its own. A file also cannot contain the hash of its own commit, so the lock commit is tagged `analysis-lock-v1` and the next commit writes `docs/analysis_lock_hash.txt` with the tag, the lock commit hash and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash, and `make check-contracts` verifies that the content hashes still match the tagged files.
+`docs/analysis_lock_hash.txt` is not a lock file. It records the hashes and cannot contain its own. Pull requests are squash-merged, so a commit made on T6's branch never reaches the main line. The lock is therefore defined on `main`. The lock commit is the squash commit on `main` that T6b's pull request produces, and the integrator tags that commit `analysis-lock-v1`. A second small pull request then adds `docs/analysis_lock_hash.txt` with the tag, the lock commit hash on `main` and a SHA-256 of each lock file's contents. Every result and the report cite the tag and the lock commit hash.
 
-G2 passes in three steps, in this order. The lock commit is tagged. The hash commit is made. You then decide whether to archive the lock publicly, and the decision is recorded in `docs/analysis_lock_archive.md`, either with the archive record and its DOI or with a statement that the lock remains internal. G2 has passed once all three are merged to the main line, and only then does T7 branch.
+`make check-contracts` compares the lock files' contents with the most recent `analysis-lock-*` tag, so an amendment always has a defined reference. Before the first tag exists there is nothing to compare. Between the tag and the hash pull request, the check compares against the tag and reports the missing hash file as pending, not as a failure.
+
+G2 passes in four steps, in this order. T6b's pull request is squash-merged. The integrator tags the resulting commit on `main`. The hash pull request is merged. You then decide whether to archive the lock publicly, and the decision is recorded in `docs/analysis_lock_archive.md`, either with the archive record and its DOI or with a statement that the lock remains internal. The decision is merged in its own small pull request. G2 has passed once all of this is on the main line, and only then does T7 branch.
 
 The blinding is procedural only, and the lock says so in a section on prior knowledge. The original correlations are published, and table 1 of the 2024 technical appendix publishes correlations for 22 countries using recent data. Anyone writing the lock may know these results. The lock lists which published results its author had seen.
 
@@ -61,11 +63,13 @@ The project mixes Python and R. Each language does what it does best, and the bo
 
 **Python** handles acquisition, provenance, harmonisation, index construction, the cross-sectional statistics and the contract checks. It uses pandas and pyarrow for data, requests and tenacity for downloads, sdmx1 for OECD SDMX queries, wbgapi for World Bank WDI, openpyxl and xlrd for spreadsheets, country_converter for ISO codes, scipy and statsmodels for correlations, OLS, robust regression, Theil–Sen and influence diagnostics, scikit-learn for the exploratory principal-component index, pandera for schemas and pytest for tests.
 
+**Shared schemas.** Interface-file schemas are written once, in a language-neutral format, as Frictionless Table Schema JSON files in `data/metadata/schemas/`. A helper in `code/lib/` converts each into a pandera schema for Python. A small R validator in `code/lib/`, written in base R with jsonlite, checks the same names, types, required fields and allowed values, and testthat calls it. Neither language defines a schema in code.
+
 **R** handles the models where its packages are the reference implementations. These are the panel models with fixest, the small-cluster inference method the lock selects, the DAG with dagitty, and qualitative comparative analysis with the QCA package if a register row requires re-running Greener's QCA. R code is tested with testthat and linted with lintr.
 
 **The language boundary.** Every script is in one language. Scripts exchange data only through Parquet and CSV files under the paths the contracts define, read with arrow in R and pyarrow in Python. Z-scoring and index construction exist once, in Python, and R reads the computed indices instead of reimplementing them. Where both languages can compute the same statistic, a cross-language test computes the primary OLS and Pearson results in both and fails on any difference beyond numerical tolerance.
 
-**Environment.** pixi manages one environment for both languages from conda-forge, with PyPI only for packages conda-forge lacks. Its single lockfile, `pixi.lock`, pins every Python and R package for macOS on Apple silicon and for Linux, so local runs and GitHub Actions resolve to the same builds. This was chosen for result quality. A separate Python lock and R lock, such as uv with renv, can drift apart and cannot pin the shared system libraries, while pixi pins the whole stack in one file. `environment.yml` and `requirements.txt`, which the original project specification requires, are exported from pixi and CI fails if they are out of date. R packages that exist only on GitHub are not used, because they cannot be locked.
+**Environment.** pixi manages one environment for both languages from conda-forge, with PyPI only for packages conda-forge lacks. Its single lockfile, `pixi.lock`, pins every Python and R package for macOS on Apple silicon and for Linux, so local runs and GitHub Actions resolve to the same builds. This was chosen for result quality. A separate Python lock and R lock, such as uv with renv, can drift apart and cannot pin the shared system libraries, while pixi pins the whole stack in one file. `environment.yml` and `requirements.txt`, which the original project specification requires, are exported from pixi. `environment.yml` covers the whole environment, while `requirements.txt` covers only the Python packages installable from PyPI, because R packages from conda-forge cannot appear there. CI fails if either export is out of date for what it covers. R packages that exist only on GitHub are not used, because they cannot be locked.
 
 **Code quality.** ruff for Python, lintr and styler for R, and pre-commit to run them before every commit.
 
@@ -119,9 +123,9 @@ Runs in this session. Configures the GitHub repository with branch protection, t
 
 Owns `README.md`, `CONTRIBUTING.md`, `LICENSE`, `LICENSE-docs`, `CITATION.cff`, `LICENSES_AND_ACCESS.md`, `pixi.toml`, `pixi.lock`, `environment.yml`, `requirements.txt`, `Makefile`, `.gitignore`, `.pre-commit-config.yaml`, `.github/`, `_quarto.yml`, `code/lib/` except `code/lib/harmonise.py`, `code/check_contracts.py`, `code/pipeline/t0.toml`, `data/metadata/schemas/`, `data/LOCAL_DATA_REQUIRED.md`, `data/metadata/snapshot.toml` and `tests/t0/`. After T0, `snapshot.toml` changes only through the integrator, when you approve a snapshot release.
 
-The README already on `main` was written before the plan settled. T0 keeps its framing and rewrites the parts that describe layout, labels, commands and logs so they match this plan.
+This pull request, which adds the planning documents before T0, is exempt from the ownership check, which does not exist yet. It already adds `README.md`, `CONTRIBUTING.md`, the licences and the GitHub templates. T0 keeps them and changes them only where its own setup requires, for example to add real commands to the README.
 
-After T0 merges, a thread that needs a change in a T0 file asks for it in its merge package. The integrator makes the change as a separate commit on the main line, and the thread rebases onto it.
+After T0 merges, a thread that needs a change in a T0 file asks for it in its merge package. `main` accepts changes only through pull requests, so the integrator makes the change on a branch named `t0-<description>`, which the ownership check treats as T0, and merges it. Changes to `snapshot.toml` go the same way. The thread then rebases onto the main line.
 
 ### T1a Original access and sample recovery
 
@@ -177,9 +181,9 @@ Stage 1 is done when the register is frozen by a commit that records the search 
 
 Downloads raw copies, metadata and codebooks from the OECD Income Distribution Database, the World Bank Poverty and Inequality Platform, UNU-WIDER WIID and WID.world. Records for each measure the income concept, tax and transfer treatment, equivalisation, unit, price basis, survey year, coverage and known series breaks. The OECD database is revised on a rolling basis and served through an SDMX API, so the endpoint, query parameters, response hash and any version identifier are pinned.
 
-Builds the inequality measure crosswalk. Does not merge inequality with outcomes.
+Builds the inequality measure crosswalk in a replay step, `code/02e_build_inequality_crosswalk.py`, from the downloaded files and metadata, so a clean offline run regenerates it. Does not merge inequality with outcomes.
 
-Owns `data/01_raw_current/inequality/`, `code/02a_download_inequality.py`, `data/metadata/manifests/t3_inequality.csv` and `outputs/tables/inequality_measure_crosswalk.csv`.
+Owns `data/01_raw_current/inequality/`, `code/02a_download_inequality.py`, `code/02e_build_inequality_crosswalk.py`, `data/metadata/manifests/t3_inequality.csv` and `outputs/tables/inequality_measure_crosswalk.csv`.
 
 ### T4 Current outcome data
 
@@ -187,9 +191,9 @@ Downloads the ten outcome series with metadata and methodology notes. These cove
 
 For PISA it records participation status and sampling-standard flags per country and cycle. OECD flagged several countries in PISA 2022 for not meeting sampling standards, and the 2024 update used PISA 2018 for that reason.
 
-Rates comparability per outcome and records the actual reference year for every country-value pair. Downloads the preferred source and the plausible fallbacks for each outcome, so that the hierarchy in the lock can be applied without a second acquisition. Publishes `outputs/tables/outcome_source_coverage.csv` with source, coverage, years and comparability notes but no outcome values, which T6b may read. Never inspects any outcome against inequality.
+Rates comparability per outcome and records the actual reference year for every country-value pair. Downloads the preferred source and the plausible fallbacks for each outcome, so that the hierarchy in the lock can be applied without a second acquisition. Publishes `outputs/tables/outcome_source_coverage.csv`, built by a replay step `code/02f_build_outcome_coverage.py` from the downloaded files and metadata so a clean offline run regenerates it, with source, coverage, years and comparability notes but no outcome values, which T6b may read. Never inspects any outcome against inequality.
 
-Owns `data/01_raw_current/outcomes/`, `code/02b_download_outcomes.py`, `data/metadata/manifests/t4_outcomes.csv` and `outputs/tables/outcome_source_coverage.csv`.
+Owns `data/01_raw_current/outcomes/`, `code/02b_download_outcomes.py`, `code/02f_build_outcome_coverage.py`, `data/metadata/manifests/t4_outcomes.csv` and `outputs/tables/outcome_source_coverage.csv`.
 
 ### T5a Core controversy-test data
 
@@ -201,11 +205,11 @@ Owns `data/04_controversy_test_data/core/`, `code/02c_download_core_test_data.py
 
 Runs in two stages, both after T2's stage 1 merge.
 
-Stage 1 is an availability inventory that the lock depends on. For every covariate and alternative component a register row requires, it records candidate sources, country and year coverage, licence, redistributability and access route in `outputs/tables/test_data_availability.csv`. It downloads metadata only and no values.
+Stage 1 is an availability inventory that the lock depends on. For every covariate and alternative component a register row requires, it records candidate sources, country and year coverage, licence, redistributability and access route in `outputs/tables/test_data_availability.csv`. Coverage usually needs the data files, and the lock restricts only associations between inequality and outcomes, so stage 1 may download covariate values. It computes coverage from non-missing flags only and runs no analysis. The table is built by a replay step, `code/02g_build_test_data_availability.py`, so a clean offline run regenerates it.
 
 Stage 2 runs after stage 1 merges and downloads only data that a named register row requires, such as alternative outcome components proposed by a critic, and records the controversy ID before each download. Each package gets a README naming the controversy it tests.
 
-Owns `data/04_controversy_test_data/by_controversy/`, `code/02d_download_register_test_data.py`, `outputs/tables/test_data_availability.csv` and `data/metadata/manifests/t5b_register.csv`.
+Owns `data/04_controversy_test_data/by_controversy/`, `code/02d_download_register_test_data.py`, `code/02g_build_test_data_availability.py`, `outputs/tables/test_data_availability.csv` and `data/metadata/manifests/t5b_register.csv`.
 
 ### T6a Design lock
 
@@ -237,7 +241,7 @@ Starts from the main line once its wave-table conditions are met.
 
 Fixes the source hierarchy for every indicator in `docs/source_hierarchy.md`. Each entry names the preferred source, permitted fallbacks, the minimum comparability conditions and the circumstances that justify a fallback. T6b may read T4's coverage table, T3's crosswalk, T2's logged appendix passages, T5a's manifest and T5b's availability inventory, but no outcome values.
 
-Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then makes the lock commit, tags it, and writes `docs/analysis_lock_hash.txt` in the following commit. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. If T6a has already merged, the thread rebases onto the current main line before starting T6b and merges again afterwards.
+Reads `original_sample_recovery.csv` and nothing else from T1. Inserts the recovered historical country list and its source reference into `docs/inclusion_rules.md`. Adds the covariates, sample rules and panel tests that named register rows require. Adding covariates changes the DAG, so T6b re-runs `code/00b_dag_adjustment_sets.R` and commits the regenerated `docs/dag_adjustment_sets.csv` before the lock commit. Writes the prior-knowledge section. Then opens the lock pull request. After it is squash-merged and the integrator has tagged the commit on `main`, the thread opens the hash pull request with `docs/analysis_lock_hash.txt`. The thread never creates tags itself. Gate G2 passes after your archive decision, as described under G2. T6b is a second stage of the same thread, not a separate session. T6a merges first, and the thread rebases onto the current main line before starting T6b.
 
 ### T7 Primary harmonisation
 
@@ -315,7 +319,7 @@ When a source needs registration or acceptance of terms, the thread stops at the
 
 The licences are decided. Code and tests are under MIT, in `LICENSE`. Documents, the report, the site, figures and result tables are under CC BY 4.0, in `LICENSE-docs`. Each data source keeps its own licence, recorded in its manifest row, and neither repository licence covers raw data or third-party full texts. A derived table or figure that contains values from a source follows that source's terms where they are stricter than CC BY 4.0. Each output's manifest row names the source terms it inherits, T9 generates `outputs/LICENSE_EXCEPTIONS.md` from those rows, and an output whose source terms forbid publication is not put on the site.
 
-Branch protection does not require an approving review while you are the only human contributor, since GitHub does not let an author approve their own pull request. Your merge decision is the human review. Once a second person contributes, one approving review becomes required. All commits so far are co-authored by an AI model, so a human pass over the gates in this plan before T0 starts is worth doing.
+Branch protection does not require an approving review while you are the only human contributor, since GitHub does not let an author approve their own pull request. Your merge decision is the human review. Once a second person contributes, one approving review becomes required. Most commits so far are co-authored by an AI model, so a human pass over the gates in this plan before T0 starts is worth doing.
 
 You also decide whether to archive the analysis lock publicly, you approve every merge, you review each data snapshot before it is published, and you approve the `results-*` tag that publishes the site.
 
@@ -325,7 +329,7 @@ You also decide whether to archive the analysis lock publicly, you approve every
 
 Every row carries `acquisition_status`. `acquired` means the file was obtained and must exist with a matching checksum. `user_supplied` means you obtained a restricted file by hand, and it is treated like `acquired` once present. `awaiting_user` means the source needs registration or acceptance of terms and is listed in `data/LOCAL_DATA_REQUIRED.md`. `access_failed` records an attempt that did not produce a usable file, with the retrieval record that shows why. `not_downloaded_restricted` records a source catalogued for metadata only. Only `acquired` and `user_supplied` rows require a file and a checksum. The other statuses require their retrieval record or listing instead, and a validation mode never treats them as missing files.
 
-- **metadata** runs in CI on every pull request. It validates schemas, source-ID uniqueness, cross-references, and that no existing row's checksum, path or retrieval record has changed. It touches no data files.
+- **metadata** runs in CI on every pull request. It validates schemas, source-ID uniqueness, cross-references, and that no existing raw or acquired row's checksum, path or retrieval record has changed. Derived rows are never edited either. A regenerated derived file, after a bug fix or a lock amendment, gets a new versioned `derived_id`, and the old row is kept with `superseded_by` pointing to it. It touches no data files.
 - **available** runs in CI replay. It does everything `metadata` does, then requires every row marked `redistributable` to have its file present and its hash matching. Rows not marked `redistributable` are listed as skipped, never as passed.
 - **full** runs locally before a thread opens its pull request and in `make clean-env`. It requires the file for every `acquired` and `user_supplied` row, restricted ones included, and fails on any missing file or hash mismatch. It lists `awaiting_user` rows so the gap stays visible. The thread reports the `full` result in its merge package.
 
@@ -337,7 +341,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Data immutability.** Raw files are never edited. The raw folders are `data/00_original_released/`, `data/00_original_reconstruction/`, `data/01_raw_current/` and `data/04_controversy_test_data/`. Only the acquisition script that owns a raw folder may add files to it, and it never overwrites an existing file. No script numbered 04 or higher may write to any raw folder, `data/02_harmonised/` or `data/03_analysis_ready/`. Analysis scripts write only to `outputs/` and to gitignored temporary folders. Any derived dataset comes from a numbered harmonisation script with a manifest row, a data dictionary entry and a source-year matrix.
 
-**Build modes.** `make acquire` is the only target that contacts live sources. It downloads, verifies and records assets. `make fetch-snapshot` downloads a frozen, published snapshot and verifies its checksums. It is the only other target that uses the network, and it never contacts a live source. `make acquire` runs only steps whose phase is `acquire`. `make all` runs every step whose phase is `replay`, fully offline from files already present, which needs the restricted files too and therefore runs locally. `make replay-ci` runs only the CI-reproducible replay steps, as described under the GitHub repository section. Neither `make all` nor `make replay-ci` ever runs an acquire step. `make clean-env` creates a disposable environment from `pixi.lock`, empties `outputs/`, runs `make fetch-snapshot` and then runs `make all`. `make check-contracts` runs the merge checks.
+**Build modes.** `make acquire` is the only target that contacts live sources. It downloads, verifies and records assets. `make fetch-snapshot` downloads a frozen, published snapshot and verifies its checksums. It is the only other target that uses the network, and it never contacts a live source. `make acquire` runs only steps whose phase is `acquire`. `make all` runs every step whose phase is `replay`, fully offline from files already present, which needs the restricted files too and therefore runs locally. `make replay-ci` runs only the CI-reproducible replay steps, as described under the GitHub repository section. Neither `make all` nor `make replay-ci` ever runs an acquire step. Every table an acquisition thread publishes in `outputs/` is built by a replay step from snapshot files and metadata, never by the download script itself, so emptying `outputs/` loses nothing that replay cannot rebuild. `make clean-env` creates a disposable environment from `pixi.lock`, empties `outputs/`, runs `make fetch-snapshot` and then runs `make all`. `make check-contracts` runs the merge checks.
 
 **Source-verification log.** Each thread that verifies a fact writes only its own file in `docs/source_verification/`. A fact is usable in a rule only once it is logged with the passage, table or file it was verified from.
 
@@ -357,7 +361,7 @@ Every row carries `acquisition_status`. `acquired` means the file was obtained a
 
 **Outcome manifest columns.** `source_id`, `outcome`, `source_organisation`, `dataset_title`, `url`, `indicator_code`, `indicator_definition`, `unit`, `population`, `geography`, `reference_year`, `publication_or_release_year`, `download_utc`, `local_path`, `sha256`, `licence`, `comparability_rating`, `transformation_needed` and `notes`. The inequality and controversy-test manifests use the same columns, with `outcome` holding the measure or variable name.
 
-**Derived data manifest columns.** `derived_id`, `local_path`, `sha256`, `created_utc`, `producing_script`, `code_version` as the git commit, `input_source_ids`, `input_sha256s`, `transformation_summary`, `data_dictionary_ref`, `source_year_matrix_ref`, `analysis_lock_hash`, which is empty for T1b's original release dataset, and `notes`. `make manifests` fails if any input ID is missing from the manifest, if an input hash does not match, or if the data dictionary or source-year matrix reference does not resolve.
+**Derived data manifest columns.** `derived_id`, `local_path`, `sha256`, `created_utc`, `producing_script`, `code_version` as the git tree hash of `code/` together with the blob hash of the producing script, `base_commit` as the `main` commit the run started from, `input_source_ids`, `input_sha256s`, `transformation_summary`, `data_dictionary_ref`, `source_year_matrix_ref`, `analysis_lock_hash`, which is empty for T1b's original release dataset, `superseded_by` and `notes`. A tree hash is the same before and after a squash merge when the code is unchanged, so it identifies the code even though the branch commit disappears. The same two fields identify code in every result row. `make manifests` fails if any input ID is missing from the manifest, if an input hash does not match, or if the data dictionary or source-year matrix reference does not resolve.
 
 **Source bibliography columns.** `citation_key`, `authors`, `year`, `title`, `journal_or_publisher`, `doi`, `landing_url`, `direct_pdf_url`, `source_type`, `peer_review_status`, `research_design`, `geography`, `outcome`, `inequality_measure`, `main_finding_verbatim_short`, `methodological_limitations_verbatim_short`, `local_path`, `access_status` and `notes`. Quoted fields stay short enough to respect copyright.
 
