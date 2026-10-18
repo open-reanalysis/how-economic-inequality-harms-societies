@@ -1,1 +1,1 @@
-unit_id,income_rank,population,inequality_data_available,eligible,exclusion_reason
+country,rank_value,rank,population,comparable_inequality_data,eligible,exclusion_reason

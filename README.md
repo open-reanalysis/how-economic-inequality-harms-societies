@@ -101,8 +101,8 @@ config/
   results_catalogue.csv        # every comparison that is computed and reported
   units/                       # registries of countries and U.S. states
 sources/
-  supporting/                  # original-authors/, academic/, non-academic/, manifest, README, search and screening logs
-  controversies/               # academic/, non-academic/, responses/, manifest, README, search and screening logs
+  supporting/                  # original-authors/, academic/, non-academic/, responses/, manifest, README, search and screening logs
+  controversies/               # academic/, books/, reports/, responses/, manifest, README, search and screening logs
 code/                          # thin numbered scripts, readers and computation core in code/lib/
 tests/                         # compute, readers, integrity, e2e, replay, eligibility, report
 templates/                     # templates for specifications, records and package tables
