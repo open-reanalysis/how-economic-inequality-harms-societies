@@ -1,5 +1,5 @@
 spec_id: updated_international
-version: 2
+version: 3
 dataset: international
 unit_type: country
 catalogue: config/results_catalogue.csv
@@ -46,10 +46,10 @@ variables:
 - variable_id: trust
   role: index_component
   sources:
-  - wvs-wave7-trust-online
+  - wvs-evs-joint-v5-frequency-tables
   status: UNRESOLVED
   rationale: current-candidates
-  comparability_class: NOT_YET_VERIFIED
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: life_expectancy
   role: index_component
   sources:

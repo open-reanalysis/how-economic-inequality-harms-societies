@@ -120,3 +120,36 @@ def test_wvs_pooled_total_is_not_a_country_and_britain_is_not_uk(tmp_path):
     path.write_text(path.read_text().replace("Most people can be trusted", "Trust the police"))
     with pytest.raises(ValueError, match="question changed"):
         coverage(source, path)
+
+
+def test_joint_wvs_keeps_studies_and_rejects_ambiguous_years():
+    from lib.readers.wvs_joint import presence
+
+    source = dict(
+        unit_map={"A EVS": "AAA", "A WVS": "AAA", "B": "BBB"},
+        reader_layout=dict(
+            year_columns=[2018, 2022],
+            year_header="2018 2022",
+            question_header="A165- Most people can be trusted",
+            response_columns=5,
+        ),
+    )
+    years = "2018 2022\nA EVS 100 100.0 -\nA WVS 150 - 100.0\nB 20 100.0 -"
+    trust = "A165- Most people can be trusted\nA EVS 100 20.0 70.0 5.0 5.0 -\nA WVS 150 30.0 70.0 - - -\nB 20 - 100.0 - - -\nGreat Britain 10 40.0 60.0 - - -"
+    rows = presence(years, trust, source)
+    assert [(r["unit_id"], r["period"], r["available"]) for r in rows] == [
+        ("AAA", "2018_EVS", True),
+        ("AAA", "2022_WVS", True),
+        ("BBB", "2018_single", True),
+    ]
+    assert all("value" not in row for row in rows)
+    with pytest.raises(ValueError, match="multiple reference years"):
+        presence(years.replace("150 - 100.0", "150 50.0 50.0"), trust, source)
+    with pytest.raises(ValueError, match="Duplicate"):
+        presence(years + "\nB 20 100.0 -", trust, source)
+    with pytest.raises(ValueError, match="header changed"):
+        presence(years, trust.replace("A165-", "A166-"), source)
+    with pytest.raises(ValueError, match="missing from table"):
+        presence(years, trust.replace("B 20 - 100.0 - - -", ""), source)
+    with pytest.raises(ValueError, match="percentage range"):
+        presence(years, trust.replace("20.0 70.0", "120.0 70.0"), source)

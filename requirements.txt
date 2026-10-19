@@ -9,6 +9,7 @@ pandera==0.34.1
 pre-commit==4.7.0
 pyarrow==23.0.1
 pycountry==26.2.16
+pypdf==6.21.1
 pytest==9.1.1
 pyyaml==6.0.3
 requests==2.34.2

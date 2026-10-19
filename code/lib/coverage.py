@@ -13,6 +13,10 @@ from lib.runs import code_digest, finish_run, start_run
 def coverage(source: dict, path) -> list[dict]:
     """Read periods and nonmissing flags without transforming or exposing outcome values."""
     format_name = source.get("coverage_format", "")
+    if format_name == "wvs_joint_pdf":
+        from lib.readers.wvs_joint import read_coverage
+
+        return read_coverage(path, source)
     if format_name == "stata":
         frame = pd.read_stata(path, convert_categoricals=False)
         return [

@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t162546654630z-wvs-evs-joint-v5-frequency-tables
+source_ids: &id001
+- wvs-evs-joint-v5-frequency-tables
+method: download
+request: https://access.gesis.org/dbk/69549
+requested_utc: '2026-10-19T16:25:46.654630+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t162546654630z-wvs-evs-joint-v5-frequency-tables.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/wvs-evs-joint-v5-frequency-tables.pdf
+  size_bytes: 3661565
+  sha256: 8f888d026b0102c7d93c555625f0afa5d57786db8bfe361a05cc2b134335c785
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://access.gesis.org/dbk/69549

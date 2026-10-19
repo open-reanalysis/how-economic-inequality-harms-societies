@@ -158,3 +158,13 @@ docs/source_verification/retrievals/acq-20261019t141853714895z-wvs-evs-joint-v5-
 docs/source_verification/retrievals/acq-20261019t141854263526z-wvs-evs-joint-v5-codebook.yaml
 data/metadata/sources/wvs-evs-joint-v5-country-metadata.yaml
 data/metadata/sources/wvs-evs-joint-v5-codebook.yaml
+code/lib/readers/wvs_joint.py
+data/metadata/sources/wvs-evs-joint-v5-methods.yaml
+data/metadata/sources/wvs-evs-joint-v5-frequency-tables.yaml
+data/metadata/sources/verification-wmh-2025-perceived-need.yaml
+data/metadata/acquisitions/acq-20261019t162733533334z-verification-wmh-2025-perceived-need.yaml
+data/metadata/acquisitions/acq-20261019t162546654630z-wvs-evs-joint-v5-frequency-tables.yaml
+data/metadata/acquisitions/acq-20261019t162603439242z-wvs-evs-joint-v5-methods.yaml
+docs/source_verification/retrievals/acq-20261019t162733533334z-verification-wmh-2025-perceived-need.yaml
+docs/source_verification/retrievals/acq-20261019t162546654630z-wvs-evs-joint-v5-frequency-tables.yaml
+docs/source_verification/retrievals/acq-20261019t162603439242z-wvs-evs-joint-v5-methods.yaml

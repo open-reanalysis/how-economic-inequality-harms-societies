@@ -232,6 +232,7 @@ dependencies:
 - pydantic ==2.14.1 pyh5ded981_0
 - pygments ==2.21.0 pyhcf101f3_0
 - pyparsing ==3.3.3 pyh5ded981_0
+- pypdf ==6.21.1 pyh5ded981_0
 - pysocks ==1.7.1 pyha55dd90_7
 - pytest ==9.1.1 pyhc364b38_2
 - python-dateutil ==2.9.0.post0 pyhe01879c_2

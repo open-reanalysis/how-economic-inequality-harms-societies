@@ -1,0 +1,104 @@
+{
+  "run_id": "20261019t162942009012z-811d0885",
+  "started_utc": "2026-10-19T16:29:42.009370+00:00",
+  "finished_utc": "2026-10-19T16:29:43.138207+00:00",
+  "commit": "811d08856f08304709ac5c44d0ed8fb903db29b5",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "replay",
+  "specs": [
+    {
+      "spec_id": "historical_us_states",
+      "version": 3,
+      "sha256": "e166ea83f20242b2a593cb58b8336fb8d9076efd82abddc907744a93c080d844"
+    }
+  ],
+  "steps": [
+    {
+      "target": "reproduce:historical_us_states",
+      "state": "computed",
+      "reason": "Result table includes explicit barriers for uncomputed comparisons",
+      "inputs": [
+        {
+          "path": "config/results_catalogue.csv",
+          "sha256": "e7767725a7d200d01bb998146ba93f811c9ccc592e5f60655f06824d62c47d37",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/units/countries.csv",
+          "sha256": "f63107908b55d746ccba3f80654863975b7d2428295174ff2f80d55d4625e7e4",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/units/us_states.csv",
+          "sha256": "8fa8d8639ae9b1417a97b862c8e9507963c4f427168a9b0ca3dbf67b28791b71",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/census-statab-2006-infant-mortality.yaml",
+          "sha256": "78835222583093ad7ad0ad4ea9e8d682a751344635c9bf5002ec5d2509450a29",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/census-state-gini-1999.yaml",
+          "sha256": "de5366cd18d88df4439c5675640ff78182cba510eff05827fb307a3bb8a5b142",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/fbi-crime-table5-1999.yaml",
+          "sha256": "9464e3e73dfa0e9fa425495954443f645412b741fc5e7f881dd2c83280629fb7",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/00_original_reconstruction/census-state-gini-1999.csv",
+          "sha256": "15c9fb34a503c681ebad9de9d4ec1ee5100cd160bcff86e5365d23669e41adb2",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/00_original_reconstruction/fbi-crime-table5-1999.xls",
+          "sha256": "9037a745c65d65110f4c71c02bbf4fe7fc1d467fd9bd55483448ed237d6927db",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/00_original_reconstruction/census-statab-2006-table105.xlw",
+          "sha256": "fddeae22f4e934337df8de44e7093ffd996b29b8232184044942b97d9d4aa6b4",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/historical_us_states_results.csv",
+          "sha256": "01090f79fccf63dccf8015dfa030861b040a8de225700598daada9e94353d86d"
+        },
+        {
+          "path": "outputs/observations/historical_us_states/historical/us-inequality-infant_mortality.csv",
+          "sha256": "54fb30df2b54d59577333f07217e3acf5362b6fbc21b23c8785333f92cf9cabb"
+        },
+        {
+          "path": "outputs/figures/historical_us_states/historical/us-inequality-infant_mortality.png",
+          "sha256": "c66c0f8da998daa54d9154d83d6dd0d27151cca19d37f801ef0c6c1ee41dc4a2"
+        },
+        {
+          "path": "outputs/observations/historical_us_states/historical/us-inequality-homicides.csv",
+          "sha256": "deef4c13d08db1e765a1ed20069917f03fcfd733696c7a47185f9e276006f709"
+        },
+        {
+          "path": "outputs/figures/historical_us_states/historical/us-inequality-homicides.png",
+          "sha256": "41974127b46fff0fd6c5362102e31983dff7db38b9a8a1a2b85038b179ba6818"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [],
+  "code_sha256": "9699bc1fe603217295a60f50a880ceffcadcd1378727b1813a553db11313424a"
+}

@@ -1,0 +1,34 @@
+{
+  "run_id": "20261019t162546635669z-811d0885",
+  "started_utc": "2026-10-19T16:25:46.635959+00:00",
+  "finished_utc": "2026-10-19T16:25:49.590548+00:00",
+  "commit": "811d08856f08304709ac5c44d0ed8fb903db29b5",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "wvs-evs-joint-v5-frequency-tables",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/wvs-evs-joint-v5-frequency-tables.pdf",
+          "sha256": "8f888d026b0102c7d93c555625f0afa5d57786db8bfe361a05cc2b134335c785"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t162546654630z-wvs-evs-joint-v5-frequency-tables.yaml",
+          "sha256": "23812d16fe61e35b50d62d1649ce9fa89fc3aaf963159bc72a1fc4ecae1c5010"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t162546654630z-wvs-evs-joint-v5-frequency-tables.yaml",
+          "sha256": "23812d16fe61e35b50d62d1649ce9fa89fc3aaf963159bc72a1fc4ecae1c5010"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}

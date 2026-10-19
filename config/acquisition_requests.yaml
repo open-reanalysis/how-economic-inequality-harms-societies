@@ -204,3 +204,12 @@ requests:
     DOID: '11083'
     ulthost: WVS
   path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-codebook-post.pdf
+- source_id: wvs-evs-joint-v5-frequency-tables
+  url: https://access.gesis.org/dbk/69549
+  path: data/01_raw_current/outcomes/local/wvs-evs-joint-v5-frequency-tables.pdf
+- source_id: wvs-evs-joint-v5-methods
+  url: https://access.gesis.org/dbk/69548
+  path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-methods.pdf
+- source_id: verification-wmh-2025-perceived-need
+  url: https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs13033-025-00666-w/MediaObjects/13033_2025_666_MOESM1_ESM.docx
+  path: data/01_raw_current/outcomes/local/verification/wmh-2025-perceived-need-supplement.docx

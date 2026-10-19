@@ -16,11 +16,13 @@ Do not send this request without the maintainer's explicit messaging authorisati
 
 ## WVS/EVS generalised trust
 
-The public aggregate has been obtained through the official WVS online analysis service, without registering for microdata. Source wvs-wave7-trust-online records Wave 7, Q57 and the country-breakdown request. Remaining evidence: the actual weight applied by the online service, country-specific fieldwork dates, national coverage and response denominator. The stored default column percentages include missing-answer categories. The project has not selected a valid-response or all-response denominator for the lock.
+The nominated candidate is now the official joint EVS/WVS v5 frequency report from GESIS: https://access.gesis.org/dbk/69549. Its documentation is https://access.gesis.org/dbk/69548. Both PDFs are held locally with immutable acquisition identities. The joint landing page explicitly requires no registration: https://www.worldvaluessurvey.org/WVSEVSjoint2017.jsp.
 
-Official methods and download entry: https://www.worldvaluessurvey.org/WVSDocumentationWV7.jsp; joint EVS/WVS documentation: https://www.worldvaluessurvey.org/WVSEVSjoint2017.jsp; weight definitions: https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=WEIGHT. If verification requires a personal registered download, a maintainer obtains the smallest permitted extract of country identifier, survey year, Q57 and country weight, and retains its provider licence, version, codebook and terms. No registration or terms acceptance is inferred from the earlier WHO acceptance.
+The frequency report verifies gwght weighting, the published all-response denominator and separate country/study frequencies for A165. The documentation supplies full fieldwork periods and modes. The coverage reader retains separate EVS and WVS survey records and their provider reference years. Final choice of an admissible survey and harmonisation of response denominators remain prospective analysis decisions. No registered microdata download is needed to establish this candidate's presence.
 
-Great Britain and Northern Ireland are separate provider units. Neither alone is a UK observation. Any national reconstruction needs an approved aggregation rule and corresponding population/weight evidence.
+Earlier public online Q57 aggregates remain held as evidence, but their own weighting is not inferred from the PDF. Four direct WVS-site document requests returned only one whitespace byte despite HTTP 200; their invalid payloads are preserved, and the successful GESIS mirror resolves that acquisition barrier.
+
+Great Britain and Northern Ireland are separate provider units. Neither alone is a UK observation. Any national reconstruction needs an approved aggregation rule and corresponding population/weight evidence. Belgium, Ireland and Israel are absent from the joint release.
 
 ## PISA quality metadata
 
@@ -29,5 +31,3 @@ The 2025 national mathematics/reading tables and Annex A2 population tables have
 ## Restricted replay
 
 UNODC and OECD full workbooks and WVS response pages are local because full redistribution permission remains unverified. A public checkout retains the exact committed coverage table only against its compatible producer record, environment, code, metadata and acquired-file identities. It does not claim to have parsed the absent files.
-
-The joint EVS/WVS 2017–2022 v5 landing page explicitly permits downloading without registration. Earlier registration statements apply to other routes and do not establish a barrier here. Both GET and the public form POST for country metadata (DOID 11087) and codebook (11083) returned a single whitespace byte on 19 October 2026. These are recorded failed document validations, not evidence that registration is required. Continue with the public joint documentation or its official GESIS mirror.
