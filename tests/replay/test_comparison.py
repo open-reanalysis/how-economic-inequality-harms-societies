@@ -62,3 +62,20 @@ def test_replay_requires_the_complete_committed_file_set(tmp_path, change):
     else:
         with pytest.raises(ValueError, match="paths changed|no committed result"):
             check_tables("HEAD", tmp_path)
+
+
+def test_coverage_replay_distinguishes_master_samples_after_row_shuffle():
+    expected = pd.DataFrame(
+        {
+            "dataset": ["international", "international"],
+            "sample": ["historical", "refreshed"],
+            "unit_id": ["AUT", "AUT"],
+            "component": ["trust", "trust"],
+            "candidate_has_observation": ["True", "True"],
+        }
+    )
+    compare(expected, expected.iloc[::-1].reset_index(drop=True))
+    changed = expected.copy()
+    changed.loc[1, "sample"] = "different_sample"
+    with pytest.raises(ValueError, match="identity or metadata"):
+        compare(expected, changed)

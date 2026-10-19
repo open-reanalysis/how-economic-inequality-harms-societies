@@ -29,6 +29,7 @@ def compare(expected: pd.DataFrame, actual: pd.DataFrame) -> None:
             "spec_id",
             "spec_version",
             "dataset",
+            "sample",
             "unit_id",
             "variable_id",
             "component",

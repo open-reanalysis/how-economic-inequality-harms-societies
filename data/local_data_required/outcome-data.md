@@ -6,7 +6,7 @@ The maintainer directed acquisition of missing components before locking, on 19 
 
 The target is population prevalence of any assessed mental disorder in the preceding 12 months, with an identified adult target population and diagnostic instrument. Service use, lifetime prevalence, distress scores and student-only screening rates cannot silently substitute.
 
-The WMH coordinating centre's official access route is https://www.hcp.med.harvard.edu/wmh/contact.php. Non-US access requires permission from the centre; the US NCS public-use route does not supply the other countries. The local contact-page request returned HTTP 503; the official page was readable through web search and its access requirement is recorded in docs/source_verification/index-counterparts.md. No contact has been made and no account has been created.
+The WMH coordinating centre's official access route is https://www.hcp.med.harvard.edu/wmh/contact.php. Non-US participant-data access requires permission from the centre; the US NCS public-use route does not supply the other countries. This does not restrict already published national aggregate tables. The prepared enquiry asks whether an appropriate public table or unpublished harmonised aggregate is available. The local contact-page request returned HTTP 503; the official page was readable through web search and its access requirement is recorded in docs/source_verification/index-counterparts.md. No contact has been made and no account has been created.
 
 A concrete request for a maintainer to send or approve for sending:
 
