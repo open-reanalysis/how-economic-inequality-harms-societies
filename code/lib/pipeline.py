@@ -36,7 +36,11 @@ def registries(root=ROOT) -> tuple[dict, dict]:
 def reproduce(spec_path, root=ROOT) -> str:
     """Execute one specification; current specifications require the milestone gate."""
     spec = load_spec(spec_path, root)
-    if spec["spec_id"].startswith("updated_"):
+    if (
+        spec.get("data_provenance") not in {"released", "reconstructed"}
+        or spec["spec_id"].startswith("updated_")
+        or any(item["path"].startswith("data/01_raw_current/") for item in spec.get("inputs", []))
+    ):
         require_current_gate(spec_path, root)
         raise NotImplementedError("Current reproduction belongs to milestone 2")
     sources, acquisitions = load_records(root)
@@ -168,6 +172,9 @@ def reproduce(spec_path, root=ROOT) -> str:
     values = pd.DataFrame(index=pd.Index(sorted(sample), name="unit_id"))
     if frames:
         observations = validate_observations(pd.concat(frames, ignore_index=True), members)
+        if observations.provenance.eq("current").any():
+            require_current_gate(spec_path, root)
+            raise NotImplementedError("Current reproduction belongs to milestone 2")
         values = prepare(observations, spec, sample)
     if spec["index"].get("mode") == "rebuild" and spec["index"].get("status") != "UNRESOLVED":
         definition = dict(
@@ -226,9 +233,7 @@ def reproduce(spec_path, root=ROOT) -> str:
             "r": result["r"],
             "p": result["p"],
             "n": result["n"],
-            "missing_units": ";".join(sorted(set(sample) - set(result["observations"].index)))
-            if not reason
-            else ";".join(sorted(sample)),
+            "missing_units": ";".join(sorted(set(sample) - set(result["observations"].index))),
             "components_used": "",
             "components_missing": "",
             "input_access": "RESTRICTED INPUT"

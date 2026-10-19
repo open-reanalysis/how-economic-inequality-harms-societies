@@ -193,3 +193,56 @@ def test_obsolete_observations_and_figures_are_removed(tmp_path, barrier):
     assert not observations.exists() and not figure.exists()
     result = pd.read_csv(tmp_path / "outputs/tables/historical_international_results.csv").iloc[0]
     assert result.state == ("not_produced" if barrier == "missing_variable" else "computed")
+
+
+@pytest.mark.parametrize("signal", ["declared_current", "current_rows", "current_path", "unknown"])
+def test_current_inputs_cannot_enter_historical_reproduction(tmp_path, monkeypatch, signal):
+    spec_path, raw = create_case(tmp_path)
+    (tmp_path / "config/reproduction_lock.yaml").write_text("status: draft\n")
+    spec = yaml.safe_load(spec_path.read_text())
+    if signal == "declared_current":
+        spec["data_provenance"] = "current"
+    elif signal == "unknown":
+        spec.pop("data_provenance")
+        spec["spec_id"] = "another_name"
+    elif signal == "current_path":
+        spec["inputs"][0]["path"] = "data/01_raw_current/example.csv"
+    else:
+        frame = pd.read_csv(raw)
+        frame["provenance"] = "current"
+        frame.to_csv(raw, index=False)
+        path = tmp_path / "data/metadata/acquisitions/fixture-acq.yaml"
+        record = yaml.safe_load(path.read_text())
+        record["files"][0].update(sha256=sha256(raw), size_bytes=raw.stat().st_size)
+        path.write_text(yaml.safe_dump(record))
+    spec_path.write_text(yaml.safe_dump(spec))
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError("The current gate must run before correlation")
+
+    monkeypatch.setattr("lib.pipeline.compute.correlation", forbidden)
+    with pytest.raises(PermissionError, match="not approved"):
+        reproduce(spec_path, tmp_path)
+    assert not list((tmp_path / "outputs/runs").glob("*.json"))
+
+
+@pytest.mark.parametrize(
+    "values,missing,n", [([1.0, 1.0, 1.0, 1.0], "", 4), ([1.0, 2.0, None, None], "CCC;DDD", 2)]
+)
+def test_uncomputable_comparison_preserves_observed_membership(tmp_path, values, missing, n):
+    spec_path, raw = create_case(tmp_path)
+    frame = pd.read_csv(raw)
+    frame.loc[frame.variable_id.eq("y"), "value"] = [
+        float("nan") if value is None else value for value in values
+    ]
+    frame.to_csv(raw, index=False)
+    path = tmp_path / "data/metadata/acquisitions/fixture-acq.yaml"
+    record = yaml.safe_load(path.read_text())
+    record["files"][0].update(sha256=sha256(raw), size_bytes=raw.stat().st_size)
+    path.write_text(yaml.safe_dump(record))
+    reproduce(spec_path, tmp_path)
+    result = pd.read_csv(
+        tmp_path / "outputs/tables/historical_international_results.csv", keep_default_na=False
+    ).iloc[0]
+    assert result.state == "not_produced" and result.n == n
+    assert result.missing_units == missing

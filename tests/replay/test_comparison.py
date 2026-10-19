@@ -1,9 +1,11 @@
 """Replay accepts floating-point noise, never sample or result-identity changes."""
 
+import subprocess
+
 import pandas as pd
 import pytest
 
-from check_replay import compare
+from check_replay import check_tables, compare
 
 
 def test_numeric_tolerance_keeps_metadata_and_missingness_exact():
@@ -24,3 +26,39 @@ def test_numeric_tolerance_keeps_metadata_and_missingness_exact():
     actual.loc[0, "p"] = "0.201"
     with pytest.raises(ValueError, match="tolerance"):
         compare(expected, actual)
+
+
+@pytest.mark.parametrize("change", ["none", "missing", "extra", "empty_baseline"])
+def test_replay_requires_the_complete_committed_file_set(tmp_path, change):
+    folder = tmp_path / "outputs/tables"
+    folder.mkdir(parents=True)
+    table = folder / "result.csv"
+    table.write_text("result_id,r\nexample,0.8\n")
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    if change == "empty_baseline":
+        table.unlink()
+        (tmp_path / "README.md").write_text("Synthetic empty baseline")
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        [
+            "git",
+            "-c",
+            "user.name=Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "-qm",
+            "Synthetic replay baseline",
+        ],
+        cwd=tmp_path,
+        check=True,
+    )
+    if change == "missing":
+        table.unlink()
+    elif change == "extra":
+        (folder / "unexpected.csv").write_text(table.read_text())
+    if change == "none":
+        assert check_tables("HEAD", tmp_path) == 1
+    else:
+        with pytest.raises(ValueError, match="paths changed|no committed result"):
+            check_tables("HEAD", tmp_path)

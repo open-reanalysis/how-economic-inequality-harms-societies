@@ -72,6 +72,21 @@ def test_index_available_components_and_weights():
     assert not report.loc[report.unit_id.eq("B"), "used"].any()
 
 
+@pytest.mark.parametrize("values", [[5.0, np.nan, np.nan], [np.nan, np.nan, np.nan]])
+@pytest.mark.parametrize("rule", ["complete_cases", "available_mean"])
+def test_index_rejects_components_without_a_standardisation_reference(values, rule):
+    frame = pd.DataFrame({"a": [1.0, 2.0, 3.0], "b": values}, index=list("ABC"))
+    definition = {
+        "components": ["a", "b"],
+        "reference_units": list("ABC"),
+        "ddof": 1,
+        "weights": "equal",
+        "missing_components": {"rule": rule},
+    }
+    with pytest.raises(ValueError, match="Insufficient reference observations"):
+        index(frame, definition)
+
+
 def test_parallel_sources_never_average_and_reject_duplicate_keys():
     frame = pd.DataFrame(
         [

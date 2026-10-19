@@ -9,7 +9,11 @@ def standardise(values: pd.DataFrame, reference: list[str], ddof: int) -> pd.Dat
     """Calculate z-scores using available reference units and the declared denominator."""
     reference_values = values.reindex(reference)
     deviation = reference_values.std(ddof=ddof)
-    if deviation.dropna().eq(0).any():
+    if deviation.isna().any():
+        raise ValueError("Insufficient reference observations for index standardisation")
+    if not np.isfinite(deviation).all():
+        raise ValueError("Nonfinite index standardisation deviation")
+    if deviation.eq(0).any():
         raise ValueError("Constant index component")
     return (values - reference_values.mean()) / deviation
 
@@ -32,14 +36,15 @@ def index(values: pd.DataFrame, definition: dict) -> tuple[pd.Series, pd.DataFra
     result = scores.mul(weight_series).sum(axis=1, min_count=1) / denominator.replace(0, np.nan)
     rule = definition["missing_components"]["rule"]
     if rule == "complete_cases":
-        result = result.where(selected.notna().all(axis=1))
+        result = result.where(scores.notna().all(axis=1))
     elif rule != "available_mean":
         raise ValueError(f"Unknown missing-component rule: {rule}")
     result = result.drop(index=[], errors="ignore").rename("index")
     result.loc[result.index.isin(definition.get("excluded_units", []))] = np.nan
     report = selected.notna().rename_axis(index="unit_id", columns="component").stack()
     report = report.rename("available").reset_index()
-    report["used"] = report.available & report.unit_id.map(result.notna())
+    usable = scores.notna().rename_axis(index="unit_id", columns="component").stack()
+    report["used"] = usable.to_numpy() & report.unit_id.map(result.notna())
     return result, report
 
 
@@ -62,7 +67,7 @@ def correlation(values: pd.DataFrame, predictor: str, outcome: str) -> dict:
     elif (pairs.nunique() < 2).any():
         reason = "Constant comparison variable"
     if reason:
-        return {"r": None, "p": None, "n": n, "reason": reason, "observations": pd.DataFrame()}
+        return {"r": None, "p": None, "n": n, "reason": reason, "observations": pairs}
     if not np.isfinite(pairs.to_numpy()).all():
         raise ValueError("Nonfinite comparison observations")
     r, p = pearsonr(pairs[predictor], pairs[outcome])
