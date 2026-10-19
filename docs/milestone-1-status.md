@@ -4,7 +4,7 @@ Milestone 1 is **not complete or approved**. This integration PR delivers an exe
 
 | Work | Implemented evidence | Remaining acceptance work |
 |---|---|---|
-| Scaffold | Locked Pixi environment for Linux and Apple silicon; numerical core; source readers; file verification; offline tests; Make commands; immutable run records; Linux/macOS CI and fresh-clone replay pass | Live repository protection settings await separate approval; see docs/repository-setup.md |
+| Scaffold | Locked Pixi environment for Linux and Apple silicon; numerical core; source readers; file verification; offline tests; Make commands; immutable run records; Linux/macOS CI and fresh-clone replay pass; repository protections applied after explicit approval | The final PR head still requires its own passing CI; see docs/repository-setup.md for the observed settings |
 | Original access | Official international workbook obtained locally with the recorded planning hash; 23-country and 50-state registries; presence-flag recovery | Full-workbook redistribution permission remains unverified; no released U.S. state file obtained |
 | Source lineage | 47 named historical/current-variable rows and original-source records | Each row links to an actual source-route or candidate acquisition attempt; exact counterparts and analysis periods remain unverified. Candidate acquisition is not a comparability finding |
 | Historical international reproduction | 26 calculations from supplied values; three named average-income comparisons have explicit missing-input barriers | Independent index rebuilding, source/version conflicts and historical income recovery remain unresolved |
