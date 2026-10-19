@@ -1,0 +1,19 @@
+source_id: worldbank-gdim-income-2025
+provider: World Bank
+series_code: IGE_Munoz_VanderWeide_June2025
+title: Intergenerational income elasticity candidate
+definition: Intergenerational income elasticity, not the original father-son income
+  correlation. Candidate substitute only; release June 2025 and cohort periods are
+  distinct.
+unit: income_elasticity
+variable_id: social_mobility
+geography: countries
+licence: CC BY 4.0
+terms_url: https://datacatalog.worldbank.org/search/dataset/0066878/global-database-on-intergenerational-income-mobility
+redistributable: true
+data_basis: current
+notes: No current association may be calculated before the approved milestone gate.
+coverage_format: stata
+country_column: code
+value_column: IGE
+period_label: cohorts_1980s_1990s

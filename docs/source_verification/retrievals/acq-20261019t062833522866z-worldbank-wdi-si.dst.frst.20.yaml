@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t062833522866z-worldbank-wdi-si.dst.frst.20
+source_ids: &id001
+- worldbank-wdi-si.dst.frst.20
+method: api
+request: https://api.worldbank.org/v2/country/all/indicator/SI.DST.FRST.20?date=2020:2025&format=json&per_page=20000
+requested_utc: '2026-10-19T06:28:33.522866+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t062833522866z-worldbank-wdi-si.dst.frst.20.yaml
+notes: ''
+files:
+- path: data/01_raw_current/eligibility/2026-10-19/SI.DST.FRST.20-all.json
+  size_bytes: 342322
+  sha256: b31ae0d77195d4adafaa9831e63850dd14e9f6b4b92a929ea362b7f355babd13
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country/all/indicator/SI.DST.FRST.20?date=2020:2025&format=json&per_page=20000

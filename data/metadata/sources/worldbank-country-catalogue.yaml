@@ -1,0 +1,13 @@
+source_id: worldbank-country-catalogue
+provider: World Bank
+series_code: country
+title: Country catalogue for aggregate filtering
+definition: Provider catalogue or source verification; not an analysis outcome series.
+unit: metadata
+geography: countries
+licence: CC BY 4.0
+terms_url: https://datacatalog.worldbank.org/public-licenses#cc-by
+redistributable: true
+record_role: unit_catalogue
+data_basis: current
+notes: Acquired for prospective source and coverage verification; no associations.

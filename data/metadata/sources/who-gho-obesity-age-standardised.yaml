@@ -1,0 +1,19 @@
+source_id: who-gho-obesity-age-standardised
+provider: World Health Organization GHO
+series_code: NCD_BMI_30A
+title: Adult obesity, both sexes, age-standardised
+definition: Modelled adult obesity, age 18+, BMI at least 30; both sexes and age-standardised.
+  Current WHO API uses SEX_BTSX, not legacy BTSX.
+unit: percent
+variable_id: obesity
+geography: countries
+licence: WHO CC BY 4.0 with additional terms; maintainer approved 19 October 2026
+terms_url: https://data.who.int/about/data/terms-and-conditions
+redistributable: true
+data_basis: current
+notes: 'WHO terms accepted by maintainer on 19 October 2026. Empty initial responses
+  and the failed long query are retained as evidence. Metadata: https://www.who.int/data/gho/indicator-metadata-registry/imr-details/2389'
+coverage_format: who_odata
+coverage_filters:
+  Dim1: SEX_BTSX
+  Dim2: AGEGROUP_YEARS18-PLUS

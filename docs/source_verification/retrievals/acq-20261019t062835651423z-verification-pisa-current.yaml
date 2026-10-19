@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t062835651423z-verification-pisa-current
+source_ids:
+- verification-pisa-current
+method: download
+request: https://www.oecd.org/en/about/programmes/pisa/pisa-data.html
+requested_utc: '2026-10-19T06:28:35.651423+00:00'
+response_status: 403
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t062835651423z-verification-pisa-current.yaml
+notes: 'HTTPError: acquisition failed (HTTP 403)'
+files: []
+resolved_url: https://www.oecd.org/en/about/programmes/pisa/pisa-data.html

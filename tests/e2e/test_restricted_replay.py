@@ -8,6 +8,7 @@ import pandas as pd
 import pytest
 import yaml
 
+from lib.coverage import build_coverage
 from lib.paths import sha256
 from lib.pipeline import reproduce
 
@@ -246,3 +247,37 @@ def test_uncomputable_comparison_preserves_observed_membership(tmp_path, values,
     ).iloc[0]
     assert result.state == "not_produced" and result.n == n
     assert result.missing_units == missing
+
+
+def test_restricted_current_coverage_needs_compatible_producer(tmp_path):
+    _, old_raw = create_case(tmp_path)
+    path = tmp_path / "data/01_raw_current/local/who.json"
+    path.parent.mkdir(parents=True)
+    path.write_text(
+        json.dumps(
+            dict(value=[dict(SpatialDim="AAA", TimeDim=2024, Dim1="SEX_BTSX", NumericValue=1)])
+        )
+    )
+    old_raw.unlink()
+    source_path = tmp_path / "data/metadata/sources/fixture.yaml"
+    source = yaml.safe_load(source_path.read_text())
+    source.update(coverage_format="who_odata", coverage_filters=dict(Dim1="SEX_BTSX"))
+    source_path.write_text(yaml.safe_dump(source))
+    acquisition_path = tmp_path / "data/metadata/acquisitions/fixture-acq.yaml"
+    record = yaml.safe_load(acquisition_path.read_text())
+    record["files"][0].update(
+        path=str(path.relative_to(tmp_path)), sha256=sha256(path), size_bytes=path.stat().st_size
+    )
+    acquisition_path.write_text(yaml.safe_dump(record))
+    produced = build_coverage(tmp_path)
+    output = tmp_path / "outputs/tables/outcome_source_coverage.csv"
+    expected = output.read_bytes()
+    path.unlink()
+    retained = build_coverage(tmp_path)
+    step = json.loads((tmp_path / retained).read_text())["steps"][0]
+    assert step["state"] == "retained"
+    assert step["producer_run"] == json.loads((tmp_path / produced).read_text())["run_id"]
+    (tmp_path / "pixi.lock").write_text("changed environment")
+    with pytest.raises(ValueError, match="No compatible producer"):
+        build_coverage(tmp_path)
+    assert output.read_bytes() == expected

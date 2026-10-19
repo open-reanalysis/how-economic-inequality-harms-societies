@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t062832389943z-worldbank-wdi-ny.gnp.pcap.cd
+source_ids: &id001
+- worldbank-wdi-ny.gnp.pcap.cd
+method: api
+request: https://api.worldbank.org/v2/country/all/indicator/NY.GNP.PCAP.CD?date=2020:2025&format=json&per_page=20000
+requested_utc: '2026-10-19T06:28:32.389943+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t062832389943z-worldbank-wdi-ny.gnp.pcap.cd.yaml
+notes: ''
+files:
+- path: data/01_raw_current/eligibility/2026-10-19/NY.GNP.PCAP.CD-all.json
+  size_bytes: 364055
+  sha256: 9b7fb5a277b9ebfc8fcccde35c33686ffc878a1ff55e0a280b2082fb215ecd03
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country/all/indicator/NY.GNP.PCAP.CD?date=2020:2025&format=json&per_page=20000

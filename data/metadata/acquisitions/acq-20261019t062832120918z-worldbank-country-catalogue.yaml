@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t062832120918z-worldbank-country-catalogue
+source_ids: &id001
+- worldbank-country-catalogue
+method: api
+request: https://api.worldbank.org/v2/country?format=json&per_page=400
+requested_utc: '2026-10-19T06:28:32.120918+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t062832120918z-worldbank-country-catalogue.yaml
+notes: ''
+files:
+- path: data/01_raw_current/eligibility/2026-10-19/worldbank-countries.json
+  size_bytes: 113954
+  sha256: c9acf3932785191a649cbc04c3056af4cf64a236e5c3b49d49be25ddb0440bce
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country?format=json&per_page=400

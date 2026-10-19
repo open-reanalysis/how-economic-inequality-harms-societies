@@ -52,3 +52,9 @@ The maintainer authorised a new pull request containing the feasibility correcti
 ## Prospective decision: current index
 
 On 19 October 2026 the maintainer chose to lock the current index only after component availability and the consequences of missing components are documented. No new minimum-component threshold or final missingness rule is approved by this decision. Continue acquisition and coverage assessment; keep current specifications and the reproduction lock in draft. See docs/milestone-1-status.md for completed work and remaining acceptance checks.
+
+## Source decisions on 19 October 2026
+
+The maintainer accepted the WHO statistical-data terms, including the disclosed arbitration and indemnity clauses, for acquiring obesity and health data. This permits the nominated acquisition; third-party exceptions and attribution requirements still apply. Terms: https://data.who.int/about/data/terms-and-conditions.
+
+In response to the sample-universe question the maintainer asked how Wilkinson selected countries. The authors describe the April 2004 WDI Atlas-method top 50, excluding populations below three million and countries lacking UN inequality data. Their response on Hong Kong explicitly says it is not a nation state. The refreshed design therefore follows a state-based interpretation, rather than treating all World Bank reporting economies as eligible. This interpretation and any operational departure must remain explicit; the authors do not specify a tie rule. Source: https://media.equality-trust.out.re/uploads/2015/06/responses-to-all-critics.pdf, Snowdon question 1 and Hong Kong response (PDF pages 10 and 15).
