@@ -23,13 +23,11 @@ Code commit e4af283f closes the following defects, with regression tests:
 
 Earlier corrections in 5cd024cb protect credentials in acquisition failures, immutable evidence identities, stale observations/figures and environment-bound restricted retention. Those protections remain in force.
 
-## Validation at committed computation revision e0a9dfd0
+## Validation
 
-Local make lint test all verify-data check-contracts completed successfully: 66 offline tests, formatting/lint, full record validation and all replay steps. Validation covers 99 source records, 63 acquisition records, 46 catalogue targets and 47 lineage rows. The available restricted inputs were held locally; their identities were checked. Public CI must instead retain restricted outputs only against compatible producer evidence.
+Local lint, formatting, 69 offline tests, full record validation and every replay step pass. The current records cover 104 sources, 77 acquisitions, 46 catalogue targets and 47 lineage rows. All restricted inputs recorded as held in this run were available and their identities were checked. Public CI must retain restricted outputs only against compatible producer evidence, and must pass for the final PR head; the PR description records that head's CI evidence when available.
 
-Seven canonical producer records were generated from this committed code: original sample coverage, current source coverage, refreshed eligibility, international reproduction, state reconstruction, historical summary and prospective component assessment. Their paths and input/output hashes are in outputs/runs/. Earlier exploratory records are preserved rather than overwritten.
-
-Previous Linux/macOS CI at 902ec181 passed with 42 tests; this is historical evidence, not evidence for the current head. An earlier local fresh-clone NumPy failure and a later interrupted supplementary environment installation were not counted as successes. Final-head CI evidence is recorded in the PR description after it completes.
+Canonical producer records cover original sample coverage, current source coverage, refreshed eligibility, international reproduction, state reconstruction, historical summary and prospective component assessment. Their paths, committed computation revisions and input/output hashes are in outputs/runs/. Earlier exploratory and unsuccessful supplementary environment attempts are not evidence for the final head and their records are preserved.
 
 ## Decisions and remaining gate
 
@@ -44,4 +42,6 @@ The official GESIS joint EVS/WVS v5 frequency and methods reports resolve the ca
 
 The second WMH 2025 supplement (DOI 10.1186/s13033-025-00666-w) contains pooled, not national, prevalence. The missing diagnostic component remains open. A request for explicit permission to send the prepared aggregate-data enquiry is pending; no message has been sent.
 
-Local validation now passes 68 offline tests and validates 104 sources, 72 acquisitions, 46 catalogue targets and 47 lineage rows. The environment adds pypdf through the shared Pixi lock and its informational exports. Committed-code producer records and final-head Linux/macOS CI must be refreshed after the code commit; older green checks do not validate this revision.
+Local validation now passes 69 offline tests and validates 104 sources, 77 acquisitions, 46 catalogue targets and 47 lineage rows. The environment adds pypdf through the shared Pixi lock and its informational exports. Final-head Linux/macOS CI and compatible committed-code producer records are required; older green checks do not validate a new code revision.
+
+The refreshed-sample acquisition gap was closed for the seven new countries: the four WDI index outcomes now each cover all 28 refreshed members in at least one acquired year. The component report distinguishes both master samples, including trust coverage of 19/23 and 24/28. These are availability counts, not matched-period analytic samples or correlations.

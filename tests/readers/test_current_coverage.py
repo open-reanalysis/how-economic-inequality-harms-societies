@@ -153,3 +153,16 @@ def test_joint_wvs_keeps_studies_and_rejects_ambiguous_years():
         presence(years, trust.replace("B 20 - 100.0 - - -", ""), source)
     with pytest.raises(ValueError, match="percentage range"):
         presence(years, trust.replace("20.0 70.0", "120.0 70.0"), source)
+
+
+def test_refreshed_assessment_keeps_eligible_rows_with_no_exclusion_reason(tmp_path):
+    from assess_index_coverage import refreshed_members
+
+    path = tmp_path / "eligibility.csv"
+    path.write_text(
+        "country,rank_value,rank,population,comparable_inequality_data,eligible,exclusion_reason\n"
+        "USA,70000,1,300000000,True,True,\n"
+        "AUT,60000,2,9000000,True,True,\n"
+        "BBB,,,4000000,False,False,not_ranked\n"
+    )
+    assert refreshed_members(path) == ["AUT", "USA"]

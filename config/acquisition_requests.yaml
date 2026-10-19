@@ -213,3 +213,18 @@ requests:
 - source_id: verification-wmh-2025-perceived-need
   url: https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs13033-025-00666-w/MediaObjects/13033_2025_666_MOESM1_ESM.docx
   path: data/01_raw_current/outcomes/local/verification/wmh-2025-perceived-need-supplement.docx
+- source_id: worldbank-wdi-sp.dyn.le00.in
+  url: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/SP.DYN.LE00.IN?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.DYN.LE00.IN-refreshed-additions.json
+- source_id: worldbank-wdi-sp.dyn.imrt.in
+  url: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/SP.DYN.IMRT.IN?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.DYN.IMRT.IN-refreshed-additions.json
+- source_id: worldbank-wdi-sp.ado.tfrt
+  url: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/SP.ADO.TFRT?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.ADO.TFRT-refreshed-additions.json
+- source_id: worldbank-wdi-vc.ihr.psrc.p5
+  url: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/VC.IHR.PSRC.P5?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/VC.IHR.PSRC.P5-refreshed-additions.json
+- source_id: worldbank-wdi-sh.xpd.ghed.ch.zs
+  url: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/SH.XPD.GHED.CH.ZS?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SH.XPD.GHED.CH.ZS-refreshed-additions.json

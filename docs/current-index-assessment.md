@@ -2,27 +2,37 @@
 
 This is a prospective availability assessment, not an index result or a reproduction lock. It uses only recorded presence flags across the acquisition window. A candidate observation in any year does not establish that an admissible observation exists for the final analysis period. Blank availability means no parsed candidate in this run, not an absent series.
 
-| Dataset | Historical component | Units with a nonmissing candidate in at least one acquired year | Master sample |
-|---|---|---:|---:|
-| international | trust | 19 | 23 |
-| international | life_expectancy | 23 | 23 |
-| international | infant_mortality | 23 | 23 |
-| international | obesity | 23 | 23 |
-| international | mental_illness | 0 | 23 |
-| international | education | 23 | 23 |
-| international | teenage_births | 23 | 23 |
-| international | homicides | 23 | 23 |
-| international | imprisonment_log | 22 | 23 |
-| international | social_mobility | 22 | 23 |
-| us_states | trust | 0 | 50 |
-| us_states | life_expectancy | 0 | 50 |
-| us_states | infant_mortality | 0 | 50 |
-| us_states | obesity | 0 | 50 |
-| us_states | mental_illness | 0 | 50 |
-| us_states | education | 0 | 50 |
-| us_states | teenage_births | 0 | 50 |
-| us_states | homicides | 0 | 50 |
-| us_states | imprisonment | 0 | 50 |
+| Dataset | Sample | Historical component | Units with a nonmissing candidate in at least one acquired year | Master sample |
+|---|---|---|---:|---:|
+| international | historical | trust | 19 | 23 |
+| international | historical | life_expectancy | 23 | 23 |
+| international | historical | infant_mortality | 23 | 23 |
+| international | historical | obesity | 23 | 23 |
+| international | historical | mental_illness | 0 | 23 |
+| international | historical | education | 23 | 23 |
+| international | historical | teenage_births | 23 | 23 |
+| international | historical | homicides | 23 | 23 |
+| international | historical | imprisonment_log | 22 | 23 |
+| international | historical | social_mobility | 22 | 23 |
+| international | refreshed | trust | 24 | 28 |
+| international | refreshed | life_expectancy | 28 | 28 |
+| international | refreshed | infant_mortality | 28 | 28 |
+| international | refreshed | obesity | 28 | 28 |
+| international | refreshed | mental_illness | 0 | 28 |
+| international | refreshed | education | 28 | 28 |
+| international | refreshed | teenage_births | 28 | 28 |
+| international | refreshed | homicides | 28 | 28 |
+| international | refreshed | imprisonment_log | 27 | 28 |
+| international | refreshed | social_mobility | 27 | 28 |
+| us_states | historical | trust | 0 | 50 |
+| us_states | historical | life_expectancy | 0 | 50 |
+| us_states | historical | infant_mortality | 0 | 50 |
+| us_states | historical | obesity | 0 | 50 |
+| us_states | historical | mental_illness | 0 | 50 |
+| us_states | historical | education | 0 | 50 |
+| us_states | historical | teenage_births | 0 | 50 |
+| us_states | historical | homicides | 0 | 50 |
+| us_states | historical | imprisonment | 0 | 50 |
 
 ## Consequences before locking
 

@@ -9,10 +9,21 @@
 
 import csv
 
+import pandas as pd
 import yaml
 
 from lib.paths import ROOT, sha256
 from lib.runs import finish_run, start_run
+from lib.schemas import ELIGIBILITY
+
+
+def refreshed_members(path) -> list[str]:
+    """Load the approved eligibility interface without conditioning on outcome coverage."""
+    frame = pd.read_csv(path, dtype={"rank_value": float, "rank": float, "population": float})
+    frame["exclusion_reason"] = frame["exclusion_reason"].fillna("")
+    eligibility = ELIGIBILITY.validate(frame)
+    return sorted(eligibility.loc[eligibility["eligible"], "country"])
+
 
 if __name__ == "__main__":
     lineage_path = ROOT / "docs/source_lineage.csv"
@@ -24,48 +35,53 @@ if __name__ == "__main__":
         spec_path = ROOT / f"config/specs/historical_{dataset}.yaml"
         dependencies.append(spec_path)
         spec = yaml.safe_load(spec_path.read_text())
-        for component in spec["index"].get("components", []):
-            matching = [
-                r for r in lineage if r["dataset"] == dataset and r["variable_id"] == component
-            ]
-            record = matching[0] if matching else {}
-            source = record.get("current_source", "")
-            available = 0
-            for unit in spec["samples"]["historical"]["units"]:
-                found = (
-                    [
-                        f
-                        for f in flags
-                        if f["source_id"] == source
-                        and f["unit_id"] == unit
-                        and f["payload_status"] == "parsed"
-                    ]
-                    if source
-                    else []
-                )
-                present = any(f["available"] == "True" for f in found) if found else None
-                available += present is True
-                rows.append(
-                    {
-                        "dataset": dataset,
-                        "unit_id": unit,
-                        "component": component,
-                        "candidate_source": source,
-                        "candidate_has_observation": present,
-                        "candidate_periods": ";".join(
-                            sorted({f["period"] for f in found if f["available"] == "True"})
-                        ),
-                        "comparability_class": record.get(
-                            "comparability_class", "NOT_YET_VERIFIED"
-                        ),
-                        "assessment": record.get("deviation_reason", "See source lineage")
-                        if found
-                        else "No parsed current candidate available in this run; not evidence of absent series",
-                    }
-                )
-            summaries.append(
-                (dataset, component, available, len(spec["samples"]["historical"]["units"]))
-            )
+        samples = {"historical": spec["samples"]["historical"]["units"]}
+        if dataset == "international":
+            eligibility_path = ROOT / "outputs/tables/refreshed_country_eligibility.csv"
+            dependencies.append(eligibility_path)
+            samples["refreshed"] = refreshed_members(eligibility_path)
+        for sample, units in samples.items():
+            for component in spec["index"].get("components", []):
+                matching = [
+                    r for r in lineage if r["dataset"] == dataset and r["variable_id"] == component
+                ]
+                record = matching[0] if matching else {}
+                source = record.get("current_source", "")
+                available = 0
+                for unit in units:
+                    found = (
+                        [
+                            f
+                            for f in flags
+                            if f["source_id"] == source
+                            and f["unit_id"] == unit
+                            and f["payload_status"] == "parsed"
+                        ]
+                        if source
+                        else []
+                    )
+                    present = any(f["available"] == "True" for f in found) if found else None
+                    available += present is True
+                    rows.append(
+                        {
+                            "dataset": dataset,
+                            "sample": sample,
+                            "unit_id": unit,
+                            "component": component,
+                            "candidate_source": source,
+                            "candidate_has_observation": present,
+                            "candidate_periods": ";".join(
+                                sorted({f["period"] for f in found if f["available"] == "True"})
+                            ),
+                            "comparability_class": record.get(
+                                "comparability_class", "NOT_YET_VERIFIED"
+                            ),
+                            "assessment": record.get("deviation_reason", "See source lineage")
+                            if found
+                            else "No parsed current candidate available in this run; not evidence of absent series",
+                        }
+                    )
+                summaries.append((dataset, sample, component, available, len(units)))
     output = ROOT / "outputs/tables/current_index_coverage.csv"
     with output.open("w", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
@@ -76,10 +92,10 @@ if __name__ == "__main__":
         "",
         "This is a prospective availability assessment, not an index result or a reproduction lock. It uses only recorded presence flags across the acquisition window. A candidate observation in any year does not establish that an admissible observation exists for the final analysis period. Blank availability means no parsed candidate in this run, not an absent series.",
         "",
-        "| Dataset | Historical component | Units with a nonmissing candidate in at least one acquired year | Master sample |",
-        "|---|---|---:|---:|",
+        "| Dataset | Sample | Historical component | Units with a nonmissing candidate in at least one acquired year | Master sample |",
+        "|---|---|---|---:|---:|",
     ]
-    lines += [f"| {d} | {c} | {n} | {total} |" for d, c, n, total in summaries]
+    lines += [f"| {d} | {s} | {c} | {n} | {total} |" for d, s, c, n, total in summaries]
     lines += [
         "",
         "## Consequences before locking",

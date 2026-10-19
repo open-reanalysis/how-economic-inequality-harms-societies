@@ -1,0 +1,36 @@
+{
+  "run_id": "20261019t163157413575z-8d45fdf1",
+  "started_utc": "2026-10-19T16:31:57.413897+00:00",
+  "finished_utc": "2026-10-19T16:31:57.934566+00:00",
+  "commit": "8d45fdf1162e05c455995f84889d104b341bb680",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "worldbank-wdi-sp.dyn.imrt.in",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.DYN.IMRT.IN-refreshed-additions.json",
+          "sha256": "dda9d17bbcaecfe545b2270a4bd11320129bb5db2f313cba05863cd5b404b06f"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t163157435296z-worldbank-wdi-sp.dyn.imrt.in.yaml",
+          "sha256": "03607077580ca23fcac5ec2537634eddea25b57abdbe1da91b107f6ede770d15"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t163157435296z-worldbank-wdi-sp.dyn.imrt.in.yaml",
+          "sha256": "03607077580ca23fcac5ec2537634eddea25b57abdbe1da91b107f6ede770d15"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [
+    "worldbank-wdi-sp.dyn.imrt.in: immutable response already present"
+  ]
+}

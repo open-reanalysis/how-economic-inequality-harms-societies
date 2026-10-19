@@ -14,8 +14,8 @@ files:
   config/units/un_members.csv: a82fd885405341fdfbc2e204f9e27065b89b7b71f59edd3a1536e4d0626e2df7
   outputs/tables/refreshed_country_eligibility.csv: e5784f5796a2d6f6ec87280831fa732ee8f2a9eefec26cb54468e2fc1079b126
   outputs/tables/refreshed_inequality_surveys.csv: 24f9e05a7ab17322a79533c903e494ebc18d3dbe8de9b3e1e7dfb57d90692219
-  outputs/tables/current_index_coverage.csv: 1dbc3fba7a710cfec32cbab2de9f8e3fd6846b842e8d07c661a3afe1ea830a95
-  outputs/tables/outcome_source_coverage.csv: f2dffa844f9a8caf6974beba55fccf73cc9c32d284b9ed14f765fbc03442e92e
+  outputs/tables/current_index_coverage.csv: f370efafbf2a564be57560f3632e555bf5e15009b564a8c1533ef79df2d35682
+  outputs/tables/outcome_source_coverage.csv: 4bf7c97970546bc9bc1042d6ee6c3d4586edb8ef28d41a269ef6fec6db3d7712
 barriers:
 - Maintainer requires missing index components to be acquired before locking; WMH
   national diagnostic aggregate access remains unresolved.

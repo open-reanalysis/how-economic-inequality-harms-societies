@@ -1,0 +1,36 @@
+{
+  "run_id": "20261019t163159000845z-8d45fdf1",
+  "started_utc": "2026-10-19T16:31:59.001135+00:00",
+  "finished_utc": "2026-10-19T16:31:59.405674+00:00",
+  "commit": "8d45fdf1162e05c455995f84889d104b341bb680",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "worldbank-wdi-vc.ihr.psrc.p5",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/VC.IHR.PSRC.P5-refreshed-additions.json",
+          "sha256": "de9d6625868438da31c6ab63ff8fd20567227ac15271c98e03d5e03a5de05f0e"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t163159017664z-worldbank-wdi-vc.ihr.psrc.p5.yaml",
+          "sha256": "faf15f37e812f39b8e5389b26918d304e763e9b9bc85da0a02fd84cfb26ad37b"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t163159017664z-worldbank-wdi-vc.ihr.psrc.p5.yaml",
+          "sha256": "faf15f37e812f39b8e5389b26918d304e763e9b9bc85da0a02fd84cfb26ad37b"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [
+    "worldbank-wdi-vc.ihr.psrc.p5: immutable response already present"
+  ]
+}

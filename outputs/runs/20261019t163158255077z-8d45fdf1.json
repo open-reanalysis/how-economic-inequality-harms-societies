@@ -1,0 +1,36 @@
+{
+  "run_id": "20261019t163158255077z-8d45fdf1",
+  "started_utc": "2026-10-19T16:31:58.255325+00:00",
+  "finished_utc": "2026-10-19T16:31:58.653342+00:00",
+  "commit": "8d45fdf1162e05c455995f84889d104b341bb680",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "worldbank-wdi-sp.ado.tfrt",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.ADO.TFRT-refreshed-additions.json",
+          "sha256": "19624ce5be77c2e1bee1d28ec93d3c4b204a9754372f77006b3ff1ba7340bf2d"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t163158268942z-worldbank-wdi-sp.ado.tfrt.yaml",
+          "sha256": "212e931efef794c964d69bb8b2844ef84e4c4bc60273574e08b795ac631c46be"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t163158268942z-worldbank-wdi-sp.ado.tfrt.yaml",
+          "sha256": "212e931efef794c964d69bb8b2844ef84e4c4bc60273574e08b795ac631c46be"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [
+    "worldbank-wdi-sp.ado.tfrt: immutable response already present"
+  ]
+}
