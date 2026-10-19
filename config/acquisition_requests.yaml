@@ -180,3 +180,27 @@ requests:
 - source_id: verification-wmh-2025-published
   url: https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs13033-024-00658-2/MediaObjects/13033_2024_658_MOESM1_ESM.docx
   path: data/01_raw_current/outcomes/local/verification/wmh-2025-supplement.docx
+- source_id: verification-wvs
+  url: https://www.worldvaluessurvey.org/WVSEVSjoint2017.jsp
+  path: data/01_raw_current/outcomes/local/verification/wvs-joint-2017-2022.html
+- source_id: verification-wvs
+  url: https://www.worldvaluessurvey.org/AJDocumentationSmpl.jsp?CndWAVE=7
+  path: data/01_raw_current/outcomes/local/verification/wvs-wave7-country-methods.html
+- source_id: wvs-evs-joint-v5-country-metadata
+  url: https://www.worldvaluessurvey.org/AJDownload.jsp?DOID=11087
+  path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-country-metadata.xlsx
+- source_id: wvs-evs-joint-v5-codebook
+  url: https://www.worldvaluessurvey.org/AJDownload.jsp?DOID=11083
+  path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-codebook.pdf
+- source_id: wvs-evs-joint-v5-country-metadata
+  url: https://www.worldvaluessurvey.org/AJDownload.jsp
+  post_form:
+    DOID: '11087'
+    ulthost: WVS
+  path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-country-metadata-post.xlsx
+- source_id: wvs-evs-joint-v5-codebook
+  url: https://www.worldvaluessurvey.org/AJDownload.jsp
+  post_form:
+    DOID: '11083'
+    ulthost: WVS
+  path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-codebook-post.pdf

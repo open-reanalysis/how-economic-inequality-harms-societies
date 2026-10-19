@@ -144,3 +144,17 @@ data/metadata/acquisitions/acq-20261019t070516095169z-authors-causal-review-2015
 data/metadata/acquisitions/acq-20261019t070524760547z-verification-wmh-2025-published.yaml
 docs/source_verification/retrievals/acq-20261019t070516095169z-authors-causal-review-2015.yaml
 docs/source_verification/retrievals/acq-20261019t070524760547z-verification-wmh-2025-published.yaml
+data/metadata/acquisitions/acq-20261019t141709177177z-wvs-evs-joint-v5-codebook.yaml
+data/metadata/acquisitions/acq-20261019t141617513742z-verification-wvs.yaml
+data/metadata/acquisitions/acq-20261019t141708649010z-wvs-evs-joint-v5-country-metadata.yaml
+data/metadata/acquisitions/acq-20261019t141616901482z-verification-wvs.yaml
+data/metadata/acquisitions/acq-20261019t141853714895z-wvs-evs-joint-v5-country-metadata.yaml
+data/metadata/acquisitions/acq-20261019t141854263526z-wvs-evs-joint-v5-codebook.yaml
+docs/source_verification/retrievals/acq-20261019t141709177177z-wvs-evs-joint-v5-codebook.yaml
+docs/source_verification/retrievals/acq-20261019t141617513742z-verification-wvs.yaml
+docs/source_verification/retrievals/acq-20261019t141708649010z-wvs-evs-joint-v5-country-metadata.yaml
+docs/source_verification/retrievals/acq-20261019t141616901482z-verification-wvs.yaml
+docs/source_verification/retrievals/acq-20261019t141853714895z-wvs-evs-joint-v5-country-metadata.yaml
+docs/source_verification/retrievals/acq-20261019t141854263526z-wvs-evs-joint-v5-codebook.yaml
+data/metadata/sources/wvs-evs-joint-v5-country-metadata.yaml
+data/metadata/sources/wvs-evs-joint-v5-codebook.yaml

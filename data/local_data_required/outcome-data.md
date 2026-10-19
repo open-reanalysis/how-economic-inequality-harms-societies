@@ -29,3 +29,5 @@ The 2025 national mathematics/reading tables and Annex A2 population tables have
 ## Restricted replay
 
 UNODC and OECD full workbooks and WVS response pages are local because full redistribution permission remains unverified. A public checkout retains the exact committed coverage table only against its compatible producer record, environment, code, metadata and acquired-file identities. It does not claim to have parsed the absent files.
+
+The joint EVS/WVS 2017–2022 v5 landing page explicitly permits downloading without registration. Earlier registration statements apply to other routes and do not establish a barrier here. Both GET and the public form POST for country metadata (DOID 11087) and codebook (11083) returned a single whitespace byte on 19 October 2026. These are recorded failed document validations, not evidence that registration is required. Continue with the public joint documentation or its official GESIS mirror.

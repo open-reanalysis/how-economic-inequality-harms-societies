@@ -37,6 +37,7 @@ if __name__ == "__main__":
             request["url"],
             request["path"],
             redistributable=sources[source_id]["redistributable"],
+            post_form=request.get("post_form"),
         )
         paths = [file["path"] for file in record["files"]]
         paths += [

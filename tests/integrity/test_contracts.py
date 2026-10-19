@@ -158,3 +158,52 @@ def test_raw_caption_and_csv_hashes_match():
     folder = ROOT / "sources/supporting/original-authors/wilkinson-2011-ted"
     for name, expected in json.loads((folder / "source.json").read_text())["sha256"].items():
         assert sha256(folder / name) == expected
+
+
+def test_public_download_form_is_recorded_without_allowing_credentials(tmp_path, monkeypatch):
+    monkeypatch.setenv("OFFLINE", "0")
+    calls = []
+
+    class Response:
+        status_code = 200
+        url = "https://example.invalid/download"
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            pass
+
+        def raise_for_status(self):
+            pass
+
+        def iter_content(self, size):
+            yield b"original provider document bytes"
+
+    def request(url, **kwargs):
+        calls.append((url, kwargs["data"]))
+        return Response()
+
+    monkeypatch.setattr("lib.download.requests.post", request)
+    record = acquire(
+        ["fixture"],
+        "https://example.invalid/download",
+        "document.bin",
+        redistributable=False,
+        root=tmp_path,
+        post_form={"DOID": "123"},
+    )
+    assert calls == [("https://example.invalid/download", {"DOID": "123"})]
+    assert record["request_method"] == "POST" and record["request_form"] == {"DOID": "123"}
+    assert (tmp_path / "document.bin").read_bytes() == b"original provider document bytes"
+    with pytest.raises(ValueError, match="Credential-bearing"):
+        acquire(
+            ["fixture"],
+            "https://example.invalid/download",
+            "secret.bin",
+            redistributable=False,
+            root=tmp_path,
+            post_form={"password": "synthetic-secret"},
+        )
+    assert len(calls) == 1
+    assert not (tmp_path / "secret.bin").exists()

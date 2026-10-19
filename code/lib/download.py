@@ -2,7 +2,7 @@
 
 import os
 from datetime import UTC, datetime
-from urllib.parse import parse_qsl, urlsplit
+from urllib.parse import parse_qsl, urlencode, urlsplit
 
 import requests
 import yaml
@@ -40,12 +40,21 @@ def contains_credentials(url: str) -> bool:
 
 
 def acquire(
-    source_ids: list[str], url: str, destination: str, *, redistributable: bool, root=ROOT
+    source_ids: list[str],
+    url: str,
+    destination: str,
+    *,
+    redistributable: bool,
+    root=ROOT,
+    post_form: dict[str, str] | None = None,
 ) -> dict:
     """Save one response of at most 50 MiB and record its exact request and outcome."""
     if os.environ.get("OFFLINE") == "1":
         raise RuntimeError("Network acquisition is disabled in offline mode")
-    if contains_credentials(url):
+    if contains_credentials(url) or (
+        post_form is not None
+        and contains_credentials("https://form.invalid/?" + urlencode(post_form))
+    ):
         raise ValueError(
             "Credential-bearing URLs must not enter public acquisition records; use the documented manual input route"
         )
@@ -65,12 +74,18 @@ def acquire(
         "notes": "",
         "files": [],
     }
+    if post_form is not None:
+        record["request_method"] = "POST"
+        record["request_form"] = post_form
     path = resolve(destination, root)
     if path.exists():
         raise FileExistsError(f"Immutable destination already exists: {destination}")
     try:
-        with requests.get(
+        request = requests.post if post_form is not None else requests.get
+        extra = {"data": post_form} if post_form is not None else {}
+        with request(
             url,
+            **extra,
             stream=True,
             timeout=(15, 45),
             headers={"User-Agent": "open-reanalysis/0.1 (research source acquisition)"},

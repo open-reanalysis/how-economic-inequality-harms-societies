@@ -1,0 +1,27 @@
+acquisition_id: acq-20261019t141854263526z-wvs-evs-joint-v5-codebook
+source_ids: &id001
+- wvs-evs-joint-v5-codebook
+method: download
+request: https://www.worldvaluessurvey.org/AJDownload.jsp
+requested_utc: '2026-10-19T14:18:54.263526+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t141854263526z-wvs-evs-joint-v5-codebook.yaml
+notes: >-
+  Payload validation failed: HTTP 200 returned one whitespace byte, not the
+  requested XLSX or PDF. Acquired records transport only; this response cannot
+  establish country dates, weighting or any observation. Original bytes retained.
+files:
+- path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-codebook-post.pdf
+  size_bytes: 1
+  sha256: 36a9e7f1c95b82ffb99743e0c5c4ce95d83c9a430aac59f84ef3cbfab6145068
+  storage: local
+  redistributable: false
+  source_ids: *id001
+request_method: POST
+request_form:
+  DOID: '11083'
+  ulthost: WVS
+resolved_url: https://www.worldvaluessurvey.org/AJDownload.jsp

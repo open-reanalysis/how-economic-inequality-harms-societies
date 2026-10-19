@@ -1,0 +1,11 @@
+source_id: wvs-evs-joint-v5-codebook
+provider: EVS/WVS
+series_code: '11083'
+title: Official EVS/WVS joint v5 codebook including weight and question definitions
+definition: Official EVS/WVS joint v5 codebook including weight and question definitions
+unit: metadata
+geography: countries
+licence: Public documentation; full redistribution permission unverified; local copy
+terms_url: https://www.worldvaluessurvey.org/WVSEVSjoint2017.jsp
+redistributable: false
+record_role: unit_catalogue
