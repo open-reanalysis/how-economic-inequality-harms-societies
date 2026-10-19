@@ -1,56 +1,38 @@
 # Milestone 1 implementation status
 
-Milestone 1 is **not complete or approved**. This integration PR delivers an executable foundation and historical calculations while keeping unfinished verification visible. No current-data association has been calculated and no release tag has been created or moved.
+Milestone 1 is **not complete or approved**. The four latest implementation defects are corrected, but the maintainer explicitly requires missing-component acquisition before the prospective index is locked. No current-data association has been calculated; no release tag has been created or moved.
 
-| Work | Implemented evidence | Remaining acceptance work |
+| Work | Evidence | Remaining acceptance work |
 |---|---|---|
-| Scaffold | Locked Pixi environment for Linux and Apple silicon; numerical core; source readers; file verification; offline tests; Make commands; immutable run records; Linux/macOS CI and fresh-clone replay pass; repository protections applied after explicit approval | The final PR head still requires its own passing CI; see docs/repository-setup.md for the observed settings |
-| Original access | Official international workbook obtained locally with the recorded planning hash; 23-country and 50-state registries; presence-flag recovery | Full-workbook redistribution permission remains unverified; no released U.S. state file obtained |
-| Source lineage | 47 named historical/current-variable rows and original-source records | Each row links to an actual source-route or candidate acquisition attempt; exact counterparts and analysis periods remain unverified. Candidate acquisition is not a comparability finding |
-| Historical international reproduction | 26 calculations from supplied values; three named average-income comparisons have explicit missing-input barriers | Independent index rebuilding, source/version conflicts and historical income recovery remain unresolved |
-| Historical state reconstruction | Census S4 and FBI 1999 sources obtained; one 49-state homicide reconstruction computed from a prospective specification; 16 other comparisons remain barriers | Remaining historical state outcomes and the independent state-index reconstruction are not yet recovered |
-| Current acquisitions | Nine small World Bank indicator responses preserved; current presence flags; Census access failure and 15 source-family verification attempts recorded | Other source families, latest-vintage checks, indicator definitions and populations, and temporal/unit correspondence still need work |
-| Reproduction lock | Draft machine-readable gate and current specifications; code rejects current computation before approval | The preliminary component assessment is available in docs/current-index-assessment.md; complete counterpart verification, prospective choices, refreshed eligibility and lock hashes before approval |
+| Executable foundation | Locked Linux/Apple-silicon environment; offline numerical, reader, integrity, gate and replay tests; immutable source and execution evidence | Final PR head must pass its own Linux/macOS public replay checks |
+| Original access | Restricted official international workbook, original sample-presence recovery; author report, appendix, responses and 2015 causal review acquired locally and recorded | Workbook/full-text redistribution remains unverified; released state file absent; book not used |
+| Historical international | 26 correlations computed from the supplied release; three average-income comparisons have explicit missing-input barriers | Independent index reconstruction, historical income, source/version conflicts and April 2004 ranking vintage remain barriers |
+| Historical states | Public Census S4 and FBI 1999 homicide sources; Census 2006 Table 105 recovered for 2002 infant mortality; prospective specification version 3 committed before the added calculation | Two comparisons computed; 15 comparisons and independent state index remain unproduced with barriers |
+| Current acquisition and lineage | Pinned World Bank, WHO, UNODC, GDIM, PISA 2025 and WVS responses; source-specific coverage readers; PISA provider warnings retained; 47 lineage rows with definitions, proposed classes or logged verification barriers | WVS weights/dates/denominator, diagnostic mental-health aggregates, state counterparts and other disclosed row-specific verification work |
+| Refreshed eligibility | Approved UN-member/2025 Atlas GNI/population/national-income rule implemented; 193 audited states, 28 eligible; survey-year evidence; no outcome inputs | Missing ranking/income records remain explicit limitations of the nominated release, not evidence that no data exist elsewhere |
+| Prospective lock | Draft review snapshot contains file hashes; current specification nominates acquired sources; current-association gate tested | Missing-component acquisition and remaining index/period choices must be resolved before an approvable lock and milestone review |
 
-## Maintainer decision
+## The four latest implementation corrections
 
-On 19 October 2026 the maintainer chose to defer locking the current index until component availability and the consequences of missing components have been documented. Do not introduce a minimum-component threshold or final missingness rule before that assessment. This decision preserves the current gate and does not prevent historical calculations or acquisition/coverage work.
+Code commit e4af283f closes the following defects, with regression tests:
 
-## Verification commands
+1. The current-data gate no longer depends only on a specification ID prefix. Declared provenance, current raw paths and current observation provenance all trigger the gate before correlation.
+2. Insufficient standardisation reference observations cannot silently remove a component through an undefined standard deviation. Availability and used flags follow usable scores.
+3. Constant/too-small comparisons preserve their observed pair membership, so n and missing_units remain consistent even when r cannot be produced.
+4. Replay compares the exact expected table set from Git, rejecting missing/extra tables and empty baselines as well as numerical differences.
 
-Run pixi install --locked, then make lint test verify-data check-data check-contracts and make all. The exact restricted international input is documented in data/local_data_required/original-access.md. Without it, the compatible committed result table is retained against its producer record; it is not recomputed. CI executes the public-checkout path on Linux and macOS. The comprehensive final release check remains a separate acceptance step.
+Earlier corrections in 5cd024cb protect credentials in acquisition failures, immutable evidence identities, stale observations/figures and environment-bound restricted retention. Those protections remain in force.
 
-## Next work toward milestone acceptance
+## Validation at committed computation revision e0a9dfd0
 
-1. Finish version-specific counterpart verification and obtain nominated statistical tables. Recorded route probes distinguish real attempts from an asserted absence of a current series, but do not establish comparability.
-2. Complete the component assessment beyond the preliminary candidate-presence table, including verified source definitions, periods and populations. The present acquisition covers only four of ten international dimensions and cannot justify silently adopting a reduced index.
-3. Recover historical state source tables as far as possible and report each real barrier. Resolve historical source/version differences without changing inputs to improve agreement.
-4. Resolve the updated period and sample rules, build refreshed eligibility where possible, then complete the prospective lock for review. The existing planning tags do not satisfy this gate.
+Local make lint test all verify-data check-contracts completed successfully: 66 offline tests, formatting/lint, full record validation and all replay steps. Validation covers 99 source records, 63 acquisition records, 46 catalogue targets and 47 lineage rows. The available restricted inputs were held locally; their identities were checked. Public CI must instead retain restricted outputs only against compatible producer evidence.
 
-The previous feasibility corrections are implemented in IMPLEMENTATION_PLAN.md. This status file does not relax its acceptance criteria or claim that an acquired candidate is analysis-ready.
+Seven canonical producer records were generated from this committed code: original sample coverage, current source coverage, refreshed eligibility, international reproduction, state reconstruction, historical summary and prospective component assessment. Their paths and input/output hashes are in outputs/runs/. Earlier exploratory records are preserved rather than overwritten.
 
-## Validation evidence and counterpart follow-up
+Previous Linux/macOS CI at 902ec181 passed with 42 tests; this is historical evidence, not evidence for the current head. An earlier local fresh-clone NumPy failure and a later interrupted supplementary environment installation were not counted as successes. Final-head CI evidence is recorded in the PR description after it completes.
 
-CI run [39181200683](https://github.com/open-reanalysis/how-economic-inequality-harms-societies/actions/runs/39181200683), at head a242512, passed on Linux and macOS, including public replay and the numerical committed-output comparison. Local lint, all 25 offline tests, 14 focused integrity/reader tests and full record checks passed. A fresh temporary clone then installed the locked environment, passed 25 tests and completed the public replay without copying restricted inputs. An earlier local fresh-clone attempt failed while loading NumPy late in replay; the cause was not established, and the subsequent fresh installation/replay passed. Do not report the failed attempt as a successful run.
+## Decisions and remaining gate
 
-The [index counterpart review](source_verification/index-counterparts.md) adds official metadata checks and joint period coverage. All four acquired international candidate dimensions have common coverage of 23 countries in 2021, but only 18 in 2023 and none in 2024 in the stored responses. This is not a period selection: six dimensions remain unacquired, continuity is unresolved, and the consequences for the index still require a prospective decision. No current index or association was calculated.
+The WHO terms and the explicit refreshed eligibility rule were accepted by the maintainer. The current-index lock was first deferred pending availability consequences, then explicitly held until missing components are acquired. The updated component assessment records the resulting evidence. A lower component minimum or reduced index has not been approved.
 
-## Implementation review corrections
-
-The follow-up review identified four implementation defects, corrected in code commit `5cd024cb`:
-
-- Acquisition errors now record only a safe error class and HTTP status. Credential-bearing request URLs are rejected, and signed redirect URLs are omitted from records, including failure paths.
-- Baseline acquisition records cannot be deleted or lose/change existing file identities. Baseline run records cannot be edited or deleted. Documented acquisition metadata corrections and newly added evidence remain permitted.
-- A result that becomes uncomputable or restricted loses its previous public observation CSV and figure. A blocked result cannot silently leave those earlier artifacts at the current output paths.
-- Both restricted replay paths require matching locked environments. If required restricted inputs are missing and no compatible producer exists, historical replay fails without overwriting the existing result table.
-
-All 42 offline tests pass, including regressions for these cases. The historical calculations were recomputed from the locally held inputs with committed code `5cd024cb`; all six result/coverage tables match the pre-review snapshots within the existing comparison contract. Earlier run records remain untouched. New producer records are:
-
-- `outputs/runs/20261019t055116656901z-5cd024cb.json`: original-sample-coverage.
-- `outputs/runs/20261019t055117009217z-5cd024cb.json`: current-coverage-flags.
-- `outputs/runs/20261019t055118777535z-5cd024cb.json`: reproduce:historical_international.
-- `outputs/runs/20261019t055120915435z-5cd024cb.json`: reproduce:historical_us_states.
-- `outputs/runs/20261019t055122708700z-5cd024cb.json`: historical-summary.
-- `outputs/runs/20261019t055123148934z-5cd024cb.json`: prospective-index-coverage.
-
-These implementation corrections change no analysis specification, current-index decision or milestone approval. Current associations remain gated.
+A concrete WMH national-aggregate request and WVS verification/acquisition instructions are in data/local_data_required/outcome-data.md. Researcher contact requires separate messaging authorisation. The project does not replace a missing diagnostic prevalence target with service use, lifetime prevalence or a student sample. The final lock and milestone review remain open.

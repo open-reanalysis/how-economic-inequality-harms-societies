@@ -1,8 +1,28 @@
 status: draft
 milestone_tag: null
-files: {}
+snapshot_date: '2026-10-19'
+snapshot_purpose: Review identities only; unresolved current settings are not approved
+files:
+  config/specs/updated_international.yaml: 94394fd760e7d3c57067ffb0763ebf770cb35c53d3e1dc369bcfc442b1bd10e8
+  config/specs/updated_us_states.yaml: 139672552c7009b296a50ab2d491cd3b551226e550d8f0663253a0a5271ca7a9
+  config/specs/historical_international.yaml: 6ff8411e949c369da25a4292313bf2a5754cb3d2b32ac66045cb1950afd9a189
+  config/specs/historical_us_states.yaml: e166ea83f20242b2a593cb58b8336fb8d9076efd82abddc907744a93c080d844
+  config/results_catalogue.csv: e7767725a7d200d01bb998146ba93f811c9ccc592e5f60655f06824d62c47d37
+  docs/source_lineage.csv: 44eb3e98f44c9f53e8f7e8ffc1191272d83521ac85fdd53cf541e72eeb6f13e1
+  docs/method_rationale.md: b4823b97b25e34676d8c29ce5a4b66eba569d11b82dc61b9dd5a3e21c8ae0084
+  config/eligibility.yaml: 94587e2661ab92cb6b689f292ef35b275a9d5bfe37f7bf54225480b3d9e0f2a5
+  config/units/un_members.csv: a82fd885405341fdfbc2e204f9e27065b89b7b71f59edd3a1536e4d0626e2df7
+  outputs/tables/refreshed_country_eligibility.csv: e5784f5796a2d6f6ec87280831fa732ee8f2a9eefec26cb54468e2fc1079b126
+  outputs/tables/refreshed_inequality_surveys.csv: 24f9e05a7ab17322a79533c903e494ebc18d3dbe8de9b3e1e7dfb57d90692219
+  outputs/tables/current_index_coverage.csv: 67c3560cade6c2d5910e45e0be05d288960497d1d3e114dbd4ae2b283f4e4079
+  outputs/tables/outcome_source_coverage.csv: 2b6a3e84e6b7cf247301a1c8c4d9c374ae75df3500ce3f7f44c67618437ea4e2
 barriers:
-  - Current counterpart verification and period alignment are incomplete.
-  - Current-index operational choices require evidence and a prospective decision.
-  - Refreshed eligibility table is not yet produced.
-  - Milestone 1 has not been reviewed, approved or tagged.
+- Maintainer requires missing index components to be acquired before locking; WMH
+  national diagnostic aggregate access remains unresolved.
+- WVS aggregate weighting, denominator and country survey dates are not verified.
+- Obesity and mobility are substitutes under the present historical-definition evidence.
+- Analysis periods, standardisation reference, missing-component rule and final variable
+  settings remain unapproved.
+- The state current-data acquisition and counterpart work remains partial; Census
+  key/manual acquisition route is documented.
+- Milestone 1 has not been reviewed, approved or tagged.

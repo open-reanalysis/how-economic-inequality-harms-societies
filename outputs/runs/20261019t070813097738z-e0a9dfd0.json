@@ -1,0 +1,78 @@
+{
+  "run_id": "20261019t070813097738z-e0a9dfd0",
+  "started_utc": "2026-10-19T07:08:13.097989+00:00",
+  "finished_utc": "2026-10-19T07:08:13.140293+00:00",
+  "commit": "e0a9dfd0c1e700edaf2c753056aec49759a11834",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [],
+  "steps": [
+    {
+      "target": "refreshed-eligibility",
+      "state": "computed",
+      "inputs": [
+        {
+          "path": "config/eligibility.yaml",
+          "sha256": "94587e2661ab92cb6b689f292ef35b275a9d5bfe37f7bf54225480b3d9e0f2a5",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/units/un_members.csv",
+          "sha256": "a82fd885405341fdfbc2e204f9e27065b89b7b71f59edd3a1536e4d0626e2df7",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/NY.GNP.PCAP.CD-all.json",
+          "sha256": "9b7fb5a277b9ebfc8fcccde35c33686ffc878a1ff55e0a280b2082fb215ecd03",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-ny.gnp.pcap.cd.yaml",
+          "sha256": "1a3654d59fd16f805184a0969cd58ca69799595287b9223ce07feb0078f0c3e6",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/SP.POP.TOTL-all.json",
+          "sha256": "cacb5039f5331e85bfed35be5c4594d3e43674fd57cbb0128f39f212e7f2644b",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-sp.pop.totl.yaml",
+          "sha256": "1b31cc354fb4d7bd506954bd59426fb3f77a516a58f9bee5b2f298c00bfe214a",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/pip-national-income.json",
+          "sha256": "ebf1df5ddb7f8f3d996bb1ca3186921c0095231f9d4a3d487178ef58bae18b4a",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-pip-national-income.yaml",
+          "sha256": "1f794b548fac7e23c5e2c729b2a1d390421772298605e0032b721ba046b60388",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/refreshed_country_eligibility.csv",
+          "sha256": "e5784f5796a2d6f6ec87280831fa732ee8f2a9eefec26cb54468e2fc1079b126"
+        },
+        {
+          "path": "outputs/tables/refreshed_inequality_surveys.csv",
+          "sha256": "24f9e05a7ab17322a79533c903e494ebc18d3dbe8de9b3e1e7dfb57d90692219"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}

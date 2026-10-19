@@ -35,7 +35,7 @@ The calculations below use the available release, not an independently verified 
 | intl-mean-income-child_wellbeing | — | — | 0 | Missing variables: mean_income |
 | us-inequality-trust | -0.7 | — | 0 | Missing variables: trust |
 | us-inequality-life_expectancy | -0.45 | — | 0 | Missing variables: life_expectancy |
-| us-inequality-infant_mortality | 0.43 | — | 0 | Missing variables: infant_mortality |
+| us-inequality-infant_mortality | 0.43 | 0.434666485 | 50 | Agrees at the declared published precision |
 | us-inequality-obesity | 0.47 | — | 0 | Missing variables: obesity |
 | us-inequality-mental_illness | 0.18 | — | 0 | Missing variables: mental_illness |
 | us-inequality-education | -0.47 | — | 0 | Missing variables: education |
