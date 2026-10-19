@@ -1,0 +1,247 @@
+"""One stored-input historical reproduction path and explicit result barriers."""
+
+import hashlib
+import json
+
+import pandas as pd
+
+from lib import compute
+from lib.paths import ROOT, resolve, sha256
+from lib.readers import READERS
+from lib.records import load_records, verify_files
+from lib.runs import can_retain, finish_run, start_run
+from lib.schemas import validate_observations, validate_result_keys
+from lib.spec import load_spec, require_current_gate
+from lib.transform import prepare
+
+
+def registries(root=ROOT) -> tuple[dict, dict]:
+    """Return canonical membership and source-name aliases for each dataset."""
+    members, aliases = {}, {}
+    for dataset, filename in [("international", "countries.csv"), ("us_states", "us_states.csv")]:
+        frame = pd.read_csv(root / "config/units" / filename, dtype=str).fillna("")
+        if frame.unit_id.duplicated().any():
+            raise ValueError("Duplicate registry ID")
+        members[dataset] = set(frame.unit_id)
+        aliases[dataset] = {}
+        for row in frame.to_dict("records"):
+            for name in [row["unit_id"], row["name"], *row["aliases"].split(";")]:
+                if not name:
+                    continue
+                previous = aliases[dataset].setdefault(name, row["unit_id"])
+                if previous != row["unit_id"]:
+                    raise ValueError(f"Ambiguous registry alias: {name}")
+    return members, aliases
+
+
+def reproduce(spec_path, root=ROOT) -> str:
+    """Execute one specification; current specifications require the milestone gate."""
+    spec = load_spec(spec_path, root)
+    if spec["spec_id"].startswith("updated_"):
+        require_current_gate(spec_path, root)
+        raise NotImplementedError("Current reproduction belongs to milestone 2")
+    sources, acquisitions = load_records(root)
+    missing = verify_files(acquisitions, root)
+    requested_inputs = {item["path"] for item in spec.get("inputs", [])}
+    expected_hashes = {
+        file["path"]: file["sha256"]
+        for acquisition in acquisitions
+        for file in acquisition["files"]
+        if file["path"] in requested_inputs
+    }
+    code_hash = hashlib.sha256(
+        b"".join(
+            p.relative_to(root).as_posix().encode() + p.read_bytes()
+            for p in sorted((root / "code").rglob("*.py"))
+        )
+    ).hexdigest()
+    output = root / f"outputs/tables/{spec['spec_id']}_results.csv"
+    producer = None
+    if requested_inputs.intersection(missing) and output.exists():
+        for path in sorted((root / "outputs/runs").glob("*.json"), reverse=True):
+            candidate = json.loads(path.read_text())
+            for step in candidate["steps"]:
+                if step["state"] != "computed":
+                    continue
+                for produced in step["outputs"]:
+                    if produced["path"] == str(output.relative_to(root)) and produced[
+                        "sha256"
+                    ] == sha256(output):
+                        matching_specs = [
+                            s for s in candidate["specs"] if s["spec_id"] == spec["spec_id"]
+                        ]
+                        if matching_specs:
+                            candidate_producer = {
+                                "run_id": candidate["run_id"],
+                                "spec_sha256": matching_specs[0]["sha256"],
+                                "input_hashes": {i["path"]: i["sha256"] for i in step["inputs"]},
+                                "code_sha256": candidate.get("code_sha256"),
+                                "output_sha256": produced["sha256"],
+                            }
+                            if can_retain(
+                                candidate_producer, sha256(spec_path), expected_hashes, code_hash
+                            ):
+                                producer = candidate_producer
+                                break
+            if producer:
+                break
+    if producer:
+        if can_retain(producer, sha256(spec_path), expected_hashes, code_hash):
+            if sha256(output) != producer["output_sha256"]:
+                raise ValueError("Retained output differs from its producer record")
+            run = start_run("replay", root)
+            run["specs"] = [
+                {
+                    "spec_id": spec["spec_id"],
+                    "version": spec["version"],
+                    "sha256": sha256(spec_path),
+                }
+            ]
+            run["missing_inputs"] = sorted(requested_inputs.intersection(missing))
+            run["steps"].append(
+                {
+                    "target": f"reproduce:{spec['spec_id']}",
+                    "state": "retained",
+                    "producer_run": producer["run_id"],
+                    "reason": "Restricted inputs absent; identical code, specification and recorded input identities",
+                    "inputs": [
+                        {"path": p, "sha256": h, "check": "record_matched", "restricted": True}
+                        for p, h in expected_hashes.items()
+                    ],
+                    "outputs": [{"path": str(output.relative_to(root)), "sha256": sha256(output)}],
+                }
+            )
+            return finish_run(run, root)
+    members, aliases = registries(root)
+    frames, inputs = [], []
+    for item in spec.get("inputs", []):
+        path = resolve(item["path"], root)
+        if not path.exists():
+            continue
+        matching = [f for a in acquisitions for f in a["files"] if f["path"] == item["path"]]
+        if len(matching) != 1:
+            raise ValueError("Every replay input needs exactly one acquisition file record")
+        source = dict(sources[item["source_id"]], input_path=item["path"])
+        frames.append(READERS[item["reader"]](path, source, aliases[spec["dataset"]]))
+        inputs.append(
+            {
+                "path": item["path"],
+                "sha256": sha256(path),
+                "check": "file_verified",
+                "restricted": not matching[0]["redistributable"],
+            }
+        )
+    catalogue = pd.read_csv(resolve(spec["catalogue"], root), dtype=str).fillna("")
+    catalogue = catalogue[catalogue.dataset.eq(spec["dataset"])]
+    sample = spec["samples"]["historical"]["units"]
+    if set(sample) - members[spec["dataset"]]:
+        raise ValueError("Specification contains unregistered units")
+    values = pd.DataFrame(index=pd.Index(sorted(sample), name="unit_id"))
+    if frames:
+        observations = validate_observations(pd.concat(frames, ignore_index=True), members)
+        values = prepare(observations, spec, sample)
+    if spec["index"].get("mode") == "rebuild" and spec["index"].get("status") != "UNRESOLVED":
+        definition = dict(
+            spec["index"],
+            reference_units=spec["samples"][spec["index"]["standardisation_reference"]]["units"],
+        )
+        values["index"], _ = compute.index(values, definition)
+    rows = []
+    run = start_run("replay", root)
+    run["missing_inputs"] = missing
+    digest = sha256(spec_path)
+    run["specs"] = [{"spec_id": spec["spec_id"], "version": spec["version"], "sha256": digest}]
+    component_outputs = []
+    if "index" in values and spec["index"].get("components"):
+        component_rows = []
+        index_targets = catalogue.loc[catalogue.indicator_or_index.eq("index"), "result_id"]
+        for result_id in index_targets:
+            for unit_id in sample:
+                for component in spec["index"]["components"]:
+                    available = component in values and pd.notna(values.loc[unit_id, component])
+                    component_rows.append(
+                        {
+                            "result_id": result_id,
+                            "variant_id": "historical",
+                            "spec_id": spec["spec_id"],
+                            "unit_id": unit_id,
+                            "component": component,
+                            "available": bool(available),
+                            "used": bool(available and pd.notna(values.loc[unit_id, "index"])),
+                        }
+                    )
+        component_path = root / f"outputs/tables/{spec['spec_id']}_components.csv"
+        component_path.parent.mkdir(parents=True, exist_ok=True)
+        pd.DataFrame(component_rows).to_csv(component_path, index=False)
+        component_outputs.append(component_path)
+    for target in catalogue.to_dict("records"):
+        result = compute.correlation(values, target["predictor"], target["indicator_or_index"])
+        reason = result["reason"]
+        state = "not_produced" if reason else "computed"
+        row = {
+            "result_id": target["result_id"],
+            "variant_id": "historical",
+            "spec_id": spec["spec_id"],
+            "spec_version": spec["version"],
+            "spec_sha256": digest,
+            "data_basis": "historical",
+            "data_provenance": spec["data_provenance"],
+            "access_label": spec["access_label"],
+            "sample": "historical",
+            "series_set": "original",
+            "comparability": "historical",
+            "method_deviations": spec["method_deviations"],
+            "r": result["r"],
+            "p": result["p"],
+            "n": result["n"],
+            "missing_units": ";".join(sorted(set(sample) - set(result["observations"].index)))
+            if not reason
+            else ";".join(sorted(sample)),
+            "components_used": "",
+            "components_missing": "",
+            "input_access": "RESTRICTED INPUT"
+            if any(i["restricted"] for i in inputs)
+            else "PUBLIC INPUT"
+            if inputs
+            else "UNAVAILABLE INPUT",
+            "state": state,
+            "reason": reason,
+        }
+        rows.append(row)
+        # Observation downloads are withheld unless each input explicitly permits redistribution.
+        if not reason and all(not i["restricted"] for i in inputs):
+            path = (
+                root
+                / f"outputs/observations/{spec['spec_id']}/historical/{target['result_id']}.csv"
+            )
+            path.parent.mkdir(parents=True, exist_ok=True)
+            result["observations"].to_csv(path, index=True, float_format="%.17g")
+    frame = pd.DataFrame(rows)
+    validate_result_keys(frame)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    frame.to_csv(output, index=False, float_format="%.17g")
+    run["code_sha256"] = code_hash
+    run["steps"].append(
+        {
+            "target": f"reproduce:{spec['spec_id']}",
+            "state": "computed",
+            "reason": "Result table includes explicit barriers for uncomputed comparisons",
+            "inputs": inputs,
+            "outputs": [
+                {"path": str(p.relative_to(root)), "sha256": sha256(p)}
+                for p in [output, *component_outputs]
+            ],
+        }
+    )
+    record = finish_run(run, root)
+    print(
+        json.dumps(
+            {
+                "spec": spec["spec_id"],
+                "computed": int(frame.state.eq("computed").sum()),
+                "not_produced": int(frame.state.eq("not_produced").sum()),
+                "run_record": record,
+            }
+        )
+    )
+    return record

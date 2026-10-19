@@ -8,3 +8,4 @@ code/03a_eligibility.py
 outputs/tables/refreshed_country_eligibility.csv
 tests/eligibility/**
 docs/source_verification/reproduction-lock.md
+config/reproduction_lock.yaml

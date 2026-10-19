@@ -13,3 +13,4 @@ docs/source_verification/historical-reproduction.md
 config/results_catalogue.csv
 outputs/observations/historical_*/**
 outputs/figures/historical_*/**
+code/historical_summary.py

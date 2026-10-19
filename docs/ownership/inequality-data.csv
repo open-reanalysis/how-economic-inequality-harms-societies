@@ -5,3 +5,6 @@ docs/ownership/inequality-data.csv
 data/01_raw_current/inequality/**
 code/02a_download_inequality.py
 docs/source_verification/inequality-data.md
+data/metadata/acquisitions/acq-20261018t235707509328z-census-acs1-2025-state-income.yaml
+data/metadata/sources/census-acs1-2025-state-income.yaml
+docs/source_verification/retrievals/acq-20261018t235707509328z-census-acs1-2025-state-income.yaml

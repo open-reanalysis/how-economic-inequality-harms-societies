@@ -48,3 +48,7 @@ These fill points the authors' published material leaves open. The historical re
 ## Milestone 1 integration status
 
 The maintainer authorised a new pull request containing the feasibility corrections and milestone-1 implementation. Work is on scaffold/milestone-one. Current associations remain forbidden until the reproduction lock is merged and milestone 1 is approved and tagged. No release tag is created or moved during implementation.
+
+## Prospective decision: current index
+
+On 19 October 2026 the maintainer chose to lock the current index only after component availability and the consequences of missing components are documented. No new minimum-component threshold or final missingness rule is approved by this decision. Continue acquisition and coverage assessment; keep current specifications and the reproduction lock in draft. See docs/milestone-1-status.md for completed work and remaining acceptance checks.

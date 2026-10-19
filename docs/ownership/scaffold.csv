@@ -39,3 +39,17 @@ docs/removals.md
 docs/worklist.md
 data/local_data_required/README.md
 RESEARCH-METHOD.md
+code/acquire_sources.py
+code/build_manifests.py
+code/clean_env.py
+code/export_environment.py
+code/lib/readers/long_csv.py
+code/storage_report.py
+code/verify_data.py
+config/acquisition_requests.yaml
+docs/milestone-1-status.md
+outputs/runs/20261018t235702975714z-ea56bea5.json
+outputs/runs/20261018t235907790658z-ea56bea5.json
+outputs/runs/20261018t235909625136z-ea56bea5.json
+ruff.toml
+tests/readers/test_sources.py

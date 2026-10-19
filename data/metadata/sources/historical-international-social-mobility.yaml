@@ -1,0 +1,14 @@
+source_id: historical-international-social-mobility
+provider: Blanden, Gregg and Machin / London School of Economics 2005
+series_code: social_mobility
+title: 'Historical international social_mobility: Blanden, Gregg and Machin / London
+  School of Economics 2005'
+definition: Association of father and son income in historical cohort studies.
+unit: income_correlation
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

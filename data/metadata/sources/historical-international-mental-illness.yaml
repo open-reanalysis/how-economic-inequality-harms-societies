@@ -1,0 +1,15 @@
+source_id: historical-international-mental-illness
+provider: WHO World Mental Health Surveys and national surveys
+series_code: mental_illness
+title: 'Historical international mental_illness: WHO World Mental Health Surveys and
+  national surveys'
+definition: Any mental illness in previous 12 months; definitions and survey vintages
+  need harmonisation.
+unit: percent
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

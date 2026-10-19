@@ -1,0 +1,32 @@
+purpose: Coverage and source verification only; no current associations
+requests:
+- source_id: worldbank-wdi-sp.dyn.le00.in
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SP.DYN.LE00.IN?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.DYN.LE00.IN.json
+- source_id: worldbank-wdi-sp.dyn.imrt.in
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SP.DYN.IMRT.IN?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.DYN.IMRT.IN.json
+- source_id: worldbank-wdi-sp.ado.tfrt
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SP.ADO.TFRT?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.ADO.TFRT.json
+- source_id: worldbank-wdi-vc.ihr.psrc.p5
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/VC.IHR.PSRC.P5?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/VC.IHR.PSRC.P5.json
+- source_id: worldbank-wdi-ny.gnp.pcap.cd
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/NY.GNP.PCAP.CD?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/NY.GNP.PCAP.CD.json
+- source_id: worldbank-wdi-sp.pop.totl
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SP.POP.TOTL?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SP.POP.TOTL.json
+- source_id: worldbank-wdi-si.dst.05th.20
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SI.DST.05TH.20?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SI.DST.05TH.20.json
+- source_id: worldbank-wdi-si.dst.frst.20
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SI.DST.FRST.20?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SI.DST.FRST.20.json
+- source_id: worldbank-wdi-sh.xpd.ghed.ch.zs
+  url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SH.XPD.GHED.CH.ZS?date=2020:2026&format=json&per_page=5000
+  path: data/01_raw_current/outcomes/2026-10-19/SH.XPD.GHED.CH.ZS.json
+- source_id: census-acs1-2025-state-income
+  url: https://api.census.gov/data/2025/acs/acs1?get=NAME,B19083_001E,B19013_001E&for=state:*
+  path: data/01_raw_current/inequality/2026-10-19/census-acs1-2025-state-income.json

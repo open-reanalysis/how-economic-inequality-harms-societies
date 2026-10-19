@@ -1,0 +1,15 @@
+source_id: worldbank-wdi-sp.dyn.imrt.in
+provider: World Bank WDI; indicator-specific original provider
+series_code: SP.DYN.IMRT.IN
+title: Infant mortality
+definition: Candidate current series; historical correspondence must be verified independently
+  before analysis.
+unit: per_1000_live_births
+geography: countries
+licence: World Bank dataset terms; WDI CC BY 4.0 subject to indicator-specific notices
+terms_url: https://datacatalog.worldbank.org/public-licenses#cc-by
+redistributable: true
+variable_id: infant_mortality
+notes: Acquisition window 2020–2026 is for coverage assessment, not a locked analysis-period
+  rule. Current observations must not be associated with inequality or average income
+  before approval.

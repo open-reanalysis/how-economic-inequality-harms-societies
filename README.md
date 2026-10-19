@@ -131,7 +131,17 @@ outputs/                       # tables, observations/, figures/, diagnostics/ a
 
 ## Running it
 
-Commands will work once the scripts exist.
+Milestone 1 is being implemented. The locked environment, offline tests, source verification, current coverage flags and historical reproduction commands below now run. The current specifications and reproduction lock remain drafts; current-data associations are disabled. See [milestone status](docs/milestone-1-status.md) for the actual completion criteria and remaining work.
+
+Install Pixi, then run from the repository root:
+
+```sh
+pixi install --locked
+make lint test verify-data check-data check-contracts
+make all
+```
+
+The historical international workbook is kept locally while redistribution permission remains unverified. Follow [the exact input instructions](data/local_data_required/original-access.md) to recompute it. Without it, compatible committed numerical results are retained with their producer provenance; they are not described as recomputed. The public World Bank responses and coverage flags are available from a clone. Site generation and the full later-stage analysis remain planned.
 
 ```text
 git clone https://github.com/open-reanalysis/how-economic-inequality-harms-societies.git
@@ -139,7 +149,7 @@ make verify-data      # checks every stored data file against its acquisition re
 make test             # computation, reader and end-to-end tests, offline
 make check-data       # schemas, keys, units, references and join row counts
 make storage-report   # data and repository size against the review thresholds
-make all              # offline, regenerates tables, figures, headline table and site
+make all              # offline; currently historical tables, coverage and discrepancy summary
 make clean-env        # fresh clone and locked environment, verify-data, then make all
 make acquire          # contacts live sources, used only to add new data
 ```

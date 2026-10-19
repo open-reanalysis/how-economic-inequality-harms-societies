@@ -1,0 +1,372 @@
+spec_id: historical_international
+version: 1
+dataset: international
+unit_type: country
+catalogue: config/results_catalogue.csv
+samples:
+  historical:
+    units:
+    - AUS
+    - AUT
+    - BEL
+    - CAN
+    - DNK
+    - FIN
+    - FRA
+    - DEU
+    - GRC
+    - IRL
+    - ISR
+    - ITA
+    - JPN
+    - NLD
+    - NZL
+    - NOR
+    - PRT
+    - SGP
+    - ESP
+    - SWE
+    - CHE
+    - GBR
+    - USA
+    rationale: released-membership
+variables:
+- variable_id: inequality
+  role: inequality
+  sources:
+  - equalitytrust-international-release
+  period: 2003-2006
+  unit: ratio
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: trust
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: 1999-2001
+  unit: percent
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: life_expectancy
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: '2004'
+  unit: years
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: infant_mortality
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: '2005'
+  unit: per_1000_live_births
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: obesity
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: '2002'
+  unit: percent
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: mental_illness
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: 2001-2003
+  unit: percent
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: education
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: '2003'
+  unit: score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: teenage_births
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: '1998'
+  unit: per_1000_women_15_19
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: homicides
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: 1999-2000
+  unit: per_million
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: imprisonment_log
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: historical_release
+  unit: log_per_100000
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: social_mobility
+  role: index_component
+  sources:
+  - equalitytrust-international-release
+  period: cohort_studies
+  unit: income_correlation
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: index
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: historical_release
+  unit: index_score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: child_overweight
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2001'
+  unit: percent
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: drugs_index
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2007'
+  unit: index_score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: calorie_intake
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: historical_release
+  unit: kcal_person_day
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: public_health_expenditure
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2003'
+  unit: percent_total_health_spending
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: child_wellbeing
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2007'
+  unit: index_score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: triple_education
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2003'
+  unit: score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: child_conflict
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2001'
+  unit: index_score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: foreign_aid
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2005'
+  unit: percent_gni
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: recycling
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2004'
+  unit: ranking
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: peace_index
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2007'
+  unit: index_score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: maternity_leave
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: historical_release
+  unit: weeks
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: advertising
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2002'
+  unit: percent_gdp
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: police
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: historical_release
+  unit: per_100000
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: social_expenditure
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2003'
+  unit: percent_gdp
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: womens_status
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: '2006'
+  unit: index_score
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+- variable_id: lone_parents
+  role: extra_measure
+  sources:
+  - equalitytrust-international-release
+  period: historical_release
+  unit: percent
+  conversion: none
+  transformation: none
+  direction: as_is
+  rationale: released-values
+  status: VERIFIED_FROM_RELEASED_DATA
+index:
+  mode: supplied
+  variable_id: index
+  status: VERIFIED_FROM_RELEASED_DATA
+  rationale: supplied-index
+  components:
+  - trust
+  - life_expectancy
+  - infant_mortality
+  - obesity
+  - mental_illness
+  - education
+  - teenage_births
+  - homicides
+  - imprisonment_log
+  - social_mobility
+statistics:
+- pearson_r
+- p_value
+- n
+inputs:
+- path: data/00_original_released/local/international-inequality.xls
+  source_id: equalitytrust-international-release
+  reader: equality_trust
+data_provenance: released
+access_label: DIRECT REPRODUCTION
+method_deviations: Released values used directly. Rebuilding the supplied index is
+  not claimed. Workbook/source-note discrepancies are documented in the rationale.
+reported_value_check:
+  tolerance_r: 0.005
+  rationale: numeric-benchmarks

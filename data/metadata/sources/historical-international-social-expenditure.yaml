@@ -1,0 +1,13 @@
+source_id: historical-international-social-expenditure
+provider: OECD Social Expenditure data
+series_code: social_expenditure
+title: 'Historical international social_expenditure: OECD Social Expenditure data'
+definition: Public social expenditure as a share of GDP; revised series noted in workbook.
+unit: percent_gdp
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

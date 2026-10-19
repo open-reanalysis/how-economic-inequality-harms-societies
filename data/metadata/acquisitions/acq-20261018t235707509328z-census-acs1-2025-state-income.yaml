@@ -1,0 +1,22 @@
+acquisition_id: acq-20261018t235707509328z-census-acs1-2025-state-income
+source_ids: &id001
+- census-acs1-2025-state-income
+method: api
+request: https://api.census.gov/data/2025/acs/acs1?get=NAME,B19083_001E,B19013_001E&for=state:*
+requested_utc: '2026-10-18T23:57:07.509328+00:00'
+response_status: 200
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261018t235707509328z-census-acs1-2025-state-income.yaml
+notes: HTTP 200 returned an HTML Missing Key page, not the requested ACS dataset.
+  Payload verified after acquisition. The response bytes remain preserved as retrieval
+  evidence; a maintainer-provided key or documented manual input is needed.
+files:
+- path: data/01_raw_current/inequality/2026-10-19/census-acs1-2025-state-income.json
+  size_bytes: 8531
+  sha256: c2f4687e09b80676de7f68dec92ebea395209616dbc6f895520e547c5f68c0f5
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.census.gov/data/missing_key.html

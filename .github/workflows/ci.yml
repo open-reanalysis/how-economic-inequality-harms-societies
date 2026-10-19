@@ -1,0 +1,44 @@
+name: Research checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - uses: prefix-dev/setup-pixi@ad1da6449d9e506fd127fd67ab2d054a769f6a94 # v0.11.2
+        with:
+          pixi-version: v0.82.0
+          locked: true
+      - name: Lint, offline tests and public integrity
+        run: make lint test verify-data check-data
+      - name: Validate metadata and immutable records
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: pixi run --locked python code/check_contracts.py --mode metadata --base "$BASE_SHA"
+      - name: Verify environment exports
+        run: pixi run --locked python code/export_environment.py --check
+      - name: Public checkout replay
+        run: make all
+      - name: Check deterministic committed result tables
+        run: git diff --exit-code -- outputs/tables/
+      - name: Save execution evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: run-records-${{ matrix.os }}
+          path: outputs/runs/

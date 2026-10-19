@@ -1,0 +1,14 @@
+source_id: historical-us-states-homicides
+provider: Original provider cited by Equality Trust; verification pending
+series_code: homicides
+title: Historical us_states homicides
+definition: Original series and vintage must be distinguished from the released workbook
+  representation.
+unit: per_million
+geography: us_states
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

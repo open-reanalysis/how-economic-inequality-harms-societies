@@ -1,0 +1,14 @@
+source_id: historical-international-inequality
+provider: UNDP Human Development Reports 2003–2006
+series_code: inequality
+title: 'Historical international inequality: UNDP Human Development Reports 2003–2006'
+definition: Mean reported S80/S20 income-quintile ratio, not a ratio of percentile
+  cutoffs.
+unit: ratio
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

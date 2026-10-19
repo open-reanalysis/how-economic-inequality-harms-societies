@@ -1,0 +1,173 @@
+spec_id: updated_us_states
+version: 1
+dataset: us_states
+unit_type: us_state
+catalogue: config/results_catalogue.csv
+samples:
+  historical:
+    units: &id001
+    - '01'
+    - '02'
+    - '04'
+    - '05'
+    - '06'
+    - 08
+    - 09
+    - '10'
+    - '12'
+    - '13'
+    - '15'
+    - '16'
+    - '17'
+    - '18'
+    - '19'
+    - '20'
+    - '21'
+    - '22'
+    - '23'
+    - '24'
+    - '25'
+    - '26'
+    - '27'
+    - '28'
+    - '29'
+    - '30'
+    - '31'
+    - '32'
+    - '33'
+    - '34'
+    - '35'
+    - '36'
+    - '37'
+    - '38'
+    - '39'
+    - '40'
+    - '41'
+    - '42'
+    - '44'
+    - '45'
+    - '46'
+    - '47'
+    - '48'
+    - '49'
+    - '50'
+    - '51'
+    - '53'
+    - '54'
+    - '55'
+    - '56'
+    rationale: state-membership
+  refreshed:
+    units: *id001
+    rationale: state-membership
+variables:
+- variable_id: inequality
+  role: inequality
+  sources:
+  - census-acs1-2025-state-income
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: mean_income
+  role: mean_income
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: trust
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: life_expectancy
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: infant_mortality
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: obesity
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: mental_illness
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: education
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: teenage_births
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: homicides
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: imprisonment
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: child_overweight
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: child_wellbeing
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: womens_status
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: juvenile_homicides
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: high_school_dropout
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: child_mental_illness
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: pugnacity
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+index:
+  mode: rebuild
+  status: UNRESOLVED
+  rationale: current-candidates
+statistics:
+- pearson_r
+- p_value
+- n
+status: draft
+current_results:
+- variant_id: updated
+  sample: historical
+  series_set: successors
+- variant_id: refreshed
+  sample: refreshed
+  series_set: successors
+- variant_id: with_substitutes
+  sample: historical
+  series_set: successors_and_substitutes

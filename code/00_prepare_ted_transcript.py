@@ -47,9 +47,7 @@ def main() -> None:
             duration = event["dDurationMs"]
             end = start + duration
             text = "".join(segment.get("utf8", "") for segment in event["segs"])
-            writer.writerow(
-                [cue_id, start, duration, end, timestamp(start), timestamp(end), text]
-            )
+            writer.writerow([cue_id, start, duration, end, timestamp(start), timestamp(end), text])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,20 @@
+acquisition_id: acq-20261018t235705452030z-worldbank-wdi-sp.pop.totl
+source_ids: &id001
+- worldbank-wdi-sp.pop.totl
+method: api
+request: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SP.POP.TOTL?date=2020:2026&format=json&per_page=5000
+requested_utc: '2026-10-18T23:57:05.452030+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261018t235705452030z-worldbank-wdi-sp.pop.totl.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/2026-10-19/SP.POP.TOTL.json
+  size_bytes: 27210
+  sha256: 8dce1b84b25d5a2ba45ab73c9056d65c2c1cb7f82fdd65b036da630c03d55e17
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SP.POP.TOTL?date=2020:2026&format=json&per_page=5000

@@ -1,0 +1,13 @@
+source_id: historical-international-teenage-births
+provider: UNICEF Innocenti 2001
+series_code: teenage_births
+title: 'Historical international teenage_births: UNICEF Innocenti 2001'
+definition: Births per 1,000 women aged 15–19; observations labelled 1998.
+unit: per_1000_women_15_19
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

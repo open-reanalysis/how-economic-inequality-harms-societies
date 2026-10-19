@@ -1,0 +1,15 @@
+source_id: historical-international-public-health-expenditure
+provider: WHO World Health Report 2003
+series_code: public_health_expenditure
+title: 'Historical international public_health_expenditure: WHO World Health Report
+  2003'
+definition: Public share of total health expenditure, not health expenditure as a
+  share of GDP.
+unit: percent_total_health_spending
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

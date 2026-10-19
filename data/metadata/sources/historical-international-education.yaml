@@ -1,0 +1,14 @@
+source_id: historical-international-education
+provider: OECD PISA
+series_code: education
+title: 'Historical international education: OECD PISA'
+definition: Average of mathematics and reading scores; year conflict in historical
+  documentation remains explicit.
+unit: score
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

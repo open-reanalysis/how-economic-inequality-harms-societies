@@ -1,0 +1,20 @@
+acquisition_id: acq-20261018t235704433482z-worldbank-wdi-vc.ihr.psrc.p5
+source_ids: &id001
+- worldbank-wdi-vc.ihr.psrc.p5
+method: api
+request: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/VC.IHR.PSRC.P5?date=2020:2026&format=json&per_page=5000
+requested_utc: '2026-10-18T23:57:04.433482+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261018t235704433482z-worldbank-wdi-vc.ihr.psrc.p5.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/2026-10-19/VC.IHR.PSRC.P5.json
+  size_bytes: 31620
+  sha256: 1dc9ae5612fa4dabd7cc24c311e7a49ec21abac741dd499ba7bddd88573d3702
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/VC.IHR.PSRC.P5?date=2020:2026&format=json&per_page=5000

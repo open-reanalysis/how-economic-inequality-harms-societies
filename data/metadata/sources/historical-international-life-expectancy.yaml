@@ -1,0 +1,13 @@
+source_id: historical-international-life-expectancy
+provider: UNDP Human Development Report 2004
+series_code: life_expectancy
+title: 'Historical international life_expectancy: UNDP Human Development Report 2004'
+definition: Life expectancy at birth, both sexes.
+unit: years
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

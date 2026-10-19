@@ -1,0 +1,131 @@
+source_id: equalitytrust-international-release
+provider: Equality Trust; Richard Wilkinson and Kate Pickett
+series_code: international-inequality.xls
+title: Released international inequality data
+definition: Workbook with 23 countries, 28 variables, Sources and Erratum sheets;
+  release version behind a specific book figure is assessed separately.
+unit: variable-specific
+geography: countries
+licence: Redistribution permission not established; stored locally, not relicensed
+terms_url: https://equalitytrust.org.uk/news/blog/spirit-level-data-antidote-alternative-facts-0/
+redistributable: false
+reader_layout:
+  sheet: International inequality data
+  unit_column: Country
+  dataset: international
+  unit_type: country
+  variables:
+  - variable_id: inequality
+    column: Income inequality
+    period: 2003-2006
+    unit: ratio
+  - variable_id: trust
+    column: Trust
+    period: 1999-2001
+    unit: percent
+  - variable_id: life_expectancy
+    column: Life expectancy
+    period: '2004'
+    unit: years
+  - variable_id: infant_mortality
+    column: Infant mortality
+    period: '2005'
+    unit: per_1000_live_births
+  - variable_id: obesity
+    column: Obesity
+    period: '2002'
+    unit: percent
+  - variable_id: mental_illness
+    column: Mental illness
+    period: 2001-2003
+    unit: percent
+  - variable_id: education
+    column: Maths and literacy scores
+    period: '2003'
+    unit: score
+  - variable_id: teenage_births
+    column: Teenage births
+    period: '1998'
+    unit: per_1000_women_15_19
+  - variable_id: homicides
+    column: Homicides
+    period: 1999-2000
+    unit: per_million
+  - variable_id: imprisonment_log
+    column: Imprisonment (log)
+    period: historical_release
+    unit: log_per_100000
+  - variable_id: social_mobility
+    column: Social mobility
+    period: cohort_studies
+    unit: income_correlation
+  - variable_id: index
+    column: Index of health & social_problems
+    period: historical_release
+    unit: index_score
+  - variable_id: child_overweight
+    column: Child overweight
+    period: '2001'
+    unit: percent
+  - variable_id: drugs_index
+    column: Drugs index
+    period: '2007'
+    unit: index_score
+  - variable_id: calorie_intake
+    column: Calorie intake
+    period: historical_release
+    unit: kcal_person_day
+  - variable_id: public_health_expenditure
+    column: Public health expenditure
+    period: '2003'
+    unit: percent_total_health_spending
+  - variable_id: child_wellbeing
+    column: Child wellbeing
+    period: '2007'
+    unit: index_score
+  - variable_id: triple_education
+    column: Maths/education/science score
+    period: '2003'
+    unit: score
+  - variable_id: child_conflict
+    column: Child conflict
+    period: '2001'
+    unit: index_score
+  - variable_id: foreign_aid
+    column: Foreign aid
+    period: '2005'
+    unit: percent_gni
+  - variable_id: recycling
+    column: Recycling
+    period: '2004'
+    unit: ranking
+  - variable_id: peace_index
+    column: Peace index
+    period: '2007'
+    unit: index_score
+  - variable_id: maternity_leave
+    column: Maternity leave
+    period: historical_release
+    unit: weeks
+  - variable_id: advertising
+    column: Advertising
+    period: '2002'
+    unit: percent_gdp
+  - variable_id: police
+    column: Police
+    period: historical_release
+    unit: per_100000
+  - variable_id: social_expenditure
+    column: Social expenditure
+    period: '2003'
+    unit: percent_gdp
+  - variable_id: womens_status
+    column: Women's_status
+    period: '2006'
+    unit: index_score
+  - variable_id: lone_parents
+    column: Lone parents
+    period: historical_release
+    unit: percent
+notes: Official linked download matches the hash recorded in the planning documents.
+  Observation downloads are withheld while redistribution terms remain unverified.

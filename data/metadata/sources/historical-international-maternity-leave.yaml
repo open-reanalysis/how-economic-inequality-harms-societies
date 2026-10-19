@@ -1,0 +1,14 @@
+source_id: historical-international-maternity-leave
+provider: Columbia University child policy clearinghouse
+series_code: maternity_leave
+title: 'Historical international maternity_leave: Columbia University child policy
+  clearinghouse'
+definition: Weeks of paid maternity leave; policy design and vintage require verification.
+unit: weeks
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.
