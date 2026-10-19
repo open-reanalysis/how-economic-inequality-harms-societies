@@ -2,6 +2,7 @@
 
 import os
 from datetime import UTC, datetime
+from urllib.parse import parse_qsl, urlsplit
 
 import requests
 import yaml
@@ -17,6 +18,24 @@ def acquire(
     """Save one response of at most 50 MiB and record its exact request and outcome."""
     if os.environ.get("OFFLINE") == "1":
         raise RuntimeError("Network acquisition is disabled in offline mode")
+    parsed = urlsplit(url)
+    secret_fields = {
+        "key",
+        "api_key",
+        "apikey",
+        "token",
+        "access_token",
+        "password",
+        "authorization",
+    }
+    if (
+        parsed.username
+        or parsed.password
+        or any(name.lower() in secret_fields for name, _ in parse_qsl(parsed.query))
+    ):
+        raise ValueError(
+            "Credential-bearing URLs must not enter public acquisition records; use the documented manual input route"
+        )
     now = datetime.now(UTC)
     acquisition_id = "acq-" + now.strftime("%Y%m%dt%H%M%S%fz") + "-" + source_ids[0]
     record = {
@@ -44,7 +63,14 @@ def acquire(
             headers={"User-Agent": "open-reanalysis/0.1 (research source acquisition)"},
         ) as response:
             record["response_status"] = response.status_code
-            record["resolved_url"] = response.url
+            final = urlsplit(response.url)
+            if not any(
+                name.lower() in secret_fields
+                or "signature" in name.lower()
+                or "credential" in name.lower()
+                for name, _ in parse_qsl(final.query)
+            ):
+                record["resolved_url"] = response.url
             response.raise_for_status()
             content = bytearray()
             for chunk in response.iter_content(65536):

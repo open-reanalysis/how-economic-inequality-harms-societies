@@ -48,13 +48,8 @@ code/storage_report.py
 code/verify_data.py
 config/acquisition_requests.yaml
 docs/milestone-1-status.md
-outputs/runs/20261018t235702975714z-ea56bea5.json
-outputs/runs/20261018t235907790658z-ea56bea5.json
-outputs/runs/20261018t235909625136z-ea56bea5.json
 ruff.toml
 tests/readers/test_sources.py
-code/lib/readers/census_historical.py
-code/lib/readers/fbi_historical.py
 data/metadata/sources/fbi-crime-table5-1999.yaml
 data/metadata/sources/verification-bjs.yaml
 data/metadata/sources/verification-brfss.yaml
@@ -72,8 +67,4 @@ data/metadata/sources/verification-who-obesity.yaml
 data/metadata/sources/verification-wonder.yaml
 data/metadata/sources/verification-wvs.yaml
 docs/source_verification/current-counterparts.md
-outputs/runs/20261019t000846019928z-b342036b.json
-outputs/runs/20261019t000847973599z-b342036b.json
-outputs/runs/20261019t001417704256z-b342036b.json
-code/assess_index_coverage.py
 code/check_replay.py

@@ -14,3 +14,10 @@ config/results_catalogue.csv
 outputs/observations/historical_*/**
 outputs/figures/historical_*/**
 code/historical_summary.py
+code/lib/readers/census_historical.py
+code/lib/readers/fbi_historical.py
+outputs/runs/20261019t002431666316z-05ec0fd0.json
+outputs/runs/20261018t235907790658z-ea56bea5.json
+outputs/runs/20261019t002408076433z-05ec0fd0.json
+outputs/runs/20261019t002405609251z-05ec0fd0.json
+outputs/runs/20261018t235909625136z-ea56bea5.json

@@ -8,9 +8,9 @@ Milestone 1 is **not complete or approved**. This integration PR delivers an exe
 | Original access | Official international workbook obtained locally with the recorded planning hash; 23-country and 50-state registries; presence-flag recovery | Full-workbook redistribution permission remains unverified; no released U.S. state file obtained |
 | Source lineage | 47 named historical/current-variable rows and original-source records | Each row links to an actual source-route or candidate acquisition attempt; exact counterparts and analysis periods remain unverified. Candidate acquisition is not a comparability finding |
 | Historical international reproduction | 26 calculations from supplied values; three named average-income comparisons have explicit missing-input barriers | Independent index rebuilding, source/version conflicts and historical income recovery remain unresolved |
-| Historical state reconstruction | Census S4 and FBI 1999 sources obtained; a 49-state homicide reconstruction specified prospectively, with the other comparisons retained as barriers | Remaining historical state outcomes and the independent state-index reconstruction are not yet recovered |
+| Historical state reconstruction | Census S4 and FBI 1999 sources obtained; one 49-state homicide reconstruction computed from a prospective specification; 16 other comparisons remain barriers | Remaining historical state outcomes and the independent state-index reconstruction are not yet recovered |
 | Current acquisitions | Nine small World Bank indicator responses preserved; current presence flags; Census access failure and 15 source-family verification attempts recorded | Other source families, latest-vintage checks, indicator definitions and populations, and temporal/unit correspondence still need work |
-| Reproduction lock | Draft machine-readable gate and current specifications; code rejects current computation before approval | Complete current-component availability and consequences; resolve prospective choices, refreshed eligibility and lock hashes; maintainer review |
+| Reproduction lock | Draft machine-readable gate and current specifications; code rejects current computation before approval | The preliminary component assessment is available in docs/current-index-assessment.md; complete counterpart verification, prospective choices, refreshed eligibility and lock hashes before approval |
 
 ## Maintainer decision
 
@@ -22,8 +22,8 @@ Run pixi install --locked, then make lint test verify-data check-data check-cont
 
 ## Next work toward milestone acceptance
 
-1. Complete source-family verification and acquisition attempts for the remaining lineage rows, distinguishing a failed attempt from work not started and from an absent current series.
-2. Produce the component-by-country availability assessment, including which index components and populations would change. Record the consequences before proposing an index rule.
+1. Finish version-specific counterpart verification and obtain nominated statistical tables. Recorded route probes distinguish real attempts from an asserted absence of a current series, but do not establish comparability.
+2. Complete the component assessment beyond the preliminary candidate-presence table, including verified source definitions, periods and populations. The present acquisition covers only four of ten international dimensions and cannot justify silently adopting a reduced index.
 3. Recover historical state source tables as far as possible and report each real barrier. Resolve historical source/version differences without changing inputs to improve agreement.
 4. Resolve the updated period and sample rules, build refreshed eligibility where possible, then complete the prospective lock for review. The existing planning tags do not satisfy this gate.
 

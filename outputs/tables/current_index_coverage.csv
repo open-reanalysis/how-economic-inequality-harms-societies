@@ -1,0 +1,681 @@
+dataset,unit_id,component,candidate_source,candidate_has_observation,candidate_periods,comparability_class,assessment
+international,AUS,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUT,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,BEL,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CAN,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DNK,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FIN,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FRA,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DEU,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GRC,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,IRL,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ISR,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ITA,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,JPN,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NLD,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NZL,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NOR,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,PRT,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SGP,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ESP,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SWE,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CHE,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GBR,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,USA,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUS,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUT,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,BEL,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CAN,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DNK,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FIN,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FRA,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DEU,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GRC,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,IRL,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ISR,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ITA,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,JPN,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NLD,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NZL,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NOR,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,PRT,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SGP,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ESP,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SWE,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CHE,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GBR,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,USA,life_expectancy,worldbank-wdi-sp.dyn.le00.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUS,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUT,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,BEL,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CAN,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DNK,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FIN,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FRA,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DEU,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GRC,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,IRL,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ISR,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ITA,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,JPN,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NLD,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NZL,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NOR,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,PRT,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SGP,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ESP,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SWE,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CHE,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GBR,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,USA,infant_mortality,worldbank-wdi-sp.dyn.imrt.in,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUS,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUT,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,BEL,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CAN,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DNK,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FIN,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FRA,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DEU,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GRC,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,IRL,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ISR,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ITA,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,JPN,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NLD,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NZL,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NOR,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,PRT,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SGP,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ESP,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SWE,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CHE,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GBR,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,USA,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUS,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUT,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,BEL,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CAN,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DNK,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FIN,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FRA,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DEU,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GRC,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,IRL,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ISR,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ITA,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,JPN,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NLD,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NZL,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NOR,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,PRT,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SGP,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ESP,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SWE,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CHE,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GBR,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,USA,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUS,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUT,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,BEL,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CAN,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DNK,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FIN,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FRA,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DEU,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GRC,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,IRL,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ISR,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ITA,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,JPN,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NLD,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NZL,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NOR,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,PRT,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SGP,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ESP,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SWE,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CHE,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GBR,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,USA,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUS,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUT,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,BEL,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CAN,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DNK,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FIN,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FRA,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DEU,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GRC,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,IRL,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ISR,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ITA,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,JPN,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NLD,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NZL,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NOR,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,PRT,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SGP,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ESP,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SWE,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CHE,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GBR,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,USA,teenage_births,worldbank-wdi-sp.ado.tfrt,True,2020;2021;2022;2023;2024,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUS,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUT,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,BEL,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2021,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CAN,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DNK,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FIN,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,FRA,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,DEU,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GRC,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,IRL,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ISR,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ITA,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,JPN,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NLD,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NZL,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,NOR,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,PRT,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SGP,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,ESP,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,SWE,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,CHE,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,GBR,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,USA,homicides,worldbank-wdi-vc.ihr.psrc.p5,True,2020;2021;2022;2023,NOT_YET_VERIFIED,Acquired candidate; definition/period still unverified
+international,AUS,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUT,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,BEL,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CAN,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DNK,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FIN,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FRA,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DEU,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GRC,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,IRL,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ISR,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ITA,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,JPN,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NLD,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NZL,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NOR,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,PRT,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SGP,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ESP,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SWE,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CHE,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GBR,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,USA,imprisonment_log,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUS,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,AUT,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,BEL,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CAN,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DNK,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FIN,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,FRA,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,DEU,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GRC,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,IRL,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ISR,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ITA,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,JPN,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NLD,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NZL,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,NOR,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,PRT,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SGP,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,ESP,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,SWE,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,CHE,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,GBR,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+international,USA,social_mobility,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,trust,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,life_expectancy,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,infant_mortality,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,obesity,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,mental_illness,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,education,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,teenage_births,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,homicides,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,01,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,02,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,04,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,05,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,06,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,08,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,09,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,10,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,12,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,13,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,15,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,16,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,17,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,18,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,19,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,20,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,21,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,22,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,23,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,24,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,25,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,26,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,27,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,28,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,29,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,30,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,31,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,32,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,33,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,34,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,35,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,36,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,37,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,38,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,39,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,40,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,41,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,42,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,44,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,45,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,46,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,47,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,48,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,49,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,50,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,51,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,53,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,54,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,55,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series
+us_states,56,imprisonment,,,,NOT_YET_VERIFIED,No parsed current candidate available in this run; not evidence of absent series

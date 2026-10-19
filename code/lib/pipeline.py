@@ -248,6 +248,25 @@ def reproduce(spec_path, root=ROOT) -> str:
                 target["predictor"],
                 target["indicator_or_index"],
                 figure_path,
+                x_unit=next(
+                    v["unit"] for v in spec["variables"] if v["variable_id"] == target["predictor"]
+                ),
+                y_unit=next(
+                    (
+                        v["unit"]
+                        for v in spec["variables"]
+                        if v["variable_id"] == target["indicator_or_index"]
+                    ),
+                    "index_score",
+                ),
+                period=next(
+                    (
+                        str(v["period"])
+                        for v in spec["variables"]
+                        if v["variable_id"] == target["indicator_or_index"]
+                    ),
+                    "component-specific",
+                ),
             )
             component_outputs.append(figure_path)
     frame = pd.DataFrame(rows)

@@ -20,6 +20,19 @@ def test_download_refuses_network_offline(tmp_path):
         )
 
 
+def test_credentials_are_rejected_before_any_request_or_record(tmp_path, monkeypatch):
+    monkeypatch.setenv("OFFLINE", "0")
+    with pytest.raises(ValueError, match="Credential-bearing"):
+        acquire(
+            ["fixture"],
+            "https://example.invalid/?key=synthetic-fixture",
+            "raw.csv",
+            redistributable=True,
+            root=tmp_path,
+        )
+    assert not list(tmp_path.iterdir())
+
+
 def test_restricted_input_may_be_missing_but_public_input_must_exist(tmp_path):
     file = {"path": "raw.csv", "storage": "local", "size_bytes": 0, "sha256": "0" * 64}
     assert verify_files([{"files": [file]}], tmp_path) == ["raw.csv"]
