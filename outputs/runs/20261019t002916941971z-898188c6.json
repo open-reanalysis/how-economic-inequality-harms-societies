@@ -1,0 +1,56 @@
+{
+  "run_id": "20261019t002916941971z-898188c6",
+  "started_utc": "2026-10-19T00:29:16.942135+00:00",
+  "finished_utc": "2026-10-19T00:29:16.982686+00:00",
+  "commit": "898188c6d0005daceee7ffd8c89f8769953a1d38",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [],
+  "steps": [
+    {
+      "target": "historical-summary",
+      "state": "computed",
+      "inputs": [
+        {
+          "path": "config/results_catalogue.csv",
+          "sha256": "e7767725a7d200d01bb998146ba93f811c9ccc592e5f60655f06824d62c47d37",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "outputs/tables/historical_international_results.csv",
+          "sha256": "24216f672dfdfba8cb170776f86074ed757c1df3442f1e30bad7277fd8d48efd",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/specs/historical_international.yaml",
+          "sha256": "6ff8411e949c369da25a4292313bf2a5754cb3d2b32ac66045cb1950afd9a189",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "outputs/tables/historical_us_states_results.csv",
+          "sha256": "814206d4a2529261ef0a852a9b9441040db0f8703105c8e15cd9901d0f6195c8",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/specs/historical_us_states.yaml",
+          "sha256": "feb27d94e7f66a15b382964f9c5d225223af355dd30b27f7fafb735dd007eeaa",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/diagnostics/historical_reproduction_discrepancies.md",
+          "sha256": "e5e880f7080a8d1386cab0b5fbe0973dc5043f7b1c01bf1b5c6714baeb95f1f0"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}
