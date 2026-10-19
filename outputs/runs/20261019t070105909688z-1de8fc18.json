@@ -1,0 +1,54 @@
+{
+  "run_id": "20261019t070105909688z-1de8fc18",
+  "started_utc": "2026-10-19T07:01:05.909954+00:00",
+  "finished_utc": "2026-10-19T07:01:05.926677+00:00",
+  "commit": "1de8fc18406086a517740d051bacb38911c1f0cd",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [],
+  "steps": [
+    {
+      "target": "prospective-index-coverage",
+      "state": "computed",
+      "inputs": [
+        {
+          "path": "docs/source_lineage.csv",
+          "sha256": "44eb3e98f44c9f53e8f7e8ffc1191272d83521ac85fdd53cf541e72eeb6f13e1",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "outputs/tables/outcome_source_coverage.csv",
+          "sha256": "2b6a3e84e6b7cf247301a1c8c4d9c374ae75df3500ce3f7f44c67618437ea4e2",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/specs/historical_international.yaml",
+          "sha256": "6ff8411e949c369da25a4292313bf2a5754cb3d2b32ac66045cb1950afd9a189",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/specs/historical_us_states.yaml",
+          "sha256": "e166ea83f20242b2a593cb58b8336fb8d9076efd82abddc907744a93c080d844",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/current_index_coverage.csv",
+          "sha256": "67c3560cade6c2d5910e45e0be05d288960497d1d3e114dbd4ae2b283f4e4079"
+        },
+        {
+          "path": "docs/current-index-assessment.md",
+          "sha256": "f7b83dbe438e02fd7bfd101c1f272ff36a3abc5cb1501dc9e626a1b9aa0279b9"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}

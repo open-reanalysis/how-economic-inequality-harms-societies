@@ -4,12 +4,12 @@ This is a prospective availability assessment, not an index result or a reproduc
 
 | Dataset | Historical component | Units with a nonmissing candidate in at least one acquired year | Master sample |
 |---|---|---:|---:|
-| international | trust | 0 | 23 |
+| international | trust | 19 | 23 |
 | international | life_expectancy | 23 | 23 |
 | international | infant_mortality | 23 | 23 |
 | international | obesity | 23 | 23 |
 | international | mental_illness | 0 | 23 |
-| international | education | 0 | 23 |
+| international | education | 23 | 23 |
 | international | teenage_births | 23 | 23 |
 | international | homicides | 23 | 23 |
 | international | imprisonment_log | 22 | 23 |
@@ -26,11 +26,11 @@ This is a prospective availability assessment, not an index result or a reproduc
 
 ## Consequences before locking
 
-The table separates source correspondence from availability. The lineage nominates conceptual successors for life expectancy, infant mortality, teenage births, homicide and imprisonment. WHO adult obesity is held as a substitute pending resolution of historical age/sex conventions; GDIM income elasticity is a substitute for the historical intergenerational income correlation. Neither substitute enters the primary series set merely because it downloaded successfully.
+The table separates source correspondence from availability. The lineage nominates conceptual successors for life expectancy, infant mortality, teenage births, homicide, imprisonment and education. WHO adult obesity is held as a substitute pending resolution of historical age/sex conventions; GDIM income elasticity is a substitute for the historical intergenerational income correlation. Neither substitute enters the primary series set merely because it downloaded successfully.
 
-Trust, diagnostic mental-health prevalence and education still have access or aggregate-table verification barriers. No acquired primary candidate covers all ten historical dimensions. The international primary index cannot currently reproduce the intended component set; its complete-case sample across all ten is empty. A substitute variant would still lack three dimensions, and mobility refers to cohorts rather than a recent annual period.
+The public WVS trust aggregate has been acquired, but weighting, denominator and country survey dates still require verification. Diagnostic mental-health prevalence still has an access/definition barrier. PISA 2025 mathematics/reading aggregates and Annex A2 population tables are held; sampling adjudication must accompany any selected observation. No acquired primary candidate covers all ten historical dimensions. The international primary index cannot currently reproduce the intended component set; its complete-case sample across all ten is empty. A substitute variant would still lack a verified trust measure and diagnostic mental-health prevalence, and mobility refers to cohorts rather than a recent annual period.
 
-Averaging only available dimensions changes the construct and gives countries different effective weights. Restricting to complete cases loses every country while unresolved components remain absent. A lower minimum, new weights or a wider date window would be scientific choices, not consequences of a download. No current index is calculated. The concrete proposed disposition is to keep individual eligible measures and mark current index variants not_produced until a prospective rule is approved.
+Averaging only available dimensions changes the construct and gives countries different effective weights. Restricting to complete cases loses every country while unresolved components remain absent. A lower minimum, new weights or a wider date window would be scientific choices, not consequences of a download. No current index is calculated. On 19 October the maintainer rejected closing this work as not_produced and directed acquisition of missing components before locking. The lock therefore remains blocked on that acquisition and the resulting prospective method decisions.
 
 The U.S. state index has its own source targets. National international-series availability cannot fill state cells. The Census income request returned Missing Key HTML and current state outcome tables have not been parsed. State BRFSS mentally unhealthy days are distinct from diagnostic prevalence, corrected historical obesity differs from raw self-report, and national GSS trust cannot replace state identifiers.
 

@@ -70,3 +70,53 @@ def test_mobility_cohort_is_not_publication_year(tmp_path):
         dict(unit_id="AAA", period="cohorts_1980s_1990s", available=True),
         dict(unit_id="BBB", period="cohorts_1980s_1990s", available=False),
     ]
+
+
+def test_pisa_requires_both_domains_and_preserves_sampling_marker(tmp_path):
+    path = tmp_path / "pisa.xlsx"
+    with pd.ExcelWriter(path) as writer:
+        pd.DataFrame([["Country", "Mean"], ["A*", 400], ["B", "m"]]).to_excel(
+            writer, sheet_name="reading", header=False, index=False
+        )
+        pd.DataFrame([["Country", "Mean"], ["A*", 500], ["B", 400]]).to_excel(
+            writer, sheet_name="math", header=False, index=False
+        )
+    source = dict(
+        coverage_format="pisa_summary",
+        reference_period="2025",
+        unit_map={"A": "AAA", "B": "BBB"},
+        reader_layout=dict(
+            sheets=["reading", "math"],
+            header_row=0,
+            value_column=1,
+            unit_column=0,
+            expected_header="Mean",
+            first_row=1,
+            last_row=2,
+        ),
+    )
+    assert coverage(source, path) == [
+        dict(unit_id="AAA", period="2025", available=True, quality_flag="provider_asterisk"),
+        dict(unit_id="BBB", period="2025", available=False, quality_flag="no_asterisk"),
+    ]
+
+
+def test_wvs_pooled_total_is_not_a_country_and_britain_is_not_uk(tmp_path):
+    path = tmp_path / "trust.html"
+    path.write_text(
+        """<table><tr><td>TOTAL</td><td>ISO 3166-1 numeric country code</td></tr><tr><td>A</td><td>Great Britain</td></tr><tr><td>Most people can be trusted</td><td>20%</td><td>10%</td><td>30%</td></tr></table>"""
+    )
+    source = dict(
+        coverage_format="wvs_country_html", reference_period="wave7", unit_map={"A": "AAA"}
+    )
+    assert coverage(source, path) == [
+        dict(
+            unit_id="AAA",
+            period="wave7",
+            available=True,
+            quality_flag="weight_and_survey_year_unverified",
+        )
+    ]
+    path.write_text(path.read_text().replace("Most people can be trusted", "Trust the police"))
+    with pytest.raises(ValueError, match="question changed"):
+        coverage(source, path)

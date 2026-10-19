@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t065500849902z-verification-pisa-2025-sampling
+source_ids:
+- verification-pisa-2025-sampling
+method: download
+request: https://www.oecd.org/en/publications/pisa-2025-results-volume-i_73451bc5-en/full-report/the-pisa-target-population-and-the-pisa-samples_fb064025.html
+requested_utc: '2026-10-19T06:55:00.849902+00:00'
+response_status: 403
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t065500849902z-verification-pisa-2025-sampling.yaml
+notes: 'HTTPError: acquisition failed (HTTP 403)'
+files: []
+resolved_url: https://www.oecd.org/en/publications/pisa-2025-results-volume-i_73451bc5-en/full-report/the-pisa-target-population-and-the-pisa-samples_fb064025.html

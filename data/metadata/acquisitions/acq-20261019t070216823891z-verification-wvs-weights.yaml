@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t070216823891z-verification-wvs-weights
+source_ids: &id001
+- verification-wvs-weights
+method: download
+request: https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=WEIGHT
+requested_utc: '2026-10-19T07:02:16.823891+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t070216823891z-verification-wvs-weights.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/wvs-weights.html
+  size_bytes: 30954
+  sha256: d97249a7097d9948a093be694fb23955f71a2c95152ab1386cd374e9e84bb716
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=WEIGHT

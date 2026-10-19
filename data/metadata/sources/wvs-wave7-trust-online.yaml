@@ -1,0 +1,46 @@
+source_id: wvs-wave7-trust-online
+provider: World Values Survey Association
+series_code: WVS7-Q57-C_011
+title: WVS wave 7 national generalised trust aggregates
+definition: Most people can be trusted versus need to be very careful; public online
+  aggregate route. Weight, denominator, country mapping and survey dates require verification
+  before use.
+unit: percent
+geography: countries
+licence: Local response; aggregate redistribution and weighting unverified
+terms_url: https://www.worldvaluessurvey.org/WVSOnline.jsp
+redistributable: false
+data_basis: current
+coverage_format: wvs_country_html
+reference_period: wave7_2017_2022
+unit_map:
+  Australia: AUS
+  Austria: AUT
+  Belgium: BEL
+  Canada: CAN
+  Czechia: CZE
+  Denmark: DNK
+  Finland: FIN
+  France: FRA
+  Germany: DEU
+  Greece: GRC
+  Italy: ITA
+  Japan: JPN
+  Netherlands: NLD
+  New Zealand: NZL
+  Norway: NOR
+  Portugal: PRT
+  Singapore: SGP
+  Spain: ESP
+  Sweden: SWE
+  Switzerland: CHE
+  United States: USA
+  Poland: POL
+  Romania: ROU
+  Uruguay: URY
+  Croatia: HRV
+  South Korea: KOR
+  Slovakia: SVK
+notes: Great Britain and Northern Ireland are separate provider units and not mapped
+  to GBR. Public web percentages include missing-response categories; weighting, denominator
+  harmonisation and country survey dates remain unresolved.

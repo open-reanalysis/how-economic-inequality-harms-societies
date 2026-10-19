@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t070524760547z-verification-wmh-2025-published
+source_ids: &id001
+- verification-wmh-2025-published
+method: download
+request: https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs13033-024-00658-2/MediaObjects/13033_2024_658_MOESM1_ESM.docx
+requested_utc: '2026-10-19T07:05:24.760547+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t070524760547z-verification-wmh-2025-published.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/wmh-2025-supplement.docx
+  size_bytes: 95220
+  sha256: fae16f96d6e33ffafe56fab4b677cba1b217697bbae036140b93ef8e68e06cb1
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://media.springernature.com/original/springer-static/esm/art%3A10.1186%2Fs13033-024-00658-2/MediaObjects/13033_2024_658_MOESM1_ESM.docx

@@ -40,6 +40,69 @@ def coverage(source: dict, path) -> list[dict]:
             )
             for r in frame.to_dict("records")
         ]
+    if format_name == "pisa_summary":
+        layout = source["reader_layout"]
+        tables = [pd.read_excel(path, sheet_name=sheet, header=None) for sheet in layout["sheets"]]
+        sets = []
+        for table in tables:
+            if table.iat[layout["header_row"], layout["value_column"]] != layout["expected_header"]:
+                raise ValueError("PISA summary column changed")
+            selected = {}
+            for _, row in table.iloc[layout["first_row"] : layout["last_row"] + 1].iterrows():
+                label = str(row.iloc[layout["unit_column"]]).strip()
+                name = label.rstrip("*").strip()
+                if name not in source["unit_map"]:
+                    continue
+                unit = source["unit_map"][name]
+                if unit in selected:
+                    raise ValueError("Duplicate PISA country")
+                selected[unit] = (
+                    pd.notna(pd.to_numeric(row.iloc[layout["value_column"]], errors="coerce")),
+                    "provider_asterisk" if "*" in label else "no_asterisk",
+                )
+            sets.append(selected)
+        units = sorted(set().union(*(set(s) for s in sets)))
+        return [
+            dict(
+                unit_id=u,
+                period=source["reference_period"],
+                available=all(s.get(u, (False, ""))[0] for s in sets),
+                quality_flag=";".join(sorted({s[u][1] for s in sets if u in s})),
+            )
+            for u in units
+        ]
+    if format_name == "wvs_country_html":
+        from bs4 import BeautifulSoup
+
+        soup = BeautifulSoup(path.read_text(), "html.parser")
+        rows = []
+        for table in soup.select("table"):
+            trs = table.select("tr")
+            if len(trs) < 3 or "ISO 3166-1" not in trs[0].get_text():
+                continue
+            labels = [c.get_text(" ", strip=True) for c in trs[1].select("td,th")]
+            values = [c.get_text(" ", strip=True) for c in trs[2].select("td,th")]
+            if values[0] != "Most people can be trusted":
+                raise ValueError("WVS question changed")
+            offset = len(values) - 1 - len(labels)
+            if offset not in {0, 1}:
+                raise ValueError("WVS country/header alignment changed")
+            for label, value in zip(labels, values[1 + offset :], strict=True):
+                if label not in source["unit_map"]:
+                    continue
+                rows.append(
+                    dict(
+                        unit_id=source["unit_map"][label],
+                        period=source["reference_period"],
+                        available=value.endswith("%")
+                        and pd.notna(pd.to_numeric(value[:-1], errors="coerce"))
+                        and 0 <= float(value[:-1]) <= 100,
+                        quality_flag="weight_and_survey_year_unverified",
+                    )
+                )
+        if len({r["unit_id"] for r in rows}) != len(rows):
+            raise ValueError("Duplicate WVS country")
+        return rows
     data = json.loads(path.read_text())
     if format_name == "who_odata":
         if (
@@ -198,6 +261,7 @@ def build_coverage(root=ROOT) -> str:
                     "available",
                     "payload_status",
                     "barrier",
+                    "quality_flag",
                 ],
                 lineterminator="\n",
             )

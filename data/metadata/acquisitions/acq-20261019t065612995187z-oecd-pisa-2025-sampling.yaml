@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t065612995187z-oecd-pisa-2025-sampling
+source_ids: &id001
+- oecd-pisa-2025-sampling
+method: download
+request: https://stat.link/pe3lsg
+requested_utc: '2026-10-19T06:56:12.995187+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t065612995187z-oecd-pisa-2025-sampling.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/pisa-2025-sampling.xlsx
+  size_bytes: 73544
+  sha256: 37178f67695b62dfe8e365a64c0b0aae231265a9ded66b26e5848ee32d45ad10
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://stat.link/files/73451bc5-en/pe3lsg.xlsx

@@ -1,0 +1,11 @@
+source_id: oecd-pisa-2025-sampling
+provider: OECD
+series_code: pisa-2025-annex-a2
+title: PISA 2025 population coverage and sampling tables
+definition: Country participation and population coverage; no association computation
+unit: metadata
+geography: countries
+licence: Local copy; full redistribution permission unverified
+terms_url: https://www.oecd.org/en/about/terms-conditions.html
+redistributable: false
+record_role: unit_catalogue

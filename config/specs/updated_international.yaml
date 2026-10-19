@@ -1,5 +1,5 @@
 spec_id: updated_international
-version: 1
+version: 2
 dataset: international
 unit_type: country
 catalogue: config/results_catalogue.csv
@@ -31,37 +31,46 @@ samples:
     - USA
     rationale: released-membership
   refreshed:
-    status: not_produced
-    reason: Current inequality eligibility and the nominated ranking vintage are not
-      yet verified.
+    status: formed
+    eligibility_rule: config/eligibility.yaml
+    eligibility_table: outputs/tables/refreshed_country_eligibility.csv
+    rationale: refreshed-membership
 variables:
 - variable_id: inequality
   role: inequality
-  sources: []
+  sources:
+  - worldbank-pip-national-income
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: trust
   role: index_component
-  sources: []
+  sources:
+  - wvs-wave7-trust-online
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
 - variable_id: life_expectancy
   role: index_component
   sources:
   - worldbank-wdi-sp.dyn.le00.in
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: infant_mortality
   role: index_component
   sources:
   - worldbank-wdi-sp.dyn.imrt.in
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: obesity
   role: index_component
-  sources: []
+  sources:
+  - who-gho-obesity-age-standardised
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: SUBSTITUTE
 - variable_id: mental_illness
   role: index_component
   sources: []
@@ -69,31 +78,39 @@ variables:
   rationale: current-candidates
 - variable_id: education
   role: index_component
-  sources: []
+  sources:
+  - oecd-pisa-2025-performance
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: teenage_births
   role: index_component
   sources:
   - worldbank-wdi-sp.ado.tfrt
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: homicides
   role: index_component
   sources:
   - worldbank-wdi-vc.ihr.psrc.p5
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: imprisonment_log
   role: index_component
-  sources: []
+  sources:
+  - unodc-prisons-2026
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 - variable_id: social_mobility
   role: index_component
-  sources: []
+  sources:
+  - worldbank-gdim-income-2025
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: SUBSTITUTE
 - variable_id: child_overweight
   role: extra_measure
   sources: []
@@ -115,6 +132,7 @@ variables:
   - worldbank-wdi-sh.xpd.ghed.ch.zs
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
 - variable_id: child_wellbeing
   role: extra_measure
   sources: []
@@ -122,9 +140,11 @@ variables:
   rationale: current-candidates
 - variable_id: triple_education
   role: extra_measure
-  sources: []
+  sources:
+  - oecd-pisa-2025-performance
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
 - variable_id: child_conflict
   role: extra_measure
   sources: []
@@ -181,16 +201,20 @@ variables:
   - worldbank-wdi-ny.gnp.pcap.cd
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
 - variable_id: population
   role: eligibility
   sources:
   - worldbank-wdi-sp.pop.totl
   status: UNRESOLVED
   rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
 index:
   mode: rebuild
   status: UNRESOLVED
   rationale: current-candidates
+  reason: Maintainer requires missing-component acquisition before lock; no reduced
+    index or final missing-component rule approved.
 statistics:
 - pearson_r
 - p_value

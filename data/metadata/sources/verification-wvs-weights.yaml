@@ -1,0 +1,13 @@
+source_id: verification-wvs-weights
+provider: World Values Survey Association
+series_code: verification-wvs-weights
+title: Official weight documentation; distinguishes within-country weights from equal-country
+  sample scaling
+definition: Official weight documentation; distinguishes within-country weights from
+  equal-country sample scaling
+unit: document
+geography: countries
+licence: Local verification copy
+terms_url: https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=WEIGHT
+redistributable: false
+record_role: verification_page

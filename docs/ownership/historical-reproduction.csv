@@ -21,3 +21,4 @@ outputs/runs/20261018t235907790658z-ea56bea5.json
 outputs/runs/20261019t002408076433z-05ec0fd0.json
 outputs/runs/20261019t002405609251z-05ec0fd0.json
 outputs/runs/20261018t235909625136z-ea56bea5.json
+code/lib/readers/census_statab.py
