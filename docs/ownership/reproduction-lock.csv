@@ -13,3 +13,5 @@ code/assess_index_coverage.py
 docs/current-index-assessment.md
 outputs/tables/current_index_coverage.csv
 outputs/runs/20261019t002431865307z-05ec0fd0.json
+config/eligibility.yaml
+outputs/tables/refreshed_inequality_surveys.csv

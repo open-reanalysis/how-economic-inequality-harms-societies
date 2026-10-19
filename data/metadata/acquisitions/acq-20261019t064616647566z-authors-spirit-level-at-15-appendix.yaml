@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t064616647566z-authors-spirit-level-at-15-appendix
+source_ids: &id001
+- authors-spirit-level-at-15-appendix
+method: download
+request: https://media.equality-trust.out.re/uploads/2024/07/Technical-Appendix-20-07.pdf
+requested_utc: '2026-10-19T06:46:16.647566+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t064616647566z-authors-spirit-level-at-15-appendix.yaml
+notes: ''
+files:
+- path: sources/supporting/local/spirit-level-at-15-appendix.pdf
+  size_bytes: 1071069
+  sha256: b7235a6171b41f69d63ff8cb7d11f34721cd020b8905912f2836573fabab3d06
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://media.equality-trust.out.re/uploads/2024/07/Technical-Appendix-20-07.pdf

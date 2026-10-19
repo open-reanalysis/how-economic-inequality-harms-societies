@@ -57,6 +57,20 @@ def coverage(source: dict, path) -> list[dict]:
             for r in data["value"]
             if all(r.get(k) == v for k, v in source["coverage_filters"].items())
         ]
+    if format_name == "pip_income":
+        return [
+            dict(
+                unit_id=r["country_code"],
+                period=str(r["survey_year"]),
+                available=all(r.get(f"decile{i}") is not None for i in [1, 2, 9, 10]),
+            )
+            for r in data
+            if r["welfare_type"] == "income"
+            and r["reporting_level"] == "national"
+            and r["survey_coverage"] == "national"
+            and r["is_interpolated"] is False
+            and r["reporting_year"] == r["survey_year"]
+        ]
     if source["source_id"].startswith("worldbank-"):
         if not isinstance(data, list) or len(data) != 2 or not isinstance(data[1], list):
             raise ValueError("Provider response is not an indicator dataset")

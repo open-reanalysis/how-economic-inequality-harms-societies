@@ -22,6 +22,7 @@ verify-data:
 all: verify-data
 	$(RUN) python code/01a_sample_coverage.py
 	$(RUN) python code/02f_build_outcome_coverage.py
+	$(RUN) python code/03a_eligibility.py
 	$(RUN) python code/04_reproduce.py --spec config/specs/historical_international.yaml
 	$(RUN) python code/04_reproduce.py --spec config/specs/historical_us_states.yaml
 	$(RUN) python code/historical_summary.py

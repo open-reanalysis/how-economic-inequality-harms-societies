@@ -1,5 +1,5 @@
 spec_id: historical_us_states
-version: 2
+version: 3
 dataset: us_states
 unit_type: us_state
 catalogue: config/results_catalogue.csv
@@ -132,6 +132,17 @@ variables:
   direction: as_is
   status: VERIFIED_FROM_PRIMARY_SOURCE
   rationale: state-historical-sources
+- variable_id: infant_mortality
+  role: index_component
+  sources:
+  - census-statab-2006-infant-mortality
+  period: '2002'
+  unit: per_1000_live_births
+  conversion: none
+  transformation: none
+  direction: as_is
+  status: VERIFIED_FROM_PRIMARY_SOURCE
+  rationale: state-infant-source
 index:
   mode: supplied
   status: UNRESOLVED
@@ -157,12 +168,16 @@ inputs:
 - path: data/00_original_reconstruction/fbi-crime-table5-1999.xls
   source_id: fbi-crime-table5-1999
   reader: fbi_historical
+- path: data/00_original_reconstruction/census-statab-2006-table105.xlw
+  source_id: census-statab-2006-infant-mortality
+  reader: census_statab
 data_provenance: reconstructed
 access_label: INDEPENDENT RECONSTRUCTION
 method_deviations: Partial reconstruction from hosted historical Census S4 and FBI
   1999 Table 5. Source vintage equivalence to author inputs is not established. Homicide
   comparison omits Wyoming because the authors explicitly identify it as missing;
-  all 50 source rows are preserved. Remaining outcomes are unavailable.
+  all 50 source rows are preserved. Infant mortality uses the authors cited 2006 Table
+  105, total-race 2002 rates. Other outcomes remain unavailable.
 reported_value_check:
   tolerance_r: 0.005
   rationale: numeric-benchmarks

@@ -43,3 +43,30 @@ def validate_result_keys(frame: pd.DataFrame) -> None:
     keys = ["spec_id", "spec_version", "result_id", "variant_id"]
     if frame.duplicated(keys).any():
         raise ValueError("Duplicate result keys")
+
+
+ELIGIBILITY = pa.DataFrameSchema(
+    {
+        "country": pa.Column(str, pa.Check.str_matches(r"^[A-Z]{3}$")),
+        "rank_value": pa.Column(float, nullable=True),
+        "rank": pa.Column(float, nullable=True),
+        "population": pa.Column(float, nullable=True),
+        "comparable_inequality_data": pa.Column(bool),
+        "eligible": pa.Column(bool),
+        "exclusion_reason": pa.Column(
+            str,
+            pa.Check.isin(
+                [
+                    "",
+                    "not_ranked",
+                    "not_top_50",
+                    "population_unavailable",
+                    "population_below_3m",
+                    "no_comparable_inequality_data",
+                ]
+            ),
+        ),
+    },
+    unique=["country"],
+    strict=True,
+)

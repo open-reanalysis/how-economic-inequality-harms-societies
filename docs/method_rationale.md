@@ -55,3 +55,13 @@ Before any reconstructed state correlation was computed, historical_us_states ve
 ## state-homicide-availability
 
 The authors’ source notes explicitly identify Wyoming as lacking homicide data. The primary reconstructed comparison therefore uses the named historical_homicides sample of the other 49 states. All 50 source observations are preserved; exclusion is declared before computation and is not selected by its effect on the correlation. The book coefficient is not used to tune the sample.
+
+## state-infant-source
+
+Before computing this additional reconstructed comparison, historical_us_states version 3 nominates Statistical Abstract 2006 (125th edition), Table 105, total-race 2002 infant mortality rates per 1000 live births by state of residence. This is the table and period in the authors' index component table and reference 6. The downloaded file is the official linked .xlw Excel workbook; row 10 holds the years, column E the 2002 total rate, and rows 14–64 the states and DC. DC is excluded. No outcome was chosen based on its correlation with inequality. The source record holds zero-based parser coordinates.
+
+## refreshed-membership
+
+config/eligibility.yaml holds the maintainer-approved universe, ranking vintage, strict population boundary, survey window and tie policy. UN membership is verified against the UN Dag Hammarskjold Library Current UN Member States page (193 members), acquired 19 October 2026. config/units/un_members.csv records the ISO mapping; the general registry is expanded without changing existing country aliases. This operational state definition is a project clarification supported by, but not identical to, the authors' rejection of Hong Kong as a non-nation-state.
+
+Ranking precedes both population and inequality exclusions; it is never recomputed after those exclusions. All cutoff ties enter. Survey eligibility requires national observed income distributions, national coverage and matching survey/reporting year. S80/S20 is the sum of the richest two decile shares divided by the poorest two, using a single distribution. Missing, zero-denominator, interpolated, consumption and nonnational records cannot establish comparable income availability. Latest eligible survey year is retained for audit; no outcome or outcome-availability column enters the eligibility script. Cross-country equivalence-scale differences are disclosed as conceptual-succession limits. No average-income/outcome association is computed.

@@ -117,3 +117,30 @@ requests:
 - source_id: who-obesity-series-catalogue
   url: https://ghoapi.azureedge.net/api/Indicator?$filter=contains(IndicatorName,%27obesity%27)&$top=50
   path: data/01_raw_current/eligibility/2026-10-19/who-obesity-series-catalogue.json
+- source_id: worldbank-pip-survey-metadata
+  url: https://api.worldbank.org/pip/v1/pip?country=all&year=2020,2021,2022,2023,2024,2025&welfare_type=income&reporting_level=national&fill_gaps=false&format=json
+  path: data/01_raw_current/eligibility/local/pip-income-surveys.json
+- source_id: authors-spirit-level-at-15-report
+  url: https://media.equality-trust.out.re/uploads/2024/07/The-Spirit-Level-at-15-2024-FINAL.pdf
+  path: sources/supporting/local/spirit-level-at-15.pdf
+- source_id: authors-spirit-level-at-15-appendix
+  url: https://media.equality-trust.out.re/uploads/2024/07/Technical-Appendix-20-07.pdf
+  path: sources/supporting/local/spirit-level-at-15-appendix.pdf
+- source_id: authors-responses-2010
+  url: https://media.equality-trust.out.re/uploads/2015/06/responses-to-all-critics.pdf
+  path: sources/supporting/local/responses-to-all-critics.pdf
+- source_id: authors-causal-review-2015
+  url: https://pure.york.ac.uk/portal/en/publications/income-inequality-and-health-a-causal-review/
+  path: sources/supporting/local/causal-review-2015-landing.html
+- source_id: verification-wmh-access
+  url: https://www.hcp.med.harvard.edu/wmh/contact.php
+  path: data/01_raw_current/outcomes/local/verification/wmh-access.html
+- source_id: worldbank-pip-national-income
+  url: https://api.worldbank.org/pip/v1/pip?country=all&year=2020,2021,2022,2023,2024,2025&welfare_type=income&reporting_level=national&fill_gaps=false&format=json
+  path: data/01_raw_current/eligibility/2026-10-19/pip-national-income.json
+- source_id: census-statab-2006-infant-mortality
+  url: https://www2.census.gov/library/publications/2005/compendia/statab/125ed/tables/06s0105.xlw
+  path: data/00_original_reconstruction/census-statab-2006-table105.xlw
+- source_id: un-current-members-2026
+  url: https://research.un.org/en/unmembers/currentmembers
+  path: data/01_raw_current/eligibility/local/un-current-members.html

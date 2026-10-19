@@ -7,13 +7,13 @@ This is a prospective availability assessment, not an index result or a reproduc
 | international | trust | 0 | 23 |
 | international | life_expectancy | 23 | 23 |
 | international | infant_mortality | 23 | 23 |
-| international | obesity | 0 | 23 |
+| international | obesity | 23 | 23 |
 | international | mental_illness | 0 | 23 |
 | international | education | 0 | 23 |
 | international | teenage_births | 23 | 23 |
 | international | homicides | 23 | 23 |
-| international | imprisonment_log | 0 | 23 |
-| international | social_mobility | 0 | 23 |
+| international | imprisonment_log | 22 | 23 |
+| international | social_mobility | 22 | 23 |
 | us_states | trust | 0 | 50 |
 | us_states | life_expectancy | 0 | 50 |
 | us_states | infant_mortality | 0 | 50 |
@@ -26,11 +26,13 @@ This is a prospective availability assessment, not an index result or a reproduc
 
 ## Consequences before locking
 
-The currently parsed international responses cover candidate inputs for life expectancy, infant mortality, teenage births and homicide. The other historical dimensions still need a nominated and verified counterpart or a documented barrier. Available candidates also require checks of definition, target population, units and timing; no row has been promoted to primary comparability solely because it downloaded successfully.
+The table separates source correspondence from availability. The lineage nominates conceptual successors for life expectancy, infant mortality, teenage births, homicide and imprisonment. WHO adult obesity is held as a substitute pending resolution of historical age/sex conventions; GDIM income elasticity is a substitute for the historical intergenerational income correlation. Neither substitute enters the primary series set merely because it downloaded successfully.
 
-An index made only from the dimensions collected so far would change its component set and meaning. Re-standardising a reduced set would not recreate the original ten-component index, and country coverage can differ between components. No minimum-component threshold, weighting change or final missingness rule is inferred from these flags. A current index is therefore not calculated or locked.
+Trust, diagnostic mental-health prevalence and education still have access or aggregate-table verification barriers. No acquired primary candidate covers all ten historical dimensions. The international primary index cannot currently reproduce the intended component set; its complete-case sample across all ten is empty. A substitute variant would still lack three dimensions, and mobility refers to cohorts rather than a recent annual period.
 
-The U.S. state index has nine historical components. No parsed current outcome response for those components has yet been obtained in this run. The Census income request returned a Missing Key page and does not establish a current inequality dataset. Trust access, source populations and historical/current measure differences require separate checks.
+Averaging only available dimensions changes the construct and gives countries different effective weights. Restricting to complete cases loses every country while unresolved components remain absent. A lower minimum, new weights or a wider date window would be scientific choices, not consequences of a download. No current index is calculated. The concrete proposed disposition is to keep individual eligible measures and mark current index variants not_produced until a prospective rule is approved.
+
+The U.S. state index has its own source targets. National international-series availability cannot fill state cells. The Census income request returned Missing Key HTML and current state outcome tables have not been parsed. State BRFSS mentally unhealthy days are distinct from diagnostic prevalence, corrected historical obesity differs from raw self-report, and national GSS trust cannot replace state identifiers.
 
 ## Maintainer decision
 

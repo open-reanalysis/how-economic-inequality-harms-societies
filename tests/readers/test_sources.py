@@ -110,3 +110,35 @@ def test_fbi_reader_footnote_header_and_missing_rate(tmp_path):
     frame = read_fbi(path, source, {"Alabama": "01", "Alaska": "02"})
     assert frame.unit_id.tolist() == ["01", "02"]
     assert frame.value.iloc[0] == 2.0 and pd.isna(frame.value.iloc[1])
+
+
+def test_statab_reader_declared_year_and_suppression(tmp_path):
+    from lib.readers.census_statab import read
+
+    path = tmp_path / "statab.xlsx"
+    pd.DataFrame(
+        [["year", 2002], ["Alabama", 4.0], ["Alaska", "(B)"], ["District of Columbia", 8.0]]
+    ).to_excel(path, sheet_name="data", header=False, index=False)
+    source = dict(
+        source_id="fixture",
+        input_path="statab.xlsx",
+        unit="per_1000_live_births",
+        reader_layout=dict(
+            sheet="data",
+            year_row=0,
+            value_column=1,
+            first_row=1,
+            last_row=3,
+            unit_column=0,
+            period="2002",
+            variable_id="infant_mortality",
+            excluded_labels=["District of Columbia"],
+            missing_markers=["(B)"],
+        ),
+    )
+    frame = read(path, source, {"Alabama": "01", "Alaska": "02"})
+    assert frame.unit_id.tolist() == ["01", "02"]
+    assert frame.value.iloc[0] == 4.0 and pd.isna(frame.value.iloc[1])
+    source["reader_layout"]["period"] = "2000"
+    with pytest.raises(ValueError, match="year changed"):
+        read(path, source, {"Alabama": "01", "Alaska": "02"})

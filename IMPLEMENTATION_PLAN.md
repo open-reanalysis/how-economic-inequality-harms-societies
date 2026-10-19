@@ -175,7 +175,7 @@ The tests cover these edge cases: a constant variable, which must give a defined
 
 **Headline table.** One row per catalogue result: `result_id`, `dataset`, `indicator_or_index`, `predictor`, `reported_value`, `historical_r`, `historical_n`, `updated_r`, `updated_n`, `comparability`, `components_changed` and `deviation_summary`. The historical columns select `variant_id=historical` and the primary current columns select `variant_id=updated`; the other current variants remain separately available. See `templates/headline_results.csv`.
 
-**Eligibility tables.** `outputs/tables/historical_country_eligibility.csv` and `outputs/tables/refreshed_country_eligibility.csv`, with the canonical header in `templates/eligibility_table.csv` and `exclusion_reason` as not_ranked, not_top_50, population_below_3m, no_comparable_inequality_data or empty. See `templates/eligibility_table.csv`. Comparison tables of parallel data follow `templates/source_comparison.csv`.
+**Eligibility tables.** `outputs/tables/historical_country_eligibility.csv` and `outputs/tables/refreshed_country_eligibility.csv`, with the canonical header in `templates/eligibility_table.csv` and `exclusion_reason` as not_ranked, not_top_50, population_below_3m, population_unavailable, no_comparable_inequality_data or empty. See `templates/eligibility_table.csv`. Comparison tables of parallel data follow `templates/source_comparison.csv`.
 
 **Package records.** Each package subfolder has a `records.csv` for texts, and each package a `search_log.csv` and a `screening_log.csv`. See `templates/package_records.csv`, `templates/search_log.csv` and `templates/screening_log.csv`.
 

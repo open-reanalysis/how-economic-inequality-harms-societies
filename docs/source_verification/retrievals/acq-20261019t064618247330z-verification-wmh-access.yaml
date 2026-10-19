@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t064618247330z-verification-wmh-access
+source_ids:
+- verification-wmh-access
+method: download
+request: https://www.hcp.med.harvard.edu/wmh/contact.php
+requested_utc: '2026-10-19T06:46:18.247330+00:00'
+response_status: 503
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t064618247330z-verification-wmh-access.yaml
+notes: 'HTTPError: acquisition failed (HTTP 503)'
+files: []
+resolved_url: https://www.hcp.med.harvard.edu/wmh/contact.php
