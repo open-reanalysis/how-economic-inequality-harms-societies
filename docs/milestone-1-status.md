@@ -25,7 +25,7 @@ Earlier corrections in 5cd024cb protect credentials in acquisition failures, imm
 
 ## Validation
 
-Local lint, formatting, 69 offline tests, full record validation and every replay step pass. The current records cover 104 sources, 77 acquisitions, 46 catalogue targets and 47 lineage rows. All restricted inputs recorded as held in this run were available and their identities were checked. Public CI must retain restricted outputs only against compatible producer evidence, and must pass for the final PR head; the PR description records that head's CI evidence when available.
+Local lint, formatting, 70 offline tests, full record validation and every replay step pass. The current records cover 104 sources, 77 acquisitions, 46 catalogue targets and 47 lineage rows. All restricted inputs recorded as held in this run were available and their identities were checked. Public CI must retain restricted outputs only against compatible producer evidence, and must pass for the final PR head; the PR description records that head's CI evidence when available.
 
 Canonical producer records cover original sample coverage, current source coverage, refreshed eligibility, international reproduction, state reconstruction, historical summary and prospective component assessment. Their paths, committed computation revisions and input/output hashes are in outputs/runs/. Earlier exploratory and unsuccessful supplementary environment attempts are not evidence for the final head and their records are preserved.
 
@@ -42,6 +42,8 @@ The official GESIS joint EVS/WVS v5 frequency and methods reports resolve the ca
 
 The second WMH 2025 supplement (DOI 10.1186/s13033-025-00666-w) contains pooled, not national, prevalence. The missing diagnostic component remains open. A request for explicit permission to send the prepared aggregate-data enquiry is pending; no message has been sent.
 
-Local validation now passes 69 offline tests and validates 104 sources, 77 acquisitions, 46 catalogue targets and 47 lineage rows. The environment adds pypdf through the shared Pixi lock and its informational exports. Final-head Linux/macOS CI and compatible committed-code producer records are required; older green checks do not validate a new code revision.
+Local validation now passes 70 offline tests and validates 104 sources, 77 acquisitions, 46 catalogue targets and 47 lineage rows. The environment adds pypdf through the shared Pixi lock and its informational exports. Final-head Linux/macOS CI and compatible committed-code producer records are required; older green checks do not validate a new code revision.
 
 The refreshed-sample acquisition gap was closed for the seven new countries: the four WDI index outcomes now each cover all 28 refreshed members in at least one acquired year. The component report distinguishes both master samples, including trust coverage of 19/23 and 24/28. These are availability counts, not matched-period analytic samples or correlations.
+
+The final canonical producer records identify committed computation revision 8d93ebb7. All seven replay steps completed using locally verified inputs; CI on the snapshot head must independently confirm public retention/recomputation and deterministic tables. No current association, researcher message or milestone approval was performed.
