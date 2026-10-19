@@ -34,3 +34,23 @@ The previous feasibility corrections are implemented in IMPLEMENTATION_PLAN.md. 
 CI run [39181200683](https://github.com/open-reanalysis/how-economic-inequality-harms-societies/actions/runs/39181200683), at head a242512, passed on Linux and macOS, including public replay and the numerical committed-output comparison. Local lint, all 25 offline tests, 14 focused integrity/reader tests and full record checks passed. A fresh temporary clone then installed the locked environment, passed 25 tests and completed the public replay without copying restricted inputs. An earlier local fresh-clone attempt failed while loading NumPy late in replay; the cause was not established, and the subsequent fresh installation/replay passed. Do not report the failed attempt as a successful run.
 
 The [index counterpart review](source_verification/index-counterparts.md) adds official metadata checks and joint period coverage. All four acquired international candidate dimensions have common coverage of 23 countries in 2021, but only 18 in 2023 and none in 2024 in the stored responses. This is not a period selection: six dimensions remain unacquired, continuity is unresolved, and the consequences for the index still require a prospective decision. No current index or association was calculated.
+
+## Implementation review corrections
+
+The follow-up review identified four implementation defects, corrected in code commit `5cd024cb`:
+
+- Acquisition errors now record only a safe error class and HTTP status. Credential-bearing request URLs are rejected, and signed redirect URLs are omitted from records, including failure paths.
+- Baseline acquisition records cannot be deleted or lose/change existing file identities. Baseline run records cannot be edited or deleted. Documented acquisition metadata corrections and newly added evidence remain permitted.
+- A result that becomes uncomputable or restricted loses its previous public observation CSV and figure. A blocked result cannot silently leave those earlier artifacts at the current output paths.
+- Both restricted replay paths require matching locked environments. If required restricted inputs are missing and no compatible producer exists, historical replay fails without overwriting the existing result table.
+
+All 42 offline tests pass, including regressions for these cases. The historical calculations were recomputed from the locally held inputs with committed code `5cd024cb`; all six result/coverage tables match the pre-review snapshots within the existing comparison contract. Earlier run records remain untouched. New producer records are:
+
+- `outputs/runs/20261019t055116656901z-5cd024cb.json`: original-sample-coverage.
+- `outputs/runs/20261019t055117009217z-5cd024cb.json`: current-coverage-flags.
+- `outputs/runs/20261019t055118777535z-5cd024cb.json`: reproduce:historical_international.
+- `outputs/runs/20261019t055120915435z-5cd024cb.json`: reproduce:historical_us_states.
+- `outputs/runs/20261019t055122708700z-5cd024cb.json`: historical-summary.
+- `outputs/runs/20261019t055123148934z-5cd024cb.json`: prospective-index-coverage.
+
+These implementation corrections change no analysis specification, current-index decision or milestone approval. Current associations remain gated.
