@@ -4,6 +4,7 @@ data/local_data_required/source-lineage.md
 docs/ownership/source-lineage.csv
 docs/source_lineage.csv
 docs/source_verification/source-lineage.md
+docs/source_verification/index-counterparts.md
 data/metadata/sources/historical-international-advertising.yaml
 data/metadata/sources/historical-international-calorie-intake.yaml
 data/metadata/sources/historical-international-child-conflict.yaml

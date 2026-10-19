@@ -2,6 +2,8 @@
 
 This records attempted routes and unresolved correspondence, not completed series validation. Successful HTML responses are local-only evidence; HTTP success is never counted as acquisition of the underlying statistical series. Dates and raw file identities are in the linked acquisition records. No current association was computed.
 
+The subsequent [index counterpart review](index-counterparts.md) records official metadata checks for acquired candidates, joint period coverage and missing-component consequences. It narrows specific definition questions without promoting unfinished lineage rows to verified successors.
+
 | Dataset / variable | Attempt record | Outcome / remaining issue |
 |---|---|---|
 | international / inequality | [acq-20261019t001425790663z-verification-original-notes](../../data/metadata/acquisitions/acq-20261019t001425790663z-verification-original-notes.yaml) | Direct route returned HTTP 403; original definition/counterpart verification remains incomplete. |

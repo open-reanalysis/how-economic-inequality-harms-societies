@@ -4,7 +4,7 @@ Milestone 1 is **not complete or approved**. This integration PR delivers an exe
 
 | Work | Implemented evidence | Remaining acceptance work |
 |---|---|---|
-| Scaffold | Locked Pixi environment for Linux and Apple silicon; numerical core; source readers; file verification; offline tests; Make commands; immutable run records; CI workflow | Check both CI platforms and fresh-clone replay before treating the scaffold as accepted |
+| Scaffold | Locked Pixi environment for Linux and Apple silicon; numerical core; source readers; file verification; offline tests; Make commands; immutable run records; Linux/macOS CI and fresh-clone replay pass | Live repository protection settings await separate approval; see docs/repository-setup.md |
 | Original access | Official international workbook obtained locally with the recorded planning hash; 23-country and 50-state registries; presence-flag recovery | Full-workbook redistribution permission remains unverified; no released U.S. state file obtained |
 | Source lineage | 47 named historical/current-variable rows and original-source records | Each row links to an actual source-route or candidate acquisition attempt; exact counterparts and analysis periods remain unverified. Candidate acquisition is not a comparability finding |
 | Historical international reproduction | 26 calculations from supplied values; three named average-income comparisons have explicit missing-input barriers | Independent index rebuilding, source/version conflicts and historical income recovery remain unresolved |
@@ -28,3 +28,9 @@ Run pixi install --locked, then make lint test verify-data check-data check-cont
 4. Resolve the updated period and sample rules, build refreshed eligibility where possible, then complete the prospective lock for review. The existing planning tags do not satisfy this gate.
 
 The previous feasibility corrections are implemented in IMPLEMENTATION_PLAN.md. This status file does not relax its acceptance criteria or claim that an acquired candidate is analysis-ready.
+
+## Validation evidence and counterpart follow-up
+
+CI run [39181200683](https://github.com/open-reanalysis/how-economic-inequality-harms-societies/actions/runs/39181200683), at head a242512, passed on Linux and macOS, including public replay and the numerical committed-output comparison. Local lint, all 25 offline tests, 14 focused integrity/reader tests and full record checks passed. A fresh temporary clone then installed the locked environment, passed 25 tests and completed the public replay without copying restricted inputs. An earlier local fresh-clone attempt failed while loading NumPy late in replay; the cause was not established, and the subsequent fresh installation/replay passed. Do not report the failed attempt as a successful run.
+
+The [index counterpart review](source_verification/index-counterparts.md) adds official metadata checks and joint period coverage. All four acquired international candidate dimensions have common coverage of 23 countries in 2021, but only 18 in 2023 and none in 2024 in the stored responses. This is not a period selection: six dimensions remain unacquired, continuity is unresolved, and the consequences for the index still require a prospective decision. No current index or association was calculated.
