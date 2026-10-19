@@ -1,0 +1,34 @@
+{
+  "run_id": "20261019t000846019928z-b342036b",
+  "started_utc": "2026-10-19T00:08:46.020154+00:00",
+  "finished_utc": "2026-10-19T00:08:47.028203+00:00",
+  "commit": "b342036b64ed2e6294e4fd56ccc6a17bcdaf66fe",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "census-state-gini-1999",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/00_original_reconstruction/census-state-gini-1999.csv",
+          "sha256": "15c9fb34a503c681ebad9de9d4ec1ee5100cd160bcff86e5365d23669e41adb2"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t000846039519z-census-state-gini-1999.yaml",
+          "sha256": "a5b93d624fc3fa16f58f6f7f36b522938e2d851c0de67389df2d1ed61f108305"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t000846039519z-census-state-gini-1999.yaml",
+          "sha256": "a5b93d624fc3fa16f58f6f7f36b522938e2d851c0de67389df2d1ed61f108305"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}

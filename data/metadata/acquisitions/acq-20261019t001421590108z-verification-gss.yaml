@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t001421590108z-verification-gss
+source_ids: &id001
+- verification-gss
+method: download
+request: https://gss.norc.org/us/en/gss/get-the-data.html
+requested_utc: '2026-10-19T00:14:21.590108+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001421590108z-verification-gss.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/gss.html
+  size_bytes: 86392
+  sha256: 743cca57bd56b0921b23dfbb63c8687347882f4df718259a34b89d57b8fcf647
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://gss.norc.org/get-the-data.html

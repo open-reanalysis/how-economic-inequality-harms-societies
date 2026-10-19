@@ -35,6 +35,7 @@ if __name__ == "__main__":
         cwd=ROOT,
         text=True,
     )
+    environment = environment.rstrip() + "\n"
     packages = json.loads(
         subprocess.check_output(
             [executable, "list", "--json", "--locked", "--platform", "linux-64"],

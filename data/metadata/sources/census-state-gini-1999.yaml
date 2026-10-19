@@ -1,0 +1,23 @@
+source_id: census-state-gini-1999
+provider: US Census Bureau
+series_code: census-state-gini-1999
+title: 'Gini ratios by state: 1969, 1979, 1989, 1999'
+definition: Household-income Gini from Census historical state Table S4.
+unit: gini_ratio
+geography: us_states
+licence: US federal government statistical table; public domain, retaining source
+  attribution
+terms_url: https://www.census.gov/about/policies/open-gov/open-data.html
+redistributable: true
+notes: Historical source reconstruction, not the missing author-released state file.
+  The hosted source version must be distinguished from the exact original analysis
+  vintage.
+reader_layout:
+  header_marker: State
+  value_column: 1
+  period: '1999'
+  variable_id: inequality
+  footer_prefix: 'SOURCE:'
+  excluded_labels:
+  - United States
+  - District of Columbia

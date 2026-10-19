@@ -59,6 +59,9 @@ if __name__ == "__main__":
         for file in acquisition["files"]:
             if not file["path"].startswith("data/01_raw_current/"):
                 continue
+            source = sources[file["source_ids"][0]]
+            if source.get("record_role") == "verification_page":
+                continue
             inputs.append(
                 {
                     "path": file["path"],
@@ -67,7 +70,6 @@ if __name__ == "__main__":
                     "restricted": False,
                 }
             )
-            source = sources[file["source_ids"][0]]
             try:
                 items = coverage(source, resolve(file["path"]))
                 rows.extend(

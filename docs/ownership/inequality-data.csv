@@ -8,3 +8,6 @@ docs/source_verification/inequality-data.md
 data/metadata/acquisitions/acq-20261018t235707509328z-census-acs1-2025-state-income.yaml
 data/metadata/sources/census-acs1-2025-state-income.yaml
 docs/source_verification/retrievals/acq-20261018t235707509328z-census-acs1-2025-state-income.yaml
+data/metadata/acquisitions/acq-20261019t000846039519z-census-state-gini-1999.yaml
+data/metadata/sources/census-state-gini-1999.yaml
+docs/source_verification/retrievals/acq-20261019t000846039519z-census-state-gini-1999.yaml

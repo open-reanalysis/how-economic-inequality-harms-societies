@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t001422871065z-verification-brfss
+source_ids:
+- verification-brfss
+method: download
+request: https://www.cdc.gov/brfss/annual_data/annual_data.htm
+requested_utc: '2026-10-19T00:14:22.871065+00:00'
+response_status: 403
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001422871065z-verification-brfss.yaml
+notes: '403 Client Error: Forbidden for url: https://www.cdc.gov/brfss/annual_data/annual_data.htm'
+files: []
+resolved_url: https://www.cdc.gov/brfss/annual_data/annual_data.htm

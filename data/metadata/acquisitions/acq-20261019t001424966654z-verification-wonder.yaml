@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t001424966654z-verification-wonder
+source_ids:
+- verification-wonder
+method: download
+request: https://wonder.cdc.gov/
+requested_utc: '2026-10-19T00:14:24.966654+00:00'
+response_status: 403
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001424966654z-verification-wonder.yaml
+notes: '403 Client Error: Forbidden for url: https://wonder.cdc.gov/'
+files: []
+resolved_url: https://wonder.cdc.gov/

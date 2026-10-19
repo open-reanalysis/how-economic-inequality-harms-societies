@@ -1,5 +1,6 @@
 """Immutable execution records and conservative retained-output validation."""
 
+import hashlib
 import subprocess
 from datetime import UTC, datetime
 
@@ -51,3 +52,13 @@ def can_retain(producer: dict, spec_hash: str, input_hashes: dict, code_hash: st
         and producer.get("input_hashes") == input_hashes
         and producer.get("code_sha256") == code_hash
     )
+
+
+def code_digest(root=ROOT) -> str:
+    """Fingerprint repository Python sources conservatively for restricted replay."""
+    return hashlib.sha256(
+        b"".join(
+            path.relative_to(root).as_posix().encode() + path.read_bytes()
+            for path in sorted((root / "code").rglob("*.py"))
+        )
+    ).hexdigest()

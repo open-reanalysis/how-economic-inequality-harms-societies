@@ -1,0 +1,303 @@
+{
+  "run_id": "20261019t001417704256z-b342036b",
+  "started_utc": "2026-10-19T00:14:17.704456+00:00",
+  "finished_utc": "2026-10-19T00:14:25.962279+00:00",
+  "commit": "b342036b64ed2e6294e4fd56ccc6a17bcdaf66fe",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "verification-wvs",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/wvs.html",
+          "sha256": "d1c7e73f3c2d852a131d0d3bd0b3b478ddd947a3e4a0255214d28c39e6fa776d"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001417726961z-verification-wvs.yaml",
+          "sha256": "b2645e697df5e8bbe9ad1ddef814ae4b4036239a4e622675240c6b3d16335016"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001417726961z-verification-wvs.yaml",
+          "sha256": "b2645e697df5e8bbe9ad1ddef814ae4b4036239a4e622675240c6b3d16335016"
+        }
+      ]
+    },
+    {
+      "target": "verification-who-obesity",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/who-obesity.html",
+          "sha256": "1bf2ebcf6ec6542bc6261de0313e89dd4b846a628ed6f55f52bf0d3f6a1d44dd"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001418292251z-verification-who-obesity.yaml",
+          "sha256": "637bdb36f3f8a72f5fd87a2cd492c59bc61f2653370b02307144e3c08c1e75b4"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001418292251z-verification-who-obesity.yaml",
+          "sha256": "637bdb36f3f8a72f5fd87a2cd492c59bc61f2653370b02307144e3c08c1e75b4"
+        }
+      ]
+    },
+    {
+      "target": "verification-pisa",
+      "state": "not_produced",
+      "reason": "403 Client Error: Forbidden for url: https://www.oecd.org/en/data/datasets/pisa-2022-database.html",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001418634691z-verification-pisa.yaml",
+          "sha256": "f308aa0aa94194c76e6b0c32cbecd9d1c1ead6af44b9dcb5940e5799972c053f"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001418634691z-verification-pisa.yaml",
+          "sha256": "f308aa0aa94194c76e6b0c32cbecd9d1c1ead6af44b9dcb5940e5799972c053f"
+        }
+      ]
+    },
+    {
+      "target": "verification-unicef",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/unicef.html",
+          "sha256": "d1f98851690276007b1d60c6c4938944cb780912cb1436c83dab495df9e5912c"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001418871344z-verification-unicef.yaml",
+          "sha256": "92858fb2dc4a64c496b7f18d82a2d92a215c558f0699e22a10340d81f409d4be"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001418871344z-verification-unicef.yaml",
+          "sha256": "92858fb2dc4a64c496b7f18d82a2d92a215c558f0699e22a10340d81f409d4be"
+        }
+      ]
+    },
+    {
+      "target": "verification-unodc",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/unodc.html",
+          "sha256": "b80b2d93ce22a8afcbd056c8aabadc11987b6af2bef3fe331fa9354d62948351"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001419184330z-verification-unodc.yaml",
+          "sha256": "5fc8cef04b1b8fbf3b2a189efe7f2a33a7858f825dcd7070170e01da5e657ccc"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001419184330z-verification-unodc.yaml",
+          "sha256": "5fc8cef04b1b8fbf3b2a189efe7f2a33a7858f825dcd7070170e01da5e657ccc"
+        }
+      ]
+    },
+    {
+      "target": "verification-socx",
+      "state": "not_produced",
+      "reason": "403 Client Error: Forbidden for url: https://www.oecd.org/en/data/datasets/social-expenditure-database-socx.html",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001421178275z-verification-socx.yaml",
+          "sha256": "0261c91f8f8b981de650785da3af69da402a071adb4df1def380c1667ba3d519"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001421178275z-verification-socx.yaml",
+          "sha256": "0261c91f8f8b981de650785da3af69da402a071adb4df1def380c1667ba3d519"
+        }
+      ]
+    },
+    {
+      "target": "verification-oda",
+      "state": "not_produced",
+      "reason": "403 Client Error: Forbidden for url: https://www.oecd.org/en/topics/official-development-assistance-oda.html",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001421310635z-verification-oda.yaml",
+          "sha256": "dda9f42fbc5a813ecc0508677b9e1be168ffbfde7395081d6ef320b07e3d94fe"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001421310635z-verification-oda.yaml",
+          "sha256": "dda9f42fbc5a813ecc0508677b9e1be168ffbfde7395081d6ef320b07e3d94fe"
+        }
+      ]
+    },
+    {
+      "target": "verification-mental-health",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/mental-health.html",
+          "sha256": "6a65af3df7a8fb4dde82ec944f275375ea1b0a807edb49af5cdc0a2e62e9fe21"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001421450584z-verification-mental-health.yaml",
+          "sha256": "716acd1d52600c21fbb7d3ae8642331eef64839763d7cab77b18ddbb633bad03"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001421450584z-verification-mental-health.yaml",
+          "sha256": "716acd1d52600c21fbb7d3ae8642331eef64839763d7cab77b18ddbb633bad03"
+        }
+      ]
+    },
+    {
+      "target": "verification-gss",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/gss.html",
+          "sha256": "743cca57bd56b0921b23dfbb63c8687347882f4df718259a34b89d57b8fcf647"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001421590108z-verification-gss.yaml",
+          "sha256": "7517cd53e993065835521a18bd48406390e5c66f725f23485623b4f2685d6d13"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001421590108z-verification-gss.yaml",
+          "sha256": "7517cd53e993065835521a18bd48406390e5c66f725f23485623b4f2685d6d13"
+        }
+      ]
+    },
+    {
+      "target": "verification-brfss",
+      "state": "not_produced",
+      "reason": "403 Client Error: Forbidden for url: https://www.cdc.gov/brfss/annual_data/annual_data.htm",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001422871065z-verification-brfss.yaml",
+          "sha256": "8d0a6a29dfe2dc37db7b64101c9d723a3e8c5338a6ed5528aa8c2cc20b616f75"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001422871065z-verification-brfss.yaml",
+          "sha256": "8d0a6a29dfe2dc37db7b64101c9d723a3e8c5338a6ed5528aa8c2cc20b616f75"
+        }
+      ]
+    },
+    {
+      "target": "verification-bjs",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/bjs.html",
+          "sha256": "30a1424b9215712d75a79649faba6535a788fbd250b259cd4acd5790954866a4"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001423078234z-verification-bjs.yaml",
+          "sha256": "e4187db8708dcc53ae10bb1d2b434a30311500bcc37295316078a553e3eee8bb"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001423078234z-verification-bjs.yaml",
+          "sha256": "e4187db8708dcc53ae10bb1d2b434a30311500bcc37295316078a553e3eee8bb"
+        }
+      ]
+    },
+    {
+      "target": "verification-naep",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/naep.html",
+          "sha256": "3baaf3e28e34b7e5dba0f4c5ab1fdb9d4066b3f5160d964509361f1d2ea19200"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001424180603z-verification-naep.yaml",
+          "sha256": "cccb544f4e1de9ddc986404369f63a376505882125e12d8d2f0543027e35f41b"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001424180603z-verification-naep.yaml",
+          "sha256": "cccb544f4e1de9ddc986404369f63a376505882125e12d8d2f0543027e35f41b"
+        }
+      ]
+    },
+    {
+      "target": "verification-wonder",
+      "state": "not_produced",
+      "reason": "403 Client Error: Forbidden for url: https://wonder.cdc.gov/",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001424966654z-verification-wonder.yaml",
+          "sha256": "ca6d0b3fa78675baee2269f350aef65fe8943c072d42fcc7e7ea6e90475c17f5"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001424966654z-verification-wonder.yaml",
+          "sha256": "ca6d0b3fa78675baee2269f350aef65fe8943c072d42fcc7e7ea6e90475c17f5"
+        }
+      ]
+    },
+    {
+      "target": "verification-warc",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/local/verification/warc.html",
+          "sha256": "d89167258eceb3d6f81f7cc2b5fa8e91e95fe1395ffc1340c1eba97910ea2f65"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001425288510z-verification-warc.yaml",
+          "sha256": "b6c17a33d56e228e37328a805e3ac8e00b29bff6335436defb0732bd8690b32c"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001425288510z-verification-warc.yaml",
+          "sha256": "b6c17a33d56e228e37328a805e3ac8e00b29bff6335436defb0732bd8690b32c"
+        }
+      ]
+    },
+    {
+      "target": "verification-original-notes",
+      "state": "not_produced",
+      "reason": "403 Client Error: Forbidden for url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t001425790663z-verification-original-notes.yaml",
+          "sha256": "caf34b2016dc0d6fcbfb3e68dd486bfb7fc1b30cba9aebba3b49507ff91518c0"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t001425790663z-verification-original-notes.yaml",
+          "sha256": "caf34b2016dc0d6fcbfb3e68dd486bfb7fc1b30cba9aebba3b49507ff91518c0"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [
+    "worldbank-wdi-sp.dyn.le00.in: immutable response already present",
+    "worldbank-wdi-sp.dyn.imrt.in: immutable response already present",
+    "worldbank-wdi-sp.ado.tfrt: immutable response already present",
+    "worldbank-wdi-vc.ihr.psrc.p5: immutable response already present",
+    "worldbank-wdi-ny.gnp.pcap.cd: immutable response already present",
+    "worldbank-wdi-sp.pop.totl: immutable response already present",
+    "worldbank-wdi-si.dst.05th.20: immutable response already present",
+    "worldbank-wdi-si.dst.frst.20: immutable response already present",
+    "worldbank-wdi-sh.xpd.ghed.ch.zs: immutable response already present",
+    "census-acs1-2025-state-income: immutable response already present",
+    "census-state-gini-1999: immutable response already present",
+    "fbi-crime-table5-1999: immutable response already present"
+  ]
+}

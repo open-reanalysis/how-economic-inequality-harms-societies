@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t001418634691z-verification-pisa
+source_ids:
+- verification-pisa
+method: download
+request: https://www.oecd.org/en/data/datasets/pisa-2022-database.html
+requested_utc: '2026-10-19T00:14:18.634691+00:00'
+response_status: 403
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001418634691z-verification-pisa.yaml
+notes: '403 Client Error: Forbidden for url: https://www.oecd.org/en/data/datasets/pisa-2022-database.html'
+files: []
+resolved_url: https://www.oecd.org/en/data/datasets/pisa-2022-database.html

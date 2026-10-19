@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t000847998120z-fbi-crime-table5-1999
+source_ids: &id001
+- fbi-crime-table5-1999
+method: download
+request: https://ucr.fbi.gov/crime-in-the-u.s/1999/table5_state99.xls
+requested_utc: '2026-10-19T00:08:47.998120+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t000847998120z-fbi-crime-table5-1999.yaml
+notes: ''
+files:
+- path: data/00_original_reconstruction/fbi-crime-table5-1999.xls
+  size_bytes: 141824
+  sha256: 9037a745c65d65110f4c71c02bbf4fe7fc1d467fd9bd55483448ed237d6927db
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://ucr.fbi.gov/crime-in-the-u.s/1999/table5_state99.xls

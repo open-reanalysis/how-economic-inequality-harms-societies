@@ -19,7 +19,7 @@ if __name__ == "__main__":
     lines = [
         "# Historical reproduction: differences and barriers",
         "",
-        "The calculations below use the available release, not an independently verified copy of every publication's original analysis version. Numerical agreement is assessed at the source's declared precision; it does not establish identity of all original methods or observations.",
+        "The calculations below use the available release, not an independently verified copy of every publication's original analysis version. Numerical agreement is assessed at the source's declared precision; it does not establish identity of all original methods or observations. Values come from their producer runs; the current execution may retain a compatible earlier table, as recorded separately in the run record.",
         "",
         "| Result | Published r | Recomputed r | n | Assessment |",
         "|---|---:|---:|---:|---|",

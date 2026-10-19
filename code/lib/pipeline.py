@@ -1,6 +1,5 @@
 """One stored-input historical reproduction path and explicit result barriers."""
 
-import hashlib
 import json
 
 import pandas as pd
@@ -9,7 +8,7 @@ from lib import compute
 from lib.paths import ROOT, resolve, sha256
 from lib.readers import READERS
 from lib.records import load_records, verify_files
-from lib.runs import can_retain, finish_run, start_run
+from lib.runs import can_retain, code_digest, finish_run, start_run
 from lib.schemas import validate_observations, validate_result_keys
 from lib.spec import load_spec, require_current_gate
 from lib.transform import prepare
@@ -49,12 +48,12 @@ def reproduce(spec_path, root=ROOT) -> str:
         for file in acquisition["files"]
         if file["path"] in requested_inputs
     }
-    code_hash = hashlib.sha256(
-        b"".join(
-            p.relative_to(root).as_posix().encode() + p.read_bytes()
-            for p in sorted((root / "code").rglob("*.py"))
-        )
-    ).hexdigest()
+    metadata_paths = {spec["catalogue"], "config/units/countries.csv", "config/units/us_states.csv"}
+    metadata_paths.update(
+        f"data/metadata/sources/{item['source_id']}.yaml" for item in spec.get("inputs", [])
+    )
+    expected_hashes.update({name: sha256(resolve(name, root)) for name in metadata_paths})
+    code_hash = code_digest(root)
     output = root / f"outputs/tables/{spec['spec_id']}_results.csv"
     producer = None
     if requested_inputs.intersection(missing) and output.exists():
@@ -77,6 +76,7 @@ def reproduce(spec_path, root=ROOT) -> str:
                                 "input_hashes": {i["path"]: i["sha256"] for i in step["inputs"]},
                                 "code_sha256": candidate.get("code_sha256"),
                                 "output_sha256": produced["sha256"],
+                                "outputs": step["outputs"],
                             }
                             if can_retain(
                                 candidate_producer, sha256(spec_path), expected_hashes, code_hash
@@ -89,6 +89,10 @@ def reproduce(spec_path, root=ROOT) -> str:
         if can_retain(producer, sha256(spec_path), expected_hashes, code_hash):
             if sha256(output) != producer["output_sha256"]:
                 raise ValueError("Retained output differs from its producer record")
+            for item in producer["outputs"]:
+                retained_path = resolve(item["path"], root)
+                if not retained_path.exists() or sha256(retained_path) != item["sha256"]:
+                    raise ValueError(f"Retained companion output changed: {item['path']}")
             run = start_run("replay", root)
             run["specs"] = [
                 {
@@ -105,15 +109,29 @@ def reproduce(spec_path, root=ROOT) -> str:
                     "producer_run": producer["run_id"],
                     "reason": "Restricted inputs absent; identical code, specification and recorded input identities",
                     "inputs": [
-                        {"path": p, "sha256": h, "check": "record_matched", "restricted": True}
+                        {
+                            "path": p,
+                            "sha256": h,
+                            "check": "file_verified" if p in metadata_paths else "record_matched",
+                            "restricted": p not in metadata_paths,
+                        }
                         for p, h in expected_hashes.items()
                     ],
-                    "outputs": [{"path": str(output.relative_to(root)), "sha256": sha256(output)}],
+                    "outputs": producer["outputs"],
                 }
             )
             return finish_run(run, root)
     members, aliases = registries(root)
     frames, inputs = [], []
+    inputs.extend(
+        {
+            "path": name,
+            "sha256": sha256(resolve(name, root)),
+            "check": "file_verified",
+            "restricted": False,
+        }
+        for name in sorted(metadata_paths)
+    )
     for item in spec.get("inputs", []):
         path = resolve(item["path"], root)
         if not path.exists():
@@ -148,7 +166,7 @@ def reproduce(spec_path, root=ROOT) -> str:
         values["index"], _ = compute.index(values, definition)
     rows = []
     run = start_run("replay", root)
-    run["missing_inputs"] = missing
+    run["missing_inputs"] = sorted(requested_inputs.intersection(missing))
     digest = sha256(spec_path)
     run["specs"] = [{"spec_id": spec["spec_id"], "version": spec["version"], "sha256": digest}]
     component_outputs = []
@@ -175,7 +193,10 @@ def reproduce(spec_path, root=ROOT) -> str:
         pd.DataFrame(component_rows).to_csv(component_path, index=False)
         component_outputs.append(component_path)
     for target in catalogue.to_dict("records"):
-        result = compute.correlation(values, target["predictor"], target["indicator_or_index"])
+        target_sample = spec["samples"][target.get("sample", "historical")]["units"]
+        result = compute.correlation(
+            values.reindex(target_sample), target["predictor"], target["indicator_or_index"]
+        )
         reason = result["reason"]
         state = "not_produced" if reason else "computed"
         row = {
@@ -202,7 +223,7 @@ def reproduce(spec_path, root=ROOT) -> str:
             "input_access": "RESTRICTED INPUT"
             if any(i["restricted"] for i in inputs)
             else "PUBLIC INPUT"
-            if inputs
+            if frames
             else "UNAVAILABLE INPUT",
             "state": state,
             "reason": reason,
@@ -216,6 +237,19 @@ def reproduce(spec_path, root=ROOT) -> str:
             )
             path.parent.mkdir(parents=True, exist_ok=True)
             result["observations"].to_csv(path, index=True, float_format="%.17g")
+            component_outputs.append(path)
+            from lib.figures import scatter
+
+            figure_path = (
+                root / f"outputs/figures/{spec['spec_id']}/historical/{target['result_id']}.png"
+            )
+            scatter(
+                result["observations"],
+                target["predictor"],
+                target["indicator_or_index"],
+                figure_path,
+            )
+            component_outputs.append(figure_path)
     frame = pd.DataFrame(rows)
     validate_result_keys(frame)
     output.parent.mkdir(parents=True, exist_ok=True)

@@ -3,6 +3,7 @@ PIXI ?= pixi
 RUN = $(PIXI) run --locked
 MODE ?= replay
 export OFFLINE = 1
+export MPLCONFIGDIR = $(CURDIR)/build/matplotlib
 
 .PHONY: help test lint check-data check-contracts verify-data all acquire storage-report manifests clean-env
 help:
@@ -24,6 +25,7 @@ all: verify-data
 	$(RUN) python code/04_reproduce.py --spec config/specs/historical_international.yaml
 	$(RUN) python code/04_reproduce.py --spec config/specs/historical_us_states.yaml
 	$(RUN) python code/historical_summary.py
+	$(RUN) python code/assess_index_coverage.py
 acquire:
 	OFFLINE=0 $(RUN) python code/acquire_sources.py
 storage-report:

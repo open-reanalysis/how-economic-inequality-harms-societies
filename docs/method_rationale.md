@@ -47,3 +47,11 @@ Reported correlations are transcribed as numeric facts from the source notes and
 The 2024 technical appendix was consulted for methodological context on 19 October 2026. Its published coefficient table was visible during that reading. Those published results were not used to select current series, periods, samples or transformations and are not comparison targets of this run. The appendix describes a changed mobility measure/direction and different PISA choices, which are not silently imported into the historical specifications.
 
 The component report for the supplied historical index records available components. Its used flags are inferred from the declared component list, availability and the presence of the supplied index; they do not demonstrate independent reconstruction of the authors’ exact standardisation.
+
+## state-historical-sources
+
+Before any reconstructed state correlation was computed, historical_us_states version 2 nominated the Census [Table S4](https://www.census.gov/data/tables/time-series/dec/historical-income-states.html) household Gini for 1999 and FBI [Crime in the United States 1999, Table 5](https://ucr.fbi.gov/crime-in-the-u.s/1999) homicide rate. Raw files are stored unchanged with acquisition records. The missing author file is not presented as recovered; this remains an independent partial reconstruction. Source-hosted historical data may differ in revision or precision from the authors’ inputs.
+
+## state-homicide-availability
+
+The authors’ source notes explicitly identify Wyoming as lacking homicide data. The primary reconstructed comparison therefore uses the named historical_homicides sample of the other 49 states. All 50 source observations are preserved; exclusion is declared before computation and is not selected by its effect on the correlation. The book coefficient is not used to tune the sample.

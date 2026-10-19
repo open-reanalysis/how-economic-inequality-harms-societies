@@ -35,7 +35,7 @@ jobs:
       - name: Public checkout replay
         run: make all
       - name: Check deterministic committed result tables
-        run: git diff --exit-code -- outputs/tables/
+        run: pixi run --locked python code/check_replay.py --base HEAD
       - name: Save execution evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

@@ -1,0 +1,14 @@
+source_id: verification-oda
+provider: OECD
+series_code: catalogue-or-method-verification
+title: OECD source-route verification
+definition: Verification-page response, not a statistical series or an analysis-ready
+  dataset.
+unit: not_applicable
+geography: not_applicable
+licence: Page redistribution terms unverified; response is local only
+terms_url: https://www.oecd.org/en/topics/official-development-assistance-oda.html
+redistributable: false
+record_role: verification_page
+notes: A successful page fetch is not evidence that all required data, versions or
+  definitions have been verified.
