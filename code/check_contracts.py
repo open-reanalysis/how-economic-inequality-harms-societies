@@ -32,6 +32,48 @@ def table(path: Path) -> list[dict]:
         return rows
 
 
+def check_immutable_records(root: Path, base: str) -> None:
+    """Protect baseline acquisitions and immutable runs, including removed records."""
+    import yaml
+
+    names = subprocess.check_output(
+        [
+            "git",
+            "ls-tree",
+            "-r",
+            "--name-only",
+            base,
+            "--",
+            "data/metadata/acquisitions",
+            "outputs/runs",
+        ],
+        cwd=root,
+        text=True,
+    ).splitlines()
+    for name in names:
+        if not name.endswith((".yaml", ".json")):
+            continue
+        current = resolve(name, root)
+        if not current.is_file():
+            raise ValueError(f"Existing record deleted: {name}")
+        previous = subprocess.check_output(["git", "show", f"{base}:{name}"], cwd=root)
+        if name.startswith("outputs/runs/"):
+            if previous != current.read_bytes():
+                raise ValueError(f"Immutable run record changed: {name}")
+            continue
+        earlier = yaml.safe_load(previous)
+        updated = yaml.safe_load(current.read_text())
+        if earlier["acquisition_id"] != updated["acquisition_id"]:
+            raise ValueError(f"Acquisition identity changed: {name}")
+        old = {f["path"]: f for f in earlier["files"]}
+        new = {f["path"]: f for f in updated["files"]}
+        for path, file in old.items():
+            if path not in new or any(
+                new[path][key] != file[key] for key in ["path", "sha256", "size_bytes"]
+            ):
+                raise ValueError(f"Immutable file identity changed: {path}")
+
+
 def check(mode: str, root=ROOT, base: str | None = None) -> None:
     """Check identifiers, references, specs, runs and immutable base-branch file entries."""
     sources, acquisitions = load_records(root)
@@ -136,23 +178,7 @@ def check(mode: str, root=ROOT, base: str | None = None) -> None:
             for item in step["inputs"] + step["outputs"]:
                 resolve(item["path"], root)
     if base:
-        for acquisition in acquisitions:
-            path = f"data/metadata/acquisitions/{acquisition['acquisition_id']}.yaml"
-            previous = subprocess.run(
-                ["git", "show", f"{base}:{path}"], cwd=root, capture_output=True, text=True
-            )
-            if previous.returncode:
-                continue
-            import yaml
-
-            earlier = yaml.safe_load(previous.stdout)
-            old = {f["path"]: f for f in earlier["files"]}
-            new = {f["path"]: f for f in acquisition["files"]}
-            for name, file in old.items():
-                if name not in new or any(
-                    new[name][key] != file[key] for key in ["path", "sha256", "size_bytes"]
-                ):
-                    raise ValueError(f"Immutable file identity changed: {name}")
+        check_immutable_records(root, base)
         changed = subprocess.check_output(
             [
                 "git",

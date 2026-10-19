@@ -45,12 +45,15 @@ def finish_run(record: dict, root=ROOT) -> str:
     return str(path.relative_to(root))
 
 
-def can_retain(producer: dict, spec_hash: str, input_hashes: dict, code_hash: str) -> bool:
-    """Allow reuse only for the identical specification, input identities and computation code."""
+def can_retain(
+    producer: dict, spec_hash: str, input_hashes: dict, code_hash: str, environment_hash: str
+) -> bool:
+    """Allow reuse only for identical specs, input identities, code and locked environment."""
     return (
         producer.get("spec_sha256") == spec_hash
         and producer.get("input_hashes") == input_hashes
         and producer.get("code_sha256") == code_hash
+        and producer.get("pixi_lock_sha256") == environment_hash
     )
 
 

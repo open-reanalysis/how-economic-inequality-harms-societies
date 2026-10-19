@@ -54,6 +54,7 @@ def reproduce(spec_path, root=ROOT) -> str:
     )
     expected_hashes.update({name: sha256(resolve(name, root)) for name in metadata_paths})
     code_hash = code_digest(root)
+    environment_hash = sha256(root / "pixi.lock")
     output = root / f"outputs/tables/{spec['spec_id']}_results.csv"
     producer = None
     if requested_inputs.intersection(missing) and output.exists():
@@ -75,18 +76,23 @@ def reproduce(spec_path, root=ROOT) -> str:
                                 "spec_sha256": matching_specs[0]["sha256"],
                                 "input_hashes": {i["path"]: i["sha256"] for i in step["inputs"]},
                                 "code_sha256": candidate.get("code_sha256"),
+                                "pixi_lock_sha256": candidate.get("pixi_lock_sha256"),
                                 "output_sha256": produced["sha256"],
                                 "outputs": step["outputs"],
                             }
                             if can_retain(
-                                candidate_producer, sha256(spec_path), expected_hashes, code_hash
+                                candidate_producer,
+                                sha256(spec_path),
+                                expected_hashes,
+                                code_hash,
+                                environment_hash,
                             ):
                                 producer = candidate_producer
                                 break
             if producer:
                 break
     if producer:
-        if can_retain(producer, sha256(spec_path), expected_hashes, code_hash):
+        if can_retain(producer, sha256(spec_path), expected_hashes, code_hash, environment_hash):
             if sha256(output) != producer["output_sha256"]:
                 raise ValueError("Retained output differs from its producer record")
             for item in producer["outputs"]:
@@ -107,7 +113,7 @@ def reproduce(spec_path, root=ROOT) -> str:
                     "target": f"reproduce:{spec['spec_id']}",
                     "state": "retained",
                     "producer_run": producer["run_id"],
-                    "reason": "Restricted inputs absent; identical code, specification and recorded input identities",
+                    "reason": "Restricted inputs absent; identical environment, code, specification and recorded input identities",
                     "inputs": [
                         {
                             "path": p,
@@ -121,6 +127,11 @@ def reproduce(spec_path, root=ROOT) -> str:
                 }
             )
             return finish_run(run, root)
+    if requested_inputs.intersection(missing):
+        raise ValueError(
+            "No compatible producer for missing restricted inputs; "
+            "recompute locally with the locked environment before publishing a new snapshot"
+        )
     members, aliases = registries(root)
     frames, inputs = [], []
     inputs.extend(
@@ -229,8 +240,17 @@ def reproduce(spec_path, root=ROOT) -> str:
             "reason": reason,
         }
         rows.append(row)
-        # Observation downloads are withheld unless each input explicitly permits redistribution.
-        if not reason and all(not i["restricted"] for i in inputs):
+        # Obsolete public artifacts must not survive a barrier or a use restriction.
+        publish = not reason and all(not i["restricted"] for i in inputs)
+        if not publish:
+            for directory, extension in [("observations", "csv"), ("figures", "png")]:
+                stale = (
+                    root
+                    / f"outputs/{directory}/{spec['spec_id']}/historical"
+                    / f"{target['result_id']}.{extension}"
+                )
+                stale.unlink(missing_ok=True)
+        if publish:
             path = (
                 root
                 / f"outputs/observations/{spec['spec_id']}/historical/{target['result_id']}.csv"

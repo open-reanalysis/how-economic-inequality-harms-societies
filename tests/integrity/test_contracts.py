@@ -20,17 +20,63 @@ def test_download_refuses_network_offline(tmp_path):
         )
 
 
-def test_credentials_are_rejected_before_any_request_or_record(tmp_path, monkeypatch):
+@pytest.mark.parametrize("credential", ["key", "X-Amz-Signature", "X-Amz-Credential", "sig"])
+def test_credentials_are_rejected_before_any_request_or_record(tmp_path, monkeypatch, credential):
     monkeypatch.setenv("OFFLINE", "0")
     with pytest.raises(ValueError, match="Credential-bearing"):
         acquire(
             ["fixture"],
-            "https://example.invalid/?key=synthetic-fixture",
+            f"https://example.invalid/?{credential}=synthetic-fixture",
             "raw.csv",
             redistributable=True,
             root=tmp_path,
         )
     assert not list(tmp_path.iterdir())
+
+
+@pytest.mark.parametrize("failure", ["http", "connection", "read"])
+def test_redirect_secrets_never_enter_failure_records(tmp_path, monkeypatch, failure):
+    import requests
+
+    monkeypatch.setenv("OFFLINE", "0")
+    secret = "SYNTHETIC-SIGNED-URL-SECRET"
+    signed = "https://example.invalid/blob?X-Amz-Signature=" + secret
+
+    class Response:
+        status_code = 403 if failure == "http" else 200
+        url = signed
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            pass
+
+        def raise_for_status(self):
+            if failure == "http":
+                raise requests.HTTPError("403 for url: " + signed)
+
+        def iter_content(self, size):
+            raise requests.ConnectionError("read failed: " + signed)
+
+    def request(*args, **kwargs):
+        if failure == "connection":
+            raise requests.ConnectionError("connect failed: " + signed)
+        return Response()
+
+    monkeypatch.setattr("lib.download.requests.get", request)
+    record = acquire(
+        ["fixture"],
+        "https://example.invalid/public",
+        "raw.csv",
+        redistributable=True,
+        root=tmp_path,
+    )
+    assert record["status"] == "access_failed"
+    assert secret not in json.dumps(record)
+    assert "resolved_url" not in record
+    for path in tmp_path.rglob("*.yaml"):
+        assert secret not in path.read_text()
 
 
 def test_restricted_input_may_be_missing_but_public_input_must_exist(tmp_path):
@@ -49,11 +95,18 @@ def test_tampered_file_fails(tmp_path):
 
 
 def test_retention_requires_code_spec_and_input_identity():
-    producer = {"spec_sha256": "spec", "input_hashes": {"raw": "input"}, "code_sha256": "code"}
-    assert can_retain(producer, "spec", {"raw": "input"}, "code")
-    assert not can_retain(producer, "new-spec", {"raw": "input"}, "code")
-    assert not can_retain(producer, "spec", {"raw": "input"}, "new-code")
-    assert not can_retain(producer, "spec", {"raw": "changed"}, "code")
+    producer = {
+        "spec_sha256": "spec",
+        "input_hashes": {"raw": "input"},
+        "code_sha256": "code",
+        "pixi_lock_sha256": "env",
+    }
+    assert can_retain(producer, "spec", {"raw": "input"}, "code", "env")
+    assert not can_retain(producer, "new-spec", {"raw": "input"}, "code", "env")
+    assert not can_retain(producer, "spec", {"raw": "input"}, "new-code", "env")
+    assert not can_retain(producer, "spec", {"raw": "changed"}, "code", "env")
+
+    assert not can_retain(producer, "spec", {"raw": "input"}, "code", "new-env")
 
 
 def test_current_gate_rejects_draft_lock(tmp_path):

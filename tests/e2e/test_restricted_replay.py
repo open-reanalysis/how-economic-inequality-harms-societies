@@ -5,13 +5,15 @@ import json
 import subprocess
 
 import pandas as pd
+import pytest
 import yaml
 
 from lib.paths import sha256
 from lib.pipeline import reproduce
 
 
-def test_real_pipeline_retains_only_compatible_produced_result(tmp_path):
+def create_case(tmp_path, *, public=False):
+    """Build a stored-input case with an independent known correlation."""
     root = tmp_path
     for directory in [
         "code",
@@ -58,15 +60,15 @@ def test_real_pipeline_retains_only_compatible_produced_result(tmp_path):
         geography="countries",
         licence="Test fixture",
         terms_url="https://example.invalid/",
-        redistributable=False,
+        redistributable=public,
     )
     (root / "data/metadata/sources/fixture.yaml").write_text(yaml.safe_dump(source))
     file = dict(
         path="raw.csv",
         size_bytes=raw.stat().st_size,
         sha256=sha256(raw),
-        storage="local",
-        redistributable=False,
+        storage="git" if public else "local",
+        redistributable=public,
         source_ids=["fixture"],
     )
     acquisition = dict(
@@ -133,6 +135,12 @@ def test_real_pipeline_retains_only_compatible_produced_result(tmp_path):
         cwd=root,
         check=True,
     )
+    return spec_path, raw
+
+
+def test_real_pipeline_retains_only_compatible_produced_result(tmp_path):
+    root = tmp_path
+    spec_path, raw = create_case(root)
     produced_record = reproduce(spec_path, root)
     output = root / "outputs/tables/historical_international_results.csv"
     before = output.read_bytes()
@@ -148,6 +156,40 @@ def test_real_pipeline_retains_only_compatible_produced_result(tmp_path):
     )
     assert output.read_bytes() == before
     (root / "code/core.py").write_text("# Changed computation identity\n")
-    incompatible_record = reproduce(spec_path, root)
-    assert json.loads((root / incompatible_record).read_text())["steps"][0]["state"] == "computed"
-    assert pd.read_csv(output).iloc[0].state == "not_produced"
+    with pytest.raises(ValueError, match="No compatible producer"):
+        reproduce(spec_path, root)
+    assert output.read_bytes() == before
+
+
+def test_changed_environment_cannot_retain_old_results(tmp_path):
+    spec_path, raw = create_case(tmp_path)
+    reproduce(spec_path, tmp_path)
+    output = tmp_path / "outputs/tables/historical_international_results.csv"
+    before = output.read_bytes()
+    raw.unlink()
+    (tmp_path / "pixi.lock").write_text("Changed numerical dependency environment")
+    with pytest.raises(ValueError, match="No compatible producer"):
+        reproduce(spec_path, tmp_path)
+    assert output.read_bytes() == before
+
+
+@pytest.mark.parametrize("barrier", ["missing_variable", "restriction"])
+def test_obsolete_observations_and_figures_are_removed(tmp_path, barrier):
+    spec_path, _ = create_case(tmp_path, public=True)
+    reproduce(spec_path, tmp_path)
+    observations = tmp_path / "outputs/observations/historical_international/historical/example.csv"
+    figure = tmp_path / "outputs/figures/historical_international/historical/example.png"
+    assert observations.is_file() and figure.is_file()
+    if barrier == "missing_variable":
+        spec = yaml.safe_load(spec_path.read_text())
+        spec["variables"][1]["status"] = "UNRESOLVED"
+        spec_path.write_text(yaml.safe_dump(spec))
+    else:
+        record_path = tmp_path / "data/metadata/acquisitions/fixture-acq.yaml"
+        record = yaml.safe_load(record_path.read_text())
+        record["files"][0].update(redistributable=False, storage="local")
+        record_path.write_text(yaml.safe_dump(record))
+    reproduce(spec_path, tmp_path)
+    assert not observations.exists() and not figure.exists()
+    result = pd.read_csv(tmp_path / "outputs/tables/historical_international_results.csv").iloc[0]
+    assert result.state == ("not_produced" if barrier == "missing_variable" else "computed")

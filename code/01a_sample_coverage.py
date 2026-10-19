@@ -36,7 +36,9 @@ if __name__ == "__main__":
         producer = None
         for path in sorted((ROOT / "outputs/runs").glob("*.json"), reverse=True):
             earlier = json.loads(path.read_text())
-            if earlier.get("code_sha256") != code_digest():
+            if earlier.get("code_sha256") != code_digest() or earlier.get(
+                "pixi_lock_sha256"
+            ) != sha256(ROOT / "pixi.lock"):
                 continue
             for step in earlier["steps"]:
                 if step["target"] != "original-sample-coverage" or step["state"] != "computed":
@@ -59,7 +61,7 @@ if __name__ == "__main__":
                 "target": "original-sample-coverage",
                 "state": "retained",
                 "producer_run": producer,
-                "reason": "Restricted release absent; code, metadata and recorded raw identity match",
+                "reason": "Restricted release absent; environment, code, metadata and recorded raw identity match",
                 "inputs": [
                     {
                         "path": p,

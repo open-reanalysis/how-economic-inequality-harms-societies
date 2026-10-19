@@ -12,27 +12,40 @@ from lib.paths import ROOT, resolve, sha256
 MAX_BYTES = 50 * 1024 * 1024
 
 
+def contains_credentials(url: str) -> bool:
+    """Detect credential-bearing request/redirect URLs before recording them."""
+    parsed = urlsplit(url)
+    secret_fields = {
+        "key",
+        "api_key",
+        "api-key",
+        "apikey",
+        "token",
+        "access_token",
+        "password",
+        "authorization",
+        "sig",
+    }
+    return bool(
+        parsed.username
+        or parsed.password
+        or any(
+            name.lower() in secret_fields
+            or "signature" in name.lower()
+            or "credential" in name.lower()
+            or name.lower().endswith(("_token", "-token"))
+            for name, _ in parse_qsl(parsed.query)
+        )
+    )
+
+
 def acquire(
     source_ids: list[str], url: str, destination: str, *, redistributable: bool, root=ROOT
 ) -> dict:
     """Save one response of at most 50 MiB and record its exact request and outcome."""
     if os.environ.get("OFFLINE") == "1":
         raise RuntimeError("Network acquisition is disabled in offline mode")
-    parsed = urlsplit(url)
-    secret_fields = {
-        "key",
-        "api_key",
-        "apikey",
-        "token",
-        "access_token",
-        "password",
-        "authorization",
-    }
-    if (
-        parsed.username
-        or parsed.password
-        or any(name.lower() in secret_fields for name, _ in parse_qsl(parsed.query))
-    ):
+    if contains_credentials(url):
         raise ValueError(
             "Credential-bearing URLs must not enter public acquisition records; use the documented manual input route"
         )
@@ -63,13 +76,7 @@ def acquire(
             headers={"User-Agent": "open-reanalysis/0.1 (research source acquisition)"},
         ) as response:
             record["response_status"] = response.status_code
-            final = urlsplit(response.url)
-            if not any(
-                name.lower() in secret_fields
-                or "signature" in name.lower()
-                or "credential" in name.lower()
-                for name, _ in parse_qsl(final.query)
-            ):
+            if not contains_credentials(response.url):
                 record["resolved_url"] = response.url
             response.raise_for_status()
             content = bytearray()
@@ -92,7 +99,9 @@ def acquire(
                 }
             ]
     except (requests.RequestException, ValueError) as error:
-        record["notes"] = str(error)
+        record["notes"] = f"{type(error).__name__}: acquisition failed" + (
+            f" (HTTP {record['response_status']})" if record["response_status"] else ""
+        )
     log = resolve(record["retrieval_log"], root)
     log.parent.mkdir(parents=True, exist_ok=True)
     log.write_text(yaml.safe_dump(record, sort_keys=False))
