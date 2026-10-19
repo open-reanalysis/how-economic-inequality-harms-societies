@@ -1,0 +1,15 @@
+source_id: worldbank-wdi-ny.gnp.pcap.cd
+provider: World Bank WDI; indicator-specific original provider
+series_code: NY.GNP.PCAP.CD
+title: GNI per capita, Atlas method
+definition: Candidate current series; historical correspondence must be verified independently
+  before analysis.
+unit: current_usd_atlas
+geography: countries
+licence: World Bank dataset terms; WDI CC BY 4.0 subject to indicator-specific notices
+terms_url: https://datacatalog.worldbank.org/public-licenses#cc-by
+redistributable: true
+variable_id: mean_income
+notes: Acquisition window 2020–2026 is for coverage assessment, not a locked analysis-period
+  rule. Current observations must not be associated with inequality or average income
+  before approval.

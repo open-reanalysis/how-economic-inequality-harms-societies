@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t063308420724z-who-gho-obesity-age-standardised
+source_ids: &id001
+- who-gho-obesity-age-standardised
+method: api
+request: https://ghoapi.azureedge.net/api/NCD_BMI_30A?%24filter=TimeDim%20ge%202020%20and%20Dim1%20eq%20%27BTSX%27
+requested_utc: '2026-10-19T06:33:08.420724+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t063308420724z-who-gho-obesity-age-standardised.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/2026-10-19/who-obesity-age-standardised-global.json
+  size_bytes: 86
+  sha256: b1fa380299ed4311eebf1e4012cf24600613aa4280d86232923c98c8cd478a84
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://ghoapi.azureedge.net/api/NCD_BMI_30A?%24filter=TimeDim%20ge%202020%20and%20Dim1%20eq%20%27BTSX%27

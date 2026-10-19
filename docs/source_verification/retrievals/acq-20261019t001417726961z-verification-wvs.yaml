@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t001417726961z-verification-wvs
+source_ids: &id001
+- verification-wvs
+method: download
+request: https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Documentation
+requested_utc: '2026-10-19T00:14:17.726961+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001417726961z-verification-wvs.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/wvs.html
+  size_bytes: 17749
+  sha256: d1c7e73f3c2d852a131d0d3bd0b3b478ddd947a3e4a0255214d28c39e6fa776d
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://www.worldvaluessurvey.org/WVSContents.jsp?CMSID=Documentation

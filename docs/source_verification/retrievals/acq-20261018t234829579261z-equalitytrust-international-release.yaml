@@ -1,0 +1,21 @@
+acquisition_id: acq-20261018t234829579261z-equalitytrust-international-release
+source_ids:
+- equalitytrust-international-release
+method: download
+request: https://media.equality-trust.out.re/uploads/2025/09/international-inequality.xls
+requested_utc: '2026-10-18T23:48:29.579261+00:00'
+response_status: 200
+dataset_version: unversioned; retrieved 2026-10-19 local date
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261018t234829579261z-equalitytrust-international-release.yaml
+notes: Downloaded with curl --fail --location. Timestamp comes from the completed
+  local download; not an asserted provider release date.
+files:
+- path: data/00_original_released/local/international-inequality.xls
+  size_bytes: 32768
+  sha256: 1897f2bbe503d35df3aea5f3d25a1b719660e1f4761f5913464b6a3b35c6c661
+  storage: local
+  redistributable: false
+  source_ids:
+  - equalitytrust-international-release

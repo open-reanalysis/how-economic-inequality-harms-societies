@@ -1,0 +1,15 @@
+source_id: worldbank-wdi-si.dst.05th.20
+provider: World Bank WDI; indicator-specific original provider
+series_code: SI.DST.05TH.20
+title: Income share held by highest 20 percent
+definition: Candidate current series; historical correspondence must be verified independently
+  before analysis.
+unit: percent
+geography: countries
+licence: World Bank dataset terms; WDI CC BY 4.0 subject to indicator-specific notices
+terms_url: https://datacatalog.worldbank.org/public-licenses#cc-by
+redistributable: true
+variable_id: income_top20
+notes: Acquisition window 2020–2026 is for coverage assessment, not a locked analysis-period
+  rule. Current observations must not be associated with inequality or average income
+  before approval.

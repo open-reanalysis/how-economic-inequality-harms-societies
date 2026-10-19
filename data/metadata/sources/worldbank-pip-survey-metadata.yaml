@@ -1,0 +1,12 @@
+source_id: worldbank-pip-survey-metadata
+provider: World Bank
+series_code: worldbank-pip-survey-metadata
+title: National income survey metadata to verify WDI quintile comparability; no interpolations
+definition: National income survey metadata to verify WDI quintile comparability;
+  no interpolations
+unit: document
+geography: international
+licence: Local verification copy; redistribution permission unverified
+terms_url: https://api.worldbank.org/pip/v1/pip?country=all&year=2020,2021,2022,2023,2024,2025&welfare_type=income&reporting_level=national&fill_gaps=false&format=json
+redistributable: false
+record_role: verification_page

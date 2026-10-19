@@ -1,0 +1,13 @@
+source_id: historical-international-recycling
+provider: Planet Ark Recycling Olympic Report 2004
+series_code: recycling
+title: 'Historical international recycling: Planet Ark Recycling Olympic Report 2004'
+definition: Country recycling performance ranking.
+unit: ranking
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

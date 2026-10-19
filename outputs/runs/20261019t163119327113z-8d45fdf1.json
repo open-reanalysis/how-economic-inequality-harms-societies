@@ -1,0 +1,68 @@
+{
+  "run_id": "20261019t163119327113z-8d45fdf1",
+  "started_utc": "2026-10-19T16:31:19.327279+00:00",
+  "finished_utc": "2026-10-19T16:31:19.376841+00:00",
+  "commit": "8d45fdf1162e05c455995f84889d104b341bb680",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "replay",
+  "specs": [
+    {
+      "spec_id": "historical_international",
+      "version": 1,
+      "sha256": "6ff8411e949c369da25a4292313bf2a5754cb3d2b32ac66045cb1950afd9a189"
+    }
+  ],
+  "steps": [
+    {
+      "target": "reproduce:historical_international",
+      "state": "computed",
+      "reason": "Result table includes explicit barriers for uncomputed comparisons",
+      "inputs": [
+        {
+          "path": "config/results_catalogue.csv",
+          "sha256": "e7767725a7d200d01bb998146ba93f811c9ccc592e5f60655f06824d62c47d37",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/units/countries.csv",
+          "sha256": "f63107908b55d746ccba3f80654863975b7d2428295174ff2f80d55d4625e7e4",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/units/us_states.csv",
+          "sha256": "8fa8d8639ae9b1417a97b862c8e9507963c4f427168a9b0ca3dbf67b28791b71",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/equalitytrust-international-release.yaml",
+          "sha256": "fb7c7dace13e017dbdcc82ce4582e0a4dc0f0aa93e242b3cc02a11b545b50e3e",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/00_original_released/local/international-inequality.xls",
+          "sha256": "1897f2bbe503d35df3aea5f3d25a1b719660e1f4761f5913464b6a3b35c6c661",
+          "check": "file_verified",
+          "restricted": true
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/historical_international_results.csv",
+          "sha256": "24216f672dfdfba8cb170776f86074ed757c1df3442f1e30bad7277fd8d48efd"
+        },
+        {
+          "path": "outputs/tables/historical_international_components.csv",
+          "sha256": "62952f2de46688b249ca6b47a65da59d60eee35013dfd54376a2ca033dceff5c"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [],
+  "code_sha256": "9699bc1fe603217295a60f50a880ceffcadcd1378727b1813a553db11313424a"
+}

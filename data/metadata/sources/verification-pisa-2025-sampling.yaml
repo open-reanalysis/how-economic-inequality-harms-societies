@@ -1,0 +1,12 @@
+source_id: verification-pisa-2025-sampling
+provider: OECD
+series_code: verification-pisa-2025-sampling
+title: PISA 2025 population and sampling standards; Annex A2 download route
+definition: PISA 2025 population and sampling standards; Annex A2 download route
+unit: document
+geography: countries
+licence: Local acquisition; full redistribution permission unverified
+terms_url: https://www.oecd.org/en/about/terms-conditions.html
+redistributable: false
+record_role: verification_page
+data_basis: current

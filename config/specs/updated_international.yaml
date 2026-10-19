@@ -1,0 +1,232 @@
+spec_id: updated_international
+version: 3
+dataset: international
+unit_type: country
+catalogue: config/results_catalogue.csv
+samples:
+  historical:
+    units:
+    - AUS
+    - AUT
+    - BEL
+    - CAN
+    - DNK
+    - FIN
+    - FRA
+    - DEU
+    - GRC
+    - IRL
+    - ISR
+    - ITA
+    - JPN
+    - NLD
+    - NZL
+    - NOR
+    - PRT
+    - SGP
+    - ESP
+    - SWE
+    - CHE
+    - GBR
+    - USA
+    rationale: released-membership
+  refreshed:
+    status: formed
+    eligibility_rule: config/eligibility.yaml
+    eligibility_table: outputs/tables/refreshed_country_eligibility.csv
+    rationale: refreshed-membership
+variables:
+- variable_id: inequality
+  role: inequality
+  sources:
+  - worldbank-pip-national-income
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: trust
+  role: index_component
+  sources:
+  - wvs-evs-joint-v5-frequency-tables
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: life_expectancy
+  role: index_component
+  sources:
+  - worldbank-wdi-sp.dyn.le00.in
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: infant_mortality
+  role: index_component
+  sources:
+  - worldbank-wdi-sp.dyn.imrt.in
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: obesity
+  role: index_component
+  sources:
+  - who-gho-obesity-age-standardised
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: SUBSTITUTE
+- variable_id: mental_illness
+  role: index_component
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: education
+  role: index_component
+  sources:
+  - oecd-pisa-2025-performance
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: teenage_births
+  role: index_component
+  sources:
+  - worldbank-wdi-sp.ado.tfrt
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: homicides
+  role: index_component
+  sources:
+  - worldbank-wdi-vc.ihr.psrc.p5
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: imprisonment_log
+  role: index_component
+  sources:
+  - unodc-prisons-2026
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+- variable_id: social_mobility
+  role: index_component
+  sources:
+  - worldbank-gdim-income-2025
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: SUBSTITUTE
+- variable_id: child_overweight
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: drugs_index
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: calorie_intake
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: public_health_expenditure
+  role: extra_measure
+  sources:
+  - worldbank-wdi-sh.xpd.ghed.ch.zs
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
+- variable_id: child_wellbeing
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: triple_education
+  role: extra_measure
+  sources:
+  - oecd-pisa-2025-performance
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
+- variable_id: child_conflict
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: foreign_aid
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: recycling
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: peace_index
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: maternity_leave
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: advertising
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: police
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: social_expenditure
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: womens_status
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: lone_parents
+  role: extra_measure
+  sources: []
+  status: UNRESOLVED
+  rationale: current-candidates
+- variable_id: mean_income
+  role: mean_income
+  sources:
+  - worldbank-wdi-ny.gnp.pcap.cd
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: NOT_YET_VERIFIED
+- variable_id: population
+  role: eligibility
+  sources:
+  - worldbank-wdi-sp.pop.totl
+  status: UNRESOLVED
+  rationale: current-candidates
+  comparability_class: CONCEPTUAL_SUCCESSOR
+index:
+  mode: rebuild
+  status: UNRESOLVED
+  rationale: current-candidates
+  reason: Maintainer requires missing-component acquisition before lock; no reduced
+    index or final missing-component rule approved.
+statistics:
+- pearson_r
+- p_value
+- n
+status: draft
+current_results:
+- variant_id: updated
+  sample: historical
+  series_set: successors
+- variant_id: refreshed
+  sample: refreshed
+  series_set: successors
+- variant_id: with_substitutes
+  sample: historical
+  series_set: successors_and_substitutes

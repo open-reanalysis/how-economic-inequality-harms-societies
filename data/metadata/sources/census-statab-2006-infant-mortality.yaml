@@ -1,0 +1,25 @@
+source_id: census-statab-2006-infant-mortality
+provider: US Census Bureau
+series_code: census-statab-2006-infant-mortality
+title: Statistical Abstract 2006 Table 105 infant mortality rates by state
+definition: Statistical Abstract 2006 Table 105 infant mortality rates by state
+unit: per_1000_live_births
+geography: us_states
+licence: US federal public-domain data
+terms_url: https://www.census.gov/about/policies/quality/information/data_protection.html
+redistributable: true
+record_role: historical_table
+reader_layout:
+  sheet: 06s0105
+  year_row: 9
+  value_column: 4
+  first_row: 13
+  last_row: 63
+  unit_column: 0
+  period: '2002'
+  variable_id: infant_mortality
+  excluded_labels:
+  - District of Columbia
+  missing_markers:
+  - (B)
+  - B

@@ -1,0 +1,29 @@
+version: 1
+status: approved_rule
+rationale: refreshed-membership
+universe: config/units/un_members.csv
+ranking:
+  source_id: worldbank-wdi-ny.gnp.pcap.cd
+  path: data/01_raw_current/eligibility/2026-10-19/NY.GNP.PCAP.CD-all.json
+  year: 2025
+  top_n: 50
+  ties: include_all_at_cutoff
+population:
+  source_id: worldbank-wdi-sp.pop.totl
+  path: data/01_raw_current/eligibility/2026-10-19/SP.POP.TOTL-all.json
+  year: 2025
+  minimum_exclusive: 3000000
+inequality:
+  source_id: worldbank-pip-national-income
+  path: data/01_raw_current/eligibility/2026-10-19/pip-national-income.json
+  earliest_year: 2020
+  latest_year: 2025
+  welfare_type: income
+  reporting_level: national
+  survey_coverage: national
+  is_interpolated: false
+  reporting_equals_survey_year: true
+  selection: latest_eligible_survey
+  measure: s80_s20_from_decile_shares
+output: outputs/tables/refreshed_country_eligibility.csv
+detail_output: outputs/tables/refreshed_inequality_surveys.csv

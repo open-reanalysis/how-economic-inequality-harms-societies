@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t064718248989z-worldbank-pip-national-income
+source_ids: &id001
+- worldbank-pip-national-income
+method: api
+request: https://api.worldbank.org/pip/v1/pip?country=all&year=2020,2021,2022,2023,2024,2025&welfare_type=income&reporting_level=national&fill_gaps=false&format=json
+requested_utc: '2026-10-19T06:47:18.248989+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t064718248989z-worldbank-pip-national-income.yaml
+notes: ''
+files:
+- path: data/01_raw_current/eligibility/2026-10-19/pip-national-income.json
+  size_bytes: 194103
+  sha256: ebf1df5ddb7f8f3d996bb1ca3186921c0095231f9d4a3d487178ef58bae18b4a
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/pip/v1/pip?country=all&year=2020,2021,2022,2023,2024,2025&welfare_type=income&reporting_level=national&fill_gaps=false&format=json

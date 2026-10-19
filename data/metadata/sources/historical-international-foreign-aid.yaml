@@ -1,0 +1,14 @@
+source_id: historical-international-foreign-aid
+provider: OECD International Development Statistics 2005
+series_code: foreign_aid
+title: 'Historical international foreign_aid: OECD International Development Statistics
+  2005'
+definition: Donor aid spending as a share of GNI; aid received is not equivalent.
+unit: percent_gni
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

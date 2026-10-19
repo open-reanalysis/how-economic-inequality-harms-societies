@@ -1,0 +1,33 @@
+{
+  "run_id": "20261018t235909625136z-ea56bea5",
+  "started_utc": "2026-10-18T23:59:09.625308+00:00",
+  "finished_utc": "2026-10-18T23:59:09.645168+00:00",
+  "commit": "ea56bea575b103459e47360c654dc9eb823dcf23",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [
+    {
+      "spec_id": "historical_us_states",
+      "version": 1,
+      "sha256": "dd0d192b3caf3a867a6cc7b75e5cbcaea07cefa5854b9e62b78539349829e443"
+    }
+  ],
+  "steps": [
+    {
+      "target": "reproduce:historical_us_states",
+      "state": "computed",
+      "reason": "Result table includes explicit barriers for uncomputed comparisons",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "outputs/tables/historical_us_states_results.csv",
+          "sha256": "0e0ebc1a9efa3354f45ec4e98053d86f97813723f9c08e746dfe51440756f1c8"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [],
+  "code_sha256": "f745f981f3cb38ba38ca3128a9a2ae4aa8fa0cc77dd8123924b62763b766914f"
+}

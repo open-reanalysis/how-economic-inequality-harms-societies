@@ -96,9 +96,9 @@ A conceptual successor's differences are disclosed with the result. Substitutes 
 
 The historical country sample is the verified membership of the released international dataset, currently identified as 23 countries. The historical state sample is 50 states, with the District of Columbia excluded unless primary evidence establishes otherwise. Each individual comparison uses the members with the required observations.
 
-The primary current analysis keeps the historical master sample. A parallel analysis refreshes country eligibility using the rule the authors state in their 2010 response to Peter Saunders: start with the 50 richest countries, retain those with a population above 3 million, and require comparable income-distribution data.
+The primary current analysis keeps the historical master sample. A parallel analysis refreshes country eligibility using the rule the authors state in their 2010 responses (Snowdon question 1): start with the 50 richest countries, retain those with a population above 3 million, and require comparable income-distribution data.
 
-The specification identifies the ranking measure and vintage, population period and income-distribution source. A consequential ambiguity about non-sovereign economies or ties is resolved before sample selection is finalised. The historical eligibility check is performed only if the required historical vintage can be obtained. An unavailable vintage is reported as a barrier, not replaced silently.
+The specification identifies the ranking measure and vintage, population period and income-distribution source. The authors explicitly describe Hong Kong as not a nation state in their response on its exclusion. The refreshed universe follows that state-based interpretation; its operational membership and any tie rule are documented before the sample is finalised. The historical eligibility check is performed only if the required historical vintage can be obtained. An unavailable vintage is reported as a barrier, not replaced silently.
 
 The refreshed state sample equals the fixed state sample unless the documented original rule establishes otherwise, so identical results are reported once.
 

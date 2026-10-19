@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t065459187413z-oecd-pisa-2025-performance
+source_ids: &id001
+- oecd-pisa-2025-performance
+method: download
+request: https://stat.link/mrq53f
+requested_utc: '2026-10-19T06:54:59.187413+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t065459187413z-oecd-pisa-2025-performance.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/pisa-2025-performance.xlsx
+  size_bytes: 1529722
+  sha256: 14e958538fc68dc4bf25b47ad11c4f3f90035873aa96616925e5cea0af242fb8
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://stat.link/files/73451bc5-en/mrq53f.xlsx

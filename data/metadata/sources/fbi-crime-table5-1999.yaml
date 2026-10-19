@@ -1,0 +1,30 @@
+source_id: fbi-crime-table5-1999
+provider: Federal Bureau of Investigation
+series_code: fbi-crime-table5-1999
+title: Index of crime by state, 1999, Table 5
+definition: State population and crime counts/rates, including murder and non-negligent
+  manslaughter.
+unit: per_100000
+geography: us_states
+licence: US federal government statistical table; public domain, retaining source
+  attribution
+terms_url: https://www.fbi.gov/services/information-management/foipa/foia-pa-faqs
+redistributable: true
+notes: Historical source reconstruction, not the missing author-released state file.
+  The hosted source version must be distinguished from the exact original analysis
+  vintage.
+reader_layout:
+  sheet: Table5
+  header_row: 3
+  value_column: 6
+  expected_value_header: Murder and non-negligent man-     slaughter
+  rate_label: Rate per 100,000 inhabitants
+  period: '1999'
+  variable_id: homicides
+  excluded_labels:
+  - DISTRICT OF COLUMBIA
+  - PUERTO RICO
+  missing_markers:
+  - ''
+  - '-'
+  - NA

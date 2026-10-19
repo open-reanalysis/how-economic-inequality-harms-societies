@@ -1,0 +1,14 @@
+source_id: historical-international-drugs-index
+provider: UNODC World Drug Report 2007
+series_code: drugs_index
+title: 'Historical international drugs_index: UNODC World Drug Report 2007'
+definition: Composite of substance-use measures; the workbook citation row appears
+  mismatched and needs verification.
+unit: index_score
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

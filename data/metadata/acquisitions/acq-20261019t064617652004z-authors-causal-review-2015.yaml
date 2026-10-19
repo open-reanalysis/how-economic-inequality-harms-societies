@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t064617652004z-authors-causal-review-2015
+source_ids: &id001
+- authors-causal-review-2015
+method: download
+request: https://pure.york.ac.uk/portal/en/publications/income-inequality-and-health-a-causal-review/
+requested_utc: '2026-10-19T06:46:17.652004+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t064617652004z-authors-causal-review-2015.yaml
+notes: ''
+files:
+- path: sources/supporting/local/causal-review-2015-landing.html
+  size_bytes: 45294
+  sha256: 638a96aa912f9bcf7828cc7d939cb49edc862ea4c50ce3699fe9df2cc25c69fa
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://pure.york.ac.uk/portal/en/publications/income-inequality-and-health-a-causal-review/

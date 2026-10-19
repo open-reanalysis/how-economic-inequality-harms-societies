@@ -1,0 +1,13 @@
+source_id: verification-gdim-income
+provider: World Bank
+series_code: source-page
+title: verification-gdim-income
+definition: Provider catalogue or source verification; not an analysis outcome series.
+unit: not_applicable
+geography: countries
+licence: Page redistribution unverified; local only
+terms_url: https://datacatalog.worldbank.org/search/dataset/0066878/global-database-on-intergenerational-income-mobility
+redistributable: false
+record_role: verification_page
+data_basis: current
+notes: Acquired for prospective source and coverage verification; no associations.

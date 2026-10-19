@@ -1,0 +1,15 @@
+source_id: historical-international-infant-mortality
+provider: OECD 2005 via UNICEF Report Card 2007
+series_code: infant_mortality
+title: 'Historical international infant_mortality: OECD 2005 via UNICEF Report Card
+  2007'
+definition: Infant deaths per 1,000 live births; workbook version differs from live
+  notes.
+unit: per_1000_live_births
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

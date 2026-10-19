@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t063202372662z-who-gho-obesity-age-standardised
+source_ids:
+- who-gho-obesity-age-standardised
+method: api
+request: https://ghoapi.azureedge.net/api/NCD_BMI_30A?%24filter=TimeDim+ge+2020+and+Dim1+eq+%27BTSX%27+and+%28SpatialDim+eq+%27AUS%27+or+SpatialDim+eq+%27AUT%27+or+SpatialDim+eq+%27BEL%27+or+SpatialDim+eq+%27CAN%27+or+SpatialDim+eq+%27DNK%27+or+SpatialDim+eq+%27FIN%27+or+SpatialDim+eq+%27FRA%27+or+SpatialDim+eq+%27DEU%27+or+SpatialDim+eq+%27GRC%27+or+SpatialDim+eq+%27IRL%27+or+SpatialDim+eq+%27ISR%27+or+SpatialDim+eq+%27ITA%27+or+SpatialDim+eq+%27JPN%27+or+SpatialDim+eq+%27NLD%27+or+SpatialDim+eq+%27NZL%27+or+SpatialDim+eq+%27NOR%27+or+SpatialDim+eq+%27PRT%27+or+SpatialDim+eq+%27SGP%27+or+SpatialDim+eq+%27ESP%27+or+SpatialDim+eq+%27SWE%27+or+SpatialDim+eq+%27CHE%27+or+SpatialDim+eq+%27GBR%27+or+SpatialDim+eq+%27USA%27%29&%24select=SpatialDim%2CTimeDim%2CDim1%2CNumericValue&%24top=5000
+requested_utc: '2026-10-19T06:32:02.372662+00:00'
+response_status: 400
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t063202372662z-who-gho-obesity-age-standardised.yaml
+notes: 'HTTPError: acquisition failed (HTTP 400)'
+files: []
+resolved_url: https://ghoapi.azureedge.net/api/NCD_BMI_30A?%24filter=TimeDim+ge+2020+and+Dim1+eq+%27BTSX%27+and+%28SpatialDim+eq+%27AUS%27+or+SpatialDim+eq+%27AUT%27+or+SpatialDim+eq+%27BEL%27+or+SpatialDim+eq+%27CAN%27+or+SpatialDim+eq+%27DNK%27+or+SpatialDim+eq+%27FIN%27+or+SpatialDim+eq+%27FRA%27+or+SpatialDim+eq+%27DEU%27+or+SpatialDim+eq+%27GRC%27+or+SpatialDim+eq+%27IRL%27+or+SpatialDim+eq+%27ISR%27+or+SpatialDim+eq+%27ITA%27+or+SpatialDim+eq+%27JPN%27+or+SpatialDim+eq+%27NLD%27+or+SpatialDim+eq+%27NZL%27+or+SpatialDim+eq+%27NOR%27+or+SpatialDim+eq+%27PRT%27+or+SpatialDim+eq+%27SGP%27+or+SpatialDim+eq+%27ESP%27+or+SpatialDim+eq+%27SWE%27+or+SpatialDim+eq+%27CHE%27+or+SpatialDim+eq+%27GBR%27+or+SpatialDim+eq+%27USA%27%29&%24select=SpatialDim%2CTimeDim%2CDim1%2CNumericValue&%24top=5000

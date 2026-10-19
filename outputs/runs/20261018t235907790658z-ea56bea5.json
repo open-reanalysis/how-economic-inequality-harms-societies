@@ -1,0 +1,40 @@
+{
+  "run_id": "20261018t235907790658z-ea56bea5",
+  "started_utc": "2026-10-18T23:59:07.790810+00:00",
+  "finished_utc": "2026-10-18T23:59:07.830070+00:00",
+  "commit": "ea56bea575b103459e47360c654dc9eb823dcf23",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [
+    {
+      "spec_id": "historical_international",
+      "version": 1,
+      "sha256": "3a6f4470222b8cb2d80c6987dd2bac5c9bad493a6119a52708f9ec5424a8a38d"
+    }
+  ],
+  "steps": [
+    {
+      "target": "reproduce:historical_international",
+      "state": "computed",
+      "reason": "Result table includes explicit barriers for uncomputed comparisons",
+      "inputs": [
+        {
+          "path": "data/00_original_released/local/international-inequality.xls",
+          "sha256": "1897f2bbe503d35df3aea5f3d25a1b719660e1f4761f5913464b6a3b35c6c661",
+          "check": "file_verified",
+          "restricted": true
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/historical_international_results.csv",
+          "sha256": "613de0fff0c5dd259d5a5c7f12acc5f2f23ff65182efeaa3a851c6c1dbf164ad"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [],
+  "code_sha256": "f745f981f3cb38ba38ca3128a9a2ae4aa8fa0cc77dd8123924b62763b766914f"
+}

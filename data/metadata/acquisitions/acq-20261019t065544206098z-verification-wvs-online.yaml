@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t065544206098z-verification-wvs-online
+source_ids: &id001
+- verification-wvs-online
+method: download
+request: https://www.worldvaluessurvey.org/AJOnlineIndex.jsp?WAVE=1562
+requested_utc: '2026-10-19T06:55:44.206098+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t065544206098z-verification-wvs-online.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/wvs-wave7-index.html
+  size_bytes: 221624
+  sha256: e83a3d70413725dbd05cb53ed910853250a7c6dfe1c38cbffbcc848f5833a3bd
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://www.worldvaluessurvey.org/AJOnlineIndex.jsp?WAVE=1562

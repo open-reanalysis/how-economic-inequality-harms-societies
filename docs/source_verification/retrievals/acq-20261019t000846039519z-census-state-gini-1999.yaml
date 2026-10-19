@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t000846039519z-census-state-gini-1999
+source_ids: &id001
+- census-state-gini-1999
+method: download
+request: https://www2.census.gov/programs-surveys/decennial/tables/time-series/historical-income-states/state4.csv
+requested_utc: '2026-10-19T00:08:46.039519+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t000846039519z-census-state-gini-1999.yaml
+notes: ''
+files:
+- path: data/00_original_reconstruction/census-state-gini-1999.csv
+  size_bytes: 3023
+  sha256: 15c9fb34a503c681ebad9de9d4ec1ee5100cd160bcff86e5365d23669e41adb2
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://www2.census.gov/programs-surveys/decennial/tables/time-series/historical-income-states/state4.csv

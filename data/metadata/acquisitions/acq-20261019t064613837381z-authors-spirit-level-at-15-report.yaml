@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t064613837381z-authors-spirit-level-at-15-report
+source_ids: &id001
+- authors-spirit-level-at-15-report
+method: download
+request: https://media.equality-trust.out.re/uploads/2024/07/The-Spirit-Level-at-15-2024-FINAL.pdf
+requested_utc: '2026-10-19T06:46:13.837381+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t064613837381z-authors-spirit-level-at-15-report.yaml
+notes: ''
+files:
+- path: sources/supporting/local/spirit-level-at-15.pdf
+  size_bytes: 13864415
+  sha256: 773e2165d1c42a55e189312aa28f3d7cc47f2152207dd1d95fb016c7d7889394
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://media.equality-trust.out.re/uploads/2024/07/The-Spirit-Level-at-15-2024-FINAL.pdf

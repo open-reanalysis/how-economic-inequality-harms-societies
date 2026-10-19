@@ -1,0 +1,11 @@
+source_id: un-current-members-2026
+provider: United Nations Dag Hammarskjold Library
+series_code: un-members
+title: Current UN member states
+definition: Official list of 193 UN member states and membership authority records
+unit: membership
+geography: countries
+licence: Copyright UN; local verification copy
+terms_url: https://research.un.org/en/unmembers/currentmembers
+redistributable: false
+record_role: unit_catalogue

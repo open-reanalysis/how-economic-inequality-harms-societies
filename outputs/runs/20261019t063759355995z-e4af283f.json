@@ -1,0 +1,213 @@
+{
+  "run_id": "20261019t063759355995z-e4af283f",
+  "started_utc": "2026-10-19T06:37:59.356166+00:00",
+  "finished_utc": "2026-10-19T06:38:03.295566+00:00",
+  "commit": "e4af283f7b226343226c24f215a7affcb88a13f3",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [],
+  "steps": [
+    {
+      "target": "current-coverage-flags",
+      "state": "computed",
+      "inputs": [
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/NY.GNP.PCAP.CD-all.json",
+          "sha256": "9b7fb5a277b9ebfc8fcccde35c33686ffc878a1ff55e0a280b2082fb215ecd03",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/SI.DST.05TH.20-all.json",
+          "sha256": "e2e7fcb456b766816388e103dbcdce3a71ed322563c760c6b0523f33d6a31d9e",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/SI.DST.FRST.20-all.json",
+          "sha256": "b31ae0d77195d4adafaa9831e63850dd14e9f6b4b92a929ea362b7f355babd13",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/eligibility/2026-10-19/SP.POP.TOTL-all.json",
+          "sha256": "cacb5039f5331e85bfed35be5c4594d3e43674fd57cbb0128f39f212e7f2644b",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/inequality/2026-10-19/census-acs1-2025-state-income.json",
+          "sha256": "c2f4687e09b80676de7f68dec92ebea395209616dbc6f895520e547c5f68c0f5",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/NY.GNP.PCAP.CD.json",
+          "sha256": "858fb0e92b43d74639c28c6696566c58d34e64f42ffe5180706bd81b5b71b12c",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SH.XPD.GHED.CH.ZS.json",
+          "sha256": "ec331ae86378302844afa2419487839c2f6acb01b58fd0f54a21792e1c34708f",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SI.DST.05TH.20.json",
+          "sha256": "23c7a38dd01fab904142bb4fbf053f0b2eb12371aafb065238e3a495e31e7a25",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SI.DST.FRST.20.json",
+          "sha256": "a30fb22a1bf6fece3704f61a7d7a0829da0c8e4fa288f8dd91ab40e3d8dff414",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.ADO.TFRT.json",
+          "sha256": "dc2bd606dfaad5faa974fbefae166ebb7473804e1903204da4254735e44e2706",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.DYN.IMRT.IN.json",
+          "sha256": "31641a2bd521f7d6b845e9ef3c7c6d1a945fdb66bc9166232839843ccf268459",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.DYN.LE00.IN.json",
+          "sha256": "cf48b45e5a6bab3d7cbb84a97593f2b01837ddc1f18967b06d5c8ef28c9e6522",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.POP.TOTL.json",
+          "sha256": "8dce1b84b25d5a2ba45ab73c9056d65c2c1cb7f82fdd65b036da630c03d55e17",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/VC.IHR.PSRC.P5.json",
+          "sha256": "1dc9ae5612fa4dabd7cc24c311e7a49ec21abac741dd499ba7bddd88573d3702",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/gdim-income-2025.dta",
+          "sha256": "5c24608f6d9cca8c7c094c767c392ad0d145ae7ee17e1c0eb40305ff0cfa9df3",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/who-obesity-age-standardised-by-sex.json",
+          "sha256": "3c4ef62d16fa8c232275bb89c05bcb06db3201a36d4a3cb9385ec861b8753af0",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/who-obesity-age-standardised-global.json",
+          "sha256": "b1fa380299ed4311eebf1e4012cf24600613aa4280d86232923c98c8cd478a84",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/local/unodc-prisons-2026.xlsx",
+          "sha256": "27f6a3bbc89769a9acef0675335b9ca4dca7ec3776db9499127256d39b7e14e6",
+          "check": "file_verified",
+          "restricted": true
+        },
+        {
+          "path": "data/metadata/sources/census-acs1-2025-state-income.yaml",
+          "sha256": "2ff4dae0f665636681cbdc655bde02fd0a319af79bce7a332ed3517f75324390",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/unodc-prisons-2026.yaml",
+          "sha256": "244733e7b3f734c3ef3f155a17a9326224bf40330ca62953fc15a59cde3e038e",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/who-gho-obesity-age-standardised.yaml",
+          "sha256": "b823f72999a9b7ee9c2f1043ea3e4003955966947b167cbdddf753f39de7c9e3",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-gdim-income-2025.yaml",
+          "sha256": "7c8a3cf85b8a868362e5a5738213a0ee970917d801dad7c29d1d03f688511371",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-ny.gnp.pcap.cd.yaml",
+          "sha256": "1a3654d59fd16f805184a0969cd58ca69799595287b9223ce07feb0078f0c3e6",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-sh.xpd.ghed.ch.zs.yaml",
+          "sha256": "cb1225a9881d5f25d1c3c697367b17e877fb442e03e125b76f7b650ac8e3aced",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-si.dst.05th.20.yaml",
+          "sha256": "43cc837d7c60d4d8d6f359e8c6f98978708a039e752b2f4c5d62997daa91c306",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-si.dst.frst.20.yaml",
+          "sha256": "478c3157c011f8eb74ffd47131b73784f55ae88cf58aea69713af10632a60914",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-sp.ado.tfrt.yaml",
+          "sha256": "c3b7949b4a56ba4a84235ea0bdbeec529b3c91021ba2f10dec0a17ba9f76a91b",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-sp.dyn.imrt.in.yaml",
+          "sha256": "616eca9f1acf42368f0bf08632f8d6433ae4be64a3901dd3a0ffdfff17845bde",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-sp.dyn.le00.in.yaml",
+          "sha256": "059a1ece9f8b6848fd5df8aa376a1eaef7521ee627232b5f551e546af7c442ff",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-sp.pop.totl.yaml",
+          "sha256": "1b31cc354fb4d7bd506954bd59426fb3f77a516a58f9bee5b2f298c00bfe214a",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/metadata/sources/worldbank-wdi-vc.ihr.psrc.p5.yaml",
+          "sha256": "47e34c9877d367fa90138bf64b5936971bff556722995df3e661c9c5909434fa",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/outcome_source_coverage.csv",
+          "sha256": "f3236b027311214a7a82bb89831b66f7f81ba7b7875985e96fc1898c2ac66d96"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [],
+  "code_sha256": "c885a1685267ff138d82a70177f09c832976ab7e3cfb3b1388f8136c9a6677c0"
+}

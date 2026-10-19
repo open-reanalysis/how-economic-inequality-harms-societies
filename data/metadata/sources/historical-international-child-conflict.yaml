@@ -1,0 +1,13 @@
+source_id: historical-international-child-conflict
+provider: WHO HBSC via UNICEF 2007
+series_code: child_conflict
+title: 'Historical international child_conflict: WHO HBSC via UNICEF 2007'
+definition: Composite of fighting, bullying and peer support.
+unit: index_score
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

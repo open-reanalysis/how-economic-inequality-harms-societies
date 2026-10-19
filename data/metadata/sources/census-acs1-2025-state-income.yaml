@@ -1,0 +1,12 @@
+source_id: census-acs1-2025-state-income
+provider: US Census Bureau
+series_code: ACS1 B19083_001E and B19013_001E
+title: State household-income Gini and median household income, ACS 2025 candidate
+definition: Gini and median household income estimates; median is not silently treated
+  as historical mean income.
+unit: variable-specific
+geography: us_states
+licence: US federal government data; third-party exceptions checked before reuse
+terms_url: https://www.census.gov/about/policies/open-gov/open-data.html
+redistributable: true
+notes: Candidate acquisition only; source vintage and meaning still require validation.

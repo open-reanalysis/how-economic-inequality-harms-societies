@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t062834294023z-verification-unodc-prisons
+source_ids: &id001
+- verification-unodc-prisons
+method: download
+request: https://data.unodc.org/datareport/prison-held
+requested_utc: '2026-10-19T06:28:34.294023+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t062834294023z-verification-unodc-prisons.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/verification-unodc-prisons.html
+  size_bytes: 48025
+  sha256: 90a56136de639b879175232e3a2a999c412e22d5a7f043e561fb894a11bd3005
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://data.unodc.org/datareport/prison-held

@@ -1,0 +1,14 @@
+acquisition_id: acq-20261019t001425790663z-verification-original-notes
+source_ids:
+- verification-original-notes
+method: download
+request: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+requested_utc: '2026-10-19T00:14:25.790663+00:00'
+response_status: 403
+dataset_version: unversioned
+status: access_failed
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001425790663z-verification-original-notes.yaml
+notes: '403 Client Error: Forbidden for url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/'
+files: []
+resolved_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/

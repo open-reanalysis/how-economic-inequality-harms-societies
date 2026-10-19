@@ -4,7 +4,7 @@ This file holds the schedule, the approved assumptions and the decisions of the 
 
 ## Current run
 
-The implementation runs in one day, 19 October 2026. No step waits for material that cannot be obtained that day. The threads start in the wave order of the plan as soon as their gates pass.
+The milestone-1 integration run starts on 19 October 2026. Its first stage establishes the runnable scaffold and one historical reproduction path, then assesses each required source. There is no one-day completion promise. Release timing is decided after the catalogue and acquisition barriers are known; later-stage work follows the plan’s gates.
 
 | Order | Work | Waits for the maintainer |
 |---|---|---|
@@ -44,3 +44,19 @@ These fill points the authors' published material leaves open. The historical re
 - Git LFS is not used.
 - Connecting the repository to Zenodo is left for later.
 - Whether to register research use of *The Spirit Level at 15* with the Equality Trust is still the maintainer's decision.
+
+## Milestone 1 integration status
+
+The maintainer authorised a new pull request containing the feasibility corrections and milestone-1 implementation. Work is on scaffold/milestone-one. Current associations remain forbidden until the reproduction lock is merged and milestone 1 is approved and tagged. No release tag is created or moved during implementation.
+
+## Prospective decision: current index
+
+On 19 October 2026 the maintainer chose to lock the current index only after component availability and the consequences of missing components are documented. No new minimum-component threshold or final missingness rule is approved by this decision. Continue acquisition and coverage assessment; keep current specifications and the reproduction lock in draft. See docs/milestone-1-status.md for completed work and remaining acceptance checks.
+
+## Source decisions on 19 October 2026
+
+The maintainer accepted the WHO statistical-data terms, including the disclosed arbitration and indemnity clauses, for acquiring obesity and health data. This permits the nominated acquisition; third-party exceptions and attribution requirements still apply. Terms: https://data.who.int/about/data/terms-and-conditions.
+
+In response to the sample-universe question the maintainer asked how Wilkinson selected countries. The authors describe the April 2004 WDI Atlas-method top 50, excluding populations below three million and countries lacking UN inequality data. Their response on Hong Kong explicitly says it is not a nation state. The refreshed design therefore follows a state-based interpretation, rather than treating all World Bank reporting economies as eligible. This interpretation and any operational departure must remain explicit; the authors do not specify a tie rule. Source: https://media.equality-trust.out.re/uploads/2015/06/responses-to-all-critics.pdf, Snowdon question 1 and Hong Kong response (PDF pages 10 and 15).
+
+On 19 October 2026 the maintainer approved the refreshed universe of UN member states, 2025 Atlas-method GNI per capita ranking, population above three million in 2025, observed national income surveys in 2020–2025, and inclusion of all ties at the top-50 cutoff. UN membership is this project's explicit operational clarification, not an attributed author rule. The maintainer rejected closing the current-index work as not_produced and directed acquisition of missing components before locking. Keep the lock in draft until that work and its decisions are resolved.

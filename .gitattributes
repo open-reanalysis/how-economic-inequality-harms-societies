@@ -1,0 +1,6 @@
+# Preserve provider bytes without text conversion or whitespace rewriting.
+data/00_original_released/** -text -whitespace
+data/00_original_reconstruction/** -text -whitespace
+data/01_raw_current/** -text -whitespace
+data/04_controversy_test_data/** -text -whitespace
+sources/supporting/original-authors/**/captions.en.json3 -text -whitespace

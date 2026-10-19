@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t064617174253z-authors-responses-2010
+source_ids: &id001
+- authors-responses-2010
+method: download
+request: https://media.equality-trust.out.re/uploads/2015/06/responses-to-all-critics.pdf
+requested_utc: '2026-10-19T06:46:17.174253+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t064617174253z-authors-responses-2010.yaml
+notes: ''
+files:
+- path: sources/supporting/local/responses-to-all-critics.pdf
+  size_bytes: 257274
+  sha256: 3db696210383a6428b4240da2b2e18f4432cd56acdc0a0ac6d2a4b382f630df3
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://media.equality-trust.out.re/uploads/2015/06/responses-to-all-critics.pdf

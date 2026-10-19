@@ -1,0 +1,11 @@
+source_id: verification-wmh-access
+provider: Harvard World Mental Health Survey
+series_code: verification-wmh-access
+title: Access conditions for non-US World Mental Health survey data
+definition: Access conditions for non-US World Mental Health survey data
+unit: document
+geography: international
+licence: Local verification copy; redistribution permission unverified
+terms_url: https://www.hcp.med.harvard.edu/wmh/contact.php
+redistributable: false
+record_role: verification_page

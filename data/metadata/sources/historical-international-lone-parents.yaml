@@ -1,0 +1,15 @@
+source_id: historical-international-lone-parents
+provider: Not identified in the released Sources sheet
+series_code: lone_parents
+title: 'Historical international lone_parents: Not identified in the released Sources
+  sheet'
+definition: Released extra column without a verified source definition; not silently
+  added as a reported comparison.
+unit: percent
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

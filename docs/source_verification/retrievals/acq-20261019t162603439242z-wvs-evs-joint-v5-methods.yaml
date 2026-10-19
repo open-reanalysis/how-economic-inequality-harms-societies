@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t162603439242z-wvs-evs-joint-v5-methods
+source_ids: &id001
+- wvs-evs-joint-v5-methods
+method: download
+request: https://access.gesis.org/dbk/69548
+requested_utc: '2026-10-19T16:26:03.439242+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t162603439242z-wvs-evs-joint-v5-methods.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/wvs-evs-joint-v5-methods.pdf
+  size_bytes: 1280538
+  sha256: 74f4a3cb2c02d372f98a0f1c680e429b4840bc64d522bbbdaedf22c0044bc851
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://access.gesis.org/dbk/69548

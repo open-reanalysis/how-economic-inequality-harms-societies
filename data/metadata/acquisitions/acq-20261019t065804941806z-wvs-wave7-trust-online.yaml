@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t065804941806z-wvs-wave7-trust-online
+source_ids: &id001
+- wvs-wave7-trust-online
+method: download
+request: https://www.worldvaluessurvey.org/AJOnlineQtn.jsp?WAVE=1562&MAIDX=C_011&COUNTRY=&MACRUCE1=2415075
+requested_utc: '2026-10-19T06:58:04.941806+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t065804941806z-wvs-wave7-trust-online.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/wvs-wave7-trust-by-country.html
+  size_bytes: 379347
+  sha256: cbc6bfe54c8109b4196bcd4f5a9720bb01c609e034368e4c1af6deb3a509d4af
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://www.worldvaluessurvey.org/AJOnlineQtn.jsp?WAVE=1562&MAIDX=C_011&COUNTRY=&MACRUCE1=2415075

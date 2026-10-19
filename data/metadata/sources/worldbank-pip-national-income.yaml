@@ -1,0 +1,15 @@
+source_id: worldbank-pip-national-income
+provider: World Bank
+series_code: worldbank-pip-national-income
+title: National non-interpolated income distributions; income or consumption and survey-year
+  flags retained
+definition: National non-interpolated income distributions; income or consumption
+  and survey-year flags retained
+unit: income_share
+geography: countries
+licence: CC BY 4.0; source-specific exceptions apply
+terms_url: https://www.worldbank.org/en/about/legal/terms-of-use-for-datasets
+redistributable: true
+record_role: eligibility_input
+coverage_format: pip_income
+data_basis: current

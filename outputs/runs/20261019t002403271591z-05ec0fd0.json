@@ -1,0 +1,86 @@
+{
+  "run_id": "20261019t002403271591z-05ec0fd0",
+  "started_utc": "2026-10-19T00:24:03.271818+00:00",
+  "finished_utc": "2026-10-19T00:24:03.295157+00:00",
+  "commit": "05ec0fd0ce919ebb5317ccd211257e2268051598",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [],
+  "steps": [
+    {
+      "target": "current-coverage-flags",
+      "state": "computed",
+      "inputs": [
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.DYN.LE00.IN.json",
+          "sha256": "cf48b45e5a6bab3d7cbb84a97593f2b01837ddc1f18967b06d5c8ef28c9e6522",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.DYN.IMRT.IN.json",
+          "sha256": "31641a2bd521f7d6b845e9ef3c7c6d1a945fdb66bc9166232839843ccf268459",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.ADO.TFRT.json",
+          "sha256": "dc2bd606dfaad5faa974fbefae166ebb7473804e1903204da4254735e44e2706",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/VC.IHR.PSRC.P5.json",
+          "sha256": "1dc9ae5612fa4dabd7cc24c311e7a49ec21abac741dd499ba7bddd88573d3702",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/NY.GNP.PCAP.CD.json",
+          "sha256": "858fb0e92b43d74639c28c6696566c58d34e64f42ffe5180706bd81b5b71b12c",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.POP.TOTL.json",
+          "sha256": "8dce1b84b25d5a2ba45ab73c9056d65c2c1cb7f82fdd65b036da630c03d55e17",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SI.DST.05TH.20.json",
+          "sha256": "23c7a38dd01fab904142bb4fbf053f0b2eb12371aafb065238e3a495e31e7a25",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SI.DST.FRST.20.json",
+          "sha256": "a30fb22a1bf6fece3704f61a7d7a0829da0c8e4fa288f8dd91ab40e3d8dff414",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SH.XPD.GHED.CH.ZS.json",
+          "sha256": "ec331ae86378302844afa2419487839c2f6acb01b58fd0f54a21792e1c34708f",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "data/01_raw_current/inequality/2026-10-19/census-acs1-2025-state-income.json",
+          "sha256": "c2f4687e09b80676de7f68dec92ebea395209616dbc6f895520e547c5f68c0f5",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/outcome_source_coverage.csv",
+          "sha256": "2f7ac6ab50e829ce288142f8d8fa3ced2803ec7f96ccebd28005ae17ddf5c5f8"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}

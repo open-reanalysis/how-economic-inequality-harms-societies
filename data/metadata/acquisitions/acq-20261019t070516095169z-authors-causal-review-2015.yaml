@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t070516095169z-authors-causal-review-2015
+source_ids: &id001
+- authors-causal-review-2015
+method: download
+request: https://www.law.nyu.edu/sites/default/files/upload_documents/Income%20inequality%20and%20health_%20A%20causal%20review.pdf
+requested_utc: '2026-10-19T07:05:16.095169+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t070516095169z-authors-causal-review-2015.yaml
+notes: ''
+files:
+- path: sources/supporting/local/causal-review-2015.pdf
+  size_bytes: 4839955
+  sha256: 206d90bc34e2e8b31c8e2d247ffdd4cd2371d75da885946de0c5b5631285acee
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://www.law.nyu.edu/sites/default/files/upload_documents/Income%20inequality%20and%20health_%20A%20causal%20review.pdf

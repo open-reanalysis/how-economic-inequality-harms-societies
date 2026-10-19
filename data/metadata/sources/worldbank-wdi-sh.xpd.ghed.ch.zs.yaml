@@ -1,0 +1,15 @@
+source_id: worldbank-wdi-sh.xpd.ghed.ch.zs
+provider: World Bank WDI; indicator-specific original provider
+series_code: SH.XPD.GHED.CH.ZS
+title: Domestic general government health expenditure share
+definition: Candidate current series; historical correspondence must be verified independently
+  before analysis.
+unit: percent_current_health_spending
+geography: countries
+licence: World Bank dataset terms; WDI CC BY 4.0 subject to indicator-specific notices
+terms_url: https://datacatalog.worldbank.org/public-licenses#cc-by
+redistributable: true
+variable_id: public_health_expenditure
+notes: Acquisition window 2020–2026 is for coverage assessment, not a locked analysis-period
+  rule. Current observations must not be associated with inequality or average income
+  before approval.

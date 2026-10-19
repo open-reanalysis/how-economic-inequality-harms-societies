@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t063203032461z-worldbank-gdim-income-2025
+source_ids: &id001
+- worldbank-gdim-income-2025
+method: download
+request: https://datacatalogfiles.worldbank.org/ddh-published/0066878/DR0095414/IGE_Munoz_VanderWeide_June2025.dta
+requested_utc: '2026-10-19T06:32:03.032461+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t063203032461z-worldbank-gdim-income-2025.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/2026-10-19/gdim-income-2025.dta
+  size_bytes: 1031961
+  sha256: 5c24608f6d9cca8c7c094c767c392ad0d145ae7ee17e1c0eb40305ff0cfa9df3
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://datacatalogfiles.worldbank.org/ddh-published/0066878/DR0095414/IGE_Munoz_VanderWeide_June2025.dta

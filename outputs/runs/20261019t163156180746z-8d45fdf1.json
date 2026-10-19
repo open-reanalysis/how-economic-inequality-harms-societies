@@ -1,0 +1,36 @@
+{
+  "run_id": "20261019t163156180746z-8d45fdf1",
+  "started_utc": "2026-10-19T16:31:56.180936+00:00",
+  "finished_utc": "2026-10-19T16:31:57.007944+00:00",
+  "commit": "8d45fdf1162e05c455995f84889d104b341bb680",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "worldbank-wdi-sp.dyn.le00.in",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SP.DYN.LE00.IN-refreshed-additions.json",
+          "sha256": "262794b58d00aab9d07455bace45102fc89a0846c6f66a4929b5554c544ec1e8"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t163156204943z-worldbank-wdi-sp.dyn.le00.in.yaml",
+          "sha256": "546d6a70500be2cf9132957a641deabdeff5f73a5384db405a28b79c64bf51fc"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t163156204943z-worldbank-wdi-sp.dyn.le00.in.yaml",
+          "sha256": "546d6a70500be2cf9132957a641deabdeff5f73a5384db405a28b79c64bf51fc"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [
+    "worldbank-wdi-sp.dyn.le00.in: immutable response already present"
+  ]
+}

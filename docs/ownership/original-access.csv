@@ -13,3 +13,8 @@ outputs/diagnostics/original_access_record.md
 docs/source_verification/original-access.md
 docs/original-video.md
 code/00_prepare_ted_transcript.py
+code/01a_sample_coverage.py
+data/metadata/acquisitions/acq-20261018t234829579261z-equalitytrust-international-release.yaml
+data/metadata/sources/equalitytrust-international-release.yaml
+docs/source_verification/retrievals/acq-20261018t234829579261z-equalitytrust-international-release.yaml
+outputs/runs/20261019t002402941998z-05ec0fd0.json

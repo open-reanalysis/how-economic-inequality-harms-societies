@@ -1,0 +1,14 @@
+source_id: historical-international-calorie-intake
+provider: OECD Health Database
+series_code: calorie_intake
+title: 'Historical international calorie_intake: OECD Health Database'
+definition: Daily calorie intake per person; historical observation period requires
+  verification.
+unit: kcal_person_day
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

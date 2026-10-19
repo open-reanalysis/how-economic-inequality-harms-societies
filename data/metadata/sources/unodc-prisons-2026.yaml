@@ -1,0 +1,30 @@
+source_id: unodc-prisons-2026
+provider: UNODC
+series_code: cts-prisons-and-prisoners
+title: 'Prisons and prisoners: current provider workbook'
+definition: Persons held in prison, both sexes and all ages, rate per 100000 population;
+  total stock rather than admissions. Provider workbook dated 30 September 2026; jurisdiction
+  and reporting differences remain disclosed.
+unit: per_100000
+variable_id: imprisonment_log
+geography: countries
+licence: Redistribution permission for full workbook unverified; local only
+terms_url: https://www.unodc.org/unodc/legal.html
+redistributable: false
+data_basis: current
+notes: No current association may be calculated before the approved milestone gate.
+coverage_format: excel_rows
+reader_layout:
+  sheet: data_cts_prisons_and_prisoners
+  header_row: 2
+  filters:
+    Indicator: Persons held
+    Dimension: Total
+    Category: Total
+    Sex: Total
+    Age: Total
+    Unit of measurement: Rate per 100,000 population
+  minimum_year: 2020
+  country_column: Iso3_code
+  year_column: Year
+  value_column: VALUE

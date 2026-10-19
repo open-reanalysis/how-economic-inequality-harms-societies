@@ -1,0 +1,15 @@
+source_id: historical-international-child-wellbeing
+provider: UNICEF Innocenti Report Card 2007, modified by authors
+series_code: child_wellbeing
+title: 'Historical international child_wellbeing: UNICEF Innocenti Report Card 2007,
+  modified by authors'
+definition: Composite with relative-child-poverty component removed and changed inclusion
+  for incomplete countries.
+unit: index_score
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

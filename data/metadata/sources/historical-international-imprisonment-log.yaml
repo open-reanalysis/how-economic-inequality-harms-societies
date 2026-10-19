@@ -1,0 +1,14 @@
+source_id: historical-international-imprisonment-log
+provider: United Nations Crime Trends Surveys
+series_code: imprisonment_log
+title: 'Historical international imprisonment_log: United Nations Crime Trends Surveys'
+definition: Natural logarithm of prisoners per 100,000; already transformed in the
+  released column.
+unit: log_per_100000
+geography: countries
+licence: Original provider terms require version-specific verification
+terms_url: https://equalitytrust.org.uk/notes-statistical-sources-and-methods/
+redistributable: false
+notes: Historical unit and source discrepancies are listed in docs/method_rationale.md.
+  This record identifies the source to recover; it is not evidence of an acquired
+  file.

@@ -1,0 +1,20 @@
+acquisition_id: acq-20261018t235707081906z-worldbank-wdi-sh.xpd.ghed.ch.zs
+source_ids: &id001
+- worldbank-wdi-sh.xpd.ghed.ch.zs
+method: api
+request: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SH.XPD.GHED.CH.ZS?date=2020:2026&format=json&per_page=5000
+requested_utc: '2026-10-18T23:57:07.081906+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261018t235707081906z-worldbank-wdi-sh.xpd.ghed.ch.zs.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/2026-10-19/SH.XPD.GHED.CH.ZS.json
+  size_bytes: 36866
+  sha256: ec331ae86378302844afa2419487839c2f6acb01b58fd0f54a21792e1c34708f
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country/AUS;AUT;BEL;CAN;DNK;FIN;FRA;DEU;GRC;IRL;ISR;ITA;JPN;NLD;NZL;NOR;PRT;SGP;ESP;SWE;CHE;GBR;USA/indicator/SH.XPD.GHED.CH.ZS?date=2020:2026&format=json&per_page=5000

@@ -1,0 +1,13 @@
+source_id: wvs-evs-joint-v5-country-metadata
+provider: EVS/WVS
+series_code: '11087'
+title: Official EVS/WVS joint v5 participating countries, survey years and sample
+  metadata
+definition: Official EVS/WVS joint v5 participating countries, survey years and sample
+  metadata
+unit: metadata
+geography: countries
+licence: Public documentation; full redistribution permission unverified; local copy
+terms_url: https://www.worldvaluessurvey.org/WVSEVSjoint2017.jsp
+redistributable: false
+record_role: unit_catalogue

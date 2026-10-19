@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t163158268942z-worldbank-wdi-sp.ado.tfrt
+source_ids: &id001
+- worldbank-wdi-sp.ado.tfrt
+method: api
+request: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/SP.ADO.TFRT?date=2020:2026&format=json&per_page=5000
+requested_utc: '2026-10-19T16:31:58.268942+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t163158268942z-worldbank-wdi-sp.ado.tfrt.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/2026-10-19/SP.ADO.TFRT-refreshed-additions.json
+  size_bytes: 10115
+  sha256: 19624ce5be77c2e1bee1d28ec93d3c4b204a9754372f77006b3ff1ba7340bf2d
+  storage: git
+  redistributable: true
+  source_ids: *id001
+resolved_url: https://api.worldbank.org/v2/country/CZE;HRV;KOR;POL;ROU;SVK;URY/indicator/SP.ADO.TFRT?date=2020:2026&format=json&per_page=5000

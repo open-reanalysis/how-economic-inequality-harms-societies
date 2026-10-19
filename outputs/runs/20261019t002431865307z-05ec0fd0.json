@@ -1,0 +1,54 @@
+{
+  "run_id": "20261019t002431865307z-05ec0fd0",
+  "started_utc": "2026-10-19T00:24:31.865529+00:00",
+  "finished_utc": "2026-10-19T00:24:31.877906+00:00",
+  "commit": "05ec0fd0ce919ebb5317ccd211257e2268051598",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e31b03e0f05ffc54833644d27011313d063dabf09b63bfd703e97de8ee8bd3c3",
+  "mode": "replay",
+  "specs": [],
+  "steps": [
+    {
+      "target": "prospective-index-coverage",
+      "state": "computed",
+      "inputs": [
+        {
+          "path": "docs/source_lineage.csv",
+          "sha256": "7607828639e02184ea4ea2610db44037efc61e424adf9251fc54ffde762cea2e",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "outputs/tables/outcome_source_coverage.csv",
+          "sha256": "2f7ac6ab50e829ce288142f8d8fa3ced2803ec7f96ccebd28005ae17ddf5c5f8",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/specs/historical_international.yaml",
+          "sha256": "6ff8411e949c369da25a4292313bf2a5754cb3d2b32ac66045cb1950afd9a189",
+          "check": "file_verified",
+          "restricted": false
+        },
+        {
+          "path": "config/specs/historical_us_states.yaml",
+          "sha256": "feb27d94e7f66a15b382964f9c5d225223af355dd30b27f7fafb735dd007eeaa",
+          "check": "file_verified",
+          "restricted": false
+        }
+      ],
+      "outputs": [
+        {
+          "path": "outputs/tables/current_index_coverage.csv",
+          "sha256": "915803a0ccdebe1de15bbaccbbdc613054cbc9044eb17d58d6591bf83b106617"
+        },
+        {
+          "path": "docs/current-index-assessment.md",
+          "sha256": "a7213bfd3ba98552c3c80c7a10818b845c6ebb924692e0feabd7c90e9c19ab54"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": []
+}

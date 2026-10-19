@@ -1,0 +1,36 @@
+{
+  "run_id": "20261019t163159717526z-8d45fdf1",
+  "started_utc": "2026-10-19T16:31:59.717763+00:00",
+  "finished_utc": "2026-10-19T16:32:00.173619+00:00",
+  "commit": "8d45fdf1162e05c455995f84889d104b341bb680",
+  "tree_clean": false,
+  "pixi_lock_sha256": "e2db5c0239feb0025717a4d6cefef2e5eedbf6a11ec8a7d9b7db77f6445e8e8f",
+  "mode": "acquire",
+  "specs": [],
+  "steps": [
+    {
+      "target": "worldbank-wdi-sh.xpd.ghed.ch.zs",
+      "state": "computed",
+      "reason": "",
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "data/01_raw_current/outcomes/2026-10-19/SH.XPD.GHED.CH.ZS-refreshed-additions.json",
+          "sha256": "69ef13535561b6480fb49cd82bc969735c225b5be83e762b586440984dc2f331"
+        },
+        {
+          "path": "docs/source_verification/retrievals/acq-20261019t163159734282z-worldbank-wdi-sh.xpd.ghed.ch.zs.yaml",
+          "sha256": "7ac83f57b53191127720078e56f691bbfe8d04ced5ea9ea87c4b5b2e8c0b47c2"
+        },
+        {
+          "path": "data/metadata/acquisitions/acq-20261019t163159734282z-worldbank-wdi-sh.xpd.ghed.ch.zs.yaml",
+          "sha256": "7ac83f57b53191127720078e56f691bbfe8d04ced5ea9ea87c4b5b2e8c0b47c2"
+        }
+      ]
+    }
+  ],
+  "missing_inputs": [],
+  "skipped_steps": [
+    "worldbank-wdi-sh.xpd.ghed.ch.zs: immutable response already present"
+  ]
+}

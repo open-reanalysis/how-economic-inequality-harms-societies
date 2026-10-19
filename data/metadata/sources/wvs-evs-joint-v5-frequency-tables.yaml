@@ -1,0 +1,68 @@
+source_id: wvs-evs-joint-v5-frequency-tables
+provider: EVS/WVS; GESIS
+series_code: ZA7505 v5.0.0 A165
+title: "Joint EVS/WVS 2017\u20132022 weighted country frequency tables"
+definition: Official country/study frequency tables, including survey year and generalised
+  trust A165; weighting gwght
+unit: percent
+geography: countries and separately labelled territories
+licence: Public documentation; full redistribution permission unverified; local copy
+terms_url: https://www.worldvaluessurvey.org/WVSEVSjoint2017.jsp
+redistributable: false
+data_basis: current
+coverage_format: wvs_joint_pdf
+reader_layout:
+  year_pages:
+  - 6
+  - 7
+  trust_pages:
+  - 192
+  - 193
+  year_columns:
+  - 2017
+  - 2018
+  - 2019
+  - 2020
+  - 2021
+  - 2022
+  - 2023
+  year_header: 2017 2018 2019 2020 2021 2022 2023
+  question_header: A165- Most people can be trusted
+  response_columns: 5
+  weight_marker: Data weighted by 'gwght
+unit_map:
+  Australia: AUS
+  Austria: AUT
+  Canada: CAN
+  Czechia EVS: CZE
+  Czechia WVS: CZE
+  Denmark: DNK
+  Finland: FIN
+  France: FRA
+  Germany EVS: DEU
+  Germany WVS: DEU
+  Greece: GRC
+  Italy: ITA
+  Japan: JPN
+  Netherlands EVS: NLD
+  Netherlands WVS: NLD
+  New Zealand: NZL
+  Norway: NOR
+  Portugal: PRT
+  Singapore: SGP
+  Spain: ESP
+  Sweden: SWE
+  Switzerland: CHE
+  United States: USA
+  Poland: POL
+  Romania EVS: ROU
+  Romania WVS: ROU
+  Uruguay: URY
+  Croatia: HRV
+  South Korea: KOR
+  Slovakia EVS: SVK
+  Slovakia WVS: SVK
+notes: Survey-specific coverage only. Neither Great Britain nor Northern Ireland maps
+  to GBR. Belgium, Ireland and Israel absent. Provider reference year does not replace
+  full fieldwork dates in methods Table 3. No latest-survey or denominator transformation
+  has been approved.

@@ -1,0 +1,20 @@
+acquisition_id: acq-20261019t001421450584z-verification-mental-health
+source_ids: &id001
+- verification-mental-health
+method: download
+request: https://www.who.int/data/gho/data/themes/mental-health
+requested_utc: '2026-10-19T00:14:21.450584+00:00'
+response_status: 200
+dataset_version: unversioned
+status: acquired
+corrects: null
+retrieval_log: docs/source_verification/retrievals/acq-20261019t001421450584z-verification-mental-health.yaml
+notes: ''
+files:
+- path: data/01_raw_current/outcomes/local/verification/mental-health.html
+  size_bytes: 108176
+  sha256: 6a65af3df7a8fb4dde82ec944f275375ea1b0a807edb49af5cdc0a2e62e9fe21
+  storage: local
+  redistributable: false
+  source_ids: *id001
+resolved_url: https://www.who.int/data/gho/data/themes/mental-health

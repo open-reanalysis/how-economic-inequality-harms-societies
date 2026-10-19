@@ -1,0 +1,11 @@
+source_id: who-obesity-series-catalogue
+provider: World Health Organization
+series_code: indicator-catalogue-obesity
+title: Obesity indicator code catalogue
+definition: Metadata query for candidate indicator names, not outcome observations.
+unit: metadata
+geography: countries
+licence: WHO CC BY 4.0 with additional terms approved by maintainer
+terms_url: https://data.who.int/about/data/terms-and-conditions
+redistributable: true
+record_role: unit_catalogue
